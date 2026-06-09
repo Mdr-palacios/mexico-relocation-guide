@@ -1521,3 +1521,302 @@ body.lang-es .ja-card-body-es  { display: block; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .75em; color: #555; }
   a[href^="#"]::after, a[href^="tel:"]::after { content: none; }
 }
+
+/* ============================================================
+   PROGRESS TRACKER — Sticky sidebar (desktop) / pill (mobile)
+   ============================================================ */
+
+/* ---- Desktop: fixed overlay panel anchored top-right ---- */
+.progress-tracker {
+  position: fixed;
+  top: 80px;
+  right: 1.25rem;
+  z-index: 500;
+  width: 280px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background: #FDE8CC;
+  border-radius: var(--radius-xl);
+  border-left: 4px solid #E8680A;
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(232,104,10,.15);
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  transition: transform 0.3s var(--ease-spring), opacity 0.3s ease, box-shadow 0.2s ease;
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232,104,10,.3) transparent;
+}
+.progress-tracker::-webkit-scrollbar { width: 4px; }
+.progress-tracker::-webkit-scrollbar-thumb { background: rgba(232,104,10,.3); border-radius: 4px; }
+
+/* Dark mode panel */
+[data-theme="dark"] .progress-tracker {
+  background: #2D1E08;
+  border-left-color: #E8680A;
+  box-shadow: 0 12px 40px rgba(0,0,0,.45), 0 0 0 1px rgba(232,104,10,.2);
+}
+
+/* Hidden state (after close button) */
+.progress-tracker.pt-hidden {
+  transform: translateX(calc(100% + 2rem));
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Header ---- */
+.pt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+.pt-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1A0E00;
+  line-height: 1.2;
+  margin: 0;
+}
+[data-theme="dark"] .pt-title { color: #FDE8CC; }
+
+.pt-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: rgba(26,14,0,.45);
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s, background 0.2s;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.pt-close-btn:hover {
+  color: #E8680A;
+  background: rgba(232,104,10,.1);
+}
+[data-theme="dark"] .pt-close-btn { color: rgba(253,232,204,.4); }
+[data-theme="dark"] .pt-close-btn:hover { color: #F5973C; }
+
+/* ---- Progress bar ---- */
+.pt-bar-wrap {
+  height: 6px;
+  background: rgba(232,104,10,.18);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+[data-theme="dark"] .pt-bar-wrap { background: rgba(232,104,10,.22); }
+
+.pt-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #E8680A, #D4A017);
+  border-radius: var(--radius-full);
+  transition: width 0.4s var(--ease-spring);
+  min-width: 0;
+}
+
+.pt-bar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(26,14,0,.55);
+  margin-bottom: var(--space-4);
+  line-height: 1.4;
+  max-width: none;
+}
+[data-theme="dark"] .pt-bar-label { color: rgba(253,232,204,.55); }
+
+.pt-count {
+  color: #E8680A;
+  font-weight: 700;
+}
+
+/* ---- Checklist ---- */
+.pt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pt-item {
+  opacity: 1;
+  transform: none;
+}
+
+.pt-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  cursor: pointer;
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--radius-md);
+  transition: background 0.15s ease;
+}
+.pt-label:hover {
+  background: rgba(232,104,10,.1);
+}
+[data-theme="dark"] .pt-label:hover { background: rgba(232,104,10,.15); }
+
+/* Hide the native checkbox */
+.pt-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Custom checkbox box */
+.pt-check-box {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border-radius: var(--radius-sm);
+  border: 2px solid rgba(232,104,10,.55);
+  background: rgba(255,255,255,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s var(--ease-spring);
+  flex-shrink: 0;
+}
+[data-theme="dark"] .pt-check-box {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(232,104,10,.5);
+}
+
+/* Checked box: amber fill with checkmark */
+.pt-checkbox:checked ~ .pt-check-box {
+  background: #E8680A;
+  border-color: #E8680A;
+  transform: scale(1.1);
+}
+.pt-checkbox:checked ~ .pt-check-box::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+/* Item text */
+.pt-text {
+  font-size: 0.8rem;
+  color: #3A2006;
+  line-height: 1.4;
+  transition: opacity 0.25s ease, text-decoration-color 0.25s ease;
+}
+[data-theme="dark"] .pt-text { color: rgba(253,232,204,.85); }
+
+/* Checked text: strikethrough + dimmed */
+.pt-item.pt-checked .pt-text {
+  text-decoration: line-through;
+  text-decoration-color: rgba(232,104,10,.7);
+  opacity: 0.6;
+}
+
+/* Focus ring on label for keyboard nav */
+.pt-checkbox:focus-visible ~ .pt-check-box {
+  outline: 2px solid #E8680A;
+  outline-offset: 2px;
+}
+
+/* ---- Mobile pill trigger ---- */
+.pt-pill {
+  display: none; /* hidden on desktop */
+  position: fixed;
+  bottom: 5.5rem; /* above the WhatsApp button */
+  right: 1.25rem;
+  z-index: 600;
+  align-items: center;
+  gap: 0.4rem;
+  background: #FDE8CC;
+  border: 2px solid #E8680A;
+  border-radius: var(--radius-full);
+  padding: 0.5rem 0.9rem 0.5rem 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(232,104,10,.35);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1A0E00;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+[data-theme="dark"] .pt-pill {
+  background: #2D1E08;
+  color: #FDE8CC;
+  box-shadow: 0 4px 16px rgba(0,0,0,.45), 0 0 0 1px rgba(232,104,10,.35);
+}
+.pt-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,104,10,.45);
+}
+
+.pt-pill-count {
+  color: #E8680A;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+.pt-pill-check {
+  font-size: 0.8rem;
+  color: #E8680A;
+}
+.pt-pill-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* ---- Responsive: mobile layout ---- */
+@media (max-width: 860px) {
+  /* Hide desktop fixed panel by default on mobile */
+  .progress-tracker {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: 70vh;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    border-left: none;
+    border-top: 4px solid #E8680A;
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s var(--ease-spring), opacity 0.3s ease;
+    z-index: 600;
+    padding-bottom: var(--space-8);
+  }
+  .progress-tracker.pt-mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  /* Override the pt-hidden class on mobile */
+  .progress-tracker.pt-hidden {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  /* Show pill on mobile */
+  .pt-pill { display: flex; }
+}
+
+@media (min-width: 861px) {
+  /* Pill hidden on desktop */
+  .pt-pill { display: none !important; }
+}
+
+/* ---- Print: hide tracker ---- */
+@media print {
+  .progress-tracker,
+  .pt-pill { display: none !important; }
+}

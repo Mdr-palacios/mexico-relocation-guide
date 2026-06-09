@@ -10,6 +10,9 @@
 <meta property="og:image" content="https://og-image.vercel.app/Mexico%20Relocation%20Guide.png"/>
 <link rel="stylesheet" href="style.css"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦋</text></svg>"/>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#E8680A">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
 </head>
 <body>
 
@@ -115,6 +118,146 @@
     </div>
   </div>
 </section>
+
+<!-- ========================================================
+     PROGRESS TRACKER
+     ======================================================== -->
+<aside class="progress-tracker" id="progress-tracker" aria-label="Your progress checklist">
+
+  <!-- Desktop header -->
+  <div class="pt-header">
+    <h2 class="pt-title">
+      <span class="en-text">Your Progress</span>
+      <span class="es-text">Tu Progreso</span>
+    </h2>
+    <button class="pt-close-btn" id="pt-close-btn" aria-label="Close progress tracker">✕</button>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="pt-bar-wrap" aria-label="Progress" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="pt-progressbar">
+    <div class="pt-bar-fill" id="pt-bar-fill" style="width:0%"></div>
+  </div>
+  <p class="pt-bar-label" id="pt-bar-label">
+    <span class="pt-count" id="pt-count">0</span>
+    <span class="en-text"> of 10 steps complete</span>
+    <span class="es-text"> de 10 pasos completados</span>
+  </p>
+
+  <!-- Checklist -->
+  <ul class="pt-list" id="pt-list">
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Got safe drinking water</span>
+          <span class="es-text">Conseguí agua potable segura</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Called someone to say I arrived</span>
+          <span class="es-text">Llamé a alguien para decir que llegué</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Got my CURP</span>
+          <span class="es-text">Obtuve mi CURP</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Got my Acta de Nacimiento</span>
+          <span class="es-text">Obtuve mi Acta de Nacimiento</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Got my INE</span>
+          <span class="es-text">Obtuve mi INE</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Found temporary housing</span>
+          <span class="es-text">Encontré alojamiento temporal</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Opened a bank account</span>
+          <span class="es-text">Abrí una cuenta bancaria</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Got a Mexican SIM card</span>
+          <span class="es-text">Obtuve un chip mexicano</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Enrolled in IMSS or Seguro Popular</span>
+          <span class="es-text">Me inscribí al IMSS o Seguro Popular</span>
+        </span>
+      </label>
+    </li>
+    <li class="pt-item">
+      <label class="pt-label">
+        <input type="checkbox" class="pt-checkbox" />
+        <span class="pt-check-box" aria-hidden="true"></span>
+        <span class="pt-text">
+          <span class="en-text">Found work or registered for a job program</span>
+          <span class="es-text">Encontré trabajo o me inscribí a un programa de empleo</span>
+        </span>
+      </label>
+    </li>
+  </ul>
+
+</aside>
+
+<!-- Mobile progress pill (visible only on mobile) -->
+<button class="pt-pill" id="pt-pill" aria-expanded="false" aria-controls="progress-tracker">
+  <span class="pt-pill-count" id="pt-pill-count">0/10</span>
+  <span class="pt-pill-check" aria-hidden="true">✓</span>
+  <span class="pt-pill-label">
+    <span class="en-text">Your Progress</span>
+    <span class="es-text">Tu Progreso</span>
+  </span>
+</button>
 
 <!-- ========================================================
      ARRIVAL TIPS
@@ -598,6 +741,660 @@
      with your JotForm submission URL, e.g.:
        action="https://submit.jotform.com/submit/YOUR_FORM_ID/"
      ============================================================ -->
+
+<!-- ========================================================
+     YOUR RIGHTS IN MEXICO
+     ======================================================== -->
+<section id="your-rights">
+  <div class="section-inner">
+    <button class="print-btn" data-section="your-rights"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">KNOW YOUR RIGHTS</span>
+      <span class="es-text">CONOCE TUS DERECHOS</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">You have <em>rights</em> here, too.</span>
+      <span class="es-text">Aquí también <em>tienes derechos.</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">No matter how you arrived, Mexico's constitution protects you.</span>
+      <span class="es-text">Sin importar cómo llegaste, la constitución mexicana te protege.</span>
+    </p>
+
+    <div class="tiles-grid">
+
+      <div class="tile">
+        <div class="tile-icon">🛡️</div>
+        <h3 class="tile-title">
+          <span class="en-text">You cannot be detained without cause</span>
+          <span class="es-text">No pueden detenerte sin causa</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Mexican law requires authorities to have a warrant or witness a crime to detain you. If stopped, ask: '¿Cuál es el motivo de la detención?' (What is the reason for my detention?)</span>
+            <span class="es-text">La ley mexicana requiere que las autoridades tengan una orden o sean testigos de un delito para detenerte. Si te detienen, pregunta: '¿Cuál es el motivo de la detención?'</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile-icon">📋</div>
+        <h3 class="tile-title">
+          <span class="en-text">You have the right to a translator</span>
+          <span class="es-text">Tienes derecho a un traductor</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">If you do not speak Spanish fluently, you have the right to an interpreter in any legal or official proceeding. Do not sign documents you don't understand.</span>
+            <span class="es-text">Si no hablas español con fluidez, tienes derecho a un intérprete en cualquier procedimiento legal u oficial. No firmes documentos que no entiendes.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile-icon">🏥</div>
+        <h3 class="tile-title">
+          <span class="en-text">You have the right to emergency healthcare</span>
+          <span class="es-text">Tienes derecho a atención médica de emergencia</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Any public hospital must provide emergency care regardless of your documentation status. IMSS and Secretaría de Salud clinics serve all residents.</span>
+            <span class="es-text">Cualquier hospital público debe proporcionar atención de emergencia independientemente de tu situación migratoria. Las clínicas del IMSS y la Secretaría de Salud atienden a todos los residentes.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tile tile-amber">
+        <div class="tile-icon">📞</div>
+        <h3 class="tile-title">
+          <span class="en-text">CNDH — National Human Rights Commission</span>
+          <span class="es-text">CNDH — Comisión Nacional de los Derechos Humanos</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">File a complaint if your rights are violated: call 800-202-0260 (free, 24/7), visit <a href="https://www.cndh.org.mx" target="_blank" rel="noopener">cndh.org.mx</a>, or go in person to any CNDH state office. They investigate abuse by authorities.</span>
+            <span class="es-text">Presenta una queja si tus derechos son violados: llama al 800-202-0260 (gratuito, 24/7), visita <a href="https://www.cndh.org.mx" target="_blank" rel="noopener">cndh.org.mx</a>, o ve en persona a cualquier oficina estatal de la CNDH. Investigan abusos de las autoridades.</span>
+          </p>
+        </div>
+      </div>
+
+    </div><!-- end tiles -->
+  </div>
+</section>
+
+<!-- ========================================================
+     MENTAL HEALTH & CRISIS SUPPORT
+     ======================================================== -->
+<section id="mental-health" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="mental-health"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">YOU ARE NOT ALONE</span>
+      <span class="es-text">NO ESTÁS SOLO/A</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Mental health support <em>is available.</em></span>
+      <span class="es-text">Hay apoyo de <em>salud mental</em> disponible.</span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Arriving under these circumstances is traumatic. Getting support is strength.</span>
+      <span class="es-text">Llegar en estas circunstancias es traumático. Buscar apoyo es una fortaleza.</span>
+    </p>
+
+    <div class="tiles-grid">
+
+      <div class="tile tile-amber">
+        <div class="tile-icon">📞</div>
+        <h3 class="tile-title">
+          <span class="en-text">SAPTEL — Crisis Line</span>
+          <span class="es-text">SAPTEL — Línea de Crisis</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Free, confidential, 24/7. Call <a href="tel:5552598121">55-5259-8121</a> from anywhere in Mexico. They provide emotional support, crisis intervention, and referrals. No insurance required.</span>
+            <span class="es-text">Gratuito, confidencial, 24/7. Llama al <a href="tel:5552598121">55-5259-8121</a> desde cualquier lugar en México. Brindan apoyo emocional, intervención en crisis y referencias. No se requiere seguro.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile-icon">💚</div>
+        <h3 class="tile-title">
+          <span class="en-text">Línea de la Vida</span>
+          <span class="es-text">Línea de la Vida</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Federal mental health and addiction support line: <a href="tel:8009112000">800-911-2000</a>. Free from any phone in Mexico, 24/7. Staffed by trained counselors.</span>
+            <span class="es-text">Línea federal de apoyo en salud mental y adicciones: <a href="tel:8009112000">800-911-2000</a>. Gratuita desde cualquier teléfono en México, 24/7. Atendida por consejeros capacitados.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile-icon">🏥</div>
+        <h3 class="tile-title">
+          <span class="en-text">IMSS Mental Health Clinics</span>
+          <span class="es-text">Clínicas de Salud Mental del IMSS</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Once you have your CURP and are enrolled in IMSS, you can access free psychological services at any IMSS clinic. Ask for the 'módulo de salud mental' at your nearest clinic.</span>
+            <span class="es-text">Una vez que tengas tu CURP y estés inscrito en el IMSS, puedes acceder a servicios psicológicos gratuitos en cualquier clínica del IMSS. Pide el 'módulo de salud mental' en tu clínica más cercana.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile-icon">🤝</div>
+        <h3 class="tile-title">
+          <span class="en-text">Support Groups for Returnees</span>
+          <span class="es-text">Grupos de Apoyo para Retornados</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Many cities have peer support groups for people who have returned to Mexico. Search Facebook for 'retornados [your city]' or ask at your local DIF office.</span>
+            <span class="es-text">Muchas ciudades tienen grupos de apoyo entre pares para personas que han regresado a México. Busca en Facebook 'retornados [tu ciudad]' o pregunta en tu DIF municipal.</span>
+          </p>
+        </div>
+      </div>
+
+    </div><!-- end tiles -->
+  </div>
+</section>
+
+<!-- ========================================================
+     BANKING WITHOUT DOCUMENTS
+     ======================================================== -->
+<section id="banking">
+  <div class="section-inner">
+    <button class="print-btn" data-section="banking"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">MANAGING MONEY</span>
+      <span class="es-text">MANEJO DE DINERO</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Open a bank account with just your <em>CURP.</em></span>
+      <span class="es-text">Abre una cuenta bancaria <em>solo con tu CURP.</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">You don't need an INE to start banking. Several institutions accept CURP alone.</span>
+      <span class="es-text">No necesitas una INE para empezar a usar servicios bancarios. Varias instituciones aceptan solo tu CURP.</span>
+    </p>
+
+    <div class="tiles-grid">
+
+      <div class="tile">
+        <div class="tile-icon">🏦</div>
+        <h3 class="tile-title">
+          <span class="en-text">BBVA Cuenta Fácil</span>
+          <span class="es-text">BBVA Cuenta Fácil</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">BBVA's basic account requires only your CURP and a phone number. Open in-branch or via the BBVA México app. Comes with a debit card, no monthly fee, and free transfers.</span>
+            <span class="es-text">La cuenta básica de BBVA requiere solo tu CURP y un número de teléfono. Abre en sucursal o mediante la app BBVA México. Incluye tarjeta de débito, sin cuota mensual y transferencias gratuitas.</span>
+          </p>
+        </div>
+        <a href="https://www.bbva.mx" target="_blank" rel="noopener" class="tile-link">
+          <span class="en-text">Visit BBVA México →</span>
+          <span class="es-text">Visitar BBVA México →</span>
+        </a>
+      </div>
+
+      <div class="tile">
+        <div class="tile-icon">🏪</div>
+        <h3 class="tile-title">
+          <span class="en-text">Banco Azteca</span>
+          <span class="es-text">Banco Azteca</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Available inside every Elektra store nationwide. Opens with CURP, accepts cash deposits, and has branches in smaller cities and rural areas where other banks don't reach.</span>
+            <span class="es-text">Disponible dentro de cada tienda Elektra en todo el país. Abre con CURP, acepta depósitos en efectivo y tiene sucursales en ciudades pequeñas y zonas rurales donde otros bancos no llegan.</span>
+          </p>
+        </div>
+        <a href="https://www.bancoazteca.com.mx" target="_blank" rel="noopener" class="tile-link">
+          <span class="en-text">Visit Banco Azteca →</span>
+          <span class="es-text">Visitar Banco Azteca →</span>
+        </a>
+      </div>
+
+      <div class="tile tile-amber">
+        <div class="tile-icon">📱</div>
+        <h3 class="tile-title">
+          <span class="en-text">Oxxo Pay / Spin by OXXO</span>
+          <span class="es-text">Oxxo Pay / Spin by OXXO</span>
+        </h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">No bank branch needed. Spin is OXXO's digital wallet — open with your phone number and CURP at any OXXO store. Receive transfers, pay bills, and withdraw cash at the register.</span>
+            <span class="es-text">No necesitas sucursal bancaria. Spin es la billetera digital de OXXO — ábrela con tu número de teléfono y CURP en cualquier tienda OXXO. Recibe transferencias, paga servicios y retira efectivo en caja.</span>
+          </p>
+        </div>
+        <a href="https://spin.com.mx" target="_blank" rel="noopener" class="tile-link">
+          <span class="en-text">Visit Spin by OXXO →</span>
+          <span class="es-text">Visitar Spin by OXXO →</span>
+        </a>
+      </div>
+
+    </div><!-- end tiles -->
+  </div>
+</section>
+
+<!-- ========================================================
+     FINDING HOUSING
+     ======================================================== -->
+<section id="housing" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="housing"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">FINDING A PLACE TO LIVE</span>
+      <span class="es-text">ENCONTRAR DÓNDE VIVIR</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">What you need to know before you <em>sign a lease.</em></span>
+      <span class="es-text">Lo que necesitas saber antes de <em>firmar un contrato.</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Rental culture in Mexico is different. Here's how to navigate it.</span>
+      <span class="es-text">La cultura de renta en México es diferente. Así puedes navegar por ella.</span>
+    </p>
+
+    <div class="accordion" id="housing-accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="housing-fiador-panel" id="housing-fiador-btn">
+          <span>
+            <span class="en-text">🏠 Fiador vs. Depósito</span>
+            <span class="es-text">🏠 Fiador vs. Depósito</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-panel" id="housing-fiador-panel" role="region" aria-labelledby="housing-fiador-btn">
+          <div class="lang-en">
+            <p>Most landlords ask for a <em>fiador</em> — a co-signer who owns property in the same city. If you don't have one, offer 2–3 months deposit (<em>depósito</em>) instead. Many landlords will accept this, especially if you pay a few months upfront.</p>
+          </div>
+          <div class="lang-es">
+            <p>La mayoría de los arrendadores piden un <em>fiador</em> — un aval que posea propiedad en la misma ciudad. Si no tienes uno, ofrece 2–3 meses de depósito en su lugar. Muchos arrendadores aceptan esto, especialmente si pagas algunos meses por adelantado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="housing-search-panel" id="housing-search-btn">
+          <span>
+            <span class="en-text">🔍 Where to find rooms and apartments</span>
+            <span class="es-text">🔍 Dónde encontrar cuartos y departamentos</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-panel" id="housing-search-panel" role="region" aria-labelledby="housing-search-btn">
+          <div class="lang-en">
+            <p>Facebook Marketplace and local Facebook groups (search '[city] cuartos en renta' or '[city] departamentos') are the most active rental markets. Also try <a href="https://www.vivanuncios.com.mx" target="_blank" rel="noopener">Vivanuncios</a> and Lamudi. Avoid listings with no photos or that ask for payment before you visit.</p>
+          </div>
+          <div class="lang-es">
+            <p>Facebook Marketplace y los grupos locales de Facebook (busca '[ciudad] cuartos en renta' o '[ciudad] departamentos') son los mercados de renta más activos. También prueba <a href="https://www.vivanuncios.com.mx" target="_blank" rel="noopener">Vivanuncios</a> y Lamudi. Evita anuncios sin fotos o que piden pago antes de que visites.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="housing-scams-panel" id="housing-scams-btn">
+          <span>
+            <span class="en-text">🚩 Common rental scams to avoid</span>
+            <span class="es-text">🚩 Estafas comunes en rentas que debes evitar</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-panel" id="housing-scams-panel" role="region" aria-labelledby="housing-scams-btn">
+          <div class="lang-en">
+            <p>🚩 Never wire money before seeing the property in person. 🚩 If the price seems too low for the area, it's likely a scam. 🚩 Ask for a written contract (<em>contrato de arrendamiento</em>) — verbal agreements offer no protection. 🚩 Search the property address on Google Maps to verify it exists before paying anything.</p>
+          </div>
+          <div class="lang-es">
+            <p>🚩 Nunca envíes dinero antes de ver la propiedad en persona. 🚩 Si el precio parece demasiado bajo para la zona, probablemente es una estafa. 🚩 Pide un contrato escrito (<em>contrato de arrendamiento</em>) — los acuerdos verbales no tienen protección legal. 🚩 Busca la dirección de la propiedad en Google Maps para verificar que existe antes de pagar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="housing-temp-panel" id="housing-temp-btn">
+          <span>
+            <span class="en-text">🏕️ Temporary housing while you search</span>
+            <span class="es-text">🏕️ Alojamiento temporal mientras buscas</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-panel" id="housing-temp-panel" role="region" aria-labelledby="housing-temp-btn">
+          <div class="lang-en">
+            <p>Casa de Migrante shelters in border cities (Tijuana, Ciudad Juárez, Nuevo Laredo, Matamoros) offer free short-term stays. DIF municipal offices can also refer you to temporary housing. In CDMX, the Albergue CDMX network has emergency beds.</p>
+          </div>
+          <div class="lang-es">
+            <p>Los albergues Casa de Migrante en ciudades fronterizas (Tijuana, Ciudad Juárez, Nuevo Laredo, Matamoros) ofrecen estadías cortas gratuitas. Los DIF municipales también pueden referirte a alojamiento temporal. En CDMX, la red Albergue CDMX tiene camas de emergencia.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end accordion -->
+  </div>
+</section>
+
+<!-- ===================================================
+     COMMUNITY DIRECTORY
+     =================================================== -->
+<section id="community-directory">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Find Your Community</span>
+      <span class="es-text">Encuentra Tu Comunidad</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">You're not the first. <em>Connect with others.</em></span>
+      <span class="es-text">No eres el primero. <em>Conéctate con otros.</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">These groups are spaces where returnees help each other navigate life back in Mexico.</span>
+      <span class="es-text">Estos grupos son espacios donde retornados se ayudan mutuamente a navegar la vida en México.</span>
+    </p>
+
+    <!-- Filter bar -->
+    <div class="cd-filters" role="group" aria-label="Filter community groups">
+      <button class="cd-filter-btn active" data-filter="all">
+        <span class="en-text">All</span>
+        <span class="es-text">Todos</span>
+      </button>
+      <button class="cd-filter-btn" data-filter="national">
+        <span class="en-text">National</span>
+        <span class="es-text">Nacional</span>
+      </button>
+      <button class="cd-filter-btn" data-filter="facebook">
+        <span class="en-text">Facebook Groups</span>
+        <span class="es-text">Grupos de Facebook</span>
+      </button>
+      <button class="cd-filter-btn" data-filter="program">
+        <span class="en-text">Programs</span>
+        <span class="es-text">Programas</span>
+      </button>
+    </div>
+
+    <div class="cd-grid" id="cd-cards">
+
+      <!-- Alianza Americas -->
+      <div class="tile cd-card" data-type="national">
+        <span class="cd-badge cd-badge--national"><span class="en-text">Nacional</span><span class="es-text">Nacional</span></span>
+        <div class="tile-icon">🌎</div>
+        <h3 class="tile-title">Alianza Américas</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">National network supporting Mexican migrants and returnees. Programs, legal aid, resources.</span>
+            <span class="es-text">Red nacional de apoyo a migrantes y retornados mexicanos. Programas, asistencia legal y recursos.</span>
+          </p>
+        </div>
+        <a href="https://www.alianzaamericas.org" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Visit site</span>
+          <span class="es-text">Visitar sitio</span>
+        </a>
+      </div>
+
+      <!-- Jovenes Construyendo el Futuro -->
+      <div class="tile cd-card" data-type="program">
+        <span class="cd-badge cd-badge--program"><span class="en-text">Programa</span><span class="es-text">Programa</span></span>
+        <div class="tile-icon">💼</div>
+        <h3 class="tile-title">Jóvenes Construyendo el Futuro</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Federal apprenticeship program for 18–29 year olds. Register at jovenesconstruyendoelfuturo.stps.gob.mx</span>
+            <span class="es-text">Programa federal de aprendizaje para jóvenes de 18 a 29 años. Regístrate en jovenesconstruyendoelfuturo.stps.gob.mx</span>
+          </p>
+        </div>
+        <a href="https://jovenesconstruyendoelfuturo.stps.gob.mx" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Register</span>
+          <span class="es-text">Regístrate</span>
+        </a>
+      </div>
+
+      <!-- Mexico Te Abraza -->
+      <div class="tile cd-card" data-type="program">
+        <span class="cd-badge cd-badge--program"><span class="en-text">Gobierno</span><span class="es-text">Gobierno</span></span>
+        <div class="tile-icon">🤝</div>
+        <h3 class="tile-title">México Te Abraza</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Official repatriation support program with job placement, legal ID help, and medical services.</span>
+            <span class="es-text">Programa oficial de apoyo a la repatriación con colocación laboral, trámites de identidad legal y servicios médicos.</span>
+          </p>
+        </div>
+        <a href="https://www.gob.mx/bienestar" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Learn more</span>
+          <span class="es-text">Más información</span>
+        </a>
+      </div>
+
+      <!-- Comunidad en Retorno Facebook -->
+      <div class="tile cd-card" data-type="facebook">
+        <span class="cd-badge cd-badge--facebook"><span class="en-text">Facebook</span><span class="es-text">Facebook</span></span>
+        <div class="tile-icon">👥</div>
+        <h3 class="tile-title">Comunidad en Retorno</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Search "Comunidad en Retorno" on Facebook for the national group with 10k+ members sharing jobs, housing, and advice.</span>
+            <span class="es-text">Busca "Comunidad en Retorno" en Facebook para encontrar el grupo nacional con más de 10,000 miembros compartiendo empleos, vivienda y consejos.</span>
+          </p>
+        </div>
+        <a href="https://www.facebook.com/search/groups/?q=comunidad%20en%20retorno" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Find group</span>
+          <span class="es-text">Buscar grupo</span>
+        </a>
+      </div>
+
+      <!-- CDMX -->
+      <div class="tile cd-card" data-type="facebook">
+        <span class="cd-badge cd-badge--facebook"><span class="en-text">Facebook · CDMX</span><span class="es-text">Facebook · CDMX</span></span>
+        <div class="tile-icon">🏙️</div>
+        <h3 class="tile-title">CDMX — Retornados</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Search Facebook: "Retornados CDMX" or "Migrantes de Regreso CDMX" for active housing and job-sharing groups.</span>
+            <span class="es-text">Busca en Facebook: "Retornados CDMX" o "Migrantes de Regreso CDMX" para grupos activos de vivienda y empleo.</span>
+          </p>
+        </div>
+        <a href="https://www.facebook.com/search/groups/?q=retornados%20CDMX" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Search Facebook</span>
+          <span class="es-text">Buscar en Facebook</span>
+        </a>
+      </div>
+
+      <!-- Jalisco -->
+      <div class="tile cd-card" data-type="facebook">
+        <span class="cd-badge cd-badge--facebook"><span class="en-text">Facebook · Jalisco</span><span class="es-text">Facebook · Jalisco</span></span>
+        <div class="tile-icon">🌵</div>
+        <h3 class="tile-title">Jalisco — Guadalajara</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Search Facebook: "Retornados Jalisco" or join Grupo Migrante GDL for job and housing listings.</span>
+            <span class="es-text">Busca en Facebook: "Retornados Jalisco" o únete al Grupo Migrante GDL para empleos y vivienda.</span>
+          </p>
+        </div>
+        <a href="https://www.facebook.com/search/groups/?q=retornados%20jalisco" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Search Facebook</span>
+          <span class="es-text">Buscar en Facebook</span>
+        </a>
+      </div>
+
+      <!-- Nuevo Leon -->
+      <div class="tile cd-card" data-type="facebook">
+        <span class="cd-badge cd-badge--facebook"><span class="en-text">Facebook · Nuevo León</span><span class="es-text">Facebook · Nuevo León</span></span>
+        <div class="tile-icon">🏭</div>
+        <h3 class="tile-title">Nuevo León — Monterrey</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Search Facebook: "Retornados Monterrey" — active community with job leads in manufacturing sector.</span>
+            <span class="es-text">Busca en Facebook: "Retornados Monterrey" — comunidad activa con oportunidades de empleo en el sector manufacturero.</span>
+          </p>
+        </div>
+        <a href="https://www.facebook.com/search/groups/?q=retornados%20monterrey" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Search Facebook</span>
+          <span class="es-text">Buscar en Facebook</span>
+        </a>
+      </div>
+
+      <!-- Oaxaca -->
+      <div class="tile cd-card" data-type="facebook">
+        <span class="cd-badge cd-badge--facebook"><span class="en-text">Facebook · Oaxaca</span><span class="es-text">Facebook · Oaxaca</span></span>
+        <div class="tile-icon">🏺</div>
+        <h3 class="tile-title">Oaxaca</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Search Facebook: "Migrantes Oaxaca Regresa" — connects returnees with indigenous community support networks.</span>
+            <span class="es-text">Busca en Facebook: "Migrantes Oaxaca Regresa" — conecta a retornados con redes de apoyo comunitario indígena.</span>
+          </p>
+        </div>
+        <a href="https://www.facebook.com/search/groups/?q=migrantes%20oaxaca%20regresa" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Search Facebook</span>
+          <span class="es-text">Buscar en Facebook</span>
+        </a>
+      </div>
+
+      <!-- Baja California -->
+      <div class="tile cd-card" data-type="facebook">
+        <span class="cd-badge cd-badge--facebook"><span class="en-text">Facebook · Baja California</span><span class="es-text">Facebook · Baja California</span></span>
+        <div class="tile-icon">🌊</div>
+        <h3 class="tile-title">Baja California — Tijuana</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Search Facebook: "Deportados en Tijuana" — specifically for people recently deported to the border, with immediate housing leads.</span>
+            <span class="es-text">Busca en Facebook: "Deportados en Tijuana" — especialmente para personas recién deportadas a la frontera, con opciones inmediatas de vivienda.</span>
+          </p>
+        </div>
+        <a href="https://www.facebook.com/search/groups/?q=deportados%20en%20tijuana" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Search Facebook</span>
+          <span class="es-text">Buscar en Facebook</span>
+        </a>
+      </div>
+
+      <!-- Guanajuato -->
+      <div class="tile cd-card" data-type="facebook">
+        <span class="cd-badge cd-badge--facebook"><span class="en-text">Facebook · Guanajuato</span><span class="es-text">Facebook · Guanajuato</span></span>
+        <div class="tile-icon">🔧</div>
+        <h3 class="tile-title">Guanajuato</h3>
+        <div class="tile-body">
+          <p>
+            <span class="en-text">Search Facebook: "Retornados Guanajuato" or "León Migrantes" for job leads in auto and manufacturing.</span>
+            <span class="es-text">Busca en Facebook: "Retornados Guanajuato" o "León Migrantes" para empleos en automotriz y manufactura.</span>
+          </p>
+        </div>
+        <a href="https://www.facebook.com/search/groups/?q=retornados%20guanajuato" target="_blank" rel="noopener" class="cd-link">
+          <span class="en-text">Search Facebook</span>
+          <span class="es-text">Buscar en Facebook</span>
+        </a>
+      </div>
+
+    </div><!-- /cd-grid -->
+  </div><!-- /section-inner -->
+</section>
+
+<style>
+/* ---- Community Directory ---- */
+#community-directory {
+  background: var(--color-surface);
+}
+.cd-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+.cd-filter-btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  border: 2px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+.cd-filter-btn:hover,
+.cd-filter-btn.active {
+  border-color: var(--color-amber);
+  background: var(--color-amber);
+  color: white;
+}
+.cd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+.cd-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.cd-card.cd-hidden {
+  display: none;
+}
+.cd-badge {
+  display: inline-block;
+  padding: 2px var(--space-3);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+.cd-badge--national { background: rgba(232,104,10,.15); color: var(--color-amber); }
+.cd-badge--program  { background: rgba(59,130,246,.12); color: #2563eb; }
+.cd-badge--facebook { background: rgba(24,119,242,.12); color: #1877f2; }
+[data-theme="dark"] .cd-badge--program  { color: #93c5fd; }
+[data-theme="dark"] .cd-badge--facebook { color: #60a5fa; }
+.cd-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: auto;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-amber);
+  color: white;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition);
+  align-self: flex-start;
+}
+.cd-link:hover {
+  background: var(--color-amber-deep, #c4560a);
+  transform: translateY(-1px);
+}
+</style>
+
+<script>
+(function() {
+  var filterBtns = document.querySelectorAll('.cd-filter-btn');
+  var cards = document.querySelectorAll('.cd-card');
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      cards.forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-type') === filter) {
+          card.classList.remove('cd-hidden');
+        } else {
+          card.classList.add('cd-hidden');
+        }
+      });
+    });
+  });
+})();
+</script>
+
 
 <section class="volunteer-banner" id="get-involved">
   <!-- Wing background decoration -->
@@ -1228,5 +2025,10 @@
   <span class="wa-label">Share</span>
 </a>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+  }
+</script>
 </body>
 </html>

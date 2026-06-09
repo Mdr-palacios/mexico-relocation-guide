@@ -46,6 +46,9 @@
   .friend-tip h4 { font-size: var(--text-sm); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-1); }
   .friend-tip p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
 </style>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#E8680A">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
 </head>
 <body>
 
@@ -1155,5 +1158,10 @@
   <span class="wa-label">Share</span>
 </a>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+  }
+</script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+{
+  "name": "Semillas Monarca — Guía México",
+  "short_name": "Semillas Monarca",
+  "description": "A bilingual guide for returning, rooting, and rebuilding in Mexico.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDE8CC",
+  "theme_color": "#E8680A",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

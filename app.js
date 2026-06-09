@@ -587,3 +587,114 @@
     }
   });
 })();
+
+/* ============================================================
+   PROGRESS TRACKER CHECKLIST
+   In-memory state only. Bilingual. Amber theme.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var TOTAL = 10;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var tracker   = document.getElementById('progress-tracker');
+    var pill      = document.getElementById('pt-pill');
+    var closeBtn  = document.getElementById('pt-close-btn');
+    var barFill   = document.getElementById('pt-bar-fill');
+    var progressBar = document.getElementById('pt-progressbar');
+    var countEl   = document.getElementById('pt-count');
+    var pillCount = document.getElementById('pt-pill-count');
+    var checkboxes = document.querySelectorAll('#pt-list .pt-checkbox');
+
+    if (!tracker || !checkboxes.length) return;
+
+    // ---- Update progress display ----
+    function updateProgress() {
+      var checked = 0;
+      checkboxes.forEach(function (cb) { if (cb.checked) checked++; });
+
+      var pct = Math.round((checked / TOTAL) * 100);
+
+      // Bar fill
+      if (barFill)    barFill.style.width = pct + '%';
+      // aria
+      if (progressBar) progressBar.setAttribute('aria-valuenow', checked);
+      // Count text
+      if (countEl)    countEl.textContent = checked;
+      // Pill count
+      if (pillCount)  pillCount.textContent = checked + '/' + TOTAL;
+    }
+
+    // ---- Toggle checked visual state on the <li> ----
+    function syncItemState(cb) {
+      var item = cb.closest('.pt-item');
+      if (!item) return;
+      if (cb.checked) {
+        item.classList.add('pt-checked');
+      } else {
+        item.classList.remove('pt-checked');
+      }
+    }
+
+    // Wire each checkbox
+    checkboxes.forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        syncItemState(cb);
+        updateProgress();
+      });
+    });
+
+    // ---- Close button (desktop) ----
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        tracker.classList.add('pt-hidden');
+        // Show pill on desktop (so user can reopen — we repurpose it)
+        if (pill) pill.style.display = 'flex';
+      });
+    }
+
+    // ---- Mobile pill toggle ----
+    if (pill) {
+      pill.addEventListener('click', function () {
+        var isOpen = tracker.classList.toggle('pt-mobile-open');
+        pill.setAttribute('aria-expanded', isOpen.toString());
+
+        // Also un-hide if it was hidden via desktop close
+        if (isOpen) tracker.classList.remove('pt-hidden');
+      });
+
+      // Close panel when tapping outside on mobile
+      document.addEventListener('click', function (e) {
+        if (
+          tracker.classList.contains('pt-mobile-open') &&
+          !tracker.contains(e.target) &&
+          !pill.contains(e.target)
+        ) {
+          tracker.classList.remove('pt-mobile-open');
+          pill.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // ---- Close on Escape ----
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        tracker.classList.remove('pt-mobile-open');
+        if (pill) pill.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // ---- Keep bilingual text in sync with lang toggle ----
+    var langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      langToggle.addEventListener('click', function () {
+        // CSS handles .en-text / .es-text visibility via body.lang-es
+        // No extra JS needed — just re-render pill label if needed
+      });
+    }
+
+    // Initialise
+    updateProgress();
+  });
+})();
