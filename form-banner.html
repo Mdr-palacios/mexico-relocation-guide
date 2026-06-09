@@ -1,0 +1,449 @@
+<!-- ============================================================
+     COMMUNITY BANNER + VOLUNTEER FORM
+     Shared across index.html, work.html, teens.html
+     To connect to JotForm: replace the action attribute on <form>
+     with your JotForm submission URL, e.g.:
+       action="https://submit.jotform.com/submit/YOUR_FORM_ID/"
+     ============================================================ -->
+
+<section class="volunteer-banner" id="get-involved">
+  <!-- Wing background decoration -->
+  <div class="volunteer-banner__wing" aria-hidden="true">
+    <svg viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="80" cy="120" rx="90" ry="110" fill="#E8680A" opacity=".12" transform="rotate(-15 80 120)"/>
+      <ellipse cx="320" cy="120" rx="90" ry="110" fill="#D4A017" opacity=".1" transform="rotate(15 320 120)"/>
+      <ellipse cx="70" cy="230" rx="55" ry="65" fill="#C04E00" opacity=".09" transform="rotate(-20 70 230)"/>
+      <ellipse cx="330" cy="230" rx="55" ry="65" fill="#C05A00" opacity=".08" transform="rotate(20 330 230)"/>
+      <!-- Floating dots pattern -->
+      <circle cx="160" cy="40" r="4" fill="#E8680A" opacity=".2"/>
+      <circle cx="250" cy="60" r="2.5" fill="#D4A017" opacity=".25"/>
+      <circle cx="350" cy="30" r="3" fill="#E8680A" opacity=".15"/>
+      <circle cx="40" cy="80" r="2" fill="#D4A017" opacity=".2"/>
+    </svg>
+  </div>
+
+  <div class="volunteer-banner__inner">
+
+    <!-- Header -->
+    <div class="volunteer-banner__header">
+      <div class="volunteer-banner__butterfly" aria-hidden="true">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <ellipse cx="20" cy="24" rx="16" ry="20" fill="#E8680A" opacity=".9" transform="rotate(-20 20 24)"/>
+          <ellipse cx="44" cy="24" rx="16" ry="20" fill="#D4A017" opacity=".85" transform="rotate(20 44 24)"/>
+          <ellipse cx="18" cy="46" rx="10" ry="12" fill="#C04E00" opacity=".8" transform="rotate(-25 18 46)"/>
+          <ellipse cx="46" cy="46" rx="10" ry="12" fill="#C05A00" opacity=".75" transform="rotate(25 46 46)"/>
+          <rect x="30" y="12" width="4" height="40" rx="2" fill="#1A0E00"/>
+          <line x1="32" y1="12" x2="22" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="12" x2="42" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="22" cy="4" r="3" fill="#E8680A"/>
+          <circle cx="42" cy="4" r="3" fill="#E8680A"/>
+        </svg>
+      </div>
+      <div>
+        <p class="volunteer-banner__eyebrow">
+          <span class="en-text">Help Us Grow This Resource</span>
+          <span class="es-text">Ayúdanos a Crecer este Recurso</span>
+        </p>
+        <h2 class="volunteer-banner__title">
+          <span class="en-text">Join the team. <em>Be part of the mission.</em></span>
+          <span class="es-text">Únete al equipo. <em>Sé parte de la misión.</em></span>
+        </h2>
+        <p class="volunteer-banner__subtitle">
+          <span class="en-text">This site is free, community-built, and growing. If you have skills, connections, or resources to share — or want to help fund the work of supporting people relocating to Mexico — we want to hear from you.</span>
+          <span class="es-text">Este sitio es gratuito, construido por la comunidad y en crecimiento. Si tienes habilidades, contactos o recursos que compartir — o deseas contribuir al trabajo de apoyar a personas que regresan a México — queremos escucharte.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <!--
+      ╔══════════════════════════════════════════════════════╗
+      ║  TO CONNECT TO JOTFORM:                             ║
+      ║  Replace action="#" below with your JotForm URL:    ║
+      ║  action="https://submit.jotform.com/submit/FORMID/" ║
+      ║  and add method="POST" enctype="multipart/form-data" ║
+      ╚══════════════════════════════════════════════════════╝
+    -->
+    <form
+      class="volunteer-form"
+      id="volunteer-form"
+      action="#"
+      method="POST"
+      novalidate
+    >
+
+      <!-- ── ROW: Name ── -->
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-fname">
+            <span class="en-text">First Name</span>
+            <span class="es-text">Nombre</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input
+            class="vf-input"
+            type="text"
+            id="vf-fname"
+            name="q1_firstName"
+            autocomplete="given-name"
+            required
+            placeholder="Maria"
+          />
+          <span class="vf-error" id="vf-fname-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-lname">
+            <span class="en-text">Last Name</span>
+            <span class="es-text">Apellido</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input
+            class="vf-input"
+            type="text"
+            id="vf-lname"
+            name="q2_lastName"
+            autocomplete="family-name"
+            required
+            placeholder="Ramírez"
+          />
+          <span class="vf-error" id="vf-lname-err" role="alert"></span>
+        </div>
+      </div>
+
+      <!-- ── ROW: Email + ZIP ── -->
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-email">
+            <span class="en-text">Email Address</span>
+            <span class="es-text">Correo Electrónico</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input
+            class="vf-input"
+            type="email"
+            id="vf-email"
+            name="q3_email"
+            autocomplete="email"
+            required
+            placeholder="maria@ejemplo.com"
+          />
+          <span class="vf-error" id="vf-email-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-zip">
+            <span class="en-text">ZIP / Postal Code</span>
+            <span class="es-text">Código Postal</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input
+            class="vf-input"
+            type="text"
+            id="vf-zip"
+            name="q4_zipCode"
+            autocomplete="postal-code"
+            required
+            placeholder="30301"
+          />
+          <span class="vf-error" id="vf-zip-err" role="alert"></span>
+        </div>
+      </div>
+
+      <!-- ── Phone (optional) ── -->
+      <div class="vf-row">
+        <div class="vf-field vf-field--half">
+          <label class="vf-label" for="vf-phone">
+            <span class="en-text">Phone Number</span>
+            <span class="es-text">Teléfono</span>
+            <span class="vf-optional">
+              <span class="en-text">(optional)</span>
+              <span class="es-text">(opcional)</span>
+            </span>
+          </label>
+          <input
+            class="vf-input"
+            type="tel"
+            id="vf-phone"
+            name="q5_phone"
+            autocomplete="tel"
+            placeholder="+1 (404) 555-0100"
+          />
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <!-- ── CHECKBOXES: Which area ── -->
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">Which area(s) would you like to help with?</span>
+          <span class="es-text">¿En qué área(s) deseas ayudar?</span>
+        </legend>
+        <div class="vf-check-grid">
+          <label class="vf-check">
+            <input type="checkbox" name="q6_areas[]" value="page1_first_steps"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <strong><span class="en-text">🏠 First Steps & Resources</span><span class="es-text">🏠 Primeros Pasos y Recursos</span></strong>
+            </span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q6_areas[]" value="page2_work"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <strong><span class="en-text">💼 Work & Entrepreneurship</span><span class="es-text">💼 Trabajo y Emprendimiento</span></strong>
+            </span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q6_areas[]" value="page3_teens"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <strong><span class="en-text">🌱 Teens & Youth</span><span class="es-text">🌱 Jóvenes</span></strong>
+            </span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q6_areas[]" value="all_areas"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <strong><span class="en-text">🦋 All areas</span><span class="es-text">🦋 Todas las áreas</span></strong>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- ── CHECKBOXES: Skills ── -->
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">What skills or support can you offer?</span>
+          <span class="es-text">¿Qué habilidades o apoyo puedes ofrecer?</span>
+          <span class="en-text vf-hint"> — select all that apply</span>
+          <span class="es-text vf-hint"> — selecciona todas las que apliquen</span>
+        </legend>
+        <div class="vf-check-grid vf-check-grid--3">
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="digital_organizing"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">📣 Digital organizing</span>
+              <span class="es-text">📣 Organización digital</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="graphic_design"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">🎨 Graphic design</span>
+              <span class="es-text">🎨 Diseño gráfico</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="translation_en_es"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">🌐 Translation: Spanish ↔ English</span>
+              <span class="es-text">🌐 Traducción: Español ↔ Inglés</span>
+            </span>
+          </label>
+
+          <label class="vf-check" id="vf-indig-check-wrap">
+            <input type="checkbox" name="q7_skills[]" value="translation_indigenous" id="vf-indig-check"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">🪶 Translation: Spanish ↔ Indigenous language</span>
+              <span class="es-text">🪶 Traducción: Español ↔ Lengua indígena</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="video"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">🎬 Video production or editing</span>
+              <span class="es-text">🎬 Producción o edición de video</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="web_dev"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">💻 Web development</span>
+              <span class="es-text">💻 Desarrollo web</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="writing_research"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">✍️ Content writing or research</span>
+              <span class="es-text">✍️ Redacción o investigación</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="social_media"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">📱 Social media</span>
+              <span class="es-text">📱 Redes sociales</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="partner_org"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">🤝 Partner as an organization</span>
+              <span class="es-text">🤝 Alianza como organización</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="fundraising"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">💛 Financial support or fundraising</span>
+              <span class="es-text">💛 Apoyo económico o recaudación</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="outreach"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">🏘️ Community outreach</span>
+              <span class="es-text">🏘️ Alcance comunitario</span>
+            </span>
+          </label>
+
+          <label class="vf-check">
+            <input type="checkbox" name="q7_skills[]" value="other" id="vf-other-check"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label">
+              <span class="en-text">💬 Other</span>
+              <span class="es-text">💬 Otro</span>
+            </span>
+          </label>
+
+        </div>
+      </fieldset>
+
+      <!-- ── Conditional: indigenous language ── -->
+      <div class="vf-row vf-conditional" id="vf-indig-field" style="display:none;">
+        <div class="vf-field vf-field--half">
+          <label class="vf-label" for="vf-indig-lang">
+            <span class="en-text">Which indigenous language? / ¿Cuál lengua indígena?</span>
+          </label>
+          <input
+            class="vf-input"
+            type="text"
+            id="vf-indig-lang"
+            name="q8_indigenousLanguage"
+            placeholder="Náhuatl, Zapoteco, Maya..."
+          />
+        </div>
+      </div>
+
+      <!-- ── Conditional: other skills ── -->
+      <div class="vf-row vf-conditional" id="vf-other-field" style="display:none;">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-other-text">
+            <span class="en-text">Tell us more about your other skills or offer:</span>
+            <span class="es-text">Cuéntanos más sobre tus otras habilidades u ofrecimiento:</span>
+          </label>
+          <input
+            class="vf-input"
+            type="text"
+            id="vf-other-text"
+            name="q9_otherSkills"
+            placeholder="..."
+          />
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <!-- ── Email consent (required) ── -->
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend vf-legend--required">
+          <span class="en-text">Email updates consent</span>
+          <span class="es-text">Consentimiento para actualizaciones por correo</span>
+          <span class="vf-required" aria-label="required">*</span>
+        </legend>
+        <p class="vf-consent-text">
+          <span class="en-text">Are you OK with receiving email updates from <strong>Rosario Palacios (Palacios Contigo, LLC)</strong> about this website, related projects, and ways to get involved?</span>
+          <span class="es-text">¿Aceptas recibir actualizaciones por correo electrónico de <strong>Rosario Palacios (Palacios Contigo, LLC)</strong> sobre este sitio, proyectos relacionados y formas de participar?</span>
+        </p>
+        <div class="vf-radio-group">
+          <label class="vf-radio">
+            <input type="radio" name="q10_emailConsent" value="yes" required/>
+            <span class="vf-radio__dot"></span>
+            <span class="vf-radio__label">
+              <span class="en-text">✅ Yes — send me updates!</span>
+              <span class="es-text">✅ Sí — ¡envíame actualizaciones!</span>
+            </span>
+          </label>
+          <label class="vf-radio">
+            <input type="radio" name="q10_emailConsent" value="no"/>
+            <span class="vf-radio__dot"></span>
+            <span class="vf-radio__label">
+              <span class="en-text">No, I prefer not to receive emails</span>
+              <span class="es-text">No, prefiero no recibir correos</span>
+            </span>
+          </label>
+        </div>
+        <span class="vf-error" id="vf-consent-err" role="alert"></span>
+      </fieldset>
+
+      <!-- ── Message (optional) ── -->
+      <div class="vf-row">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-message">
+            <span class="en-text">Any message or questions?</span>
+            <span class="es-text">¿Algún mensaje o pregunta?</span>
+            <span class="vf-optional">
+              <span class="en-text">(optional)</span>
+              <span class="es-text">(opcional)</span>
+            </span>
+          </label>
+          <textarea
+            class="vf-input vf-textarea"
+            id="vf-message"
+            name="q11_message"
+            rows="4"
+            placeholder="..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- ── Submit ── -->
+      <div class="vf-submit-row">
+        <button type="submit" class="vf-submit-btn">
+          <span class="en-text">Join the Team 🦋</span>
+          <span class="es-text">Únete al Equipo 🦋</span>
+        </button>
+        <p class="vf-privacy">
+          <span class="en-text">Your information is kept private and will only be used to coordinate this work.</span>
+          <span class="es-text">Tu información se mantiene privada y solo se usará para coordinar este trabajo.</span>
+        </p>
+      </div>
+
+      <!-- Success message (shown after submit) -->
+      <div class="vf-success" id="vf-success" style="display:none;" role="alert" aria-live="polite">
+        <div class="vf-success__icon">🦋</div>
+        <h3>
+          <span class="en-text">Thank you for stepping up!</span>
+          <span class="es-text">¡Gracias por sumarte!</span>
+        </h3>
+        <p>
+          <span class="en-text">We'll be in touch soon. You're part of something that matters.</span>
+          <span class="es-text">Nos comunicaremos contigo pronto. Eres parte de algo que importa.</span>
+        </p>
+      </div>
+
+    </form><!-- /volunteer-form -->
+  </div><!-- /inner -->
+</section><!-- /volunteer-banner -->

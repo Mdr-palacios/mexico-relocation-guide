@@ -161,3 +161,119 @@
   }
 
 })();
+
+// ============================================================
+// VOLUNTEER FORM — validation, conditionals, submission
+// ============================================================
+(function () {
+  const form = document.getElementById('volunteer-form');
+  if (!form) return;
+
+  // Conditional: indigenous language field
+  const indigenousCheck = document.getElementById('vf-indig-check');
+  const indigenousField = document.getElementById('vf-indig-field');
+  if (indigenousCheck && indigenousField) {
+    indigenousCheck.addEventListener('change', () => {
+      indigenousField.style.display = indigenousCheck.checked ? 'block' : 'none';
+    });
+  }
+
+  // Conditional: other skills field
+  const otherCheck = document.getElementById('vf-other-check');
+  const otherField = document.getElementById('vf-other-field');
+  if (otherCheck && otherField) {
+    otherCheck.addEventListener('change', () => {
+      otherField.style.display = otherCheck.checked ? 'block' : 'none';
+    });
+  }
+
+  // Helper: show error
+  function showErr(id, msgEn, msgEs) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const isEs = document.body.classList.contains('lang-es');
+    el.textContent = isEs ? msgEs : msgEn;
+    el.classList.add('visible');
+  }
+  function clearErr(id) {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = ''; el.classList.remove('visible'); }
+  }
+
+  // Validate on submit
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let valid = true;
+
+    // First name
+    const fname = document.getElementById('vf-fname');
+    if (!fname.value.trim()) {
+      showErr('vf-fname-err', 'First name is required.', 'El nombre es obligatorio.');
+      valid = false;
+    } else clearErr('vf-fname-err');
+
+    // Last name
+    const lname = document.getElementById('vf-lname');
+    if (!lname.value.trim()) {
+      showErr('vf-lname-err', 'Last name is required.', 'El apellido es obligatorio.');
+      valid = false;
+    } else clearErr('vf-lname-err');
+
+    // Email
+    const email = document.getElementById('vf-email');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailRe.test(email.value)) {
+      showErr('vf-email-err', 'Please enter a valid email address.', 'Ingresa un correo electrónico válido.');
+      valid = false;
+    } else clearErr('vf-email-err');
+
+    // ZIP
+    const zip = document.getElementById('vf-zip');
+    if (!zip.value.trim()) {
+      showErr('vf-zip-err', 'ZIP / postal code is required.', 'El código postal es obligatorio.');
+      valid = false;
+    } else clearErr('vf-zip-err');
+
+    // Consent radio
+    const consent = form.querySelector('input[name="q10_emailConsent"]:checked');
+    if (!consent) {
+      showErr('vf-consent-err', 'Please select an option.', 'Por favor selecciona una opción.');
+      valid = false;
+    } else clearErr('vf-consent-err');
+
+    if (!valid) {
+      // Scroll to first error
+      const firstErr = form.querySelector('.vf-error.visible');
+      if (firstErr) firstErr.closest('.vf-field, fieldset')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // ── SUBMIT ──
+    // If connected to JotForm, the form will POST to the JotForm URL.
+    // For now (no backend), we show the success message immediately.
+    // When you add action="https://submit.jotform.com/submit/FORMID/",
+    // JotForm will handle the redirect to its thank-you page unless you
+    // use the iframe/AJAX embed method.
+
+    const actionUrl = form.getAttribute('action');
+    if (actionUrl && actionUrl !== '#') {
+      // Real JotForm POST — let it submit
+      form.submit();
+    } else {
+      // Demo: show success message
+      form.style.display = 'none';
+      const success = document.getElementById('vf-success');
+      if (success) {
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  });
+
+  // Live clear errors on input
+  ['vf-fname', 'vf-lname', 'vf-email', 'vf-zip'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => clearErr(id + '-err'));
+  });
+
+})();
