@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>For Teens — Mexico Guide / Para Jóvenes</title>
+<meta name="description" content="A guide for teenagers relocating to Mexico. History, culture, school, making friends, and Spanish essentials."/>
+<link rel="stylesheet" href="style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦋</text></svg>"/>
+<style>
+  .history-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+  .history-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-float); }
+  .history-card-header {
+    padding: var(--space-5) var(--space-6);
+    background: linear-gradient(135deg, var(--color-amber), var(--color-gold));
+    color: white;
+    display: flex; align-items: center; gap: var(--space-3);
+  }
+  .history-card-body { padding: var(--space-6); }
+  .history-card-body h4 { font-size: var(--text-sm); font-weight: 700; color: var(--color-amber-deep); margin-bottom: var(--space-2); margin-top: var(--space-5); }
+  [data-theme="dark"] .history-card-body h4 { color: var(--color-amber-light); }
+  .history-card-body p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65; }
+  .history-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-5); }
+  .school-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+  .school-table th { padding: var(--space-3) var(--space-5); text-align: left; background: linear-gradient(90deg, var(--color-amber), var(--color-gold)); color: white; font-weight: 600; }
+  .school-table td { padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--color-border); vertical-align: top; }
+  .school-table tr:nth-child(even) td { background: var(--color-surface); }
+  .school-table tr:hover td { background: rgba(232,104,10,.06); }
+  .school-table .level { font-weight: 700; color: var(--color-amber); }
+  [data-theme="dark"] .school-table .level { color: var(--color-amber-light); }
+  .friend-tip {
+    display: grid; grid-template-columns: 56px 1fr; gap: var(--space-4); align-items: start;
+    padding: var(--space-5); border-radius: var(--radius-xl);
+    background: var(--color-surface); border: 1px solid var(--color-border); margin-bottom: var(--space-4);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .friend-tip:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .friend-tip-emoji { font-size: 2rem; text-align: center; padding-top: var(--space-1); }
+  .friend-tip h4 { font-size: var(--text-sm); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-1); }
+  .friend-tip p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+        <line x1="16" y1="6" x2="11" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="6" x2="21" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="11" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="21" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="11" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+        <circle cx="21" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+      </svg>
+      <span class="nav-logo-text">
+        <span class="en-text">Mexico Guide</span>
+        <span class="es-text">Guía México</span>
+      </span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="index.html" class="nav-link" role="listitem">
+        <span class="en-text">🏠 First Steps</span>
+        <span class="es-text">🏠 Primeros Pasos</span>
+      </a>
+      <a href="work.html" class="nav-link" role="listitem">
+        <span class="en-text">💼 Work & Business</span>
+        <span class="es-text">💼 Trabajo y Negocio</span>
+      </a>
+      <a href="teens.html" class="nav-link active" role="listitem">
+        <span class="en-text">🌱 For Teens</span>
+        <span class="es-text">🌱 Para Jóvenes</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span class="en-text">ES</span>
+        <span class="es-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-wing">
+    <svg style="position:absolute;right:-60px;top:-40px;width:400px;height:400px;opacity:.07;" viewBox="0 0 200 200" fill="none">
+      <ellipse cx="60" cy="80" rx="55" ry="75" fill="#E8680A" transform="rotate(-15 60 80)"/>
+      <ellipse cx="140" cy="80" rx="55" ry="75" fill="#D4A017" transform="rotate(15 140 80)"/>
+      <ellipse cx="55" cy="155" rx="35" ry="42" fill="#C04E00" transform="rotate(-20 55 155)"/>
+      <ellipse cx="145" cy="155" rx="35" ry="42" fill="#C05A00" transform="rotate(20 145 155)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span class="en-text">This Page Is For You</span>
+      <span class="es-text">Esta Página Es Para Ti</span>
+    </p>
+    <h1>
+      <span class="en-text"><em>Mexico</em> is your roots — let's explore it together</span>
+      <span class="es-text"><em>México</em> son tus raíces — explorémoslo juntos</span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="en-text">History, culture, making friends, school, and the Spanish words you need — all in one place, for teens navigating a big change.</span>
+      <span class="es-text">Historia, cultura, cómo hacer amigos, la escuela y las palabras en español que necesitas — todo en un lugar, para jóvenes navegando un gran cambio.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#school" class="btn btn-primary">
+        <span class="en-text">How School Works →</span>
+        <span class="es-text">Cómo Funciona la Escuela →</span>
+      </a>
+      <a href="#history" class="btn btn-outline">
+        <span class="en-text">History by State</span>
+        <span class="es-text">Historia por Estado</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL SYSTEM -->
+<section id="school" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Education in Mexico</span>
+      <span class="es-text">Educación en México</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">How the <em>school system</em> works</span>
+      <span class="es-text">Cómo funciona el <em>sistema educativo</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Mexico's public school system is free, run by the SEP (Secretaría de Educación Pública), and organized into clearly defined levels. Here's what you need to know.</span>
+      <span class="es-text">El sistema público de México es gratuito, dirigido por la SEP (Secretaría de Educación Pública) y organizado en niveles definidos. Aquí lo que necesitas saber.</span>
+    </p>
+
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="school-table">
+        <thead>
+          <tr>
+            <th><span class="en-text">Level</span><span class="es-text">Nivel</span></th>
+            <th><span class="en-text">Mexican Name</span><span class="es-text">Nombre en México</span></th>
+            <th><span class="en-text">Grades</span><span class="es-text">Grados</span></th>
+            <th><span class="en-text">Ages</span><span class="es-text">Edades</span></th>
+            <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="level"><span class="en-text">Preschool</span><span class="es-text">Preescolar</span></td><td>Kinder / Jardín de Niños</td><td>3 years</td><td>3–6</td><td><span class="en-text">1 year mandatory (3rd year)</span><span class="es-text">1 año obligatorio (3° año)</span></td></tr>
+          <tr><td class="level"><span class="en-text">Elementary</span><span class="es-text">Primaria</span></td><td>Primaria</td><td>1°–6°</td><td>6–12</td><td><span class="en-text">Free & compulsory. Subjects: math, Spanish, science, history, geography, art, PE</span><span class="es-text">Gratuita y obligatoria. Materias: matemáticas, español, ciencias, historia, geografía, arte, educación física</span></td></tr>
+          <tr><td class="level"><span class="en-text">Middle School</span><span class="es-text">Secundaria</span></td><td>Secundaria</td><td>1°–3° (Grades 7–9)</td><td>12–15</td><td><span class="en-text">Free & compulsory. Adds physics, chemistry, world history. Also: técnica (vocational) or telesecundaria (distance learning)</span><span class="es-text">Gratuita y obligatoria. Agrega física, química, historia universal. También: técnica (vocacional) o telesecundaria (a distancia)</span></td></tr>
+          <tr><td class="level"><span class="en-text">High School</span><span class="es-text">Preparatoria</span></td><td>Preparatoria / Bachillerato</td><td>1°–3° (Grades 10–12)</td><td>15–18</td><td><span class="en-text">Now compulsory. 6 semesters. Choose academic track (→ university) or technical track (→ work). Earn a <em>bachillerato</em> certificate</span><span class="es-text">Ahora obligatoria. 6 semestres. Elige bachillerato general (→ universidad) o técnico (→ trabajo). Se obtiene el certificado de bachillerato</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tiles-grid">
+      <div class="tile tile-amber">
+        <div class="tile-icon">📝</div>
+        <h3 class="tile-title"><span class="en-text">Enrolling in School</span><span class="es-text">Inscribirse a la Escuela</span></h3>
+        <div class="tile-body">
+          <p><span class="en-text">To enroll, you need: your birth certificate, CURP, proof of address, and previous school records (if available). If you don't have records from the U.S., ask the school director — many schools accommodate returnee students. Public schools are free. Uniforms are required and available cheaply at local markets.</span><span class="es-text">Para inscribirte necesitas: acta de nacimiento, CURP, comprobante de domicilio y calificaciones anteriores (si las tienes). Si no tienes documentos de EE.UU., habla con el director — muchas escuelas acomodan a estudiantes repatriados. Las escuelas públicas son gratuitas. Los uniformes son obligatorios y se consiguen barato en mercados locales.</span></p>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tile-icon">🌍</div>
+        <h3 class="tile-title"><span class="en-text">Being Bilingual at School</span><span class="es-text">Ser Bilingüe en la Escuela</span></h3>
+        <div class="tile-body">
+          <p><span class="en-text">Your English is a superpower. Many classmates will want to learn from you, and teachers may ask for your help in English class. Don't be shy about it — it makes you interesting and helps you connect. Some schools offer bilingual programs in major cities.</span><span class="es-text">Tu inglés es un superpoder. Muchos compañeros querrán aprender contigo y los maestros podrían pedirte ayuda en la clase de inglés. No lo ocultes — te hace interesante y te ayuda a conectar. Algunas escuelas en ciudades grandes tienen programas bilingües.</span></p>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tile-icon">📚</div>
+        <h3 class="tile-title"><span class="en-text">School Culture & Tips</span><span class="es-text">Cultura Escolar y Consejos</span></h3>
+        <div class="tile-body">
+          <ul><li><span class="en-text">Schools often have a morning ceremony with the national anthem on Mondays</span><span class="es-text">Las escuelas suelen tener honores a la bandera los lunes por la mañana</span></li><li><span class="en-text">Class periods are typically 50 minutes</span><span class="es-text">Los periodos de clase son generalmente de 50 minutos</span></li><li><span class="en-text">Lunch (recreo) is shorter — bring food or money for the cooperativa</span><span class="es-text">El recreo es más corto — lleva comida o dinero para la cooperativa</span></li><li><span class="en-text">Respect for teachers is expected — address them as "Maestra/Maestro"</span><span class="es-text">Se espera respeto hacia los maestros — llámales "Maestra/Maestro"</span></li><li><span class="en-text">Group activities, clubs, and deportivo (sports) programs exist in most schools</span><span class="es-text">Existen actividades grupales, clubes y deportivo en la mayoría de las escuelas</span></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAKING FRIENDS -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Social Life</span>
+      <span class="es-text">Vida Social</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">How to <em>make friends</em> in a new place</span>
+      <span class="es-text">Cómo <em>hacer amigos</em> en un lugar nuevo</span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Starting over socially is hard. But you have something most kids don't — you've lived in two countries and speak two languages. That is genuinely cool.</span>
+      <span class="es-text">Empezar de nuevo socialmente es difícil. Pero tienes algo que la mayoría de los jóvenes no tiene — has vivido en dos países y hablas dos idiomas. Eso es genuinamente increíble.</span>
+    </p>
+
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">👋</div>
+      <div>
+        <h4><span class="en-text">Start with small gestures</span><span class="es-text">Empieza con pequeños gestos</span></h4>
+        <p><span class="en-text">You don't have to make a big entrance. A simple "hola, ¿de dónde eres?" or commenting on someone's shoes or backpack is enough to start a conversation. Mexicans are generally warm and welcoming — most people will be happy you approached them.</span><span class="es-text">No tienes que hacer una gran entrada. Un simple "hola, ¿de dónde eres?" o comentar algo sobre los zapatos o mochila de alguien es suficiente para iniciar una conversación. Los mexicanos son generalmente cálidos y acogedores.</span></p>
+      </div>
+    </div>
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">⚽</div>
+      <div>
+        <h4><span class="en-text">Sports & activities open doors</span><span class="es-text">Los deportes y actividades abren puertas</span></h4>
+        <p><span class="en-text">Soccer (fútbol) is the universal language in Mexico. Joining a team — even casually — instantly gives you a social group. Basketball, volleyball, and martial arts are also popular. Ask your school about deportivo programs or local clubs.</span><span class="es-text">El fútbol es el lenguaje universal en México. Unirte a un equipo — incluso de manera casual — te da inmediatamente un grupo social. El básquetbol, voleibol y las artes marciales también son populares. Pregunta en tu escuela sobre el programa deportivo o clubes locales.</span></p>
+      </div>
+    </div>
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">🎮</div>
+      <div>
+        <h4><span class="en-text">Gaming & online communities</span><span class="es-text">Videojuegos y comunidades en línea</span></h4>
+        <p><span class="en-text">Gaming is huge in Mexico. If you play Fortnite, Minecraft, Roblox, or any popular game, this is a natural way to bond with classmates. Ask if anyone plays and suggest a session together. Gaming cafes (cibercafés) also still exist in many towns and are social spaces.</span><span class="es-text">Los videojuegos son enormes en México. Si juegas Fortnite, Minecraft, Roblox o cualquier juego popular, esta es una forma natural de conectar con compañeros. Pregunta si alguien juega y sugiere una sesión. Los cibercafés todavía existen en muchos pueblos y son espacios sociales.</span></p>
+      </div>
+    </div>
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">🎵</div>
+      <div>
+        <h4><span class="en-text">Music & culture are bridges</span><span class="es-text">La música y la cultura son puentes</span></h4>
+        <p><span class="en-text">Knowing American music, movies, or TikTok trends makes you interesting. Mexicans love U.S. pop culture. Share songs, ask what your classmates are listening to, and find the overlap. It's a genuinely easy conversation starter.</span><span class="es-text">Conocer música, películas o tendencias de TikTok americanas te hace interesante. A los mexicanos les encanta la cultura pop de EE.UU. Comparte canciones, pregunta qué escuchan tus compañeros y encuentra los puntos en común.</span></p>
+      </div>
+    </div>
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">🤝</div>
+      <div>
+        <h4><span class="en-text">Be patient with yourself</span><span class="es-text">Sé paciente contigo mismo/a</span></h4>
+        <p><span class="en-text">It's okay if it takes weeks or months to find your people. Social adjustment after a big move takes time for everyone, including adults. Focus on one or two potential friends first rather than trying to fit in with the whole class at once.</span><span class="es-text">Está bien si tardas semanas o meses en encontrar a tus personas. La adaptación social después de un gran cambio toma tiempo para todos, incluso para los adultos. Enfócate en una o dos amistades potenciales en lugar de intentar encajar con toda la clase a la vez.</span></p>
+      </div>
+    </div>
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">📲</div>
+      <div>
+        <h4><span class="en-text">WhatsApp is how everyone connects</span><span class="es-text">WhatsApp es como todos se conectan</span></h4>
+        <p><span class="en-text">In Mexico, almost everything social happens on WhatsApp — not Instagram DMs or texting. Ask classmates for their WhatsApp number, not their phone number or Snapchat. Classes, group projects, and hangouts are all coordinated there.</span><span class="es-text">En México, casi todo lo social sucede en WhatsApp — no en DMs de Instagram ni por SMS. Pide a tus compañeros su número de WhatsApp. Las clases, proyectos grupales y salidas se coordinan ahí.</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FUN THINGS -->
+<section style="background: var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Things To Do & Explore</span>
+      <span class="es-text">Cosas que Hacer y Explorar</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Fun things to <em>discover</em> in Mexico</span>
+      <span class="es-text">Cosas divertidas que <em>descubrir</em> en México</span>
+    </h2>
+    <div class="tiles-grid">
+      <div class="tile"><div class="tile-icon">🏛️</div><h3 class="tile-title"><span class="en-text">Explore Ruins & Pyramids</span><span class="es-text">Explora Ruinas y Pirámides</span></h3><div class="tile-body"><p><span class="en-text">Every region has pre-Hispanic ruins — Chichén Itzá (Yucatán), Teotihuacan (CDMX area), Monte Albán (Oaxaca), El Tajín (Veracruz), Palenque (Chiapas). Many are UNESCO World Heritage sites. Ask a teacher or parent to take you — many charge low or no fees for students.</span><span class="es-text">Cada región tiene ruinas prehispánicas — Chichén Itzá (Yucatán), Teotihuacan (zona CDMX), Monte Albán (Oaxaca), El Tajín (Veracruz), Palenque (Chiapas). Muchos son Patrimonio de la Humanidad UNESCO. Pide a un maestro o a tus padres que te lleven — muchos tienen cuotas bajas o gratuitas para estudiantes.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🎭</div><h3 class="tile-title"><span class="en-text">Festivals & Celebrations</span><span class="es-text">Festivales y Celebraciones</span></h3><div class="tile-body"><p><span class="en-text">Día de los Muertos (Nov 1–2), Guelaguetza (Oaxaca July), Carnaval (Veracruz, Mazatlán), Feria Nacional de San Marcos (Aguascalientes April), and hundreds of local saints' day festivals (fiestas patronales) happen year-round in every state. These are free, community-centered, and a great way to meet people.</span><span class="es-text">Día de los Muertos (1–2 Nov), Guelaguetza (Oaxaca, julio), Carnaval (Veracruz, Mazatlán), Feria de San Marcos (Aguascalientes, abril) y cientos de fiestas patronales locales ocurren todo el año en cada estado. Son gratis, comunitarias y una gran forma de conocer gente.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🏄</div><h3 class="tile-title"><span class="en-text">Nature & Adventure</span><span class="es-text">Naturaleza y Aventura</span></h3><div class="tile-body"><p><span class="en-text">Mexico has incredible nature: cenotes in Yucatán for swimming, whale watching in Baja California, monarch butterfly sanctuaries in Michoacán, volcanoes in Puebla, and coral reefs in Quintana Roo. Many natural parks are free or very cheap for students.</span><span class="es-text">México tiene naturaleza increíble: cenotes en Yucatán para nadar, avistamiento de ballenas en Baja California, santuarios de mariposa monarca en Michoacán, volcanes en Puebla y arrecifes de coral en Quintana Roo. Muchos parques naturales son gratuitos o muy baratos para estudiantes.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🍜</div><h3 class="tile-title"><span class="en-text">Food Adventures</span><span class="es-text">Aventuras Gastronómicas</span></h3><div class="tile-body"><p><span class="en-text">Every state has unique food. Try: tlayudas (Oaxaca), birria tacos (Jalisco), cochinita pibil (Yucatán), chiles en nogada (Puebla), pozole (Guerrero), machaca (Sonora). Explore local markets (mercados) — they're cheap, delicious, and social spaces where you'll meet neighbors.</span><span class="es-text">Cada estado tiene comida única. Prueba: tlayudas (Oaxaca), tacos de birria (Jalisco), cochinita pibil (Yucatán), chiles en nogada (Puebla), pozole (Guerrero), machaca (Sonora). Explora los mercados locales — son baratos, deliciosos y espacios sociales donde conocerás vecinos.</span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY BY STATE -->
+<section id="history">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Indigenous & Afro-Mexican Heritage</span>
+      <span class="es-text">Herencia Indígena y Afromexicana</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">History &amp; culture <em>by state</em></span>
+      <span class="es-text">Historia y cultura <em>por estado</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Mexico's history is far older and richer than what is typically taught in U.S. schools. Every state has a unique story — rooted in Indigenous civilizations and Afro-Mexican communities that shaped who Mexico is today. This history is yours too.</span>
+      <span class="es-text">La historia de México es mucho más antigua y rica de lo que se suele enseñar en las escuelas de EE.UU. Cada estado tiene una historia única — enraizada en civilizaciones indígenas y comunidades afromexicanas que dieron forma a lo que México es hoy. Esta historia también es tuya.</span>
+    </p>
+
+    <div class="info-banner">
+      <span class="info-banner-icon">✊🏾</span>
+      <div>
+        <h4><span class="en-text">Afro-Mexicans: The Third Root (La Tercera Raíz)</span><span class="es-text">Afromexicanos: La Tercera Raíz</span></h4>
+        <p><span class="en-text">Mexico's national identity has three roots: Indigenous, European, and African. Over 2.5 million Mexicans identify as Afro-descendant (2020 census). Afro-Mexican communities are concentrated in the Costa Chica region of Guerrero and Oaxaca, Veracruz (Yanga — the first free Black town in the Americas, founded 1609), and Coahuila. Their contributions to music (son jarocho, marimba), cuisine, and resistance movements are foundational to Mexican culture.</span><span class="es-text">La identidad nacional de México tiene tres raíces: indígena, europea y africana. Más de 2.5 millones de mexicanos se identifican como afrodescendientes (censo 2020). Las comunidades afromexicanas se concentran en la Costa Chica de Guerrero y Oaxaca, Veracruz (Yanga — el primer pueblo libre de personas negras en América, fundado en 1609) y Coahuila. Sus contribuciones a la música (son jarocho, marimba), la cocina y los movimientos de resistencia son fundamentales para la cultura mexicana.</span></p>
+      </div>
+    </div>
+
+    <div class="history-grid">
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">🌽</span>
+          <h3 style="font-size: var(--text-base); margin:0;">Oaxaca</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Indigenous Heritage</span><span class="es-text">Herencia Indígena</span></h4>
+          <p><span class="en-text">Home to 16 recognized Indigenous groups including Zapotec and Mixtec civilizations who built Monte Albán (~500 BCE), one of the first cities in the Americas. Zapotec culture developed one of the earliest writing systems in the Western Hemisphere.</span><span class="es-text">Hogar de 16 grupos indígenas reconocidos, incluyendo las civilizaciones zapoteca y mixteca que construyeron Monte Albán (~500 a.C.), una de las primeras ciudades de América. La cultura zapoteca desarrolló uno de los primeros sistemas de escritura del hemisferio occidental.</span></p>
+          <h4><span class="en-text">Afro-Mexican Heritage</span><span class="es-text">Herencia Afromexicana</span></h4>
+          <p><span class="en-text">The Costa Chica region of Oaxaca is home to significant Afro-Mexican communities (called "Afromexicanos" or "morenos"). Their music, dance (chilena), and resistance history are integral to the state's identity.</span><span class="es-text">La Costa Chica de Oaxaca alberga importantes comunidades afromexicanas. Su música, danza (chilena) e historia de resistencia son parte integral de la identidad del estado.</span></p>
+          <h4><span class="en-text">Fun things to do</span><span class="es-text">Cosas divertidas</span></h4>
+          <p><span class="en-text">Visit Monte Albán ruins, Hierve el Agua (petrified waterfall), Guelaguetza festival, mezcal tastings, black pottery workshops in San Bartolo Coyotepec.</span><span class="es-text">Visita las ruinas de Monte Albán, Hierve el Agua (cascada petrificada), festival Guelaguetza, degustaciones de mezcal, talleres de barro negro en San Bartolo Coyotepec.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">🌊</span>
+          <h3 style="font-size: var(--text-base); margin:0;">Guerrero</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Indigenous Heritage</span><span class="es-text">Herencia Indígena</span></h4>
+          <p><span class="en-text">Home to the Nahua, Mixtec, Amuzgo, and Tlapanec peoples. The region was a center of resistance against Aztec domination. Vicente Guerrero, the state's namesake and Mexico's second president, was Afro-Indigenous and fought for independence and the abolition of slavery.</span><span class="es-text">Hogar de los pueblos nahua, mixteco, amuzgo y tlapaneco. La región fue centro de resistencia contra la dominación azteca. Vicente Guerrero, el héroe que da nombre al estado y segundo presidente de México, era afroindígena y luchó por la independencia y la abolición de la esclavitud.</span></p>
+          <h4><span class="en-text">Afro-Mexican Heritage</span><span class="es-text">Herencia Afromexicana</span></h4>
+          <p><span class="en-text">One of the highest concentrations of Afro-Mexican people in Mexico. The Costa Chica communities preserve African-derived traditions in music, storytelling, and religious practice.</span><span class="es-text">Una de las mayores concentraciones de afromexicanos en México. Las comunidades de la Costa Chica preservan tradiciones de origen africano en música, narrativa oral y práctica religiosa.</span></p>
+          <h4><span class="en-text">Fun things to do</span><span class="es-text">Cosas divertidas</span></h4>
+          <p><span class="en-text">Beaches of Zihuatanejo, silver jewelry shopping in Taxco, cliff divers (clavadistas) in Acapulco.</span><span class="es-text">Playas de Zihuatanejo, joyería de plata en Taxco, clavadistas de Acapulco.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">🏙️</span>
+          <h3 style="font-size: var(--text-base); margin:0;">Ciudad de México / CDMX</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Indigenous Heritage</span><span class="es-text">Herencia Indígena</span></h4>
+          <p><span class="en-text">Built on the ruins of Tenochtitlán, the Aztec (Mexica) capital founded in 1325. The Templo Mayor, discovered beneath the city's historic center in 1978, is one of the most significant archaeological sites in the Americas. The name "Mexico" itself comes from the Mexica people.</span><span class="es-text">Construida sobre las ruinas de Tenochtitlán, la capital azteca (mexica) fundada en 1325. El Templo Mayor, descubierto bajo el centro histórico en 1978, es uno de los sitios arqueológicos más importantes de América. El nombre "México" viene del pueblo mexica.</span></p>
+          <h4><span class="en-text">Fun things to do</span><span class="es-text">Cosas divertidas</span></h4>
+          <p><span class="en-text">Museo Nacional de Antropología (free for students), Chapultepec Park, floating gardens of Xochimilco, street food in Mercado de Jamaica, skateboarding at parques.</span><span class="es-text">Museo Nacional de Antropología (gratis para estudiantes), Bosque de Chapultepec, chinampas de Xochimilco, comida callejera en el Mercado de Jamaica, skateboarding en los parques.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">🌿</span>
+          <h3 style="font-size: var(--text-base); margin:0;">Yucatán</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Indigenous Heritage</span><span class="es-text">Herencia Indígena</span></h4>
+          <p><span class="en-text">Heart of the Maya civilization — one of the most advanced in world history. Maya people built Chichén Itzá, Uxmal, and hundreds of other cities. The Maya calendar, mathematical system (including the concept of zero), and hieroglyphic writing were extraordinary achievements. Maya people and culture are very much alive today — about 800,000 people still speak Yucatec Maya.</span><span class="es-text">Corazón de la civilización Maya — una de las más avanzadas en la historia mundial. Los mayas construyeron Chichén Itzá, Uxmal y cientos de otras ciudades. El calendario maya, el sistema matemático (incluyendo el concepto del cero) y la escritura jeroglífica fueron logros extraordinarios. El pueblo y la cultura maya están muy vivos hoy — cerca de 800,000 personas siguen hablando maya yucateco.</span></p>
+          <h4><span class="en-text">Fun things to do</span><span class="es-text">Cosas divertidas</span></h4>
+          <p><span class="en-text">Swim in cenotes, Chichén Itzá, Mérida's colorful historic center, hammock shopping, eat cochinita pibil.</span><span class="es-text">Nadar en cenotes, Chichén Itzá, centro histórico colorido de Mérida, comprar hamacas, comer cochinita pibil.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">⚡</span>
+          <h3 style="font-size: var(--text-base); margin:0;">Veracruz</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Indigenous Heritage</span><span class="es-text">Herencia Indígena</span></h4>
+          <p><span class="en-text">Home of the Olmec civilization (~1500 BCE), considered the "mother culture" of Mesoamerica. The famous giant stone heads are Olmec. El Tajín, a Totonac city, features the voladores ritual (men flying from a pole) still performed today.</span><span class="es-text">Hogar de la civilización olmeca (~1500 a.C.), considerada la "cultura madre" de Mesoamérica. Las famosas cabezas colosales son olmecas. El Tajín, ciudad totonaca, presenta el ritual de los voladores (hombres que vuelan desde un palo) que aún se practica hoy.</span></p>
+          <h4><span class="en-text">Afro-Mexican Heritage</span><span class="es-text">Herencia Afromexicana</span></h4>
+          <p><span class="en-text">Yanga (San Lorenzo de los Negros) — founded 1609 — was the first free Black settlement in the Americas. Gaspar Yanga led a decades-long revolt against Spanish colonial slavery. The son jarocho musical tradition has deep African roots.</span><span class="es-text">Yanga (San Lorenzo de los Negros) — fundado en 1609 — fue el primer asentamiento libre de personas negras en América. Gaspar Yanga lideró una revuelta de décadas contra la esclavitud colonial española. La tradición musical del son jarocho tiene profundas raíces africanas.</span></p>
+          <h4><span class="en-text">Fun things to do</span><span class="es-text">Cosas divertidas</span></h4>
+          <p><span class="en-text">Carnaval de Veracruz, El Tajín ruins, white-water rafting in Jalcomulco, seafood on the malecón.</span><span class="es-text">Carnaval de Veracruz, ruinas de El Tajín, rafting en Jalcomulco, mariscos en el malecón.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">🦋</span>
+          <h3 style="font-size: var(--text-base); margin:0;">Michoacán</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Indigenous Heritage</span><span class="es-text">Herencia Indígena</span></h4>
+          <p><span class="en-text">Home of the Purépecha (Tarasco) people — the only major civilization that successfully resisted Aztec conquest. Their capital, Tzintzuntzan, remains an archaeological site. The Purépecha language is still spoken by hundreds of thousands of people. The monarch butterfly migration in Michoacán is sacred to Purépecha tradition — they believed the butterflies carried the souls of their ancestors.</span><span class="es-text">Hogar del pueblo purépecha (tarasco) — la única civilización importante que resistió exitosamente la conquista azteca. Su capital, Tzintzuntzan, sigue siendo un sitio arqueológico. El idioma purépecha lo hablan aún cientos de miles de personas. La migración de la mariposa monarca en Michoacán es sagrada en la tradición purépecha — creían que las mariposas transportaban las almas de sus ancestros.</span></p>
+          <h4><span class="en-text">Fun things to do</span><span class="es-text">Cosas divertidas</span></h4>
+          <p><span class="en-text">Monarch butterfly sanctuaries, Pátzcuaro lake towns, Día de Muertos celebrations (among the most authentic in Mexico), copper artisan workshops.</span><span class="es-text">Santuarios de mariposa monarca, pueblos lacustres de Pátzcuaro, celebraciones del Día de Muertos (entre las más auténticas de México), talleres artesanales de cobre.</span></p>
+        </div>
+      </div>
+
+    </div><!-- history-grid -->
+  </div>
+</section>
+
+<!-- SPANISH PHRASES -->
+<section style="background: var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Language Guide</span>
+      <span class="es-text">Guía de Idioma</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Essential <em>Spanish words</em> you need</span>
+      <span class="es-text">Palabras en <em>español</em> que necesitas</span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Whether you're already fluent or just starting, these phrases will help you navigate school, make friends, and handle everyday situations in Mexico.</span>
+      <span class="es-text">Ya sea que ya hables bien o estés empezando, estas frases te ayudarán en la escuela, a hacer amigos y manejar situaciones cotidianas en México.</span>
+    </p>
+
+    <!-- AT SCHOOL -->
+    <h3 style="font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-5); color: var(--color-amber);">
+      <span class="en-text">🏫 At School / En la Escuela</span>
+      <span class="es-text">🏫 En la Escuela / At School</span>
+    </h3>
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="phrase-table">
+        <thead><tr><th><span class="en-text">English</span><span class="es-text">Inglés</span></th><th><span class="en-text">Spanish</span><span class="es-text">Español</span></th><th><span class="en-text">How to say it</span><span class="es-text">Cómo se dice</span></th></tr></thead>
+        <tbody>
+          <tr><td class="phrase-en">Excuse me, where is the bathroom?</td><td class="phrase-es">Disculpe, ¿dónde está el baño?</td><td>dis-COOL-peh, DON-deh es-TAH el BAH-nyoh</td></tr>
+          <tr><td class="phrase-en">I didn't understand, could you repeat?</td><td class="phrase-es">No entendí, ¿puede repetir?</td><td>no en-ten-DEE, PWEH-deh reh-peh-TEER</td></tr>
+          <tr><td class="phrase-en">What page are we on?</td><td class="phrase-es">¿En qué página estamos?</td><td>en keh PAH-hee-nah es-TAH-mos</td></tr>
+          <tr><td class="phrase-en">I'm new here</td><td class="phrase-es">Soy nuevo/a aquí</td><td>soy NWEH-voh ah-KEE</td></tr>
+          <tr><td class="phrase-en">Can you help me?</td><td class="phrase-es">¿Me puedes ayudar?</td><td>meh PWEH-des ah-yoo-DAR</td></tr>
+          <tr><td class="phrase-en">What time does class end?</td><td class="phrase-es">¿A qué hora termina la clase?</td><td>ah keh OH-rah ter-MEE-nah lah CLAH-seh</td></tr>
+          <tr><td class="phrase-en">I need to see the school counselor</td><td class="phrase-es">Necesito ver al orientador</td><td>neh-seh-SEE-toh vehr al oh-ree-en-tah-DOR</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MAKING FRIENDS -->
+    <h3 style="font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-5); color: var(--color-amber);">
+      <span class="en-text">👋 Making Friends / Para Hacer Amigos</span>
+      <span class="es-text">👋 Para Hacer Amigos / Making Friends</span>
+    </h3>
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="phrase-table">
+        <thead><tr><th><span class="en-text">English</span><span class="es-text">Inglés</span></th><th><span class="en-text">Spanish</span><span class="es-text">Español</span></th><th><span class="en-text">When to use</span><span class="es-text">Cuándo usarlo</span></th></tr></thead>
+        <tbody>
+          <tr><td class="phrase-en">What's your name?</td><td class="phrase-es">¿Cómo te llamas?</td><td><span class="en-text">Meeting someone new</span><span class="es-text">Al conocer a alguien</span></td></tr>
+          <tr><td class="phrase-en">Nice to meet you</td><td class="phrase-es">Mucho gusto</td><td><span class="en-text">After introductions</span><span class="es-text">Después de presentaciones</span></td></tr>
+          <tr><td class="phrase-en">Do you want to hang out?</td><td class="phrase-es">¿Quieres salir a pasear?</td><td><span class="en-text">Inviting someone to hang out</span><span class="es-text">Para invitar a salir</span></td></tr>
+          <tr><td class="phrase-en">What do you like to do?</td><td class="phrase-es">¿Qué te gusta hacer?</td><td><span class="en-text">Starting conversation</span><span class="es-text">Para iniciar conversación</span></td></tr>
+          <tr><td class="phrase-en">That's really cool / awesome</td><td class="phrase-es">¡Qué chido/a! / ¡Está muy cool!</td><td><span class="en-text">Expressing enthusiasm</span><span class="es-text">Para expresar entusiasmo</span></td></tr>
+          <tr><td class="phrase-en">I lived in the U.S.</td><td class="phrase-es">Yo vivía en Estados Unidos</td><td><span class="en-text">Sharing your background</span><span class="es-text">Al hablar de tu historia</span></td></tr>
+          <tr><td class="phrase-en">Add me on WhatsApp</td><td class="phrase-es">Agrégame al WhatsApp</td><td><span class="en-text">Exchanging contact info</span><span class="es-text">Al intercambiar contactos</span></td></tr>
+          <tr><td class="phrase-en">No worries / It's okay</td><td class="phrase-es">No te preocupes / Está bien</td><td><span class="en-text">Reassuring someone</span><span class="es-text">Para tranquilizar a alguien</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- EVERYDAY SURVIVAL -->
+    <h3 style="font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-5); color: var(--color-amber);">
+      <span class="en-text">🛒 Everyday Survival / Vida Cotidiana</span>
+      <span class="es-text">🛒 Vida Cotidiana / Everyday Survival</span>
+    </h3>
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="phrase-table">
+        <thead><tr><th><span class="en-text">English</span><span class="es-text">Inglés</span></th><th><span class="en-text">Spanish</span><span class="es-text">Español</span></th><th><span class="en-text">Notes</span><span class="es-text">Notas</span></th></tr></thead>
+        <tbody>
+          <tr><td class="phrase-en">How much does it cost?</td><td class="phrase-es">¿Cuánto cuesta?</td><td><span class="en-text">At any store or market</span><span class="es-text">En cualquier tienda o mercado</span></td></tr>
+          <tr><td class="phrase-en">Is there a deal / cheaper?</td><td class="phrase-es">¿Tiene más barato?</td><td><span class="en-text">Bargaining at markets</span><span class="es-text">Para regatear en mercados</span></td></tr>
+          <tr><td class="phrase-en">Where is the nearest...?</td><td class="phrase-es">¿Dónde queda el/la... más cercano/a?</td><td><span class="en-text">Pharmacy (farmacia), store (tienda), bus stop (parada)</span><span class="es-text">Farmacia, tienda, parada de camión</span></td></tr>
+          <tr><td class="phrase-en">I'm not feeling well</td><td class="phrase-es">No me siento bien</td><td><span class="en-text">Medical situations</span><span class="es-text">Situaciones médicas</span></td></tr>
+          <tr><td class="phrase-en">Can I have the bill?</td><td class="phrase-es">¿Me trae la cuenta?</td><td><span class="en-text">At restaurants</span><span class="es-text">En restaurantes</span></td></tr>
+          <tr><td class="phrase-en">Which bus goes to...?</td><td class="phrase-es">¿Cuál camión va a...?</td><td><span class="en-text">Public transit</span><span class="es-text">Transporte público</span></td></tr>
+          <tr><td class="phrase-en">I'm lost</td><td class="phrase-es">Me perdí</td><td><span class="en-text">Ask anyone nearby for help</span><span class="es-text">Pide ayuda a alguien cercano</span></td></tr>
+          <tr><td class="phrase-en">Call the police / ambulance</td><td class="phrase-es">Llame a la policía / a la ambulancia</td><td><span class="en-text">Emergency. Police: 911 (same as U.S.)</span><span class="es-text">Emergencia. Policía: 911 (igual que en EE.UU.)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SLANG -->
+    <h3 style="font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-5); color: var(--color-amber);">
+      <span class="en-text">😎 Mexican Slang You'll Hear / Slang Mexicano que Escucharás</span>
+      <span class="es-text">😎 Slang Mexicano / Mexican Slang You'll Hear</span>
+    </h3>
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border);">
+      <table class="phrase-table">
+        <thead><tr><th><span class="en-text">Word/Phrase</span><span class="es-text">Palabra/Frase</span></th><th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th><th><span class="en-text">Example</span><span class="es-text">Ejemplo</span></th></tr></thead>
+        <tbody>
+          <tr><td class="phrase-es">¡Qué chido/a!</td><td><span class="en-text">How cool! / Awesome!</span><span class="es-text">¡Qué genial! / ¡Está increíble!</span></td><td><span class="en-text">"Your shoes are so cool!"</span><span class="es-text">"¡Tus zapatos están muy chidos!"</span></td></tr>
+          <tr><td class="phrase-es">¿Qué onda?</td><td><span class="en-text">What's up? / How's it going?</span><span class="es-text">¿Qué pasa? / ¿Cómo estás?</span></td><td><span class="en-text">Standard casual greeting among friends</span><span class="es-text">Saludo casual estándar entre amigos</span></td></tr>
+          <tr><td class="phrase-es">No manches</td><td><span class="en-text">No way! / Are you kidding me?</span><span class="es-text">¡No puede ser! / ¿En serio?</span></td><td><span class="en-text">Reacting to surprising news</span><span class="es-text">Al reaccionar a noticias sorprendentes</span></td></tr>
+          <tr><td class="phrase-es">Cuate / Cuaderno</td><td><span class="en-text">Friend / Buddy (regional: cuate)</span><span class="es-text">Amigo / Compañero (regional: cuate)</span></td><td><span class="en-text">"This is my cuate"</span><span class="es-text">"Él es mi cuate"</span></td></tr>
+          <tr><td class="phrase-es">Güey / Wey</td><td><span class="en-text">Dude / Bro (very common, informal)</span><span class="es-text">Chico/a (muy común, informal)</span></td><td><span class="en-text">"No manches, wey!" = "No way, dude!"</span><span class="es-text">Entre amigos cercanos</span></td></tr>
+          <tr><td class="phrase-es">Ahorita</td><td><span class="en-text">Right now / in a bit / soon (context-dependent!)</span><span class="es-text">Ahora / en un rato / pronto (¡depende del contexto!)</span></td><td><span class="en-text">Can mean "now" or "much later" — ask to clarify</span><span class="es-text">Puede significar "ahora" o "más tarde" — pide aclaración</span></td></tr>
+          <tr><td class="phrase-es">Órale</td><td><span class="en-text">Okay! / Alright! / Let's go!</span><span class="es-text">¡Está bien! / ¡Ándale! / ¡Vamos!</span></td><td><span class="en-text">Agreement or encouraging someone</span><span class="es-text">Para estar de acuerdo o animar a alguien</span></td></tr>
+          <tr><td class="phrase-es">Chamba</td><td><span class="en-text">Work / job</span><span class="es-text">Trabajo / empleo</span></td><td><span class="en-text">"I'm going to work" = "Voy a la chamba"</span><span class="es-text">"Voy a la chamba"</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="section-inner">
+    <div class="highlight-box" style="text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: var(--space-6);">🦋</div>
+      <h2 style="max-width: 24ch; margin: 0 auto var(--space-5);">
+        <span class="en-text">You carry two worlds inside you. That is a gift.</span>
+        <span class="es-text">Llevas dos mundos dentro de ti. Eso es un regalo.</span>
+      </h2>
+      <p style="max-width: 52ch; margin: 0 auto; color: rgba(253,232,204,.75);">
+        <span class="en-text">Being between cultures — knowing English and Spanish, understanding two systems, two ways of life — makes you uniquely able to build bridges. Mexico needs young people like you.</span>
+        <span class="es-text">Estar entre dos culturas — conocer el inglés y el español, entender dos sistemas, dos formas de vida — te hace capaz de construir puentes de forma única. México necesita jóvenes como tú.</span>
+      </p>
+      <div style="margin-top: var(--space-8); display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-primary">
+          <span class="en-text">← Back to First Steps</span>
+          <span class="es-text">← Volver a Primeros Pasos</span>
+        </a>
+        <a href="work.html" class="btn btn-outline" style="border-color: rgba(253,232,204,.3); color: var(--color-amber-light);">
+          <span class="en-text">Explore Work & Business</span>
+          <span class="es-text">Explorar Trabajo y Negocio</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><span class="en-text">🦋 Mexico Relocation Guide</span><span class="es-text">🦋 Guía de Reubicación en México</span></div>
+      <p class="footer-tagline"><span class="en-text">A free bilingual resource for people returning to Mexico.</span><span class="es-text">Un recurso bilingüe gratuito para personas que regresan a México.</span></p>
+    </div>
+    <div>
+      <p class="footer-heading"><span class="en-text">Pages</span><span class="es-text">Páginas</span></p>
+      <div class="footer-links">
+        <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+        <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo y Negocio</span></a>
+        <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Para Jóvenes</span></a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-heading"><span class="en-text">History Resources</span><span class="es-text">Recursos de Historia</span></p>
+      <div class="footer-links">
+        <a href="https://inah.gob.mx" target="_blank" rel="noopener">INAH (Archaeology)</a>
+        <a href="https://www.gob.mx/sep" target="_blank" rel="noopener">SEP (Education)</a>
+        <a href="https://cdi.gob.mx" target="_blank" rel="noopener"><span class="en-text">Indigenous Peoples</span><span class="es-text">Pueblos Indígenas</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span><span class="en-text">Free resource. Not affiliated with any government agency.</span><span class="es-text">Recurso gratuito. Sin afiliación a ninguna dependencia gubernamental.</span></span>
+    <span>🦋</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
