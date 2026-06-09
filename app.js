@@ -450,3 +450,140 @@
     }
   });
 })();
+
+/* ============================================================
+   JUST ARRIVED — EMERGENCY MODE
+   ============================================================ */
+(function () {
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn     = document.getElementById('ja-trigger-btn');
+    var overlay = document.getElementById('ja-modal-overlay');
+    var closeBtn = document.getElementById('ja-modal-close');
+    var guideBtn = document.getElementById('ja-full-guide-btn');
+
+    if (!btn || !overlay) return;
+
+    /* ---- Hide button when get-involved section is visible ---- */
+    var getInvolved = document.getElementById('get-involved');
+    function checkVisibility() {
+      if (!getInvolved) return;
+      var rect = getInvolved.getBoundingClientRect();
+      var inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView) {
+        btn.classList.add('ja-hidden');
+      } else {
+        btn.classList.remove('ja-hidden');
+      }
+    }
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    checkVisibility();
+
+    /* ---- Open modal ---- */
+    btn.addEventListener('click', function () {
+      overlay.classList.add('ja-open');
+      document.body.style.overflow = 'hidden';
+      overlay.focus();
+    });
+
+    /* ---- Close helpers ---- */
+    function closeModal() {
+      overlay.classList.remove('ja-open');
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (guideBtn) guideBtn.addEventListener('click', closeModal);
+
+    /* Close on Escape key */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('ja-open')) {
+        closeModal();
+      }
+    });
+
+    /* Keep modal language in sync with the page lang toggle */
+    var langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      langToggle.addEventListener('click', function () {
+        /* CSS handles visibility via body.lang-es — nothing extra needed */
+      });
+    }
+  });
+})();
+
+/* ========================================================
+   PRINT / SAVE AS PDF BUTTONS
+   ======================================================== */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.print-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var section = btn.closest('section');
+        if (!section) return;
+        section.classList.add('printing');
+        window.print();
+        // Remove class after print dialog closes
+        if (window.onafterprint !== undefined) {
+          var handler = function () {
+            section.classList.remove('printing');
+            window.removeEventListener('afterprint', handler);
+          };
+          window.addEventListener('afterprint', handler);
+        } else {
+          // Fallback for browsers without onafterprint
+          setTimeout(function () {
+            section.classList.remove('printing');
+          }, 2000);
+        }
+      });
+    });
+  });
+})();
+
+/* ========================================================
+   WHATSAPP SHARE BUTTONS
+   ======================================================== */
+(function () {
+  var WA_MESSAGES = {
+    'index': {
+      en: 'I found this free guide for people relocating to Mexico \u2014 practical advice on documents, housing, and first steps: https://semillasmonarca.com',
+      es: 'Encontr\u00e9 esta gu\u00eda gratuita para personas que regresan a M\u00e9xico \u2014 consejos pr\u00e1cticos sobre documentos, vivienda y primeros pasos: https://semillasmonarca.com'
+    },
+    'work': {
+      en: 'This free guide has job info and business ideas by Mexican state for people starting over: https://semillasmonarca.com/work.html',
+      es: 'Esta gu\u00eda gratuita tiene informaci\u00f3n de empleo e ideas de negocios por estado para personas que est\u00e1n empezando de nuevo: https://semillasmonarca.com/work.html'
+    },
+    'teens': {
+      en: 'This free guide helps teens and youth who have moved to Mexico \u2014 school system, history, how to make friends: https://semillasmonarca.com/teens.html',
+      es: 'Esta gu\u00eda gratuita ayuda a j\u00f3venes que se mudaron a M\u00e9xico \u2014 sistema escolar, historia, c\u00f3mo hacer amigos: https://semillasmonarca.com/teens.html'
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.getElementById('whatsapp-share-btn');
+    if (!btn) return;
+
+    var pageKey = btn.dataset.page || 'index';
+    var msgs = WA_MESSAGES[pageKey] || WA_MESSAGES['index'];
+
+    function updateWaLink() {
+      var isEs = document.body.classList.contains('lang-es');
+      var lang = isEs ? 'es' : 'en';
+      var labelEl = btn.querySelector('.wa-label');
+      if (labelEl) labelEl.textContent = isEs ? 'Compartir' : 'Share';
+      btn.href = 'https://wa.me/?text=' + encodeURIComponent(msgs[lang]);
+    }
+
+    updateWaLink();
+
+    // Keep in sync with language toggle
+    var langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      langToggle.addEventListener('click', function () {
+        setTimeout(updateWaLink, 50);
+      });
+    }
+  });
+})();

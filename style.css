@@ -1172,3 +1172,352 @@ body.lang-es .es-text { display: inline; }
   text-decoration: underline;
 }
 .engage-modal__skip:hover { color: rgba(253,232,204,.65); }
+
+/* ============================================================
+   JUST ARRIVED — EMERGENCY MODE
+   ============================================================ */
+
+/* --- Floating trigger button --- */
+.just-arrived-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 8000;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  background: linear-gradient(135deg, #E8680A 0%, #C04E00 100%);
+  color: #FDE8CC;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  padding: .75rem 1.4rem;
+  border-radius: 3rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(232, 104, 10, .55);
+  transition: transform .2s, box-shadow .2s;
+  animation: ja-pulse 2.6s ease-in-out infinite;
+  text-decoration: none;
+}
+.just-arrived-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 28px rgba(232, 104, 10, .7);
+  animation: none;
+}
+.just-arrived-btn.ja-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity .3s, transform .3s;
+}
+@keyframes ja-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(232,104,10,.55); transform: scale(1); }
+  50%       { box-shadow: 0 6px 32px rgba(232,104,10,.9); transform: scale(1.05); }
+}
+
+/* --- Full-screen modal overlay --- */
+.ja-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 8500;
+  background: #1A0E00;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+  transition: opacity .35s ease, transform .35s cubic-bezier(.25,.8,.25,1);
+}
+.ja-modal-overlay.ja-open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* --- Modal inner wrapper --- */
+.ja-modal-inner {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* --- Modal header --- */
+.ja-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.ja-modal-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: #E8680A;
+  margin: 0;
+  line-height: 1.2;
+}
+.ja-modal-close {
+  background: none;
+  border: 2px solid rgba(253,232,204,.25);
+  border-radius: 50%;
+  color: #FDE8CC;
+  font-size: 1.3rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color .2s, background .2s;
+}
+.ja-modal-close:hover {
+  background: rgba(253,232,204,.1);
+  border-color: rgba(253,232,204,.55);
+}
+
+/* --- Action cards --- */
+.ja-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 2rem;
+}
+.ja-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(232,104,10,.25);
+  border-radius: 1rem;
+  padding: 1.25rem 1.35rem;
+}
+.ja-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  margin-bottom: .65rem;
+}
+.ja-card-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #D4A017;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2rem;
+}
+.ja-card-titles {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+}
+.ja-card-title-en,
+.ja-card-title-es {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FDE8CC;
+  line-height: 1.25;
+  margin: 0;
+}
+.ja-card-body-en,
+.ja-card-body-es {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .92rem;
+  color: rgba(253,232,204,.78);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --- Phone numbers grid --- */
+.ja-phone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .65rem;
+  margin-top: .75rem;
+}
+.ja-phone-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(232,104,10,.18);
+  border: 1px solid rgba(232,104,10,.4);
+  border-radius: .75rem;
+  padding: .8rem .6rem;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+  color: inherit;
+}
+.ja-phone-link:hover {
+  background: rgba(232,104,10,.32);
+  transform: scale(1.03);
+}
+.ja-phone-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #E8680A;
+  line-height: 1.1;
+}
+.ja-phone-label-en,
+.ja-phone-label-es {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .75rem;
+  color: rgba(253,232,204,.65);
+  text-align: center;
+  line-height: 1.3;
+  margin-top: .2rem;
+}
+
+/* --- Modal footer --- */
+.ja-modal-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .85rem;
+  padding-top: .5rem;
+}
+.ja-full-guide-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #E8680A, #C04E00);
+  color: #FDE8CC;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: .9rem 2.2rem;
+  border-radius: 3rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(232,104,10,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.ja-full-guide-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,104,10,.55);
+}
+.ja-tap-note {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .78rem;
+  color: rgba(253,232,204,.45);
+  margin: 0;
+  text-align: center;
+}
+
+/* --- Bilingual visibility logic --- */
+/* Default: show EN, hide ES */
+.ja-modal-overlay .es-only  { display: none; }
+.ja-modal-overlay .en-only  { display: block; }
+/* When body has lang-es: flip */
+body.lang-es .ja-modal-overlay .es-only { display: block; }
+body.lang-es .ja-modal-overlay .en-only { display: none; }
+/* Phone label variants */
+.ja-modal-overlay .ja-phone-label-es { display: none; }
+.ja-modal-overlay .ja-phone-label-en { display: block; }
+body.lang-es .ja-modal-overlay .ja-phone-label-es { display: block; }
+body.lang-es .ja-modal-overlay .ja-phone-label-en { display: none; }
+/* Card title variants — use inline-block so italic works */
+.ja-card-title-en { display: block; }
+.ja-card-title-es { display: none; }
+body.lang-es .ja-card-title-en { display: none; }
+body.lang-es .ja-card-title-es { display: block; }
+.ja-card-body-en  { display: block; }
+.ja-card-body-es  { display: none; }
+body.lang-es .ja-card-body-en  { display: none; }
+body.lang-es .ja-card-body-es  { display: block; }
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .ja-phone-grid { grid-template-columns: 1fr 1fr; }
+  .ja-modal-title { font-size: 1.3rem; }
+  .ja-card-num { font-size: 1.75rem; }
+  .ja-card-title-en, .ja-card-title-es { font-size: 1.05rem; }
+  .just-arrived-btn { font-size: .85rem; padding: .65rem 1.1rem; bottom: 1rem; left: 1rem; }
+}
+
+/* ========================================================
+   PRINT BUTTON STYLES
+   ======================================================== */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .85rem;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--color-cream, #FDE8CC);
+  background: transparent;
+  border: 1.5px solid var(--color-amber, #D4A017);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: .5rem;
+}
+.print-btn:hover {
+  background: var(--color-amber, #D4A017);
+  color: #1a1209;
+}
+
+/* ========================================================
+   WHATSAPP FLOATING SHARE BUTTON
+   ======================================================== */
+.whatsapp-share {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 7500;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 3rem;
+  padding: .65rem 1.1rem .65rem .8rem;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: .85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(37,211,102,.45);
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.whatsapp-share:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 26px rgba(37,211,102,.55);
+  color: #fff;
+}
+.whatsapp-share svg {
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   PRINT STYLESHEET
+   ======================================================== */
+@media print {
+  /* Hide everything */
+  nav, .site-nav, .hero, footer, .site-footer, .floating-btn, .volunteer-banner,
+  .engage-overlay, .just-arrived-btn, .just-arrived-modal, .print-btn,
+  .whatsapp-share, .dark-toggle, #lang-toggle, #theme-toggle, #nav-hamburger { display: none !important; }
+
+  /* Show only the section being printed */
+  body { background: white !important; color: black !important; }
+  section { display: none !important; }
+  section.printing { display: block !important; }
+
+  /* Clean typography for print */
+  .card, .tile, .info-card {
+    break-inside: avoid;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .75em; color: #555; }
+  a[href^="#"]::after, a[href^="tel:"]::after { content: none; }
+}
