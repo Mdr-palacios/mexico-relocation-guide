@@ -178,21 +178,13 @@ export default function HelpUsGrowForm({ defaultLang = "en" }) {
 
   useEffect(() => {
     injectStylesOnce();
-    if (typeof window !== "undefined") {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved && STRINGS[saved]) {
-        setLang(saved);
-      } else if (typeof navigator !== "undefined" && navigator.language && navigator.language.toLowerCase().startsWith("es")) {
-        setLang("es");
-      }
+    if (typeof navigator !== "undefined" && navigator.language && navigator.language.toLowerCase().startsWith("es")) {
+      setLang("es");
     }
   }, []);
 
   function changeLang(next) {
     setLang(next);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    }
   }
 
   async function handleSubmit(e) {

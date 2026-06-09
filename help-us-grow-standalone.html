@@ -464,13 +464,12 @@
     }
   };
 
-  var KEY = "hug-lang";
-  var current = localStorage.getItem(KEY) || (navigator.language && navigator.language.toLowerCase().indexOf("es") === 0 ? "es" : "en");
+  var current = (navigator.language && navigator.language.toLowerCase().indexOf("es") === 0 ? "es" : "en");
 
   function applyLang(lang) {
     if (!STRINGS[lang]) lang = "en";
     current = lang;
-    localStorage.setItem(KEY, lang);
+    // lang stored in-memory only (current variable)
     document.documentElement.setAttribute("lang", lang);
     var dict = STRINGS[lang];
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
