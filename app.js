@@ -440,14 +440,7 @@
       btn.addEventListener('click', recordInteraction);
     });
 
-    // Keep modal language in sync if user toggles EN/ES
-    var langBtn = document.getElementById('lang-toggle');
-    if (langBtn) {
-      langBtn.addEventListener('click', function () {
-        var lang = document.body.classList.contains('lang-es') ? 'es' : 'en';
-        applyLangToModal(lang);
-      });
-    }
+    // Language sync for modal handled by CSS body.lang-es selectors
   });
 })();
 
@@ -504,12 +497,7 @@
     });
 
     /* Keep modal language in sync with the page lang toggle */
-    var langToggle = document.getElementById('lang-toggle');
-    if (langToggle) {
-      langToggle.addEventListener('click', function () {
-        /* CSS handles visibility via body.lang-es — nothing extra needed */
-      });
-    }
+    // CSS handles .en-text/.es-text via body.lang-es
   });
 })();
 
@@ -542,47 +530,28 @@
   });
 })();
 
-/* ========================================================
-   WHATSAPP SHARE BUTTONS
-   ======================================================== */
+/* ============================================================
+   WHATSAPP SHARE — inline buttons, language-aware
+   ============================================================ */
 (function () {
-  var WA_MESSAGES = {
-    'index': {
-      en: 'I found this free guide for people relocating to Mexico \u2014 practical advice on documents, housing, and first steps: https://semillasmonarca.com',
-      es: 'Encontr\u00e9 esta gu\u00eda gratuita para personas que regresan a M\u00e9xico \u2014 consejos pr\u00e1cticos sobre documentos, vivienda y primeros pasos: https://semillasmonarca.com'
-    },
-    'work': {
-      en: 'This free guide has job info and business ideas by Mexican state for people starting over: https://semillasmonarca.com/work.html',
-      es: 'Esta gu\u00eda gratuita tiene informaci\u00f3n de empleo e ideas de negocios por estado para personas que est\u00e1n empezando de nuevo: https://semillasmonarca.com/work.html'
-    },
-    'teens': {
-      en: 'This free guide helps teens and youth who have moved to Mexico \u2014 school system, history, how to make friends: https://semillasmonarca.com/teens.html',
-      es: 'Esta gu\u00eda gratuita ayuda a j\u00f3venes que se mudaron a M\u00e9xico \u2014 sistema escolar, historia, c\u00f3mo hacer amigos: https://semillasmonarca.com/teens.html'
-    }
-  };
-
   document.addEventListener('DOMContentLoaded', function () {
-    var btn = document.getElementById('whatsapp-share-btn');
-    if (!btn) return;
+    var btns = document.querySelectorAll('.wa-inline-btn');
+    if (!btns.length) return;
 
-    var pageKey = btn.dataset.page || 'index';
-    var msgs = WA_MESSAGES[pageKey] || WA_MESSAGES['index'];
-
-    function updateWaLink() {
+    function updateLinks() {
       var isEs = document.body.classList.contains('lang-es');
-      var lang = isEs ? 'es' : 'en';
-      var labelEl = btn.querySelector('.wa-label');
-      if (labelEl) labelEl.textContent = isEs ? 'Compartir' : 'Share';
-      btn.href = 'https://wa.me/?text=' + encodeURIComponent(msgs[lang]);
+      btns.forEach(function (btn) {
+        var url = isEs ? btn.dataset.es : btn.dataset.en;
+        if (url) btn.href = url;
+      });
     }
 
-    updateWaLink();
+    updateLinks();
 
-    // Keep in sync with language toggle
     var langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
       langToggle.addEventListener('click', function () {
-        setTimeout(updateWaLink, 50);
+        setTimeout(updateLinks, 50);
       });
     }
   });
