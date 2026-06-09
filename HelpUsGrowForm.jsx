@@ -32,7 +32,7 @@ const STRINGS = {
     skillsQ: "What skills or support can you offer?",
     skillsSub: "Select all that apply.",
     consentQ: "Email updates consent",
-    consentSub: "Are you OK with receiving email updates from <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer">Maria del Rosario Palacios</a> (Palacios Contigo, LLC) about this website, related projects, and ways to get involved?",
+    consentSub: "Are you OK with receiving email updates from <a href='https://www.linkedin.com/in/mdrpalacios/' target='_blank' rel='noopener noreferrer'>Maria del Rosario Palacios</a> about this website, related projects, and ways to get involved?",
     consentYes: "✅ Yes, send me updates",
     consentNo: "No, I prefer not to receive emails",
     messageQ: "Any message or questions? (optional)",
@@ -54,7 +54,7 @@ const STRINGS = {
     skillsQ: "¿Qué habilidades o apoyo puedes ofrecer?",
     skillsSub: "Selecciona todas las que apliquen.",
     consentQ: "Consentimiento de correos",
-    consentSub: "¿Aceptas recibir correos de <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer">Maria del Rosario Palacios</a> (Palacios Contigo, LLC) sobre este sitio, proyectos relacionados y formas de involucrarte?",
+    consentSub: "¿Aceptas recibir correos de <a href='https://www.linkedin.com/in/mdrpalacios/' target='_blank' rel='noopener noreferrer'>Maria del Rosario Palacios</a> sobre este sitio, proyectos relacionados y formas de involucrarte?",
     consentYes: "✅ Sí, envíenme actualizaciones",
     consentNo: "No, prefiero no recibir correos",
     messageQ: "¿Algún mensaje o pregunta? (opcional)",
@@ -311,7 +311,7 @@ export default function HelpUsGrowForm({ defaultLang = "en" }) {
             <span className="hug-q">
               {t.consentQ}<span className="hug-req">*</span>
             </span>
-            <span className="hug-help">{t.consentSub}</span>
+            <span className="hug-help" dangerouslySetInnerHTML={{ __html: t.consentSub }} />
             <label>
               <input type="radio" name="q9_q9_radio7" value="Yes, send me updates" required />
               <span>{t.consentYes}</span>
