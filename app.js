@@ -309,3 +309,144 @@
   });
 
 })();
+
+/* ============================================================
+   ENGAGEMENT POP-UP
+   Triggers after 3 meaningful interactions (accordion opens,
+   state selector changes, link clicks inside content cards).
+   Dismissed state is stored in-memory for the session.
+   ============================================================ */
+(function () {
+  var TRIGGER_THRESHOLD = 3;
+  var interactionCount = 0;
+  var dismissed = false;
+
+  // --- Build the modal HTML and inject into body ---
+  function buildModal() {
+    var el = document.createElement('div');
+    el.id = 'engage-overlay';
+    el.className = 'engage-overlay';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-modal', 'true');
+    el.setAttribute('aria-labelledby', 'engage-title');
+    el.innerHTML = [
+      '<div class="engage-modal">',
+      '  <button class="engage-modal__close" id="engage-close" aria-label="Close">✕</button>',
+      '  <span class="engage-modal__butterfly" aria-hidden="true">🦋</span>',
+      '  <p class="engage-modal__eyebrow">',
+      '    <span class="en-text">This site is community-built</span>',
+      '    <span class="es-text">Este sitio es de la comunidad</span>',
+      '  </p>',
+      '  <h2 class="engage-modal__title" id="engage-title">',
+      '    <span class="en-text">Help us <em>keep this resource alive.</em></span>',
+      '    <span class="es-text">Ayúdanos a <em>mantener vivo este recurso.</em></span>',
+      '  </h2>',
+      '  <p class="engage-modal__body">',
+      '    <span class="en-text">You\'re exploring this guide — that means it matters to you. We\'re volunteer-led and need translators, designers, researchers, and supporters to grow. It takes 2 minutes to sign up.</span>',
+      '    <span class="es-text">Estás explorando esta guía — eso significa que te importa. Somos voluntarios y necesitamos traductores, diseñadores, investigadores y personas de apoyo para crecer. Registrarte toma 2 minutos.</span>',
+      '  </p>',
+      '  <a href="#get-involved" class="engage-modal__cta" id="engage-cta">',
+      '    <span class="en-text">Support this volunteer-led work 🦋</span>',
+      '    <span class="es-text">Apoya este trabajo voluntario 🦋</span>',
+      '  </a>',
+      '  <button class="engage-modal__skip" id="engage-skip">',
+      '    <span class="en-text">Maybe later</span>',
+      '    <span class="es-text">Quizás después</span>',
+      '  </button>',
+      '</div>'
+    ].join('\n');
+    document.body.appendChild(el);
+
+    // Apply current language state
+    var lang = document.body.classList.contains('lang-es') ? 'es' : 'en';
+    applyLangToModal(lang);
+
+    // Wire close/skip/cta
+    document.getElementById('engage-close').addEventListener('click', closeModal);
+    document.getElementById('engage-skip').addEventListener('click', closeModal);
+    document.getElementById('engage-cta').addEventListener('click', function () {
+      closeModal();
+      // Smooth scroll to #get-involved
+      var target = document.getElementById('get-involved');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Close on overlay click
+    el.addEventListener('click', function (e) {
+      if (e.target === el) closeModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+
+  function applyLangToModal(lang) {
+    var modal = document.getElementById('engage-overlay');
+    if (!modal) return;
+    var isEs = (lang === 'es');
+    modal.querySelectorAll('.en-text').forEach(function(el){ el.style.display = isEs ? 'none' : ''; });
+    modal.querySelectorAll('.es-text').forEach(function(el){ el.style.display = isEs ? '' : 'none'; });
+  }
+
+  function openModal() {
+    if (dismissed) return;
+    var overlay = document.getElementById('engage-overlay');
+    if (!overlay) buildModal();
+    overlay = document.getElementById('engage-overlay');
+    overlay.classList.add('is-open');
+    // Focus the CTA for accessibility
+    setTimeout(function() {
+      var cta = document.getElementById('engage-cta');
+      if (cta) cta.focus();
+    }, 300);
+  }
+
+  function closeModal() {
+    dismissed = true;
+    var overlay = document.getElementById('engage-overlay');
+    if (overlay) overlay.classList.remove('is-open');
+  }
+
+  function recordInteraction() {
+    if (dismissed) return;
+    interactionCount++;
+    if (interactionCount >= TRIGGER_THRESHOLD) {
+      // Small delay so the user sees their action complete first
+      setTimeout(openModal, 600);
+    }
+  }
+
+  // --- Observe meaningful interactions ---
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // 1. Accordion opens
+    document.querySelectorAll('.accordion-btn, .accordion-header, [data-accordion]').forEach(function (btn) {
+      btn.addEventListener('click', recordInteraction);
+    });
+
+    // 2. State selector changes (work.html)
+    var stateSelect = document.getElementById('state-select');
+    if (stateSelect) stateSelect.addEventListener('change', recordInteraction);
+
+    // 3. Clicks on resource links inside content tiles/cards
+    document.querySelectorAll('.tile a, .card a, .resource-link, .info-card a').forEach(function (a) {
+      a.addEventListener('click', recordInteraction);
+    });
+
+    // 4. Phrase table / language toggle presses (teens.html)
+    document.querySelectorAll('.phrase-tab, .lang-toggle-btn, #lang-toggle').forEach(function (btn) {
+      btn.addEventListener('click', recordInteraction);
+    });
+
+    // Keep modal language in sync if user toggles EN/ES
+    var langBtn = document.getElementById('lang-toggle');
+    if (langBtn) {
+      langBtn.addEventListener('click', function () {
+        var lang = document.body.classList.contains('lang-es') ? 'es' : 'en';
+        applyLangToModal(lang);
+      });
+    }
+  });
+})();

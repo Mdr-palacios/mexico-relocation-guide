@@ -1059,3 +1059,116 @@ body.lang-es .es-text { display: inline; }
 
 /* ---- Conditional show/hide ---- */
 .vf-conditional { transition: opacity 0.3s ease; }
+
+/* ============================================================
+   ENGAGEMENT POP-UP
+   Appears after 3 meaningful interactions (clicks/scrolls)
+   ============================================================ */
+.engage-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,14,0,.65);
+  backdrop-filter: blur(4px);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.engage-overlay.is-open {
+  display: flex;
+  animation: fadeIn .25s ease;
+}
+.engage-modal {
+  background: linear-gradient(145deg, #2D1E08 0%, #1A0E00 100%);
+  border: 1px solid rgba(232,104,10,.25);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem 2rem;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(232,104,10,.1);
+  text-align: center;
+  animation: slideUp .3s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.engage-modal__close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: rgba(255,255,255,.08);
+  border: none;
+  border-radius: 50%;
+  width: 2rem; height: 2rem;
+  cursor: pointer;
+  color: #FDE8CC;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.engage-modal__close:hover { background: rgba(255,255,255,.15); }
+.engage-modal__butterfly {
+  font-size: 3rem;
+  margin-bottom: .75rem;
+  display: block;
+  animation: floatButterfly 3s ease-in-out infinite;
+}
+.engage-modal__eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #E8680A;
+  margin-bottom: .5rem;
+}
+.engage-modal__title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: #FDE8CC;
+  margin-bottom: .75rem;
+  line-height: 1.2;
+}
+.engage-modal__title em { color: #D4A017; font-style: italic; }
+.engage-modal__body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .95rem;
+  color: rgba(253,232,204,.75);
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+.engage-modal__cta {
+  display: inline-block;
+  background: linear-gradient(135deg, #E8680A, #C04E00);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  padding: .85rem 2rem;
+  border-radius: 3rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(232,104,10,.4);
+}
+.engage-modal__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,104,10,.5);
+}
+.engage-modal__skip {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .8rem;
+  color: rgba(253,232,204,.4);
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+.engage-modal__skip:hover { color: rgba(253,232,204,.65); }

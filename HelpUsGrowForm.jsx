@@ -21,7 +21,7 @@ const STORAGE_KEY = "hug-lang";
 const STRINGS = {
   en: {
     eyebrow: "Help Us Grow This Resource",
-    title: "Join the team. Be part of the mission.",
+    title: "Support this volunteer-led work. Be part of the mission.",
     sub: "This site is free, community-built, and growing. If you have skills, connections, or resources to share, or want to help resource the work of supporting people relocating to Mexico, we want to hear from you.",
     firstName: "First Name",
     lastName: "Last Name",
@@ -36,7 +36,7 @@ const STRINGS = {
     consentYes: "✅ Yes, send me updates",
     consentNo: "No, I prefer not to receive emails",
     messageQ: "Any message or questions? (optional)",
-    submit: "Join the Team",
+    submit: "Support this volunteer-led work",
     privacy: "Your information is kept private and will only be used to coordinate this work.",
     successMsg: "Thank you for joining the team. We will be in touch soon.",
     errorMsg: "Something went wrong. Please try again, or email rosario@palacios.community directly."
