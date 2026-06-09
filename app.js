@@ -235,7 +235,7 @@
     } else clearErr('vf-zip-err');
 
     // Consent radio
-    const consent = form.querySelector('input[name="q10_emailConsent"]:checked');
+    const consent = form.querySelector('input[name="q9_q9_radio7"]:checked');
     if (!consent) {
       showErr('vf-consent-err', 'Please select an option.', 'Por favor selecciona una opción.');
       valid = false;
