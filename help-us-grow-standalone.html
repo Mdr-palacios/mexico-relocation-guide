@@ -1,0 +1,529 @@
+<!--
+  Help Us Grow This Resource: drop-in form (EN/ES toggle, Jotform backend).
+
+  How to use:
+    1. Drop this file into any static site or paste the <section> block
+       below into an existing page.
+    2. The form POSTs to Jotform form ID 261594475863067. Submissions land
+       in Rosario's Jotform account.
+    3. Language toggle persists in localStorage under "hug-lang".
+    4. No external dependencies; pure HTML + CSS + vanilla JS.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Help Us Grow This Resource</title>
+<style>
+  :root {
+    --bg-1: #f5f8ff;
+    --bg-2: #eef1fb;
+    --ink: #18223a;
+    --ink-soft: #4a546b;
+    --line: rgba(20, 30, 60, 0.12);
+    --card: rgba(255, 255, 255, 0.78);
+    --card-stroke: rgba(255, 255, 255, 0.55);
+    --accent: #2f6fed;
+    --accent-deep: #1a4bc2;
+    --butterfly: #f5b73a;
+    --error: #c2284a;
+    --radius: 14px;
+    --shadow: 0 14px 40px rgba(20, 30, 60, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-1: #0e152b;
+      --bg-2: #161e3b;
+      --ink: #eef2ff;
+      --ink-soft: #b5bdd6;
+      --line: rgba(255, 255, 255, 0.14);
+      --card: rgba(22, 30, 59, 0.7);
+      --card-stroke: rgba(255, 255, 255, 0.08);
+      --accent: #6ea4ff;
+      --accent-deep: #9bc0ff;
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter",
+                 system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1100px 600px at 10% -10%, #dde7ff 0%, transparent 60%),
+      radial-gradient(900px 500px at 110% 110%, #e9e1ff 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  .hug-shell {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  .hug-lang {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .hug-lang button {
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink-soft);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+  .hug-lang button[aria-pressed="true"] {
+    background: var(--accent);
+    color: #fff;
+    border-color: transparent;
+  }
+  .hug-card {
+    background: var(--card);
+    border: 1px solid var(--card-stroke);
+    border-radius: var(--radius);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow);
+    padding: 32px clamp(20px, 5vw, 44px);
+  }
+  .hug-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin: 0 0 10px;
+  }
+  .hug-card h1 {
+    font-size: clamp(26px, 3.2vw, 34px);
+    margin: 0 0 8px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .hug-card .hug-sub {
+    margin: 0 0 22px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .hug-intro {
+    background: rgba(47, 111, 237, 0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 0 0 26px;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+  .hug-field { margin: 0 0 18px; }
+  .hug-field label.hug-q {
+    display: block;
+    font-weight: 600;
+    font-size: 14.5px;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .hug-req { color: var(--error); margin-left: 2px; }
+  .hug-help {
+    display: block;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  .hug-field input[type="text"],
+  .hug-field input[type="email"],
+  .hug-field input[type="tel"],
+  .hug-field textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--ink);
+    font: inherit;
+    font-size: 15px;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  @media (prefers-color-scheme: dark) {
+    .hug-field input[type="text"],
+    .hug-field input[type="email"],
+    .hug-field input[type="tel"],
+    .hug-field textarea {
+      background: rgba(14, 21, 43, 0.55);
+    }
+  }
+  .hug-field input:focus,
+  .hug-field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.18);
+  }
+  .hug-field textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+  .hug-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 540px) {
+    .hug-row { grid-template-columns: 1fr; }
+  }
+  .hug-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+    margin-top: 4px;
+  }
+  @media (max-width: 540px) {
+    .hug-options { grid-template-columns: 1fr; }
+  }
+  .hug-options label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 11px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background .15s, border-color .15s;
+  }
+  @media (prefers-color-scheme: dark) {
+    .hug-options label { background: rgba(14, 21, 43, 0.45); }
+  }
+  .hug-options label:hover { border-color: var(--accent); }
+  .hug-options input { margin-top: 3px; accent-color: var(--accent); }
+  .hug-consent label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    margin: 6px 0;
+    font-size: 14.5px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .hug-consent label { background: rgba(14, 21, 43, 0.45); }
+  }
+  .hug-consent input { margin-top: 3px; accent-color: var(--accent); }
+  .hug-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 26px;
+    font-weight: 700;
+    font-size: 15.5px;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(47, 111, 237, 0.35);
+    transition: transform .12s, box-shadow .12s;
+  }
+  .hug-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(47, 111, 237, 0.4); }
+  .hug-submit:disabled { opacity: 0.7; cursor: progress; }
+  .hug-foot {
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .hug-success, .hug-error {
+    display: none;
+    padding: 16px 18px;
+    border-radius: 12px;
+    margin: 14px 0 0;
+    font-size: 15px;
+  }
+  .hug-success {
+    background: rgba(36, 160, 96, 0.12);
+    color: #1d6f44;
+    border: 1px solid rgba(36, 160, 96, 0.3);
+  }
+  .hug-error {
+    background: rgba(194, 40, 74, 0.1);
+    color: var(--error);
+    border: 1px solid rgba(194, 40, 74, 0.3);
+  }
+  .hug-success.is-on, .hug-error.is-on { display: block; }
+  .hug-honey { position: absolute; left: -9999px; top: -9999px; }
+</style>
+</head>
+<body>
+<main class="hug-shell">
+
+  <div class="hug-lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="es" aria-pressed="false">ES</button>
+  </div>
+
+  <section class="hug-card" id="hug-form-card">
+    <p class="hug-eyebrow" data-i18n="eyebrow">Help Us Grow This Resource</p>
+    <h1 data-i18n="title">Join the team. Be part of the mission.</h1>
+    <p class="hug-sub" data-i18n="sub">This site is free, community-built, and growing. If you have skills, connections, or resources to share, or want to help resource the work of supporting people relocating to Mexico, we want to hear from you.</p>
+
+    <form id="hug-form"
+          action="https://submit.jotform.com/submit/261594475863067"
+          method="POST"
+          enctype="multipart/form-data"
+          novalidate>
+
+      <!-- Required Jotform hidden fields -->
+      <input type="hidden" name="formID" value="261594475863067" />
+      <input type="hidden" name="website" value="" class="hug-honey" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="simple_spc" value="261594475863067" />
+
+      <div class="hug-row">
+        <div class="hug-field">
+          <label class="hug-q" for="hug-first">
+            <span data-i18n="firstName">First Name</span><span class="hug-req">*</span>
+          </label>
+          <input id="hug-first" name="q2_q2_textbox0" type="text" required autocomplete="given-name" />
+        </div>
+        <div class="hug-field">
+          <label class="hug-q" for="hug-last">
+            <span data-i18n="lastName">Last Name</span><span class="hug-req">*</span>
+          </label>
+          <input id="hug-last" name="q3_q3_textbox1" type="text" required autocomplete="family-name" />
+        </div>
+      </div>
+
+      <div class="hug-row">
+        <div class="hug-field">
+          <label class="hug-q" for="hug-email">
+            <span data-i18n="email">Email Address</span><span class="hug-req">*</span>
+          </label>
+          <input id="hug-email" name="q4_q4_email2" type="email" required autocomplete="email" />
+        </div>
+        <div class="hug-field">
+          <label class="hug-q" for="hug-zip">
+            <span data-i18n="zip">ZIP / Postal Code</span><span class="hug-req">*</span>
+          </label>
+          <input id="hug-zip" name="q5_q5_textbox3" type="text" required autocomplete="postal-code" />
+        </div>
+      </div>
+
+      <div class="hug-field">
+        <label class="hug-q" for="hug-phone">
+          <span data-i18n="phone">Phone Number (optional)</span>
+        </label>
+        <input id="hug-phone" name="q6_q6_phone4[full]" type="tel" autocomplete="tel" />
+      </div>
+
+      <div class="hug-field">
+        <label class="hug-q" data-i18n="areasQ">Which area(s) would you like to help with?</label>
+        <div class="hug-options" role="group" aria-label="Help areas">
+          <label><input type="checkbox" name="q7_q7_checkbox5[]" value="First Steps & Resources" /> <span><span data-i18n="area1">🏠 First Steps & Resources</span></span></label>
+          <label><input type="checkbox" name="q7_q7_checkbox5[]" value="Work & Entrepreneurship" /> <span><span data-i18n="area2">💼 Work & Entrepreneurship</span></span></label>
+          <label><input type="checkbox" name="q7_q7_checkbox5[]" value="Teens & Youth" /> <span><span data-i18n="area3">🌱 Teens & Youth</span></span></label>
+          <label><input type="checkbox" name="q7_q7_checkbox5[]" value="All areas" /> <span><span data-i18n="area4">🦋 All areas</span></span></label>
+        </div>
+      </div>
+
+      <div class="hug-field">
+        <label class="hug-q" data-i18n="skillsQ">What skills or support can you offer?</label>
+        <span class="hug-help" data-i18n="skillsSub">Select all that apply.</span>
+        <div class="hug-options" role="group" aria-label="Skills offered">
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Digital organizing" /> <span><span data-i18n="skill1">📣 Digital organizing</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Graphic design" /> <span><span data-i18n="skill2">🎨 Graphic design</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Translation: Spanish to English" /> <span><span data-i18n="skill3">🌐 Translation: Spanish to English</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Translation: Spanish to Indigenous language" /> <span><span data-i18n="skill4">🪶 Translation: Spanish to Indigenous language</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Video production or editing" /> <span><span data-i18n="skill5">🎬 Video production or editing</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Web development" /> <span><span data-i18n="skill6">💻 Web development</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Content writing or research" /> <span><span data-i18n="skill7">✍️ Content writing or research</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Social media" /> <span><span data-i18n="skill8">📱 Social media</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Partner as an organization" /> <span><span data-i18n="skill9">🤝 Partner as an organization</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Financial support or fundraising" /> <span><span data-i18n="skill10">💛 Financial support or fundraising</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Community outreach" /> <span><span data-i18n="skill11">🏘️ Community outreach</span></span></label>
+          <label><input type="checkbox" name="q8_q8_checkbox6[]" value="Other" /> <span><span data-i18n="skill12">💬 Other</span></span></label>
+        </div>
+      </div>
+
+      <div class="hug-field hug-consent">
+        <label class="hug-q">
+          <span data-i18n="consentQ">Email updates consent</span><span class="hug-req">*</span>
+        </label>
+        <span class="hug-help" data-i18n="consentSub">Are you OK with receiving email updates from Rosario Palacios (Palacios Contigo, LLC) about this website, related projects, and ways to get involved?</span>
+        <label><input type="radio" name="q9_q9_radio7" value="Yes, send me updates" required /> <span data-i18n="consentYes">✅ Yes, send me updates</span></label>
+        <label><input type="radio" name="q9_q9_radio7" value="No, I prefer not to receive emails" /> <span data-i18n="consentNo">No, I prefer not to receive emails</span></label>
+      </div>
+
+      <div class="hug-field">
+        <label class="hug-q" for="hug-msg" data-i18n="messageQ">Any message or questions? (optional)</label>
+        <textarea id="hug-msg" name="q10_q10_textarea8"></textarea>
+      </div>
+
+      <button class="hug-submit" type="submit">
+        <span data-i18n="submit">Join the Team</span>
+        <span aria-hidden="true">🦋</span>
+      </button>
+      <p class="hug-foot" data-i18n="privacy">Your information is kept private and will only be used to coordinate this work.</p>
+
+      <div class="hug-success" id="hug-success" role="status" aria-live="polite" data-i18n="successMsg">
+        Thank you for joining the team. We will be in touch soon.
+      </div>
+      <div class="hug-error" id="hug-error" role="alert" data-i18n="errorMsg">
+        Something went wrong. Please try again, or email rosario@palacios.community directly.
+      </div>
+    </form>
+  </section>
+</main>
+
+<script>
+(function () {
+  var STRINGS = {
+    en: {
+      eyebrow: "Help Us Grow This Resource",
+      title: "Join the team. Be part of the mission.",
+      sub: "This site is free, community-built, and growing. If you have skills, connections, or resources to share, or want to help resource the work of supporting people relocating to Mexico, we want to hear from you.",
+      firstName: "First Name",
+      lastName: "Last Name",
+      email: "Email Address",
+      zip: "ZIP / Postal Code",
+      phone: "Phone Number (optional)",
+      areasQ: "Which area(s) would you like to help with?",
+      area1: "🏠 First Steps & Resources",
+      area2: "💼 Work & Entrepreneurship",
+      area3: "🌱 Teens & Youth",
+      area4: "🦋 All areas",
+      skillsQ: "What skills or support can you offer?",
+      skillsSub: "Select all that apply.",
+      skill1: "📣 Digital organizing",
+      skill2: "🎨 Graphic design",
+      skill3: "🌐 Translation: Spanish ↔ English",
+      skill4: "🪶 Translation: Spanish ↔ Indigenous language",
+      skill5: "🎬 Video production or editing",
+      skill6: "💻 Web development",
+      skill7: "✍️ Content writing or research",
+      skill8: "📱 Social media",
+      skill9: "🤝 Partner as an organization",
+      skill10: "💛 Financial support or fundraising",
+      skill11: "🏘️ Community outreach",
+      skill12: "💬 Other",
+      consentQ: "Email updates consent",
+      consentSub: "Are you OK with receiving email updates from Rosario Palacios (Palacios Contigo, LLC) about this website, related projects, and ways to get involved?",
+      consentYes: "✅ Yes, send me updates",
+      consentNo: "No, I prefer not to receive emails",
+      messageQ: "Any message or questions? (optional)",
+      submit: "Join the Team",
+      privacy: "Your information is kept private and will only be used to coordinate this work.",
+      successMsg: "Thank you for joining the team. We will be in touch soon.",
+      errorMsg: "Something went wrong. Please try again, or email rosario@palacios.community directly."
+    },
+    es: {
+      eyebrow: "Ayúdanos a hacer crecer este recurso",
+      title: "Únete al equipo. Sé parte de la misión.",
+      sub: "Este sitio es gratuito, construido por la comunidad y en crecimiento. Si tienes habilidades, contactos o recursos para compartir, o quieres ayudar a financiar el trabajo de apoyo a personas que se reubican a México, queremos saber de ti.",
+      firstName: "Nombre",
+      lastName: "Apellido",
+      email: "Correo electrónico",
+      zip: "Código postal",
+      phone: "Teléfono (opcional)",
+      areasQ: "¿En qué área(s) te gustaría apoyar?",
+      area1: "🏠 Primeros pasos y recursos",
+      area2: "💼 Trabajo y emprendimiento",
+      area3: "🌱 Adolescentes y juventud",
+      area4: "🦋 Todas las áreas",
+      skillsQ: "¿Qué habilidades o apoyo puedes ofrecer?",
+      skillsSub: "Selecciona todas las que apliquen.",
+      skill1: "📣 Organización digital",
+      skill2: "🎨 Diseño gráfico",
+      skill3: "🌐 Traducción: español ↔ inglés",
+      skill4: "🪶 Traducción: español ↔ lengua indígena",
+      skill5: "🎬 Producción o edición de video",
+      skill6: "💻 Desarrollo web",
+      skill7: "✍️ Escritura de contenido o investigación",
+      skill8: "📱 Redes sociales",
+      skill9: "🤝 Aliarse como organización",
+      skill10: "💛 Apoyo financiero o recaudación",
+      skill11: "🏘️ Vinculación comunitaria",
+      skill12: "💬 Otro",
+      consentQ: "Consentimiento de correos",
+      consentSub: "¿Aceptas recibir correos de Rosario Palacios (Palacios Contigo, LLC) sobre este sitio, proyectos relacionados y formas de involucrarte?",
+      consentYes: "✅ Sí, envíenme actualizaciones",
+      consentNo: "No, prefiero no recibir correos",
+      messageQ: "¿Algún mensaje o pregunta? (opcional)",
+      submit: "Únete al equipo",
+      privacy: "Tu información se mantiene privada y se usará únicamente para coordinar este trabajo.",
+      successMsg: "Gracias por unirte al equipo. Pronto estaremos en contacto.",
+      errorMsg: "Algo salió mal. Inténtalo de nuevo o escribe directamente a rosario@palacios.community."
+    }
+  };
+
+  var KEY = "hug-lang";
+  var current = localStorage.getItem(KEY) || (navigator.language && navigator.language.toLowerCase().indexOf("es") === 0 ? "es" : "en");
+
+  function applyLang(lang) {
+    if (!STRINGS[lang]) lang = "en";
+    current = lang;
+    localStorage.setItem(KEY, lang);
+    document.documentElement.setAttribute("lang", lang);
+    var dict = STRINGS[lang];
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      if (dict[k] !== undefined) el.textContent = dict[k];
+    });
+    document.querySelectorAll(".hug-lang button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll(".hug-lang button").forEach(function (b) {
+    b.addEventListener("click", function () { applyLang(b.getAttribute("data-lang")); });
+  });
+
+  applyLang(current);
+
+  // Submit handler: POST in the background so the page stays put and we
+  // show inline success/error rather than redirecting to Jotform.
+  var form = document.getElementById("hug-form");
+  var ok = document.getElementById("hug-success");
+  var bad = document.getElementById("hug-error");
+  var btn = form.querySelector(".hug-submit");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    ok.classList.remove("is-on");
+    bad.classList.remove("is-on");
+
+    // Native validation pass
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    btn.disabled = true;
+    var data = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      mode: "no-cors"
+    }).then(function () {
+      ok.classList.add("is-on");
+      form.reset();
+      ok.scrollIntoView({ behavior: "smooth", block: "center" });
+    }).catch(function () {
+      bad.classList.add("is-on");
+    }).finally(function () {
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -249,24 +249,56 @@
     }
 
     // ── SUBMIT ──
-    // If connected to JotForm, the form will POST to the JotForm URL.
-    // For now (no backend), we show the success message immediately.
-    // When you add action="https://submit.jotform.com/submit/FORMID/",
-    // JotForm will handle the redirect to its thank-you page unless you
-    // use the iframe/AJAX embed method.
+    // If wired to JotForm (action contains submit.jotform.com), POST in
+    // the background so the user stays on the site and sees the bilingual
+    // success block. Otherwise, show the demo success state.
 
-    const actionUrl = form.getAttribute('action');
-    if (actionUrl && actionUrl !== '#') {
-      // Real JotForm POST — let it submit
-      form.submit();
-    } else {
-      // Demo: show success message
+    const actionUrl = form.getAttribute('action') || '';
+    const isJotform = /submit\.jotform\.com/i.test(actionUrl);
+
+    function showSuccess() {
       form.style.display = 'none';
       const success = document.getElementById('vf-success');
       if (success) {
         success.style.display = 'block';
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+    }
+
+    if (isJotform) {
+      // Roll the two conditional follow-up fields (which have no Jotform
+      // counterpart) into the message field so they are not lost.
+      const indig = form.querySelector('[name="_vf_indigLang"]');
+      const otherTxt = form.querySelector('[name="_vf_otherSkills"]');
+      const msg = form.querySelector('[name="q10_q10_textarea8"]');
+      const extras = [];
+      if (indig && indig.value.trim()) extras.push('Indigenous language: ' + indig.value.trim());
+      if (otherTxt && otherTxt.value.trim()) extras.push('Other skills: ' + otherTxt.value.trim());
+      if (extras.length && msg) {
+        const prefix = extras.join(' | ');
+        msg.value = msg.value ? (prefix + '\n\n' + msg.value) : prefix;
+      }
+      // Strip the local-only inputs so they are not POSTed.
+      if (indig) indig.disabled = true;
+      if (otherTxt) otherTxt.disabled = true;
+
+      const submitBtn = form.querySelector('.vf-submit-btn');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: new FormData(form),
+        mode: 'no-cors'
+      }).then(showSuccess).catch(function () {
+        // On error fall back to native submit (which redirects to Jotform's
+        // thank-you page) so the submission is not lost.
+        if (indig) indig.disabled = false;
+        if (otherTxt) otherTxt.disabled = false;
+        form.submit();
+      });
+    } else {
+      // Demo: show success message
+      showSuccess();
     }
   });
 
