@@ -1894,3 +1894,35 @@ body.dark-mode .wa-inline-btn:hover {
 .pricing-table th { background: rgba(232,104,10,.15); color: #E8680A; padding: .6rem .8rem; text-align: left; font-weight: 700; border-bottom: 2px solid rgba(232,104,10,.3); }
 .pricing-table td { padding: .6rem .8rem; border-bottom: 1px solid rgba(232,104,10,.1); color: var(--color-text); }
 .pricing-table tr:last-child td { border-bottom: none; }
+
+/* ============================================================
+   BLOG STYLES
+   ============================================================ */
+.blog-hero { padding: 5rem 1.5rem 3rem; text-align: center; }
+.blog-grid { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+.blog-featured-card { background: var(--color-surface); border-left: 5px solid #E8680A; border-radius: 1rem; padding: 2rem; margin-bottom: 2rem; transition: transform .2s, box-shadow .2s; }
+.blog-featured-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(232,104,10,.15); }
+.blog-category-tag { display: inline-block; background: rgba(232,104,10,.15); color: #E8680A; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .75rem; border-radius: 2rem; margin-bottom: .75rem; }
+.blog-post-title { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(1.4rem, 4vw, 2.2rem); color: var(--color-text); line-height: 1.2; margin: .5rem 0; }
+.blog-byline { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .82rem; color: var(--color-text-muted); margin-bottom: .75rem; }
+.blog-excerpt { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .95rem; color: var(--color-text-muted); line-height: 1.65; margin-bottom: 1rem; }
+.blog-read-more { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; font-weight: 700; color: #E8680A; text-decoration: none; }
+.blog-read-more:hover { text-decoration: underline; }
+.blog-coming-soon { text-align: center; padding: 2rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; color: var(--color-text-muted); border: 1px dashed rgba(232,104,10,.3); border-radius: .75rem; }
+
+/* Blog post page */
+.blog-post-wrap { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+.blog-post-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(232,104,10,.2); }
+.blog-post-header .blog-post-title { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+.reading-time { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; color: var(--color-text-muted); margin-top: .25rem; }
+.blog-post-body p { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; line-height: 1.8; color: var(--color-text); margin-bottom: 1.25rem; }
+.blog-pull-quote { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(1.15rem, 2.5vw, 1.4rem); color: #E8680A; border-left: 4px solid #E8680A; padding-left: 1.25rem; margin: 2rem 0 !important; line-height: 1.4; }
+.blog-post-cta { background: linear-gradient(135deg, rgba(232,104,10,.12), rgba(212,160,23,.08)); border: 1px solid rgba(232,104,10,.25); border-radius: 1rem; padding: 2rem; margin: 2.5rem 0; }
+.blog-post-cta h3 { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.3rem; color: var(--color-text); margin-bottom: 1rem; }
+.blog-post-cta ul { padding-left: 0; list-style: none; }
+.blog-post-cta ul li { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .95rem; color: var(--color-text); padding: .5rem 0; border-bottom: 1px solid rgba(232,104,10,.1); line-height: 1.6; }
+.blog-post-cta ul li:last-child { border-bottom: none; }
+.blog-post-cta a { color: #E8680A; font-weight: 700; }
+.blog-post-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 2rem; border-top: 1px solid rgba(232,104,10,.2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: .85rem; color: var(--color-text-muted); }
+.blog-back-link { color: #E8680A; font-weight: 600; text-decoration: none; }
+.blog-back-link:hover { text-decoration: underline; }
