@@ -1866,3 +1866,31 @@ body.dark-mode .wa-inline-btn:hover {
   background: #4ADE80;
   color: #1A0E00;
 }
+/* ============================================================
+   TOOLKIT PAGE — Social Media Toolkit
+   ============================================================ */
+
+/* Toolkit panel accordion */
+.toolkit-panel { border: 1px solid rgba(232,104,10,.2); border-radius: 1rem; margin-bottom: 1.5rem; overflow: hidden; }
+.toolkit-panel-header { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(232,104,10,.12), rgba(212,160,23,.08)); cursor: pointer; user-select: none; border: none; width: 100%; text-align: left; }
+.toolkit-panel-header:hover { background: linear-gradient(135deg, rgba(232,104,10,.2), rgba(212,160,23,.14)); }
+.toolkit-panel-emoji { font-size: 2.5rem; }
+.toolkit-panel-info { flex: 1; }
+.toolkit-panel-title { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(1.2rem, 3vw, 1.6rem); color: var(--color-text); margin: 0 0 .25rem; }
+.toolkit-panel-desc { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; color: var(--color-text-muted); margin: 0; }
+.toolkit-chevron { font-size: 1.2rem; color: #E8680A; transition: transform .3s ease; flex-shrink: 0; }
+.toolkit-panel.toolkit-open .toolkit-chevron { transform: rotate(180deg); }
+.toolkit-panel-body { display: none; padding: 0 1.5rem 1.5rem; }
+.toolkit-panel.toolkit-open .toolkit-panel-body { display: block; }
+.toolkit-subsection { margin-bottom: 2rem; }
+.toolkit-subsection h3 { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.15rem; color: #E8680A; margin-bottom: .75rem; }
+.bio-template { background: #2D1E08; border-left: 4px solid #E8680A; border-radius: .5rem; padding: 1rem 1.25rem; font-family: 'Plus Jakarta Sans', monospace; font-size: .88rem; color: #FDE8CC; white-space: pre-wrap; margin: .75rem 0 1rem; position: relative; }
+.bio-copy-btn { position: absolute; top: .5rem; right: .5rem; background: rgba(232,104,10,.2); border: 1px solid rgba(232,104,10,.4); border-radius: .4rem; color: #E8680A; font-size: .75rem; padding: .25rem .6rem; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; }
+.bio-copy-btn:hover { background: rgba(232,104,10,.35); }
+.toolkit-checklist { list-style: none; padding: 0; margin: .75rem 0; }
+.toolkit-checklist li { display: flex; align-items: flex-start; gap: .75rem; padding: .5rem 0; border-bottom: 1px solid rgba(232,104,10,.1); font-family: 'Plus Jakarta Sans', sans-serif; font-size: .92rem; }
+.toolkit-checklist li::before { content: '○'; color: #E8680A; font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+.pricing-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; }
+.pricing-table th { background: rgba(232,104,10,.15); color: #E8680A; padding: .6rem .8rem; text-align: left; font-weight: 700; border-bottom: 2px solid rgba(232,104,10,.3); }
+.pricing-table td { padding: .6rem .8rem; border-bottom: 1px solid rgba(232,104,10,.1); color: var(--color-text); }
+.pricing-table tr:last-child td { border-bottom: none; }
