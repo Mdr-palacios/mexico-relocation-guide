@@ -652,14 +652,7 @@
       }
     });
 
-    // ---- Keep bilingual text in sync with lang toggle ----
-    var langToggle = document.getElementById('lang-toggle');
-    if (langToggle) {
-      langToggle.addEventListener('click', function () {
-        // CSS handles .en-text / .es-text visibility via body.lang-es
-        // No extra JS needed — just re-render pill label if needed
-      });
-    }
+    // Lang toggle: CSS handles visibility via body.lang-es
 
     // Initialise
     updateProgress();

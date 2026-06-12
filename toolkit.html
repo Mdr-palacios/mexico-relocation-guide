@@ -960,7 +960,7 @@ function showCopied(btnEl) {
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('./sw.js', { scope: './' })
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
         .catch(function(e) { console.log('SW registration skipped:', e); });
     });
   }
