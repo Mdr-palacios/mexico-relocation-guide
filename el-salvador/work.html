@@ -38,6 +38,40 @@
   }
   .dept-note strong { color: #1B4F8A; }
   [data-theme="dark"] .dept-note strong { color: #6FA3D8; }
+
+  .sv-hero-bg {
+    background:
+      radial-gradient(ellipse 80%% 60%% at 70%% 30%%, rgba(27,79,138,.18) 0%%, transparent 60%%),
+      radial-gradient(ellipse 60%% 80%% at 20%% 80%%, rgba(74,144,217,.14) 0%%, transparent 55%%),
+      var(--color-cream) !important;
+  }
+  [data-theme="dark"] .sv-hero-bg {
+    background:
+      radial-gradient(ellipse 80%% 60%% at 70%% 30%%, rgba(27,79,138,.28) 0%%, transparent 60%%),
+      radial-gradient(ellipse 60%% 80%% at 20%% 80%%, rgba(74,144,217,.2) 0%%, transparent 55%%),
+      #110900 !important;
+  }
+  .btn-sv { background: #1B4F8A; color: #fff; box-shadow: 0 4px 16px rgba(27,79,138,.3); }
+  .btn-sv:hover { background: #163d6d; transform: translateY(-2px); }
+  .btn-outline-sv { border: 2px solid #1B4F8A; color: #1B4F8A; background: transparent; }
+  .btn-outline-sv:hover { background: rgba(27,79,138,.08); }
+  [data-theme="dark"] .btn-outline-sv { color: #6FA3D8; border-color: #6FA3D8; }
+
+
+  .print-btn { background: #1B4F8A !important; }
+  .print-btn:hover { background: #163d6d !important; }
+
+
+  /* SV blue overrides for amber UI elements */
+  .just-arrived-btn { background: #1B4F8A !important; box-shadow: 0 0 0 0 rgba(27,79,138,.7) !important; }
+  .just-arrived-btn:hover { background: #163d6d !important; }
+  @keyframes pulse-sv { 0%,100% { box-shadow: 0 0 0 0 rgba(27,79,138,.7); } 50% { box-shadow: 0 0 0 10px rgba(27,79,138,0); } }
+  .just-arrived-btn { animation: pulse-sv 2s infinite !important; }
+  .progress-bar-fill { background: linear-gradient(90deg, #1B4F8A, #4A90D9) !important; }
+  .milestone.completed .milestone-dot { background: #1B4F8A !important; border-color: #1B4F8A !important; }
+  .milestone.completed .milestone-label { color: #1B4F8A !important; }
+  [data-theme="dark"] .milestone.completed .milestone-dot { background: #6FA3D8 !important; border-color: #6FA3D8 !important; }
+
 </style>
 </head>
 <body>
@@ -89,6 +123,14 @@
         <span class="en-text">✍️ Blog</span>
         <span class="es-text">✍️ Blog</span>
       </a>
+      <a href="../guatemala/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇬🇹 Guatemala Guide</span>
+        <span class="es-text">🇬🇹 Guía Guatemala</span>
+      </a>
+      <a href="../honduras/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇭🇳 Honduras Guide</span>
+        <span class="es-text">🇭🇳 Guía Honduras</span>
+      </a>
     </div>
     <div class="nav-right">
       <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
@@ -110,12 +152,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg sv-hero-bg"></div>
   <div class="hero-wing">
     <svg style="position:absolute;right:-60px;top:-40px;width:400px;height:400px;opacity:.07;" viewBox="0 0 200 200" fill="none">
-      <ellipse cx="60" cy="80" rx="55" ry="75" fill="#E8680A" transform="rotate(-15 60 80)"/>
-      <ellipse cx="140" cy="80" rx="55" ry="75" fill="#D4A017" transform="rotate(15 140 80)"/>
-      <ellipse cx="55" cy="155" rx="35" ry="42" fill="#C04E00" transform="rotate(-20 55 155)"/>
+      <ellipse cx="60" cy="80" rx="55" ry="75" fill="#1B4F8A" transform="rotate(-15 60 80)"/>
+      <ellipse cx="140" cy="80" rx="55" ry="75" fill="#4A90D9" transform="rotate(15 140 80)"/>
+      <ellipse cx="55" cy="155" rx="35" ry="42" fill="#1B4F8A" transform="rotate(-20 55 155)"/>
       <ellipse cx="145" cy="155" rx="35" ry="42" fill="#C05A00" transform="rotate(20 145 155)"/>
     </svg>
   </div>
@@ -133,11 +175,11 @@
       <span class="es-text">Empleos, ideas de negocio y recursos por departamento — porque volver a empezar requiere un plan.</span>
     </p>
     <div class="hero-ctas">
-      <a href="#department-work" class="btn btn-primary">
+      <a href="#department-work" class="btn btn-sv">
         <span class="en-text">Explore by Department →</span>
         <span class="es-text">Explorar por Departamento →</span>
       </a>
-      <a href="#entrepreneurship" class="btn btn-outline">
+      <a href="#entrepreneurship" class="btn btn-outline-sv">
         <span class="en-text">Entrepreneurship Ideas</span>
         <span class="es-text">Ideas de Negocio</span>
       </a>
@@ -743,7 +785,7 @@
   </div>
 </footer>
 
-<script src="../app.js?v=1781276369"></script>
+<script src="../app.js?v=1781276400"></script>
 
 <script>
   // Department selector JS

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Honduras Work & Business — Semillas Monarca</title>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇭🇳</text></svg>"/>
+<meta name="theme-color" content="#003DA6"/>
+<style>
+  :root { --hn-blue: #003DA6; --hn-blue-mid: #1A5DC4; --hn-blue-light: #4A7FCC; }
+  em { color: var(--hn-blue); font-style: italic; }
+  [data-theme="dark"] em { color: var(--hn-blue-light); }
+  .section-label { color: var(--hn-blue) !important; }
+  [data-theme="dark"] .section-label { color: var(--hn-blue-light) !important; }
+  .btn-hn { background: var(--hn-blue); color: #fff; box-shadow: 0 4px 16px rgba(0,61,166,.3); }
+  .btn-hn:hover { background: #002d80; transform: translateY(-2px); }
+  .btn-outline-hn { border: 2px solid var(--hn-blue); color: var(--hn-blue); background: transparent; }
+  .btn-outline-hn:hover { background: rgba(0,61,166,.07); }
+  [data-theme="dark"] .btn-outline-hn { color: var(--hn-blue-light); border-color: var(--hn-blue-light); }
+  .print-btn { background: var(--hn-blue) !important; }
+  .hn-hero-bg {
+    background:
+      radial-gradient(ellipse 75% 65% at 75% 30%, rgba(0,61,166,.16) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 75% at 20% 75%, rgba(74,127,204,.13) 0%, transparent 55%),
+      var(--color-cream) !important;
+  }
+  [data-theme="dark"] .hn-hero-bg {
+    background:
+      radial-gradient(ellipse 75% 65% at 75% 30%, rgba(0,61,166,.28) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 75% at 20% 75%, rgba(74,127,204,.2) 0%, transparent 55%),
+      #060d1a !important;
+  }
+
+  .skills-table, .industry-table { width:100%; border-collapse:collapse; margin-top:var(--space-5); font-size:var(--text-sm); }
+  .skills-table th, .industry-table th { background:var(--hn-blue); color:#fff; padding:var(--space-2) var(--space-3); text-align:left; }
+  .skills-table td, .industry-table td { padding:var(--space-2) var(--space-3); border-bottom:1px solid var(--color-border); vertical-align:top; }
+  .skills-table tr:nth-child(even) td, .industry-table tr:nth-child(even) td { background:var(--color-surface); }
+
+  .sector-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--space-5); margin-top:var(--space-6); }
+  .sector-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-5) var(--space-6); border:1.5px solid var(--color-border); }
+  .sector-icon { font-size:2rem; margin-bottom:var(--space-2); }
+  .sector-card h4 { font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-2); }
+  .sector-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.65; }
+  .salary-badge { display:inline-block; background:var(--hn-blue); color:#fff; font-size:.7rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; margin-top:var(--space-2); }
+
+  .idea-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:var(--space-4); margin-top:var(--space-5); }
+  .idea-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-4) var(--space-5); border:1.5px solid var(--color-border); text-align:center; }
+  .idea-icon { font-size:2rem; margin-bottom:var(--space-2); }
+  .idea-card h4 { font-size:var(--text-sm); font-weight:700; margin-bottom:var(--space-1); }
+  .idea-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.55; }
+
+  .biz-steps { margin-top:var(--space-5); }
+  .biz-step { display:flex; gap:var(--space-4); padding:var(--space-4) 0; border-bottom:1px solid var(--color-border); }
+  .biz-step:last-child { border-bottom:none; }
+  .biz-num { min-width:2.5rem; height:2.5rem; background:var(--hn-blue); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:900; font-size:var(--text-base); flex-shrink:0; }
+  .biz-step h4 { font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-1); }
+  .biz-step p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.65; }
+
+  .loan-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:var(--space-4); margin-top:var(--space-5); }
+  .loan-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-4) var(--space-5); border-left:4px solid var(--hn-blue); }
+  .loan-card h4 { font-size:var(--text-base); font-weight:700; color:var(--hn-blue); margin-bottom:var(--space-2); }
+  [data-theme="dark"] .loan-card h4 { color: var(--hn-blue-light); }
+  .loan-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.6; }
+  .loan-card a { color:var(--hn-blue); font-weight:600; font-size:var(--text-sm); }
+  [data-theme="dark"] .loan-card a { color: var(--hn-blue-light); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="../mexico.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+      </svg>
+      <span class="nav-logo-text"><span class="en-text">Honduras Guide</span><span class="es-text">Guía Honduras</span></span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="../index.html" class="nav-link nav-country" role="listitem"><span class="en-text">🌎 Countries</span><span class="es-text">🌎 Países</span></a>
+      <a href="index.html" class="nav-link" role="listitem"><span class="en-text">🏠 First Steps</span><span class="es-text">🏠 Primeros Pasos</span></a>
+      <a href="work.html" class="nav-link active" role="listitem"><span class="en-text">💼 Work & Business</span><span class="es-text">💼 Trabajo y Negocio</span></a>
+      <a href="teens.html" class="nav-link" role="listitem"><span class="en-text">🎒 For Teens</span><span class="es-text">🎒 Para Jóvenes</span></a>
+      <a href="../el-salvador/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇸🇻 El Salvador Guide</span>
+        <span class="es-text">🇸🇻 Guía El Salvador</span>
+      </a>
+      <a href="../guatemala/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇬🇹 Guatemala Guide</span>
+        <span class="es-text">🇬🇹 Guía Guatemala</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language"><span id="lang-label">ES</span></button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg hn-hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow"><span class="en-text">Your Skills Travel With You</span><span class="es-text">Tus Habilidades Viajan Contigo</span></p>
+    <h1><span class="en-text">Work & <em>Business</em> in Honduras</span><span class="es-text">Trabajo y <em>Negocio</em> en Honduras</span></h1>
+    <p class="hero-subtitle">
+      <span class="en-text">San Pedro Sula is Central America's maquila capital. Tegucigalpa is the business and government hub. The Bay Islands need bilingual workers. Your U.S. experience — English, trades, discipline — is a genuine competitive edge.</span>
+      <span class="es-text">San Pedro Sula es la capital maquilera de Centroamérica. Tegucigalpa es el centro empresarial y gubernamental. Las Islas de la Bahía necesitan trabajadores bilingües. Tu experiencia en EE.UU. — inglés, oficios, disciplina — es una ventaja competitiva real.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#sectors" class="btn btn-hn"><span class="en-text">Explore Key Sectors →</span><span class="es-text">Explorar Sectores Clave →</span></a>
+      <a href="#start-business" class="btn btn-outline-hn"><span class="en-text">Start a Business</span><span class="es-text">Empieza un Negocio</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS TRANSFER -->
+<section id="skills" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="skills"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label"><span class="en-text">Your U.S. Experience Has Value</span><span class="es-text">Tu Experiencia en EE.UU. Tiene Valor</span></p>
+    <h2 class="section-title"><span class="en-text">Skills that <em>transfer directly</em></span><span class="es-text">Habilidades que <em>se transfieren directamente</em></span></h2>
+    <div style="overflow-x:auto;">
+    <table class="skills-table">
+      <thead><tr>
+        <th><span class="en-text">U.S. Skill / Experience</span><span class="es-text">Habilidad / Experiencia EE.UU.</span></th>
+        <th><span class="en-text">Honduras Opportunity</span><span class="es-text">Oportunidad en Honduras</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td><span class="en-text">English fluency</span><span class="es-text">Dominio del inglés</span></td><td><span class="en-text">Call center / BPO agent, Bay Islands tourism, bilingual school teacher — immediate hiring</span><span class="es-text">Agente de call center/BPO, turismo Islas de la Bahía, maestro de escuela bilingüe</span></td></tr>
+        <tr><td><span class="en-text">Construction trades</span><span class="es-text">Oficios de construcción</span></td><td><span class="en-text">Independent contractor; INFOP can certify your skills formally; high demand in SPS growth corridor</span><span class="es-text">Contratista independiente; INFOP puede certificar tus habilidades; alta demanda en corredor SPS</span></td></tr>
+        <tr><td><span class="en-text">Truck / heavy equipment</span><span class="es-text">Camión / equipo pesado</span></td><td><span class="en-text">Logistics, port operations (Puerto Cortés), and mining companies in Olancho</span><span class="es-text">Logística, operaciones portuarias (Puerto Cortés) y empresas mineras en Olancho</span></td></tr>
+        <tr><td><span class="en-text">Restaurant / food service</span><span class="es-text">Restaurante / servicios de comida</span></td><td><span class="en-text">Open a baleada stand, comedor, or catering business — lowest barrier to entry</span><span class="es-text">Abre un puesto de baleadas, comedor o servicio de catering — menor barrera de entrada</span></td></tr>
+        <tr><td><span class="en-text">Agriculture / farming</span><span class="es-text">Agricultura / campo</span></td><td><span class="en-text">Coffee cooperatives, palm oil companies, BANADESA agro-loans available for returnees</span><span class="es-text">Cooperativas cafetaleras, empresas de palma, préstamos agro de BANADESA para retornados</span></td></tr>
+        <tr><td><span class="en-text">Welding / fabrication</span><span class="es-text">Soldadura / fabricación</span></td><td><span class="en-text">Maquila sub-contractors, manufacturing workshops in Cortés department</span><span class="es-text">Subcontratistas de maquila, talleres de manufactura en el departamento de Cortés</span></td></tr>
+        <tr><td><span class="en-text">Customer service</span><span class="es-text">Servicio al cliente</span></td><td><span class="en-text">Maquila quality control, BPO team lead, hotel front desk (Bay Islands)</span><span class="es-text">Control de calidad en maquila, líder de equipo BPO, recepción de hotel (Islas de la Bahía)</span></td></tr>
+        <tr><td><span class="en-text">Mechanic / auto repair</span><span class="es-text">Mecánico / reparación automotriz</span></td><td><span class="en-text">Independent shop; SPS and TGU both have large vehicle fleets needing service</span><span class="es-text">Taller independiente; SPS y TGU tienen flotas grandes que necesitan servicio</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section id="sectors">
+  <div class="section-inner">
+    <button class="print-btn" data-section="sectors"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label"><span class="en-text">Where Are the Jobs?</span><span class="es-text">¿Dónde Están los Empleos?</span></p>
+    <h2 class="section-title"><span class="en-text">Industries where <em>returnees thrive</em></span><span class="es-text">Industrias donde los <em>retornados prosperan</em></span></h2>
+    <div class="sector-grid">
+      <div class="sector-card">
+        <div class="sector-icon">👕</div>
+        <h4><span class="en-text">Maquilas — Central America's Largest Hub</span><span class="es-text">Maquilas — El Mayor Hub de C.A.</span></h4>
+        <p><span class="en-text">San Pedro Sula's Valle de Sula is Central America's #1 maquila zone with over <strong>155,000 jobs</strong>. Major employers: TexHong (textile), Parkdale Mills, GK Global, Hanesbrands, Fruit of the Loom. Quality control, logistics, and machine operation roles open constantly. INFOP can certify your U.S. factory experience.</span><span class="es-text">El Valle de Sula de SPS es la zona maquilera #1 de C.A. con más de <strong>155,000 empleos</strong>. Empleadores principales: TexHong, Parkdale Mills, GK Global, Hanesbrands, Fruit of the Loom. Roles de calidad, logística y operación de máquinas abiertos constantemente.</span></p>
+        <span class="salary-badge">L7,500–L18,000+/mes</span>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">☕</div>
+        <h4><span class="en-text">Coffee & Agriculture</span><span class="es-text">Café y Agricultura</span></h4>
+        <p><span class="en-text">Honduras is Central America's largest coffee producer and a top-10 global exporter. Key departments: Santa Bárbara, Copán, Ocotepeque, La Paz, Comayagua. Banana and palm oil in Atlántida and Colón. Shrimp farming in the south (Choluteca). Farm supervisory and processing experience from the U.S. is highly valued.</span><span class="es-text">Honduras es el mayor productor de café de C.A. y exportador top-10 mundial. Departamentos clave: Santa Bárbara, Copán, Ocotepeque, La Paz, Comayagua. Banano y palma en Atlántida y Colón. Camarón en Choluteca.</span></p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏝️</div>
+        <h4><span class="en-text">Tourism — Bay Islands</span><span class="es-text">Turismo — Islas de la Bahía</span></h4>
+        <p><span class="en-text">Honduras attracts 2.7M tourists annually. The Bay Islands (Roatán, Utila, Guanaja) have world-class diving and are English-speaking islands. Bilingual returnees are extremely sought-after for dive instruction, hotel management, boat tours, and hospitality.</span><span class="es-text">Honduras atrae 2.7M turistas al año. Las Islas de la Bahía (Roatán, Utila, Guanaja) tienen buceo de clase mundial y son islas de habla inglesa. Los retornados bilingües son muy buscados para instrucción de buceo, gestión hotelera y hospitalidad.</span></p>
+        <span class="salary-badge"><span class="en-text">High demand for English speakers</span><span class="es-text">Alta demanda hablantes inglés</span></span>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">📞</div>
+        <h4><span class="en-text">Call Centers / BPO</span><span class="es-text">Call Centers / BPO</span></h4>
+        <p><span class="en-text">Growing sector in Tegucigalpa and SPS. Companies like Concentrix, Telus International, and Conduent hire heavily. English fluency from U.S. years — even intermediate — qualifies for most entry-level roles. Night shifts available for those adjusting schedules.</span><span class="es-text">Sector en crecimiento en Tegucigalpa y SPS. Concentrix, Telus International y Conduent contratan masivamente. Inglés de EE.UU. — incluso intermedio — califica para roles de entrada.</span></p>
+        <span class="salary-badge">L8,000–L20,000/mes</span>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">⛏️</div>
+        <h4><span class="en-text">Mining & Energy</span><span class="es-text">Minería y Energía</span></h4>
+        <p><span class="en-text">Honduras has gold, silver, zinc, and lead deposits, mainly in Olancho, Choluteca, and Francisco Morazán. Also growing solar and hydropower sector. Heavy equipment operators and tradespeople from the U.S. are directly employable.</span><span class="es-text">Honduras tiene depósitos de oro, plata, zinc y plomo, principalmente en Olancho, Choluteca y Francisco Morazán. También crece el sector de energía solar e hidroeléctrica.</span></p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">📚</div>
+        <h4><span class="en-text">English Teaching</span><span class="es-text">Enseñanza de Inglés</span></h4>
+        <p><span class="en-text">Private bilingual schools in Tegucigalpa and SPS pay L12,000–L25,000/month for native-level English speakers. Bay Islands schools pay in USD. Language institutes throughout Honduras hire continuously. No formal teaching degree required for most private institutes.</span><span class="es-text">Escuelas bilingües privadas en TGU y SPS pagan L12,000–L25,000/mes a hablantes nativos. Escuelas de Islas de la Bahía pagan en USD. Institutos de idiomas contratan continuamente.</span></p>
+        <span class="salary-badge">L12,000–L25,000/mes</span>
+      </div>
+    </div>
+
+    <!-- BY DEPARTMENT TABLE -->
+    <p class="section-label" style="margin-top:var(--space-10);"><span class="en-text">Regional Breakdown</span><span class="es-text">Desglose Regional</span></p>
+    <h2 class="section-title"><span class="en-text">Employers by <em>department</em></span><span class="es-text">Empleadores por <em>departamento</em></span></h2>
+    <div style="overflow-x:auto;">
+    <table class="industry-table">
+      <thead><tr>
+        <th><span class="en-text">Department</span><span class="es-text">Departamento</span></th>
+        <th><span class="en-text">Key Industries</span><span class="es-text">Industrias Clave</span></th>
+        <th><span class="en-text">Major Employers</span><span class="es-text">Empleadores Principales</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td><strong>Cortés (SPS)</strong></td><td><span class="en-text">Maquila, manufacturing, logistics, BPO</span><span class="es-text">Maquila, manufactura, logística, BPO</span></td><td><span class="en-text">TexHong, Hanesbrands, Fruit of the Loom, GK Global, Parkdale, Concentrix</span><span class="es-text">TexHong, Hanesbrands, Fruit of the Loom, GK Global, Parkdale, Concentrix</span></td></tr>
+        <tr><td><strong>Francisco Morazán (TGU)</strong></td><td><span class="en-text">Government, finance, BPO, construction</span><span class="es-text">Gobierno, finanzas, BPO, construcción</span></td><td><span class="en-text">Government agencies, Banco Ficohsa, BAC, Telus International, Conduent</span><span class="es-text">Agencias gubernamentales, Ficohsa, BAC, Telus, Conduent</span></td></tr>
+        <tr><td><strong>Islas de la Bahía</strong></td><td><span class="en-text">Tourism, diving, hospitality</span><span class="es-text">Turismo, buceo, hospitalidad</span></td><td><span class="en-text">Carnival Cruise (Roatán port), dive resorts, boutique hotels, tour operators</span><span class="es-text">Carnival Cruise (puerto Roatán), resorts de buceo, hoteles boutique, tours</span></td></tr>
+        <tr><td><strong>Atlántida (La Ceiba)</strong></td><td><span class="en-text">Bananas, tourism, palm oil, shipping</span><span class="es-text">Banano, turismo, palma aceitera, transporte marítimo</span></td><td><span class="en-text">Chiquita, Del Monte, Standard Fruit, Caribbean cruise tourism</span><span class="es-text">Chiquita, Del Monte, Standard Fruit, turismo cruceros Caribe</span></td></tr>
+        <tr><td><strong>Copán</strong></td><td><span class="en-text">Coffee, tourism (Copán Ruins), artisan crafts</span><span class="es-text">Café, turismo (Ruinas de Copán), artesanías</span></td><td><span class="en-text">Coffee cooperatives, IHCAFE, tourism businesses near the UNESCO ruins</span><span class="es-text">Cooperativas cafetaleras, IHCAFE, negocios turísticos en las ruinas UNESCO</span></td></tr>
+        <tr><td><strong>Choluteca / Valle</strong></td><td><span class="en-text">Shrimp farming, African palm, cattle</span><span class="es-text">Camaroneras, palma africana, ganadería</span></td><td><span class="en-text">Seajoy (shrimp), Hondupalma, large cattle ranches</span><span class="es-text">Seajoy (camarón), Hondupalma, grandes haciendas ganaderas</span></td></tr>
+        <tr><td><strong>Olancho</strong></td><td><span class="en-text">Timber, mining, cattle, agriculture</span><span class="es-text">Madera, minería, ganadería, agricultura</span></td><td><span class="en-text">Mining companies, logging operations, large-scale cattle</span><span class="es-text">Empresas mineras, operaciones madereras, ganadería a gran escala</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:var(--space-4);font-size:var(--text-sm);color:var(--color-text-muted);">
+      <span class="en-text">Job boards: <a href="https://hn.computrabajo.com" target="_blank" rel="noopener">Computrabajo HN</a> · <a href="https://www.tecoloco.com.hn" target="_blank" rel="noopener">Tecoloco HN</a> · <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener">LinkedIn Honduras</a> · <a href="https://www.stss.hn" target="_blank" rel="noopener">STSS (Labor Ministry)</a></span>
+      <span class="es-text">Bolsas de trabajo: <a href="https://hn.computrabajo.com" target="_blank" rel="noopener">Computrabajo HN</a> · <a href="https://www.tecoloco.com.hn" target="_blank" rel="noopener">Tecoloco HN</a> · <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener">LinkedIn Honduras</a> · <a href="https://www.stss.hn" target="_blank" rel="noopener">STSS</a></span>
+    </p>
+  </div>
+</section>
+
+<!-- ENTREPRENEURSHIP -->
+<section id="entrepreneurship" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label"><span class="en-text">Start Something of Your Own</span><span class="es-text">Empieza Algo Propio</span></p>
+    <h2 class="section-title"><span class="en-text">Business ideas for <em>returnees</em></span><span class="es-text">Ideas de negocio para <em>retornados</em></span></h2>
+    <div class="idea-grid">
+      <div class="idea-card"><div class="idea-icon">🫓</div><h4>Baleadas Stand</h4><p><span class="en-text">Honduras's national street food. Startup: L5,000–L15,000. Steady demand morning to midnight. Scale to a comedor or catering.</span><span class="es-text">La comida callejera nacional. Inicio: L5,000–L15,000. Demanda constante.</span></p></div>
+      <div class="idea-card"><div class="idea-icon">🛵</div><h4><span class="en-text">Delivery / Transport</span><span class="es-text">Delivery / Transporte</span></h4><p><span class="en-text">Motorcycle delivery service, mototaxi, or intercity shuttle. E-commerce growing fast.</span><span class="es-text">Servicio de mensajería en moto, mototaxi o shuttle. E-commerce en alza.</span></p></div>
+      <div class="idea-card"><div class="idea-icon">💻</div><h4><span class="en-text">Digital Services</span><span class="es-text">Servicios Digitales</span></h4><p><span class="en-text">Social media, web design, online tutoring, video editing. U.S. fluency in tech is a real edge.</span><span class="es-text">Redes sociales, diseño web, tutoría en línea, edición de video.</span></p></div>
+      <div class="idea-card"><div class="idea-icon">🌿</div><h4><span class="en-text">Specialty Coffee</span><span class="es-text">Café de Especialidad</span></h4><p><span class="en-text">Honduras produces world-class coffee. Buy direct from farmers, roast, and sell locally or export small batches.</span><span class="es-text">Honduras produce café de clase mundial. Compra directo a productores, tuesta y vende.</span></p></div>
+      <div class="idea-card"><div class="idea-icon">🏠</div><h4><span class="en-text">Home Services</span><span class="es-text">Servicios del Hogar</span></h4><p><span class="en-text">Plumbing, electrical, painting, AC repair — U.S. tradespeople can charge premium in urban areas.</span><span class="es-text">Plomería, electricidad, pintura, AC — los oficiales de EE.UU. cobran premium.</span></p></div>
+      <div class="idea-card"><div class="idea-icon">🏝️</div><h4><span class="en-text">Bay Islands Tour Guide</span><span class="es-text">Guía Turístico Islas</span></h4><p><span class="en-text">Bilingual boat tours, snorkel guides, cultural tours. License required; low startup cost.</span><span class="es-text">Tours en lancha, guía de snorkel, tours culturales. Licencia requerida; bajo costo.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS REGISTRATION -->
+<section id="start-business">
+  <div class="section-inner">
+    <button class="print-btn" data-section="start-business"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label"><span class="en-text">Make It Legal</span><span class="es-text">Hazlo Legal</span></p>
+    <h2 class="section-title"><span class="en-text">How to register a <em>business</em></span><span class="es-text">Cómo registrar un <em>negocio</em></span></h2>
+    <p class="section-subtitle">
+      <span class="en-text">Honduras's "Mi Empresa en Línea" platform lets you register a sole proprietor business entirely online in under an hour. Or do it in person at your local Cámara de Comercio.</span>
+      <span class="es-text">La plataforma "Mi Empresa en Línea" de Honduras permite registrar un negocio unipersonal completamente en línea en menos de una hora. O hazlo en persona en tu Cámara de Comercio local.</span>
+    </p>
+    <div class="biz-steps">
+      <div class="biz-step">
+        <div class="biz-num">1</div>
+        <div>
+          <h4><span class="en-text">Get DNI + RTN first</span><span class="es-text">Obtén DNI + RTN primero</span></h4>
+          <p><span class="en-text">Both are required before any business registration. RTN is free, same-day at any SAR office. See the First Steps page for details.</span><span class="es-text">Ambos se requieren antes del registro. El RTN es gratuito y el mismo día en cualquier oficina SAR.</span></p>
+        </div>
+      </div>
+      <div class="biz-step">
+        <div class="biz-num">2</div>
+        <div>
+          <h4><span class="en-text">Register online at Mi Empresa en Línea</span><span class="es-text">Regístrate en línea en Mi Empresa en Línea</span></h4>
+          <p><span class="en-text">Go to <a href="https://www.honducompras.gob.hn" target="_blank" rel="noopener">mempresaenlinea.gob.hn</a>. Upload DNI scan, fill business name and activity, pay registration fee online (~L500). Receive your business registration certificate digitally.</span><span class="es-text">Ve a <a href="https://www.honducompras.gob.hn" target="_blank" rel="noopener">mempresaenlinea.gob.hn</a>. Sube tu DNI, ingresa nombre y actividad del negocio, paga en línea (~L500). Recibe tu certificado digitalmente.</span></p>
+        </div>
+      </div>
+      <div class="biz-step">
+        <div class="biz-num">3</div>
+        <div>
+          <h4><span class="en-text">Register with SAR (tax authority)</span><span class="es-text">Regístrate ante la SAR</span></h4>
+          <p><span class="en-text">Update your RTN at <a href="https://www.sar.gob.hn" target="_blank" rel="noopener">sar.gob.hn</a> with your new business activity. Activate your electronic invoice system (Facturación Electrónica). Required to issue legal receipts to customers.</span><span class="es-text">Actualiza tu RTN en <a href="https://www.sar.gob.hn" target="_blank" rel="noopener">sar.gob.hn</a> con tu actividad empresarial. Activa tu sistema de facturación electrónica. Necesario para emitir recibos legales.</span></p>
+        </div>
+      </div>
+      <div class="biz-step">
+        <div class="biz-num">4</div>
+        <div>
+          <h4><span class="en-text">Municipal operating license</span><span class="es-text">Licencia municipal de operación</span></h4>
+          <p><span class="en-text">Visit your local <em>alcaldía</em> for a Permiso de Operación. Cost and requirements vary by municipality but typically ~L200–L1,000 depending on business type. Required to open a physical location.</span><span class="es-text">Visita tu <em>alcaldía</em> para un Permiso de Operación. Costo varía por municipio: ~L200–L1,000 según tipo de negocio. Requerido para abrir local físico.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOANS -->
+<section id="loans" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label"><span class="en-text">Fund Your Business</span><span class="es-text">Financia Tu Negocio</span></p>
+    <h2 class="section-title"><span class="en-text">Microfinance & <em>business loans</em></span><span class="es-text">Microfinanzas y <em>préstamos empresariales</em></span></h2>
+    <div class="loan-grid">
+      <div class="loan-card">
+        <h4>BANADESA</h4>
+        <p><span class="en-text">State development bank with the lowest rates: <strong>2.5–9% annually</strong>. Agriculture, livestock, micro and small enterprise loans. Has programs specifically for returnees with the Hermano Hermana seed capital. <a href="https://www.banadesa.hn" target="_blank" rel="noopener">banadesa.hn</a></span><span class="es-text">Banco estatal con las tasas más bajas: <strong>2.5–9% anual</strong>. Préstamos agro, ganadería, micro y pequeña empresa. Programas específicos para retornados con capital semilla Hermano Hermana. <a href="https://www.banadesa.hn" target="_blank" rel="noopener">banadesa.hn</a></span></p>
+      </div>
+      <div class="loan-card">
+        <h4>ODEF Financiera</h4>
+        <p><span class="en-text">Leading microfinance institution. Individual and group loans for micro-enterprises and small agriculture. Strong rural presence. <a href="https://www.odef.hn" target="_blank" rel="noopener">odef.hn</a></span><span class="es-text">Institución líder de microfinanzas. Préstamos individuales y grupales para microempresas y pequeña agricultura. Fuerte presencia rural. <a href="https://www.odef.hn" target="_blank" rel="noopener">odef.hn</a></span></p>
+      </div>
+      <div class="loan-card">
+        <h4>FINCA Honduras</h4>
+        <p><span class="en-text">Village banking model. Group loans starting at L5,000 for micro-entrepreneurs. Training included with each loan cycle. Offices nationwide. <a href="https://fincahonduras.org" target="_blank" rel="noopener">fincahonduras.org</a></span><span class="es-text">Modelo de banca comunal. Préstamos grupales desde L5,000 para microempresarios. Capacitación incluida. Oficinas a nivel nacional. <a href="https://fincahonduras.org" target="_blank" rel="noopener">fincahonduras.org</a></span></p>
+      </div>
+      <div class="loan-card">
+        <h4>Red SOLFI</h4>
+        <p><span class="en-text">Network of solidarity microfinance institutions. Focus on women entrepreneurs and rural communities. Connects returnees to local cooperativas and cajas rurales.</span><span class="es-text">Red de instituciones de microfinanzas solidarias. Enfoque en mujeres emprendedoras y comunidades rurales. Conecta retornados con cooperativas y cajas rurales locales.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg aria-hidden="true" width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#FDE8CC"/>
+      </svg>
+      <span class="footer-tagline">Semillas Monarca</span>
+    </div>
+    <p style="font-size:var(--text-xs);margin-top:var(--space-2);opacity:.6;"><span class="en-text">Not legal or financial advice. Built by volunteers.</span><span class="es-text">No es asesoría legal ni financiera. Construido por voluntarios.</span></p>
+    <div class="footer-links">
+      <a href="../index.html"><span class="en-text">Countries</span><span class="es-text">Países</span></a>
+      <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+      <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Jóvenes</span></a>
+    </div>
+    <div class="footer-bottom"><span class="en-text">Sources: OIM Honduras, STSS, SAR, BANADESA, ODEF, Cámara de Comercio, IHCAFE, INFOP.</span><span class="es-text">Fuentes: OIM Honduras, STSS, SAR, BANADESA, ODEF, Cámara de Comercio, IHCAFE, INFOP.</span></div>
+  </div>
+</footer>
+<script src="../app.js?v=1781276400"></script>
+</body>
+</html>

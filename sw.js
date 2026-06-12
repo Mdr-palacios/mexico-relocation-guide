@@ -1,4 +1,4 @@
-const CACHE_NAME = 'semillas-v1781276369';
+const CACHE_NAME = 'semillas-v1781276400';
 const ASSETS = [
   '/',
   '/index.html',
@@ -17,7 +17,10 @@ const ASSETS = [
   '/guatemala/teens.html',
   '/el-salvador/work.html',
   '/el-salvador/teens.html',
-  '/blog/separated-by-borders.html'
+  '/blog/separated-by-borders.html',
+  '/honduras/index.html',
+  '/honduras/work.html',
+  '/honduras/teens.html'
 ];
 
 self.addEventListener('install', e => {

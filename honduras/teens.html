@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Honduras For Teens — Semillas Monarca</title>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇭🇳</text></svg>"/>
+<meta name="theme-color" content="#003DA6"/>
+<style>
+  :root { --hn-blue: #003DA6; --hn-blue-mid: #1A5DC4; --hn-blue-light: #4A7FCC; }
+  em { color: var(--hn-blue); font-style: italic; }
+  [data-theme="dark"] em { color: var(--hn-blue-light); }
+  .section-label { color: var(--hn-blue) !important; }
+  [data-theme="dark"] .section-label { color: var(--hn-blue-light) !important; }
+  .btn-hn { background: var(--hn-blue); color: #fff; box-shadow: 0 4px 16px rgba(0,61,166,.3); }
+  .btn-hn:hover { background: #002d80; transform: translateY(-2px); }
+  .btn-outline-hn { border: 2px solid var(--hn-blue); color: var(--hn-blue); background: transparent; }
+  [data-theme="dark"] .btn-outline-hn { color: var(--hn-blue-light); border-color: var(--hn-blue-light); }
+  .print-btn { background: var(--hn-blue) !important; }
+  .hn-hero-bg {
+    background:
+      radial-gradient(ellipse 75% 65% at 75% 30%, rgba(0,61,166,.16) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 75% at 20% 75%, rgba(74,127,204,.13) 0%, transparent 55%),
+      var(--color-cream) !important;
+  }
+  [data-theme="dark"] .hn-hero-bg {
+    background:
+      radial-gradient(ellipse 75% 65% at 75% 30%, rgba(0,61,166,.28) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 75% at 20% 75%, rgba(74,127,204,.2) 0%, transparent 55%),
+      #060d1a !important;
+  }
+
+  /* Education ladder */
+  .edu-ladder { display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-6); }
+  .edu-rung { flex:1; min-width:130px; background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-4); text-align:center; border-top:4px solid var(--hn-blue); }
+  .edu-rung .rung-emoji { font-size:1.75rem; margin-bottom:var(--space-1); }
+  .edu-rung h4 { font-size:var(--text-sm); font-weight:700; margin-bottom:.25rem; color:var(--hn-blue); }
+  [data-theme="dark"] .edu-rung h4 { color: var(--hn-blue-light); }
+  .edu-rung p { font-size:.75rem; color:var(--color-text-muted); line-height:1.5; }
+
+  /* History cards */
+  .history-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--space-5); margin-top:var(--space-6); }
+  .history-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-5) var(--space-6); border:1.5px solid var(--color-border); }
+  .history-card .hist-emoji { font-size:2.5rem; margin-bottom:var(--space-3); }
+  .history-card h4 { font-size:var(--text-lg); font-weight:700; margin-bottom:var(--space-3); }
+  .history-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; margin-bottom:var(--space-2); }
+  .hist-tag { display:inline-block; background:var(--hn-blue); color:#fff; font-size:.7rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; margin-bottom:var(--space-3); }
+
+  /* People banner */
+  .people-banner { background:linear-gradient(135deg,rgba(0,61,166,.08),rgba(74,127,204,.06)); border:1.5px solid var(--hn-blue); border-radius:var(--radius-lg); padding:var(--space-6); margin-top:var(--space-6); }
+  .people-banner h4 { color:var(--hn-blue); font-size:var(--text-lg); font-weight:700; margin-bottom:var(--space-3); }
+  [data-theme="dark"] .people-banner h4 { color: var(--hn-blue-light); }
+  .people-banner p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; margin-bottom:var(--space-2); }
+
+  /* Indigenous chips */
+  .people-chips { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-4); }
+  .people-chip { background:rgba(0,61,166,.08); color:var(--hn-blue); border:1px solid var(--hn-blue); border-radius:999px; padding:.3rem .75rem; font-size:var(--text-sm); font-weight:600; }
+  [data-theme="dark"] .people-chip { background:rgba(74,127,204,.15); color:var(--hn-blue-light); border-color:var(--hn-blue-light); }
+
+  /* Slang table */
+  .slang-table { width:100%; border-collapse:collapse; margin-top:var(--space-5); font-size:var(--text-sm); }
+  .slang-table th { background:var(--hn-blue); color:#fff; padding:var(--space-2) var(--space-3); text-align:left; }
+  .slang-table td { padding:var(--space-2) var(--space-3); border-bottom:1px solid var(--color-border); vertical-align:top; }
+  .slang-table tr:nth-child(even) td { background:var(--color-surface); }
+  .slang-table td:first-child { font-weight:700; color:var(--hn-blue); white-space:nowrap; }
+  [data-theme="dark"] .slang-table td:first-child { color: var(--hn-blue-light); }
+
+  .phrase-tabs { display:flex; gap:var(--space-2); flex-wrap:wrap; margin-bottom:var(--space-4); }
+  .phrase-tab { background:var(--color-surface); border:1.5px solid var(--color-border); border-radius:var(--radius-full); padding:.35rem .9rem; font-size:var(--text-sm); cursor:pointer; transition:all .2s; font-family:inherit; color:var(--color-text); }
+  .phrase-tab.active, .phrase-tab:hover { background:var(--hn-blue); color:#fff; border-color:var(--hn-blue); }
+  .phrase-panel { display:none; }
+  .phrase-panel.active { display:block; }
+
+  /* Timeline */
+  .timeline { margin-top:var(--space-6); position:relative; padding-left:var(--space-8); }
+  .timeline::before { content:''; position:absolute; left:1rem; top:0; bottom:0; width:2px; background:var(--hn-blue); opacity:.3; }
+  .timeline-item { position:relative; margin-bottom:var(--space-6); }
+  .timeline-item::before { content:''; position:absolute; left:-2.35rem; top:.3rem; width:.75rem; height:.75rem; background:var(--hn-blue); border-radius:50%; border:2px solid var(--color-surface); }
+  .timeline-item .tl-year { font-family:'Fraunces',serif; font-size:var(--text-xl); font-weight:900; color:var(--hn-blue); margin-bottom:.25rem; }
+  [data-theme="dark"] .timeline-item .tl-year { color: var(--hn-blue-light); }
+  .timeline-item h4 { font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-2); }
+  .timeline-item p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; }
+
+  /* INFOP box */
+  .infop-box { background:linear-gradient(135deg,rgba(0,61,166,.07),rgba(74,127,204,.05)); border:1.5px solid var(--hn-blue); border-radius:var(--radius-lg); padding:var(--space-6); margin-top:var(--space-5); }
+  .infop-box h4 { color:var(--hn-blue); font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-3); }
+  [data-theme="dark"] .infop-box h4 { color: var(--hn-blue-light); }
+  .infop-box ul { padding-left:1.25rem; }
+  .infop-box li { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; margin-bottom:var(--space-1); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="../mexico.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+      </svg>
+      <span class="nav-logo-text"><span class="en-text">Honduras Guide</span><span class="es-text">Guía Honduras</span></span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="../index.html" class="nav-link nav-country" role="listitem"><span class="en-text">🌎 Countries</span><span class="es-text">🌎 Países</span></a>
+      <a href="index.html" class="nav-link" role="listitem"><span class="en-text">🏠 First Steps</span><span class="es-text">🏠 Primeros Pasos</span></a>
+      <a href="work.html" class="nav-link" role="listitem"><span class="en-text">💼 Work & Business</span><span class="es-text">💼 Trabajo y Negocio</span></a>
+      <a href="teens.html" class="nav-link active" role="listitem"><span class="en-text">🎒 For Teens</span><span class="es-text">🎒 Para Jóvenes</span></a>
+      <a href="../el-salvador/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇸🇻 El Salvador Guide</span>
+        <span class="es-text">🇸🇻 Guía El Salvador</span>
+      </a>
+      <a href="../guatemala/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇬🇹 Guatemala Guide</span>
+        <span class="es-text">🇬🇹 Guía Guatemala</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language"><span id="lang-label">ES</span></button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg hn-hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow"><span class="en-text">🎒 For Teens & Youth</span><span class="es-text">🎒 Para Jóvenes</span></p>
+    <h1><span class="en-text">Honduras is <em>your country.</em></span><span class="es-text">Honduras es <em>tu país.</em></span></h1>
+    <p class="hero-subtitle">
+      <span class="en-text">School re-enrollment, free university options, INFOP job training, and the full story of Honduras's Lenca, Garífuna, and indigenous peoples — plus the modern history you need to understand where you come from.</span>
+      <span class="es-text">Reinscripción escolar, opciones de universidad, capacitación INFOP, y la historia completa de los pueblos Lenca, Garífuna e indígenas de Honduras — más la historia moderna que necesitas para entender de dónde vienes.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#school" class="btn btn-hn"><span class="en-text">Back to School →</span><span class="es-text">De Vuelta a la Escuela →</span></a>
+      <a href="#history" class="btn btn-outline-hn"><span class="en-text">History & Culture</span><span class="es-text">Historia y Cultura</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL -->
+<section id="school" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="school"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label"><span class="en-text">Your Education Path</span><span class="es-text">Tu Camino Educativo</span></p>
+    <h2 class="section-title"><span class="en-text">Going back <em>to school</em></span><span class="es-text">De vuelta <em>a la escuela</em></span></h2>
+    <div class="edu-ladder">
+      <div class="edu-rung"><div class="rung-emoji">🌱</div><h4>Prebásica</h4><p><span class="en-text">Ages 4–6</span><span class="es-text">Edades 4–6</span></p></div>
+      <div class="edu-rung"><div class="rung-emoji">📖</div><h4>Básica</h4><p><span class="en-text">Grades 1–9 (unified), ages 6–15</span><span class="es-text">Grados 1–9 (unificado), edades 6–15</span></p></div>
+      <div class="edu-rung"><div class="rung-emoji">📐</div><h4>Media</h4><p><span class="en-text">Grades 10–12, ages 15–18. Choose bachillerato or technical track.</span><span class="es-text">Grados 10–12, edades 15–18. Elige bachillerato o carrera técnica.</span></p></div>
+      <div class="edu-rung"><div class="rung-emoji">🏛️</div><h4>Universidad</h4><p><span class="en-text">Age 18+. UNAH is public.</span><span class="es-text">18+. UNAH es pública.</span></p></div>
+    </div>
+
+    <div style="margin-top:var(--space-6);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-5);">
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);border-left:4px solid var(--hn-blue);">
+        <h4 style="color:var(--hn-blue);font-weight:700;margin-bottom:var(--space-3);"><span class="en-text">Re-Enrollment (SEDUC)</span><span class="es-text">Reinscripción (SEDUC)</span></h4>
+        <ul style="padding-left:1.25rem;">
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Honduras uses a <strong>competency-based enrollment</strong> system — you don't need prior school records to re-enroll. SEDUC issues a <em>Dictamen Técnico</em> to evaluate your level.</span><span class="es-text">Honduras usa inscripción <strong>basada en competencias</strong> — no necesitas expediente previo. SEDUC emite un <em>Dictamen Técnico</em> para evaluar tu nivel.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Bring: birth certificate (or certificate of nationality) + DNI of parent/guardian. Go to the nearest <em>Centro Básico</em> or <em>Instituto</em>.</span><span class="es-text">Lleva: acta de nacimiento (o certificado de nacionalidad) + DNI del padre/tutor. Ve al <em>Centro Básico</em> o <em>Instituto</em> más cercano.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Coming from the U.S.? U.S. school certificates can be used for placement, even without apostille for basic enrollment.</span><span class="es-text">¿Vienes de EE.UU.? Los certificados de escuelas americanas se usan para ubicación, incluso sin apostilla para inscripción básica.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;"><span class="en-text">School year: <strong>February–November</strong>.</span><span class="es-text">Año escolar: <strong>febrero–noviembre</strong>.</span></li>
+        </ul>
+        <p style="margin-top:var(--space-3);font-size:var(--text-sm);"><a href="https://www.se.gob.hn" target="_blank" rel="noopener">se.gob.hn</a></p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);border-left:4px solid var(--hn-blue-mid);">
+        <h4 style="color:var(--hn-blue-mid);font-weight:700;margin-bottom:var(--space-3);"><span class="en-text">UNAH — Public University</span><span class="es-text">UNAH — Universidad Pública</span></h4>
+        <ul style="padding-left:1.25rem;">
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Honduras's national university, founded 1847. Campus in Tegucigalpa + 9 regional centers. Low cost: <strong>L410 first enrollment, L270/semester re-enrollment, L500 entrance exam</strong>.</span><span class="es-text">La universidad nacional, fundada en 1847. Campus en Tegucigalpa + 9 centros regionales. Bajo costo: <strong>L410 primera matrícula, L270/semestre reingreso, L500 examen</strong>.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Entrance exam: PAA (Prueba de Aptitud Académica) + subject tests. Free prep courses available online at UNAH Virtual.</span><span class="es-text">Examen de ingreso: PAA + pruebas por área. Cursos preparatorios gratuitos en UNAH Virtual.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;"><span class="en-text">Most popular programs: Law, Medicine, Engineering, Business Administration, Education, Nursing.</span><span class="es-text">Carreras más populares: Derecho, Medicina, Ingeniería, Administración, Educación, Enfermería.</span></li>
+        </ul>
+        <p style="margin-top:var(--space-3);font-size:var(--text-sm);"><a href="https://www.unah.edu.hn" target="_blank" rel="noopener">unah.edu.hn</a></p>
+      </div>
+    </div>
+
+    <div class="infop-box">
+      <h4>🛠️ INFOP — <span class="en-text">80+ Free Courses for Youth</span><span class="es-text">Más de 80 Cursos Gratuitos para Jóvenes</span></h4>
+      <ul>
+        <li><span class="en-text">Instituto Nacional de Formación Profesional offers <strong>80+ free virtual courses</strong>, 20 hours each, no cost, available to anyone with internet access. From welding and electricity to digital marketing and English.</span><span class="es-text">INFOP ofrece <strong>más de 80 cursos virtuales gratuitos</strong>, 20 horas cada uno, sin costo, disponibles para cualquiera con internet. Desde soldadura y electricidad hasta marketing digital e inglés.</span></li>
+        <li><span class="en-text">In-person technical programs at INFOP centers throughout Honduras. Returnees can have their U.S. work experience <strong>formally certified</strong> through INFOP's competency validation program.</span><span class="es-text">Programas técnicos presenciales en centros INFOP en todo Honduras. Los retornados pueden tener su experiencia laboral de EE.UU. <strong>certificada formalmente</strong> a través del programa de validación de competencias.</span></li>
+        <li><span class="en-text">Enroll free: <a href="https://www.infop.hn" target="_blank" rel="noopener">infop.hn</a> | Courses include: Construction, Electricity, Plumbing, Gastronomy, Computing, English, Tourism, Agriculture, and more.</span><span class="es-text">Inscríbete gratis: <a href="https://www.infop.hn" target="_blank" rel="noopener">infop.hn</a> | Cursos: Construcción, Electricidad, Plomería, Gastronomía, Computación, Inglés, Turismo, Agricultura y más.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INDIGENOUS PEOPLES -->
+<section id="indigenous">
+  <div class="section-inner">
+    <button class="print-btn" data-section="indigenous"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label"><span class="en-text">Your Roots</span><span class="es-text">Tus Raíces</span></p>
+    <h2 class="section-title"><span class="en-text">Honduras's <em>indigenous peoples</em></span><span class="es-text">Los <em>pueblos indígenas</em> de Honduras</span></h2>
+    <p class="section-subtitle">
+      <span class="en-text">Honduras officially recognizes <strong>9 indigenous and Afro-Honduran peoples</strong>. Together they make up roughly 7–8% of the population but have shaped everything from the currency's name to the national resistance tradition.</span>
+      <span class="es-text">Honduras reconoce oficialmente <strong>9 pueblos indígenas y afrohondureños</strong>. Juntos representan aproximadamente el 7–8% de la población, pero han dado forma a todo, desde el nombre de la moneda hasta la tradición nacional de resistencia.</span>
+    </p>
+    <div class="people-chips">
+      <span class="people-chip">Lenca</span>
+      <span class="people-chip">Maya Chortí</span>
+      <span class="people-chip">Garífuna</span>
+      <span class="people-chip">Tolupán (Jicaque)</span>
+      <span class="people-chip">Pech (Paya)</span>
+      <span class="people-chip">Tawahka (Sumu)</span>
+      <span class="people-chip">Miskito</span>
+      <span class="people-chip">Nahua</span>
+      <span class="people-chip">Creole (Isleño)</span>
+    </div>
+
+    <div class="history-grid" style="margin-top:var(--space-8);">
+      <div class="history-card">
+        <div class="hist-emoji">🏔️</div>
+        <span class="hist-tag"><span class="en-text">Largest Indigenous Group</span><span class="es-text">Grupo Indígena Más Grande</span></span>
+        <h4><span class="en-text">The Lenca People</span><span class="es-text">El Pueblo Lenca</span></h4>
+        <p><span class="en-text">Honduras's largest indigenous group, primarily in the departments of Intibucá, La Paz, Lempira, Comayagua, Santa Bárbara, and Francisco Morazán. Their ancestors built complex societies in western Honduras for thousands of years before Spanish contact.</span><span class="es-text">El grupo indígena más grande de Honduras, principalmente en los departamentos de Intibucá, La Paz, Lempira, Comayagua, Santa Bárbara y Francisco Morazán. Sus ancestros construyeron sociedades complejas por miles de años antes del contacto español.</span></p>
+        <p><span class="en-text">The Lenca practice a ceremony called <em>Guancasco</em> — a ritual of peace and friendship between neighboring communities that is still practiced today. The national currency, the <strong>Lempira</strong>, is named after their most famous leader.</span><span class="es-text">Los Lencas practican una ceremonia llamada <em>Guancasco</em> — un ritual de paz y amistad entre comunidades vecinas que aún se practica hoy. La moneda nacional, el <strong>Lempira</strong>, lleva el nombre de su líder más famoso.</span></p>
+        <p><span class="en-text">Today, Lenca communities continue to fight for land and water rights. Indigenous activist <strong>Berta Cáceres</strong> was Lenca — learn about her on the History page below.</span><span class="es-text">Hoy, las comunidades Lencas continúan luchando por derechos de tierra y agua. La activista indígena <strong>Berta Cáceres</strong> era Lenca — aprende sobre ella más abajo.</span></p>
+      </div>
+
+      <div class="history-card">
+        <div class="hist-emoji">🥁</div>
+        <span class="hist-tag"><span class="en-text">Afro-Indigenous Heritage</span><span class="es-text">Herencia Afro-Indígena</span></span>
+        <h4><span class="en-text">The Garífuna — Honduras's Caribbean Soul</span><span class="es-text">Los Garífuna — El Alma Caribeña de Honduras</span></h4>
+        <p><span class="en-text">The same people found in Guatemala (see Guatemala guide), but Honduras has the <strong>largest Garífuna population in the world</strong> — approximately 200,000 people along the north Caribbean coast. They arrived after being forcibly exiled from St. Vincent by the British on April 12, 1797 — landing first in Roatán (now a Bay Island of Honduras).</span><span class="es-text">El mismo pueblo presente en Guatemala, pero Honduras tiene la <strong>mayor población Garífuna del mundo</strong> — aproximadamente 200,000 personas en la costa norte del Caribe. Llegaron tras ser deportados por la fuerza de San Vicente por los británicos el 12 de abril de 1797 — llegando primero a Roatán.</span></p>
+        <p><span class="en-text">Main Garífuna communities in Honduras: <strong>Trujillo</strong> (Colón), <strong>La Ceiba</strong> (Atlántida), <strong>Tela</strong> (Atlántida), <strong>Bajamar</strong>, <strong>Sambo Creek</strong>, <strong>Masca</strong>, and throughout the Bay Islands. The April 12 anniversary of their arrival is celebrated as <em>Día del Garifuna</em>.</span><span class="es-text">Principales comunidades Garífunas en Honduras: <strong>Trujillo</strong> (Colón), <strong>La Ceiba</strong> (Atlántida), <strong>Tela</strong> (Atlántida), <strong>Bajamar</strong>, <strong>Sambo Creek</strong>, <strong>Masca</strong>. El 12 de abril se celebra como <em>Día del Garífuna</em>.</span></p>
+        <p><span class="en-text">UNESCO declared Garífuna language, dance, and music <strong>Intangible Heritage of Humanity in 2008</strong>. Their music — Punta, Paranda, Chumba — is a global genre born from Honduras's coast.</span><span class="es-text">UNESCO declaró la lengua, danza y música Garífuna <strong>Patrimonio Inmaterial de la Humanidad en 2008</strong>. Su música — Punta, Paranda, Chumba — es un género global nacido de la costa hondureña.</span></p>
+      </div>
+
+      <div class="history-card">
+        <div class="hist-emoji">🌊</div>
+        <span class="hist-tag"><span class="en-text">Amazon of Honduras</span><span class="es-text">Amazonas de Honduras</span></span>
+        <h4><span class="en-text">Tawahka & Miskito People</span><span class="es-text">Pueblo Tawahka y Miskito</span></h4>
+        <p><span class="en-text">The Tawahka (also called Sumu or Sumo) are one of the smallest indigenous groups in Honduras — only a few thousand people — but they live in one of the most biodiverse places on Earth: the <strong>Biosfera del Río Plátano</strong>, a UNESCO World Heritage site in Gracias a Dios department, eastern Honduras. Their territory is under constant threat from illegal logging and land grabbing.</span><span class="es-text">Los Tawahka son uno de los grupos indígenas más pequeños de Honduras — solo unos miles de personas — pero viven en uno de los lugares más biodiversos del mundo: la <strong>Biosfera del Río Plátano</strong>, Patrimonio Mundial UNESCO en Gracias a Dios.</span></p>
+        <p><span class="en-text">The Miskito are the largest indigenous group on Honduras's Caribbean coast, primarily in Gracias a Dios (La Mosquitia). About 60,000 people. They have a unique history of relative autonomy under British protection during the colonial period.</span><span class="es-text">Los Miskitos son el grupo indígena más grande de la costa caribeña de Honduras, principalmente en Gracias a Dios (La Mosquitia). Unos 60,000 personas. Tuvieron una historia única de autonomía relativa bajo protección británica.</span></p>
+      </div>
+
+      <div class="history-card">
+        <div class="hist-emoji">🏛️</div>
+        <span class="hist-tag"><span class="en-text">Pre-Columbian Maya</span><span class="es-text">Maya Precolombino</span></span>
+        <h4><span class="en-text">Maya Chortí & Copán</span><span class="es-text">Maya Chortí y Copán</span></h4>
+        <p><span class="en-text">The Maya Chortí are the living descendants of the builders of <strong>Copán</strong> — one of the great Maya city-states of the Classic Period (4th–9th century CE), a UNESCO World Heritage Site in western Honduras. The Chortí today number about 40,000 in the Copán department.</span><span class="es-text">Los Maya Chortí son los descendientes vivos de los constructores de <strong>Copán</strong> — una de las grandes ciudades-estado Mayas del Período Clásico (siglos 4–9 d.C.), Patrimonio Mundial UNESCO en el oeste de Honduras.</span></p>
+        <p><span class="en-text">Copán was known for its extraordinary sculptural art, its complex hieroglyphic stairway (the longest Maya text ever discovered), and its remarkable astronomical observatory. It fell around 900 CE — still a mystery.</span><span class="es-text">Copán era conocida por su extraordinario arte escultórico, su Escalinata Jeroglífica (el texto Maya más largo jamás descubierto) y su notable observatorio astronómico. Cayó hacia el año 900 d.C. — aún un misterio.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODERN HISTORY -->
+<section id="history" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="history"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label"><span class="en-text">How We Got Here</span><span class="es-text">Cómo Llegamos Aquí</span></p>
+    <h2 class="section-title"><span class="en-text">Honduras's modern <em>history</em></span><span class="es-text">Historia moderna <em>de Honduras</em></span></h2>
+    <p class="section-subtitle">
+      <span class="en-text">Understanding why so many Hondurans left — and what they're returning to — requires knowing these events.</span>
+      <span class="es-text">Entender por qué tantos hondureños se fueron — y a qué regresan — requiere conocer estos eventos.</span>
+    </p>
+
+    <!-- LEMPIRA FIRST -->
+    <div class="people-banner" style="margin-bottom:var(--space-8);">
+      <h4>⚔️ Lempira — <span class="en-text">National Hero, Currency, Symbol</span><span class="es-text">Héroe Nacional, Moneda, Símbolo</span></h4>
+      <p><span class="en-text">Lempira was a Lenca chief who led the resistance against the Spanish conquest of Honduras in the 1530s. He united over 200 Lenca and allied communities — about 30,000 warriors — in a confederation against the Spanish forces. He held his fortress at <strong>Cerro Peñol de Congolón</strong> (Lempira department) for nearly six months — something the Spanish had never encountered in Central America.</span><span class="es-text">Lempira fue un cacique Lenca que lideró la resistencia contra la conquista española de Honduras en la década de 1530. Unió a más de 200 comunidades Lencas y aliadas — unos 30,000 guerreros — en una confederación contra las fuerzas españolas. Mantuvo su fortaleza en el <strong>Cerro Peñol de Congolón</strong> casi seis meses.</span></p>
+      <p><span class="en-text">He was killed by treachery — the Spanish lured him to a supposed peace negotiation and shot him. He died in 1537, but his resistance became a national symbol of dignity and sovereignty. <strong>The Honduran currency is named after him</strong>, and July 20 is celebrated as the Day of Lempira. The department of Lempira also bears his name.</span><span class="es-text">Fue asesinado por traición — los españoles lo atrajeron a una supuesta negociación de paz y lo dispararon. Murió en 1537, pero su resistencia se convirtió en símbolo nacional de dignidad y soberanía. <strong>La moneda hondureña lleva su nombre</strong>, y el 20 de julio se celebra el Día de Lempira.</span></p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-year">1870s–1950s</div>
+        <h4><span class="en-text">Banana Republic Era</span><span class="es-text">La Era del Banano</span></h4>
+        <p><span class="en-text">U.S. fruit companies — United Fruit Company and Standard Fruit Company — came to dominate Honduras's economy, politics, and even geography. They controlled the railroads, the ports, and entire departments. They bribed and toppled governments to protect their interests. The term <em>"banana republic"</em> was coined about Honduras. This era left Honduras with weak institutions, extreme land inequality, and an economy dependent on U.S. markets — conditions that shaped everything that followed.</span><span class="es-text">Las empresas fruteras estadounidenses — United Fruit y Standard Fruit — dominaron la economía, la política e incluso la geografía de Honduras. Controlaban los ferrocarriles, los puertos y departamentos enteros. Sobornaban y derrocaban gobiernos. El término <em>"república bananera"</em> se acuñó sobre Honduras. Esta era dejó instituciones débiles, desigualdad extrema de tierras y una economía dependiente de EE.UU.</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">1969</div>
+        <h4><span class="en-text">Soccer War with El Salvador</span><span class="es-text">Guerra del Fútbol con El Salvador</span></h4>
+        <p><span class="en-text">A 100-hour war between Honduras and El Salvador, sparked by a dispute over a World Cup qualifying match — but the real cause was land reform tension and Salvadoran migrants living in Honduras. About 2,000 people died, 100,000 Salvadorans were expelled from Honduras, and the border was militarized for years. The war never fully resolved the underlying land inequality issues in either country.</span><span class="es-text">Una guerra de 100 horas entre Honduras y El Salvador, detonada por una disputa en las eliminatorias del Mundial — pero la causa real fue la tensión sobre reforma agraria y migrantes salvadoreños en Honduras. Murieron unas 2,000 personas. No resolvió los problemas de desigualdad de tierras en ninguno de los dos países.</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">1998</div>
+        <h4><span class="en-text">Hurricane Mitch — Why So Many Left</span><span class="es-text">El Huracán Mitch — Por Qué Tantos Se Fueron</span></h4>
+        <p><span class="en-text">Category 5 Hurricane Mitch struck Honduras October 26–29, 1998. It was the deadliest Atlantic hurricane in 200 years. <strong>Nearly 7,000 Hondurans killed, 1.5 million displaced, 70% of infrastructure destroyed</strong>. Entire neighborhoods were swept away. Crops, roads, bridges, and water systems were destroyed. The U.S. granted Temporary Protected Status (TPS) to Hondurans fleeing the disaster. This is when the largest wave of Honduran migration to the U.S. began. <em>Many of the families now being deported left because of Mitch.</em></span><span class="es-text">El Huracán Mitch de categoría 5 golpeó Honduras entre el 26 y 29 de octubre de 1998. Fue el huracán atlántico más mortífero en 200 años. <strong>Casi 7,000 hondureños muertos, 1.5 millones desplazados, 70% de infraestructura destruida</strong>. EE.UU. otorgó TPS a hondureños. Aquí comenzó la mayor ola de migración hondureña. <em>Muchas familias deportadas se fueron por el Mitch.</em></span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2009</div>
+        <h4><span class="en-text">Military Coup — Manuel Zelaya</span><span class="es-text">Golpe Militar — Manuel Zelaya</span></h4>
+        <p><span class="en-text">On June 28, 2009, democratically elected President Manuel Zelaya was taken from his home in his pajamas at gunpoint by the military and flown to Costa Rica. He had been proposing a constituent assembly to rewrite Honduras's constitution. The coup was condemned by the UN, OAS, and Latin American governments — but the U.S. initially refused to call it a coup. Post-coup governments reversed social programs, and political violence against activists increased. Migration from Honduras accelerated significantly after 2009.</span><span class="es-text">El 28 de junio de 2009, el presidente democráticamente electo Manuel Zelaya fue sacado de su casa en pijama a punta de pistola por los militares y llevado a Costa Rica. Proponía una asamblea constituyente. El golpe fue condenado por la ONU y la OEA. Tras el golpe, la violencia política contra activistas aumentó y la migración de Honduras se aceleró.</span></p>
+      </div>
+    </div>
+
+    <!-- BERTA CÁCERES -->
+    <div class="people-banner" style="margin-top:var(--space-8);">
+      <h4>🌊 Berta Cáceres — <span class="en-text">Goldman Prize 2015, Murdered 2016</span><span class="es-text">Premio Goldman 2015, Asesinada 2016</span></h4>
+      <p><span class="en-text">Born February 4, 1971 in La Esperanza, Intibucá. Lenca indigenous activist, feminist, and co-founder of <strong>COPINH</strong> (Civic Council of Popular and Indigenous Organizations of Honduras). She spent her life defending the land, water, and rights of the Lenca people and Honduras's rural poor.</span><span class="es-text">Nacida el 4 de febrero de 1971 en La Esperanza, Intibucá. Activista indígena Lenca, feminista y cofundadora del <strong>COPINH</strong>. Dedicó su vida a defender la tierra, el agua y los derechos del pueblo Lenca y los pobres rurales de Honduras.</span></p>
+      <p><span class="en-text">In 2015, she won the <strong>Goldman Environmental Prize</strong> — the world's most prestigious environmental award — for her years-long campaign stopping the <strong>Agua Zarca hydroelectric dam</strong> on the sacred Gualcarque River. Her campaign succeeded: the Dutch and German financiers pulled out, and the project was cancelled.</span><span class="es-text">En 2015 ganó el <strong>Premio Goldman de Medio Ambiente</strong> — el más prestigioso del mundo — por su campaña de años contra la <strong>represa hidroeléctrica Agua Zarca</strong> en el sagrado Río Gualcarque. Su campaña tuvo éxito: los financiadores holandeses y alemanes se retiraron y el proyecto fue cancelado.</span></p>
+      <p><span class="en-text">On March 2, 2016, <strong>Berta Cáceres was assassinated</strong> in her home in La Esperanza by gunmen hired by executives of the dam company. She had received hundreds of threats. <strong>Seven people were convicted</strong>, including a senior executive of the company. Her murder drew global attention to the killing of environmental defenders in Honduras — one of the most dangerous countries in the world for activists.</span><span class="es-text">El 2 de marzo de 2016, <strong>Berta Cáceres fue asesinada</strong> en su hogar en La Esperanza por sicarios contratados por ejecutivos de la empresa constructora. Había recibido cientos de amenazas. <strong>Siete personas fueron condenadas</strong>, incluido un directivo ejecutivo de la empresa.</span></p>
+      <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><a href="https://copinh.org" target="_blank" rel="noopener">COPINH — copinh.org</a> | <a href="https://www.goldmanprize.org/recipient/berta-caceres/" target="_blank" rel="noopener">Goldman Prize — Berta Cáceres</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- SLANG -->
+<section id="slang">
+  <div class="section-inner">
+    <button class="print-btn" data-section="slang"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label"><span class="en-text">Speak Like a Catracho</span><span class="es-text">Habla Como Catracho</span></p>
+    <h2 class="section-title"><span class="en-text">Honduran slang & <em>catrachismos</em></span><span class="es-text">Catrachismos y <em>jerga hondureña</em></span></h2>
+    <p class="section-subtitle">
+      <span class="en-text">Honduras uses <strong>vos</strong> (like Guatemala and El Salvador) and has its own unique vocabulary. Many words come from Lenca, Miskito, and Nahuatl. Note: "catracho" comes from the surname of a 19th-century Honduran general — Florencio Xatruch — whose soldiers were called "los catrachos."</span>
+      <span class="es-text">Honduras usa <strong>vos</strong> (como Guatemala y El Salvador) y tiene vocabulario único. Muchas palabras vienen del Lenca, Miskito y Náhuatl. Nota: "catracho" viene del apellido del general hondureño del siglo XIX Florencio Xatruch — sus soldados eran "los catrachos."</span>
+    </p>
+
+    <div class="phrase-tabs" id="slang-tabs">
+      <button class="phrase-tab active" data-panel="identity"><span class="en-text">Identity</span><span class="es-text">Identidad</span></button>
+      <button class="phrase-tab" data-panel="daily"><span class="en-text">Daily Life</span><span class="es-text">Vida Diaria</span></button>
+      <button class="phrase-tab" data-panel="expressions"><span class="en-text">Expressions</span><span class="es-text">Expresiones</span></button>
+      <button class="phrase-tab" data-panel="food"><span class="en-text">Food & School</span><span class="es-text">Comida y Escuela</span></button>
+    </div>
+
+    <div class="phrase-panel active" id="slang-identity">
+      <div style="overflow-x:auto;">
+      <table class="slang-table"><thead><tr>
+        <th><span class="en-text">Word</span><span class="es-text">Palabra</span></th>
+        <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+        <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+      </tr></thead><tbody>
+        <tr><td>Catracho / Catracha</td><td><span class="en-text">Honduran (man/woman)</span><span class="es-text">Hondureño/a</span></td><td><span class="en-text">"Soy catracho." Term of pride. Origin: General Xatruch's soldiers (1850s).</span><span class="es-text">"Soy catracho." Término de orgullo. Origen: soldados del General Xatruch.</span></td></tr>
+        <tr><td>Maje</td><td><span class="en-text">Dude / bro / person</span><span class="es-text">Mano / tipo</span></td><td><span class="en-text">Most common term. "Ese maje no sabe nada." = That dude doesn't know anything.</span><span class="es-text">Término más común. "Ese maje no sabe nada."</span></td></tr>
+        <tr><td>Cipote / Cipota</td><td><span class="en-text">Kid / child / young person</span><span class="es-text">Niño/a, joven</span></td><td><span class="en-text">"El cipote" = The kid. Affectionate and neutral.</span><span class="es-text">"El cipote" = El chico. Afectuoso y neutro.</span></td></tr>
+        <tr><td>Bicho / Bicha</td><td><span class="en-text">Person / young person (informal)</span><span class="es-text">Persona / joven (informal)</span></td><td><span class="en-text">Context-dependent. "Ese bicho es bien listo." = That person is very smart.</span><span class="es-text">Depende del contexto. "Ese bicho es bien listo."</span></td></tr>
+        <tr><td>Chele / Chela</td><td><span class="en-text">Light-skinned / blonde person</span><span class="es-text">Persona de piel clara / rubia</span></td><td><span class="en-text">Descriptive, generally not offensive. "El chele ese." = That light-skinned guy.</span><span class="es-text">Descriptivo, generalmente no ofensivo.</span></td></tr>
+        <tr><td>Tíguere</td><td><span class="en-text">Smart, cool, resourceful person</span><span class="es-text">Persona lista, cool, hábil</span></td><td><span class="en-text">"Ese maje es un tíguere." = That dude is sharp. Positive connotation.</span><span class="es-text">"Ese maje es un tíguere." = Connotación positiva.</span></td></tr>
+      </tbody></table>
+      </div>
+    </div>
+
+    <div class="phrase-panel" id="slang-daily">
+      <div style="overflow-x:auto;">
+      <table class="slang-table"><thead><tr>
+        <th><span class="en-text">Word</span><span class="es-text">Palabra</span></th>
+        <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+        <th><span class="en-text">Example</span><span class="es-text">Ejemplo</span></th>
+      </tr></thead><tbody>
+        <tr><td>Pisto</td><td><span class="en-text">Money</span><span class="es-text">Dinero</span></td><td><span class="en-text">"No tengo pisto." = I'm broke.</span><span class="es-text">"No tengo pisto." = Estoy sin dinero.</span></td></tr>
+        <tr><td>Chunche</td><td><span class="en-text">Thing / stuff / doohickey</span><span class="es-text">Cosa / chisme / cachivache</span></td><td><span class="en-text">"¿Qué es ese chunche?" = What's that thing?</span><span class="es-text">"¿Qué es ese chunche?" = ¿Qué es esa cosa?</span></td></tr>
+        <tr><td>Jalón</td><td><span class="en-text">Ride (in a vehicle)</span><span class="es-text">Aventón / ride</span></td><td><span class="en-text">"¿Me das un jalón?" = Can you give me a ride?</span><span class="es-text">"¿Me das un jalón?"</span></td></tr>
+        <tr><td>Cuma</td><td><span class="en-text">Machete</span><span class="es-text">Machete</span></td><td><span class="en-text">Essential farm tool. "La cuma" is standard vocabulary in rural Honduras.</span><span class="es-text">Herramienta agrícola esencial en Honduras rural.</span></td></tr>
+        <tr><td>Burra</td><td><span class="en-text">Bicycle OR school</span><span class="es-text">Bicicleta O escuela</span></td><td><span class="en-text">"Voy en burra." = I'm going by bicycle. Context matters.</span><span class="es-text">"Voy en burra." = Voy en bici. El contexto importa.</span></td></tr>
+        <tr><td>Liso / Lisa</td><td><span class="en-text">Smooth-talker / sly</span><span class="es-text">Cuentero / astuto</span></td><td><span class="en-text">"Ese maje es bien liso." = That guy is a smooth operator.</span><span class="es-text">"Ese maje es bien liso." = Ese tipo es muy hábil.</span></td></tr>
+      </tbody></table>
+      </div>
+    </div>
+
+    <div class="phrase-panel" id="slang-expressions">
+      <div style="overflow-x:auto;">
+      <table class="slang-table"><thead><tr>
+        <th><span class="en-text">Expression</span><span class="es-text">Expresión</span></th>
+        <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+        <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+      </tr></thead><tbody>
+        <tr><td>¡Upeee!</td><td><span class="en-text">Wow! / Great! / Awesome!</span><span class="es-text">¡Guau! / ¡Genial! / ¡Órale!</span></td><td><span class="en-text">Expression of praise, surprise, or admiration. Very Honduran.</span><span class="es-text">Expresión de elogio, sorpresa o admiración. Muy hondureño.</span></td></tr>
+        <tr><td>A la great</td><td><span class="en-text">Great / awesome / perfect</span><span class="es-text">Genial / perfecto</span></td><td><span class="en-text">"¡A la great!" = Great! (borrowed from English "great")</span><span class="es-text">"¡A la great!" = ¡Genial! (tomado del inglés "great")</span></td></tr>
+        <tr><td>Cheque</td><td><span class="en-text">OK / got it / cool</span><span class="es-text">OK / entendido / bien</span></td><td><span class="en-text">"Cheque." = Got it / OK. (from English "check")</span><span class="es-text">"Cheque." = Entendido / OK. (del inglés "check")</span></td></tr>
+        <tr><td>Cerote</td><td><span class="en-text">Dude (vulgar) / jerk</span><span class="es-text">Maje (vulgar) / idiota</span></td><td><span class="en-text">Can be friendly among close friends or insulting depending on tone. Use with caution.</span><span class="es-text">Puede ser amistoso entre amigos o insultante según el tono. Úsalo con cuidado.</span></td></tr>
+        <tr><td>Hacer güeva</td><td><span class="en-text">To waste time / be lazy</span><span class="es-text">Holgazanear / perder el tiempo</span></td><td><span class="en-text">"Deja de hacer güeva." = Stop wasting time. Mild vulgarity.</span><span class="es-text">"Deja de hacer güeva." = Deja de flojear.</span></td></tr>
+        <tr><td>¡Qué bolo!</td><td><span class="en-text">He/she is drunk!</span><span class="es-text">¡Está borracho/a!</span></td><td><span class="en-text">"Bolo" = drunk. "Estar bolo" is used throughout Honduras and Guatemala.</span><span class="es-text">"Bolo" = borracho. Usado en Honduras y Guatemala.</span></td></tr>
+      </tbody></table>
+      </div>
+    </div>
+
+    <div class="phrase-panel" id="slang-food">
+      <div style="overflow-x:auto;">
+      <table class="slang-table"><thead><tr>
+        <th><span class="en-text">Word</span><span class="es-text">Palabra</span></th>
+        <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+        <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+      </tr></thead><tbody>
+        <tr><td>Baleada</td><td><span class="en-text">Honduras's national food</span><span class="es-text">La comida nacional de Honduras</span></td><td><span class="en-text">Thick flour tortilla stuffed with refried beans, mantequilla, and crema. Add eggs, avocado, or chicken for more. Found everywhere, breakfast through late night.</span><span class="es-text">Tortilla de harina gruesa rellena de frijoles refritos, mantequilla y crema. Agrega huevo, aguacate o pollo. En todos lados, desayuno hasta medianoche.</span></td></tr>
+        <tr><td>Pastelito</td><td><span class="en-text">Fried meat-filled pastry</span><span class="es-text">Empanada frita rellena de carne</span></td><td><span class="en-text">Common street food. Not a cake — context matters! In Honduras, "pastel" can also mean cake, so "pastelito" is the diminutive fried snack.</span><span class="es-text">Comida callejera común. ¡No es un pastel! El "pastelito" es el bocadillo frito.</span></td></tr>
+        <tr><td>Tajadas</td><td><span class="en-text">Fried plantain slices</span><span class="es-text">Tajadas de plátano frito</span></td><td><span class="en-text">Ubiquitous side dish. Every <em>plato típico</em> comes with tajadas.</span><span class="es-text">Acompañamiento ubicuo. Todo <em>plato típico</em> viene con tajadas.</span></td></tr>
+        <tr><td>Sopa de caracol</td><td><span class="en-text">Conch soup — national dish</span><span class="es-text">Sopa de caracol — plato nacional</span></td><td><span class="en-text">Honduras's most famous dish, especially on the Caribbean coast and Bay Islands. Made with conch, coconut milk, vegetables. Subject of a famous punta song.</span><span class="es-text">El plato más famoso de Honduras, especialmente en la costa caribeña. Hecha con caracol, leche de coco y verduras. Tema de una famosa canción punta.</span></td></tr>
+        <tr><td>Guaro</td><td><span class="en-text">Cheap sugarcane liquor</span><span class="es-text">Aguardiente de caña barato</span></td><td><span class="en-text">Common in rural Honduras. "Tomarse un guaro" = to drink. Different from mezcal or tequila.</span><span class="es-text">"Tomarse un guaro" = tomar. Diferente al mezcal o tequila.</span></td></tr>
+      </tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg aria-hidden="true" width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#FDE8CC"/>
+      </svg>
+      <span class="footer-tagline">Semillas Monarca</span>
+    </div>
+    <p style="font-size:var(--text-xs);margin-top:var(--space-2);opacity:.6;"><span class="en-text">A bilingual guide for returning, rooting, and rebuilding. Not legal advice.</span><span class="es-text">Una guía bilingüe para regresar, arraigarse y reconstruir. No es asesoría legal.</span></p>
+    <div class="footer-links">
+      <a href="../index.html"><span class="en-text">Countries</span><span class="es-text">Países</span></a>
+      <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+      <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo</span></a>
+    </div>
+    <div class="footer-bottom"><span class="en-text">Sources: SEDUC, UNAH, INFOP, OIM, COPINH, Goldman Prize, CONADEH, CIPRODEH.</span><span class="es-text">Fuentes: SEDUC, UNAH, INFOP, OIM, COPINH, Premio Goldman, CONADEH, CIPRODEH.</span></div>
+  </div>
+</footer>
+
+<script src="../app.js?v=1781276400"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var map = { identity:'slang-identity', daily:'slang-daily', expressions:'slang-expressions', food:'slang-food' };
+  document.querySelectorAll('#slang-tabs .phrase-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#slang-tabs .phrase-tab').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.phrase-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var pid = map[btn.dataset.panel];
+      if(pid) document.getElementById(pid).classList.add('active');
+    });
+  });
+});
+</script>
+</body>
+</html>

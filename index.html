@@ -208,6 +208,18 @@
   .country-card--gt .btn-gt:hover { background: #155930; }
   .country-card--gt::before { content: 'GT'; position: absolute; top: var(--space-4); right: var(--space-5); font-family: 'Fraunces', serif; font-size: var(--text-4xl); font-weight: 900; color: #1A6B3C; opacity: .07; line-height: 1; }
 
+  /* Honduras */
+  .country-card--hn { border-color: #003DA6; }
+  .country-card--hn:hover { border-color: #003DA6; box-shadow: 0 8px 32px rgba(0,61,166,.18); }
+  .country-card--hn .country-card__title { color: #003DA6; }
+  [data-theme="dark"] .country-card--hn .country-card__title { color: #4A7FCC; }
+  .country-card--hn .country-card__desc { color: var(--color-text-muted); }
+  .country-card--hn .country-card__cta,
+  .country-card--hn .btn-hn { background: #003DA6; color: #fff; border-radius: var(--radius-full); padding: .65rem 1.4rem; font-size: var(--text-sm); font-weight: 700; display: inline-block; margin-top: var(--space-4); transition: background .2s; }
+  .country-card--hn .country-card__cta:hover,
+  .country-card--hn .btn-hn:hover { background: #002d7a; }
+  .country-card--hn::before { content: 'HN'; position: absolute; top: var(--space-4); right: var(--space-5); font-family: 'Fraunces', serif; font-size: var(--text-4xl); font-weight: 900; color: #003DA6; opacity: .07; line-height: 1; }
+
   .country-card--sv::before {
     content: '';
     position: absolute;
@@ -406,22 +418,20 @@
     </span>
   </a>
 
-</div>
-
-<!-- ========================================================
-     COMING SOON CARDS
-     ======================================================== -->
-<div class="coming-soon-grid">
-  <div class="coming-soon-card">
-    <span class="coming-soon-card__flag">🇭🇳</span>
-    <div>
-      <div class="coming-soon-card__name">Honduras</div>
-      <div class="coming-soon-card__tag">
-        <span class="en-text">Coming soon</span>
-        <span class="es-text">Próximamente</span>
-      </div>
+  <!-- Honduras -->
+  <a href="honduras/index.html" class="country-card country-card--hn" aria-label="Honduras Guide">
+    <span class="country-card__flag">🇭🇳</span>
+    <div class="country-card__title">Honduras</div>
+    <div class="country-card__desc">
+      <span class="en-text">First steps, RNP documents, work sectors, Lenca & Garífuna culture, and resources for people arriving in or returning to Honduras.</span>
+      <span class="es-text">Primeros pasos, documentos RNP, sectores laborales, cultura Lenca y Garífuna, y recursos para personas que llegan o regresan a Honduras.</span>
     </div>
-  </div>
+    <span class="country-card__cta btn-hn">
+      <span class="en-text">Open Honduras Guide →</span>
+      <span class="es-text">Abrir Guía Honduras →</span>
+    </span>
+  </a>
+
 </div>
 
 <!-- ========================================================
@@ -477,7 +487,7 @@
   </div>
 </footer>
 
-<script src="app.js?v=1781276369"></script>
+<script src="app.js?v=1781276400"></script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {

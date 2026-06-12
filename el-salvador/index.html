@@ -110,6 +110,21 @@
     margin-bottom: var(--space-4);
   }
   [data-theme="dark"] .section-label-sv { color: var(--color-sv-blue-light); }
+
+  .print-btn { background: #1B4F8A !important; }
+  .print-btn:hover { background: #163d6d !important; }
+
+
+  /* SV blue overrides for amber UI elements */
+  .just-arrived-btn { background: #1B4F8A !important; box-shadow: 0 0 0 0 rgba(27,79,138,.7) !important; }
+  .just-arrived-btn:hover { background: #163d6d !important; }
+  @keyframes pulse-sv { 0%,100% { box-shadow: 0 0 0 0 rgba(27,79,138,.7); } 50% { box-shadow: 0 0 0 10px rgba(27,79,138,0); } }
+  .just-arrived-btn { animation: pulse-sv 2s infinite !important; }
+  .progress-bar-fill { background: linear-gradient(90deg, #1B4F8A, #4A90D9) !important; }
+  .milestone.completed .milestone-dot { background: #1B4F8A !important; border-color: #1B4F8A !important; }
+  .milestone.completed .milestone-label { color: #1B4F8A !important; }
+  [data-theme="dark"] .milestone.completed .milestone-dot { background: #6FA3D8 !important; border-color: #6FA3D8 !important; }
+
 </style>
 </head>
 <body>
@@ -162,6 +177,10 @@
       <a href="../guatemala/index.html" class="nav-link" role="listitem">
         <span class="en-text">🇬🇹 Guatemala Guide</span>
         <span class="es-text">🇬🇹 Guía Guatemala</span>
+      </a>
+      <a href="../honduras/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇭🇳 Honduras Guide</span>
+        <span class="es-text">🇭🇳 Guía Honduras</span>
       </a>
     </div>
     <div class="nav-right">
@@ -1101,7 +1120,7 @@
   </div>
 </footer>
 
-<script src="../app.js?v=1781276369"></script>
+<script src="../app.js?v=1781276400"></script>
 
 <!-- WhatsApp share URL update for SV -->
 <script>
