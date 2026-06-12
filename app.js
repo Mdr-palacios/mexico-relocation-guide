@@ -36,18 +36,8 @@
     }
   }
 
-  // ---- Language toggle ----
-  const langToggle = document.getElementById('lang-toggle');
-  let currentLang = 'en';
-
-  if (langToggle) {
-    langToggle.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'es' : 'en';
-      document.body.classList.toggle('lang-es', currentLang === 'es');
-      // Update html lang attribute for accessibility
-      document.documentElement.setAttribute('lang', currentLang);
-    });
-  }
+  // ---- Language toggle (3-way: EN → ES → MA → EN) ----
+  // (Handled by dedicated IIFE below; stub removed to avoid conflict)
 
   // ---- Mobile nav hamburger ----
   const hamburger = document.getElementById('nav-hamburger');
@@ -336,29 +326,34 @@
       '  <p class="engage-modal__eyebrow">',
       '    <span class="en-text">This site is community-built</span>',
       '    <span class="es-text">Este sitio es de la comunidad</span>',
+      '    <span class="ma-text">Le k\'aajnalil beetaj le sitio</span>',
       '  </p>',
       '  <h2 class="engage-modal__title" id="engage-title">',
       '    <span class="en-text">Help us <em>keep this resource alive.</em></span>',
       '    <span class="es-text">Ayúdanos a <em>mantener vivo este recurso.</em></span>',
+      '    <span class="ma-text">Ayúuda tech <em>ka\'ansik le recurso.</em></span>',
       '  </h2>',
       '  <p class="engage-modal__body">',
       '    <span class="en-text">You\'re exploring this guide — that means it matters to you. We\'re volunteer-led and need translators, designers, researchers, and supporters to grow. It takes 2 minutes to sign up.</span>',
       '    <span class="es-text">Estás explorando esta guía — eso significa que te importa. Somos voluntarios y necesitamos traductores, diseñadores, investigadores y personas de apoyo para crecer. Registrarte toma 2 minutos.</span>',
+      '    <span class="ma-text">K\'aasik tech le ka\'ansajil — ku ya\'alik yaan u k\'a\'abet tech. Ch\'a\'abal voluntarios ku k\'abéetik traductores yéetel apoyo. 2 minutos u ts\'ook u ts\'a\'ik a k\'aaba\'.</span>',
       '  </p>',
       '  <a href="#get-involved" class="engage-modal__cta" id="engage-cta">',
       '    <span class="en-text">Support this volunteer-led work 🦋</span>',
       '    <span class="es-text">Apoya este trabajo voluntario 🦋</span>',
+      '    <span class="ma-text">Ayúuda le trabajoe\' 🦋</span>',
       '  </a>',
       '  <button class="engage-modal__skip" id="engage-skip">',
       '    <span class="en-text">Maybe later</span>',
       '    <span class="es-text">Quizás después</span>',
+      '    <span class="ma-text">Ka\' pektake\'</span>',
       '  </button>',
       '</div>'
     ].join('\n');
     document.body.appendChild(el);
 
     // Apply current language state
-    var lang = document.body.classList.contains('lang-es') ? 'es' : 'en';
+    var lang = document.body.classList.contains('lang-ma') ? 'ma' : (document.body.classList.contains('lang-es') ? 'es' : 'en');
     applyLangToModal(lang);
 
     // Wire close/skip/cta
@@ -386,8 +381,10 @@
     var modal = document.getElementById('engage-overlay');
     if (!modal) return;
     var isEs = (lang === 'es');
-    modal.querySelectorAll('.en-text').forEach(function(el){ el.style.display = isEs ? 'none' : ''; });
+    var isMa = (lang === 'ma');
+    modal.querySelectorAll('.en-text').forEach(function(el){ el.style.display = (isEs || isMa) ? 'none' : ''; });
     modal.querySelectorAll('.es-text').forEach(function(el){ el.style.display = isEs ? '' : 'none'; });
+    modal.querySelectorAll('.ma-text').forEach(function(el){ el.style.display = isMa ? '' : 'none'; });
   }
 
   function openModal() {
@@ -540,6 +537,7 @@
 
     function updateLinks() {
       var isEs = document.body.classList.contains('lang-es');
+      // For Maya mode, use EN link (no Maya WhatsApp variant yet)
       btns.forEach(function (btn) {
         var url = isEs ? btn.dataset.es : btn.dataset.en;
         if (url) btn.href = url;
@@ -665,5 +663,33 @@
 
     // Initialise
     updateProgress();
+  });
+})();
+
+/* ============================================================
+   3-WAY LANGUAGE TOGGLE: EN → ES → MA → EN
+   ============================================================ */
+(function() {
+  var langs = ['en', 'es', 'ma'];
+  var labels = { en: 'ES', es: 'MA', ma: 'EN' }; // shows what you'll switch TO
+  var current = 'en';
+
+  function applyLang(lang) {
+    langs.forEach(function(l) { document.body.classList.remove('lang-' + l); });
+    if (lang !== 'en') document.body.classList.add('lang-' + lang);
+    var label = document.getElementById('lang-label');
+    if (label) label.textContent = labels[lang];
+    // Update html lang attribute for accessibility
+    document.documentElement.setAttribute('lang', lang === 'ma' ? 'yua' : lang);
+    current = lang;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('lang-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var next = langs[(langs.indexOf(current) + 1) % langs.length];
+      applyLang(next);
+    });
   });
 })();

@@ -1926,3 +1926,57 @@ body.dark-mode .wa-inline-btn:hover {
 .blog-post-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 2rem; border-top: 1px solid rgba(232,104,10,.2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: .85rem; color: var(--color-text-muted); }
 .blog-back-link { color: #E8680A; font-weight: 600; text-decoration: none; }
 .blog-back-link:hover { text-decoration: underline; }
+
+/* ── Yucatec Maya language mode ── */
+.ma-text { display: none; }
+body.lang-ma .en-text { display: none !important; }
+body.lang-ma .es-text { display: none !important; }
+body.lang-ma .ma-text { display: inline !important; }
+/* Block-level Maya spans */
+body.lang-ma p > .ma-text,
+body.lang-ma li > .ma-text,
+body.lang-ma div > .ma-text { display: block !important; }
+
+/* Maya disclaimer banner */
+.maya-disclaimer {
+  background: linear-gradient(135deg, rgba(212,160,23,.15), rgba(232,104,10,.1));
+  border-bottom: 2px solid rgba(212,160,23,.4);
+  padding: .65rem 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .82rem;
+  color: var(--color-text);
+  text-align: center;
+  line-height: 1.5;
+}
+.maya-disclaimer a { color: #E8680A; font-weight: 600; }
+body.lang-ma .maya-disclaimer { display: block !important; }
+
+/* Maya mode: Just Arrived modal card title/body */
+.ja-card-title-ma { display: none; }
+.ja-card-body-ma  { display: none; }
+body.lang-ma .ja-card-title-en { display: none; }
+body.lang-ma .ja-card-title-es { display: none; }
+body.lang-ma .ja-card-title-ma { display: block; }
+body.lang-ma .ja-card-body-en  { display: none; }
+body.lang-ma .ja-card-body-es  { display: none; }
+body.lang-ma .ja-card-body-ma  { display: block; }
+
+/* Maya mode: en-only / es-only visibility */
+body.lang-ma .ja-modal-overlay .en-only { display: none; }
+body.lang-ma .ja-modal-overlay .ma-only { display: block; }
+body.lang-ma .ja-modal-overlay .ja-phone-label-en { display: none; }
+body.lang-ma .ja-modal-overlay .ja-phone-label-ma { display: block; }
+.ja-phone-label-ma { display: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .75rem; color: rgba(253,232,204,.65); text-align: center; line-height: 1.3; margin-top: .2rem; }
+
+/* Maya mode: ma-only spans in JA modal (mirrors en-only / es-only pattern) */
+.ma-only { display: none; }
+body.lang-ma .ja-modal-overlay .en-only { display: none; }
+body.lang-ma .ja-modal-overlay .es-only { display: none; }
+body.lang-ma .ja-modal-overlay .ma-only { display: block !important; }
+/* Trigger button ma-only */
+body.lang-ma .just-arrived-btn .en-only { display: none; }
+body.lang-ma .just-arrived-btn .es-only { display: none; }
+body.lang-ma .just-arrived-btn .ma-only { display: inline !important; }
+/* Full guide / guide button */
+body.lang-ma .ja-modal-footer .en-only { display: none; }
+body.lang-ma .ja-modal-footer .ma-only { display: block !important; }

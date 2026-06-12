@@ -17,6 +17,15 @@
 <body>
 
 <!-- ========================================================
+     MAYA DISCLAIMER BANNER
+     Shown only when body.lang-ma is active
+     ======================================================== -->
+<div id="maya-disclaimer" class="maya-disclaimer" style="display:none;">
+  <p>Le páaxil k'aasoob yéetel ka'ansajil ku yúuchul yano'ob ti' le k'iin — ku ya'alik jump'éel equipo ku kanáantik u cha'antik. Ka wil jump'éel táan meentik, kontaktanos: <a href="mailto:rosario@palacios.community">rosario@palacios.community</a> — je'el u páajtal a ayúuda.</p>
+  <p style="margin-top:.35rem; font-size:.78rem; opacity:.8;">This translation is AI-assisted. We want to get it right — if something looks off, please reach out. We'd love your help.</p>
+</div>
+
+<!-- ========================================================
      NAV
      ======================================================== -->
 <nav class="site-nav" id="site-nav" aria-label="Main navigation">
@@ -41,34 +50,39 @@
       <span class="nav-logo-text">
         <span class="en-text">Mexico Guide</span>
         <span class="es-text">Guía México</span>
+        <span class="ma-text">México Guide</span>
       </span>
     </a>
     <div class="nav-links" id="nav-links" role="list">
       <a href="index.html" class="nav-link active" role="listitem">
         <span class="en-text">🏠 First Steps</span>
         <span class="es-text">🏠 Primeros Pasos</span>
+        <span class="ma-text">🏠 U yóok'ol kuxtal</span>
       </a>
       <a href="work.html" class="nav-link" role="listitem">
         <span class="en-text">💼 Work & Business</span>
         <span class="es-text">💼 Trabajo y Negocio</span>
+        <span class="ma-text">💼 Bix u beetik u kuxtal</span>
       </a>
       <a href="teens.html" class="nav-link" role="listitem">
         <span class="en-text">🌱 For Teens</span>
         <span class="es-text">🌱 Para Jóvenes</span>
+        <span class="ma-text">🌱 Ti' xíiw paalal</span>
       </a>
       <a href="toolkit.html" class="nav-link" role="listitem">
         <span class="en-text">📱 Toolkit</span>
         <span class="es-text">📱 Kit Digital</span>
+        <span class="ma-text">📱 Kit Digital</span>
       </a>
       <a href="blog.html" class="nav-link" role="listitem">
         <span class="en-text">✍️ Blog</span>
         <span class="es-text">✍️ Blog</span>
+        <span class="ma-text">✍️ Blog</span>
       </a>
     </div>
     <div class="nav-right">
       <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
-        <span class="en-text">ES</span>
-        <span class="es-text">EN</span>
+        <span id="lang-label">ES</span>
       </button>
       <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -105,23 +119,28 @@
     <p class="hero-eyebrow">
       <span class="en-text">Welcome, Let's Rebuild A New Home</span>
       <span class="es-text">Bienvenidos, Construyamos un Nuevo Hogar</span>
+      <span class="ma-text">KA'ANSIK, BEY TSIKBAL YAAN A WOTOCH</span>
     </p>
     <h1>
       <span class="en-text">Your first steps in <em>Mexico</em></span>
       <span class="es-text">Tus primeros pasos en <em>México</em></span>
+      <span class="ma-text">A ts'ook beetik ti' <em>México</em></span>
     </h1>
     <p class="hero-subtitle">
       <span class="en-text">A bilingual guide for returning, rooting, and rebuilding in Mexico.</span>
       <span class="es-text">Una guía bilingüe para regresar, echar raíz y reconstruir en México.</span>
+      <span class="ma-text">Jump'éel ka'ansajil ti' jump'éel káaj ku bisik tech ti' México.</span>
     </p>
     <div class="hero-ctas">
       <a href="#arrival-tips" class="btn btn-primary">
         <span class="en-text">First Arrival Tips →</span>
         <span class="es-text">Consejos de Llegada →</span>
+        <span class="ma-text">U ts'ook ch'a'abil →</span>
       </a>
       <a href="#documents" class="btn btn-outline">
         <span class="en-text">Get Your Documents</span>
         <span class="es-text">Obtén tus Documentos</span>
+        <span class="ma-text">Ch'a' a documentos</span>
       </a>
     </div>
   </div>
@@ -137,6 +156,7 @@
     <h2 class="pt-title">
       <span class="en-text">Your Progress</span>
       <span class="es-text">Tu Progreso</span>
+      <span class="ma-text">A ts'ook beetik</span>
     </h2>
     <button class="pt-close-btn" id="pt-close-btn" aria-label="Close progress tracker">✕</button>
   </div>
@@ -149,6 +169,7 @@
     <span class="pt-count" id="pt-count">0</span>
     <span class="en-text"> of 10 steps complete</span>
     <span class="es-text"> de 10 pasos completados</span>
+    <span class="ma-text"> ti' 10 pasos ts'o'ok</span>
   </p>
 
   <!-- Checklist -->
@@ -160,6 +181,7 @@
         <span class="pt-text">
           <span class="en-text">Got safe drinking water</span>
           <span class="es-text">Conseguí agua potable segura</span>
+          <span class="ma-text">Ch'a' ja' sano'</span>
         </span>
       </label>
     </li>
@@ -170,6 +192,7 @@
         <span class="pt-text">
           <span class="en-text">Called someone to say I arrived</span>
           <span class="es-text">Llamé a alguien para decir que llegué</span>
+          <span class="ma-text">Wéenel tu'ux ku k'uchul</span>
         </span>
       </label>
     </li>
@@ -180,6 +203,7 @@
         <span class="pt-text">
           <span class="en-text">Got my CURP</span>
           <span class="es-text">Obtuve mi CURP</span>
+          <span class="ma-text">Ch'a' in CURP</span>
         </span>
       </label>
     </li>
@@ -190,6 +214,7 @@
         <span class="pt-text">
           <span class="en-text">Got my Acta de Nacimiento</span>
           <span class="es-text">Obtuve mi Acta de Nacimiento</span>
+          <span class="ma-text">Ch'a' in Acta</span>
         </span>
       </label>
     </li>
@@ -200,6 +225,7 @@
         <span class="pt-text">
           <span class="en-text">Got my INE</span>
           <span class="es-text">Obtuve mi INE</span>
+          <span class="ma-text">Ch'a' in INE</span>
         </span>
       </label>
     </li>
@@ -210,6 +236,7 @@
         <span class="pt-text">
           <span class="en-text">Found temporary housing</span>
           <span class="es-text">Encontré alojamiento temporal</span>
+          <span class="ma-text">Ka'ansik wotoch temporal</span>
         </span>
       </label>
     </li>
@@ -220,6 +247,7 @@
         <span class="pt-text">
           <span class="en-text">Opened a bank account</span>
           <span class="es-text">Abrí una cuenta bancaria</span>
+          <span class="ma-text">Ts'áaj banco</span>
         </span>
       </label>
     </li>
@@ -230,6 +258,7 @@
         <span class="pt-text">
           <span class="en-text">Got a Mexican SIM card</span>
           <span class="es-text">Obtuve un chip mexicano</span>
+          <span class="ma-text">Ch'a' SIM mexicano</span>
         </span>
       </label>
     </li>
@@ -240,6 +269,7 @@
         <span class="pt-text">
           <span class="en-text">Enrolled in IMSS or Seguro Popular</span>
           <span class="es-text">Me inscribí al IMSS o Seguro Popular</span>
+          <span class="ma-text">Ts'áaj IMSS</span>
         </span>
       </label>
     </li>
@@ -250,6 +280,7 @@
         <span class="pt-text">
           <span class="en-text">Found work or registered for a job program</span>
           <span class="es-text">Encontré trabajo o me inscribí a un programa de empleo</span>
+          <span class="ma-text">Ka'ansik meyaj</span>
         </span>
       </label>
     </li>
@@ -264,6 +295,7 @@
   <span class="pt-pill-label">
     <span class="en-text">Your Progress</span>
     <span class="es-text">Tu Progreso</span>
+    <span class="ma-text">A ts'ook beetik</span>
   </span>
 </button>
 
@@ -276,10 +308,13 @@
     <p class="section-label">
       <span class="en-text">Day 1 Essentials</span>
       <span class="es-text">Esenciales del Día 1</span>
+      <span class="ma-text">U Ts'ook Kuxtal K'iin 1</span>
     </p>
     <h2 class="section-title">
       <span class="en-text">When you <em>first arrive</em></span>
       <span class="es-text">Cuando <em>llegas</em> por primera vez</span>
+      <!-- TODO: Maya tile body translation needed -->
+      <span class="ma-text">Ka <em>k'uchech</em> ti' chikin</span>
     </h2>
     <p class="section-intro">
       <span class="en-text">These practical tips will help your body and mind adjust to life in Mexico, especially if you've been away for a long time.</span>
@@ -293,6 +328,8 @@
         <h3 class="tile-title">
           <span class="en-text">Water & Food Safety</span>
           <span class="es-text">Agua y Seguridad Alimentaria</span>
+          <!-- TODO: Maya tile body translation needed -->
+          <span class="ma-text">Ja' y Janal</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -307,6 +344,7 @@
         <h3 class="tile-title">
           <span class="en-text">Carry Toilet Paper</span>
           <span class="es-text">Lleva Papel Higiénico</span>
+          <span class="ma-text">Bisik Papel</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -321,6 +359,7 @@
         <h3 class="tile-title">
           <span class="en-text">Sun & Heat</span>
           <span class="es-text">Sol y Calor</span>
+          <span class="ma-text">K'iin y K'aak'</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -335,6 +374,7 @@
         <h3 class="tile-title">
           <span class="en-text">Medical Care</span>
           <span class="es-text">Atención Médica</span>
+          <span class="ma-text">Ts'aak Kuxtal</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -349,6 +389,7 @@
         <h3 class="tile-title">
           <span class="en-text">SIM Card & Data</span>
           <span class="es-text">SIM y Datos</span>
+          <span class="ma-text">SIM y Datos</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -363,6 +404,7 @@
         <h3 class="tile-title">
           <span class="en-text">Cash & Banking</span>
           <span class="es-text">Efectivo y Banca</span>
+          <span class="ma-text">Tojol y Banco</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -377,6 +419,7 @@
         <h3 class="tile-title">
           <span class="en-text">Getting Around</span>
           <span class="es-text">Movilidad</span>
+          <span class="ma-text">Biin</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -391,6 +434,7 @@
         <h3 class="tile-title">
           <span class="en-text">Finding Housing</span>
           <span class="es-text">Encontrar Vivienda</span>
+          <span class="ma-text">Ka'ansik Wotoch</span>
         </h3>
         <div class="tile-body">
           <p>
@@ -1515,14 +1559,17 @@
         <p class="volunteer-banner__eyebrow">
           <span class="en-text">Help Us Grow This Resource</span>
           <span class="es-text">Ayúdanos a Crecer este Recurso</span>
+          <span class="ma-text">AYÚUDANOS A YÉEYAJ LE RECURSO</span>
         </p>
         <h2 class="volunteer-banner__title">
           <span class="en-text">Support this volunteer-led work. <em>Be part of the mission.</em></span>
           <span class="es-text">Únete al equipo. <em>Sé parte de la misión.</em></span>
+          <span class="ma-text">Cháaj tu'ux ku beeta'al. <em>Bin tu'ux ku beeta'al.</em></span>
         </h2>
         <p class="volunteer-banner__subtitle">
           <span class="en-text">This site is free, community-built, and growing. If you have skills, connections, or resources to share — or want to help fund the work of supporting people relocating to Mexico — we want to hear from you.</span>
           <span class="es-text">Este sitio es gratuito, construido por la comunidad y en crecimiento. Si tienes habilidades, contactos o recursos que compartir — o deseas contribuir al trabajo de apoyar a personas que regresan a México — queremos escucharte.</span>
+          <span class="ma-text">Ayúuda le trabajoe' ti' voluntarios — je'el u páajtal a ayúuda ti' le k'aajnalil.</span>
         </p>
       </div>
     </div>
@@ -1556,6 +1603,7 @@
           <label class="vf-label" for="vf-fname">
             <span class="en-text">First Name</span>
             <span class="es-text">Nombre</span>
+            <span class="ma-text">U k'aaba'</span>
             <span class="vf-required" aria-label="required">*</span>
           </label>
           <input
@@ -1573,6 +1621,7 @@
           <label class="vf-label" for="vf-lname">
             <span class="en-text">Last Name</span>
             <span class="es-text">Apellido</span>
+            <span class="ma-text">U k'aaba' u yatan</span>
             <span class="vf-required" aria-label="required">*</span>
           </label>
           <input
@@ -1594,6 +1643,7 @@
           <label class="vf-label" for="vf-email">
             <span class="en-text">Email Address</span>
             <span class="es-text">Correo Electrónico</span>
+            <span class="ma-text">Correo electrónico</span>
             <span class="vf-required" aria-label="required">*</span>
           </label>
           <input
@@ -1611,6 +1661,7 @@
           <label class="vf-label" for="vf-zip">
             <span class="en-text">ZIP / Postal Code</span>
             <span class="es-text">Código Postal</span>
+            <span class="ma-text">Código postal</span>
             <span class="vf-required" aria-label="required">*</span>
           </label>
           <input
@@ -1632,9 +1683,11 @@
           <label class="vf-label" for="vf-phone">
             <span class="en-text">Phone Number</span>
             <span class="es-text">Teléfono</span>
+            <span class="ma-text">Número de teléfono</span>
             <span class="vf-optional">
               <span class="en-text">(optional)</span>
               <span class="es-text">(opcional)</span>
+              <span class="ma-text">(ma' u k'abéet)</span>
             </span>
           </label>
           <input
@@ -1902,6 +1955,7 @@
         <button type="submit" class="vf-submit-btn">
           <span class="en-text">Support this volunteer-led work 🦋</span>
           <span class="es-text">Únete al Equipo 🦋</span>
+          <span class="ma-text">Ayúuda le trabajoe' 🦋</span>
         </button>
         <p class="vf-privacy">
           <span class="en-text">Your information is kept private and will only be used to coordinate this work.</span>
@@ -1936,6 +1990,7 @@
       <p class="footer-tagline">
         <span class="en-text">A free bilingual resource for people returning to Mexico. Created with love and care for our community.</span>
         <span class="es-text">Un recurso bilingüe gratuito para personas que regresan a México. Creado con amor y cuidado para nuestra comunidad.</span>
+        <span class="ma-text">Jump'éel recurso gratuito ti' ka'ansajil ti' México. Beetaj yéetel yaakunaj yéetel u yojeltik ti' kaajal.</span>
       </p>
     </div>
     <div>
@@ -1944,9 +1999,9 @@
         <span class="es-text">Páginas</span>
       </p>
       <div class="footer-links">
-        <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
-        <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo y Negocio</span></a>
-        <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Para Jóvenes</span></a>
+        <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span><span class="ma-text">U ts'ook beetik</span></a>
+        <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo y Negocio</span><span class="ma-text">Meyaj</span></a>
+        <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Para Jóvenes</span><span class="ma-text">Ti' paalal</span></a>
         <a href="toolkit.html"><span class="en-text">📱 Toolkit</span><span class="es-text">📱 Kit Digital</span></a>
         <a href="blog.html"><span class="en-text">✍️ Blog</span><span class="es-text">✍️ Blog</span></a>
       </div>
@@ -1981,6 +2036,7 @@
 <button class="just-arrived-btn" id="ja-trigger-btn" aria-label="Just arrived emergency guide" aria-haspopup="dialog">
   <span class="en-only">🚨 Just arrived?</span>
   <span class="es-only">🚨 ¿Recién llegaste?</span>
+  <span class="ma-only" style="display:none;">🚨 Ts'o'ok a k'uchul?</span>
 </button>
 
 <!-- Full-screen emergency modal -->
@@ -1992,6 +2048,7 @@
       <h2 class="ja-modal-title" id="ja-modal-heading">
         <span class="en-only">🚨 Just Arrived</span>
         <span class="es-only">🚨 Recién Llegaste</span>
+        <span class="ma-only" style="display:none;">🚨 Ts'o'ok a k'uchul</span>
       </h2>
       <button class="ja-modal-close" id="ja-modal-close" aria-label="Close">✕</button>
     </div>
@@ -2006,10 +2063,12 @@
           <div class="ja-card-titles">
             <p class="ja-card-title-en">Don't sign anything</p>
             <p class="ja-card-title-es">No firmes nada</p>
+            <p class="ja-card-title-ma">Ma' a ts'íib jump'éel bik'in</p>
           </div>
         </div>
         <p class="ja-card-body-en">If authorities hand you papers, you have the right to read them and ask for a translator. You do NOT have to sign immediately.</p>
         <p class="ja-card-body-es">Si las autoridades te dan documentos, tienes derecho a leerlos y pedir un traductor. NO tienes que firmar de inmediato.</p>
+        <p class="ja-card-body-ma">Wáa ku ts'a'ik tech papeles u kaba' u k'abéet, yaan a wojel u leelik yéetel u k'áat chi'ik jump'éel traductor. MA' a k'abéet a ts'íib yéet le k'iin.</p>
       </div>
 
       <!-- 2. Call someone you trust -->
@@ -2019,10 +2078,12 @@
           <div class="ja-card-titles">
             <p class="ja-card-title-en">Call someone you trust</p>
             <p class="ja-card-title-es">Llama a alguien de confianza</p>
+            <p class="ja-card-title-ma">Wéenel tu'ux ku yojeltik tech</p>
           </div>
         </div>
         <p class="ja-card-body-en">Let a family member or friend know you've arrived and where you are. If you have no credit, dial 800 numbers free from any phone.</p>
         <p class="ja-card-body-es">Avísale a un familiar o amigo que llegaste y dónde estás. Si no tienes saldo, los números 800 son gratuitos desde cualquier teléfono.</p>
+        <p class="ja-card-body-ma">Ts'a'ik u k'aaba' a waláak' o a aamigo k'uch tu'ux yaan tech. Wáa ma' yaan a saldo, le números 800 ma' u tojol.</p>
       </div>
 
       <!-- 3. Find water & food -->
@@ -2032,10 +2093,12 @@
           <div class="ja-card-titles">
             <p class="ja-card-title-en">Find water &amp; food</p>
             <p class="ja-card-title-es">Encuentra agua y comida</p>
+            <p class="ja-card-title-ma">Ka'ansik ja' yéetel janal</p>
           </div>
         </div>
         <p class="ja-card-body-en">Avoid tap water the first weeks — buy bottled (garrafón). Cruz Roja and DIF municipal offices often assist people in need at no cost.</p>
         <p class="ja-card-body-es">Evita el agua de la llave las primeras semanas — compra agua embotellada (garrafón). Cruz Roja y los DIF municipales frecuentemente ayudan a personas en necesidad sin costo.</p>
+        <p class="ja-card-body-ma">Ma' xu'ulsik u ja' le llao'ob — ch'a' garrafón. Cruz Roja yéetel DIF je'el u beet u ts'aaktech ma' u tojol.</p>
       </div>
 
       <!-- 4. Emergency numbers -->
@@ -2045,6 +2108,7 @@
           <div class="ja-card-titles">
             <p class="ja-card-title-en">Know your emergency numbers</p>
             <p class="ja-card-title-es">Conoce tus números de emergencia</p>
+            <p class="ja-card-title-ma">Yojel a núumeros ti' tulakbal</p>
           </div>
         </div>
         <div class="ja-phone-grid">
@@ -2052,21 +2116,25 @@
             <span class="ja-phone-num">911</span>
             <span class="ja-phone-label-en">Emergencies</span>
             <span class="ja-phone-label-es">Emergencias</span>
+            <span class="ja-phone-label-ma">Tulakbal</span>
           </a>
           <a class="ja-phone-link" href="tel:065">
             <span class="ja-phone-num">065</span>
             <span class="ja-phone-label-en">Red Cross</span>
             <span class="ja-phone-label-es">Cruz Roja</span>
+            <span class="ja-phone-label-ma">Cruz Roja</span>
           </a>
           <a class="ja-phone-link" href="tel:8002020260">
             <span class="ja-phone-num">800-202-0260</span>
             <span class="ja-phone-label-en">CNDH Human Rights</span>
             <span class="ja-phone-label-es">CNDH Derechos Humanos</span>
+            <span class="ja-phone-label-ma">CNDH Derechos</span>
           </a>
           <a class="ja-phone-link" href="tel:8000048000">
             <span class="ja-phone-num">800-004-8000</span>
             <span class="ja-phone-label-en">SAPTEL Crisis (24/7)</span>
             <span class="ja-phone-label-es">SAPTEL Crisis (24/7)</span>
+            <span class="ja-phone-label-ma">SAPTEL Crisis (24/7)</span>
           </a>
         </div>
       </div>
@@ -2078,10 +2146,12 @@
           <div class="ja-card-titles">
             <p class="ja-card-title-en">You have rights here</p>
             <p class="ja-card-title-es">Tienes derechos aquí</p>
+            <p class="ja-card-title-ma">Yaan a derechos wayae'</p>
           </div>
         </div>
         <p class="ja-card-body-en">You are protected by Mexico's constitution regardless of how you arrived. You cannot be detained without cause. Contact CNDH if your rights are violated: <a href="tel:8002020260" style="color:#E8680A;font-weight:700;">800-202-0260</a>.</p>
         <p class="ja-card-body-es">Estás protegido por la constitución mexicana sin importar cómo llegaste. No pueden detenerte sin causa. Contacta a la CNDH si violan tus derechos: <a href="tel:8002020260" style="color:#E8680A;font-weight:700;">800-202-0260</a>.</p>
+        <p class="ja-card-body-ma">Yaan a derechos ti' constitución mexicana bey u k'uchul tech. Ma' je'el u kuchul tu'ux ma' yaan bix. Kontaktanos ti' CNDH wáa ku beetik tech: <a href="tel:8002020260" style="color:#E8680A;font-weight:700;">800-202-0260</a>.</p>
       </div>
 
     </div><!-- /.ja-cards -->
@@ -2091,14 +2161,17 @@
       <button class="ja-full-guide-btn" id="ja-full-guide-btn">
         <span class="en-only">See full guide →</span>
         <span class="es-only">Ver la guía completa →</span>
+        <span class="ma-only" style="display:none;">Il u chíikpajal →</span>
       </button>
       <p class="ja-legal-note">
         <span class="en-only">⚠️ This information is for general guidance only and is not legal advice. For your specific situation, consult a licensed attorney or legal aid organization.</span>
         <span class="es-only">⚠️ Esta información es solo orientación general y no constituye asesoría legal. Para tu situación específica, consulta a un abogado o a una organización de asistencia legal.</span>
+        <span class="ma-only" style="display:none;">⚠️ Le beetik ku ya'alike' ti' u jéel k'áat chi'ob yaan, ma' juntúul abogado. Ti' a bix k'uchech, k'áatik juntúul abogado.</span>
       </p>
       <p class="ja-tap-note">
         <span class="en-only">Tap any phone number to call</span>
         <span class="es-only">Toca cualquier número para llamar</span>
+        <span class="ma-only" style="display:none;">Ts'ib tun le núumero u k'aat chi'</span>
       </p>
     </div>
 
