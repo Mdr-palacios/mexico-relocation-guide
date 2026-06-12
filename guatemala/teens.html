@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Guatemala For Teens — Semillas Monarca</title>
+<meta name="description" content="For teens returning to Guatemala: school, history, Maya civilization, Garifuna, Xinca, Rigoberta Menchú, and Guatemalan slang."/>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇬🇹</text></svg>"/>
+<meta name="theme-color" content="#E8680A"/>
+<style>
+  :root { --gt-blue: #1B5E8A; --gt-green: #1A6B3C; --gt-light: #E8F4EC; }
+
+  .hero-gt .hero-bg {
+    background:
+      radial-gradient(ellipse 70% 60% at 20% 20%, rgba(26,107,60,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 75% 60%, rgba(27,94,138,.15) 0%, transparent 55%),
+      var(--color-cream);
+  }
+  [data-theme="dark"] .hero-gt .hero-bg {
+    background:
+      radial-gradient(ellipse 70% 60% at 20% 20%, rgba(26,107,60,.22) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 75% 60%, rgba(27,94,138,.2) 0%, transparent 55%),
+      #0d1a11;
+  }
+
+  /* EDUCATION LADDER */
+  .edu-ladder { display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-6); }
+  .edu-rung { flex:1; min-width:140px; background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-4); text-align:center; border-top:4px solid var(--gt-green); }
+  .edu-rung .rung-emoji { font-size:1.75rem; margin-bottom:var(--space-1); }
+  .edu-rung h4 { font-size:var(--text-sm); font-weight:700; margin-bottom:.25rem; color:var(--gt-green); }
+  .edu-rung p { font-size:.75rem; color:var(--color-text-muted); line-height:1.5; }
+
+  /* HISTORY CARDS */
+  .history-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--space-5); margin-top:var(--space-6); }
+  .history-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-5) var(--space-6); border:1.5px solid var(--color-border); }
+  .history-card .hist-emoji { font-size:2.5rem; margin-bottom:var(--space-3); }
+  .history-card h4 { font-size:var(--text-lg); font-weight:700; margin-bottom:var(--space-3); }
+  .history-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; margin-bottom:var(--space-2); }
+  .history-card .hist-tag { display:inline-block; background:var(--gt-green); color:#fff; font-size:.7rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; margin-bottom:var(--space-3); }
+
+  /* PEOPLE BANNER */
+  .people-banner { background:linear-gradient(135deg,rgba(26,107,60,.12),rgba(27,94,138,.08)); border:1.5px solid var(--gt-green); border-radius:var(--radius-lg); padding:var(--space-6); margin-top:var(--space-6); }
+  .people-banner h4 { color:var(--gt-green); font-size:var(--text-lg); font-weight:700; margin-bottom:var(--space-3); }
+  .people-banner p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; margin-bottom:var(--space-2); }
+
+  /* MAYA LANGUAGES */
+  .lang-chips { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-4); }
+  .lang-chip { background:var(--gt-light); color:var(--gt-green); border:1px solid var(--gt-green); border-radius:999px; padding:.3rem .75rem; font-size:var(--text-sm); font-weight:600; }
+  [data-theme="dark"] .lang-chip { background:rgba(26,107,60,.2); color:#6fcf97; border-color:#6fcf97; }
+
+  /* SLANG TABLE */
+  .slang-table { width:100%; border-collapse:collapse; margin-top:var(--space-5); font-size:var(--text-sm); }
+  .slang-table th { background:var(--gt-blue); color:#fff; padding:var(--space-2) var(--space-3); text-align:left; }
+  .slang-table td { padding:var(--space-2) var(--space-3); border-bottom:1px solid var(--color-border); vertical-align:top; }
+  .slang-table tr:nth-child(even) td { background:var(--color-surface); }
+  .slang-table td:first-child { font-weight:700; color:var(--gt-blue); white-space:nowrap; }
+
+  /* PHRASE CATEGORY TABS */
+  .phrase-tabs { display:flex; gap:var(--space-2); flex-wrap:wrap; margin-bottom:var(--space-4); }
+  .phrase-tab { background:var(--color-surface); border:1.5px solid var(--color-border); border-radius:var(--radius-full); padding:.35rem .9rem; font-size:var(--text-sm); cursor:pointer; transition:all .2s; font-family:inherit; color:var(--color-text); }
+  .phrase-tab.active, .phrase-tab:hover { background:var(--gt-blue); color:#fff; border-color:var(--gt-blue); }
+  .phrase-panel { display:none; }
+  .phrase-panel.active { display:block; }
+
+  /* TIMELINE */
+  .timeline { margin-top:var(--space-6); position:relative; padding-left:var(--space-8); }
+  .timeline::before { content:''; position:absolute; left:1rem; top:0; bottom:0; width:2px; background:var(--gt-green); opacity:.3; }
+  .timeline-item { position:relative; margin-bottom:var(--space-6); }
+  .timeline-item::before { content:''; position:absolute; left:-2.35rem; top:.3rem; width:.75rem; height:.75rem; background:var(--gt-green); border-radius:50%; border:2px solid var(--color-surface); }
+  .timeline-item .tl-year { font-family:'Fraunces',serif; font-size:var(--text-xl); font-weight:900; color:var(--gt-green); margin-bottom:.25rem; }
+  .timeline-item h4 { font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-2); }
+  .timeline-item p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; }
+
+  /* INTECAP BOX */
+  .intecap-box { background:linear-gradient(135deg,rgba(232,104,10,.08),rgba(26,107,60,.08)); border:1.5px solid var(--color-amber); border-radius:var(--radius-lg); padding:var(--space-6); margin-top:var(--space-5); }
+  .intecap-box h4 { color:var(--color-amber); font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-3); }
+  .intecap-box ul { padding-left:1.25rem; }
+  .intecap-box li { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; margin-bottom:var(--space-1); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../mexico.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+      </svg>
+      <span class="nav-logo-text">
+        <span class="en-text">Guatemala Guide</span>
+        <span class="es-text">Guía Guatemala</span>
+      </span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="../index.html" class="nav-link nav-country" role="listitem">
+        <span class="en-text">🌎 Countries</span>
+        <span class="es-text">🌎 Países</span>
+      </a>
+      <a href="index.html" class="nav-link" role="listitem">
+        <span class="en-text">🏠 First Steps</span>
+        <span class="es-text">🏠 Primeros Pasos</span>
+      </a>
+      <a href="work.html" class="nav-link" role="listitem">
+        <span class="en-text">💼 Work & Business</span>
+        <span class="es-text">💼 Trabajo y Negocio</span>
+      </a>
+      <a href="teens.html" class="nav-link active" role="listitem">
+        <span class="en-text">🎒 For Teens</span>
+        <span class="es-text">🎒 Para Jóvenes</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span id="lang-label">ES</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-gt">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span class="en-text">🎒 For Teens & Youth</span>
+      <span class="es-text">🎒 Para Jóvenes</span>
+    </p>
+    <h1>
+      <span class="en-text">This is your <em>home country.</em></span>
+      <span class="es-text">Este es <em>tu país.</em></span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="en-text">School re-enrollment, free university, job training, and the full story of Guatemala's Maya civilization, Garifuna heritage, Xinca people, and modern history — because knowing where you come from is power.</span>
+      <span class="es-text">Reinscripción escolar, universidad gratis, capacitación laboral, y la historia completa de la civilización Maya, el pueblo Garífuna, los Xincas y la historia moderna de Guatemala — porque saber de dónde vienes es poder.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#school" class="btn btn-primary">
+        <span class="en-text">Back to School →</span>
+        <span class="es-text">De Vuelta a la Escuela →</span>
+      </a>
+      <a href="#history" class="btn btn-outline">
+        <span class="en-text">History & Culture</span>
+        <span class="es-text">Historia y Cultura</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL -->
+<section id="school" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="school"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Your Education Path</span>
+      <span class="es-text">Tu Camino Educativo</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Going back <em>to school</em></span>
+      <span class="es-text">De vuelta <em>a la escuela</em></span>
+    </h2>
+
+    <!-- Education Ladder -->
+    <div class="edu-ladder">
+      <div class="edu-rung">
+        <div class="rung-emoji">🌱</div>
+        <h4>Preprimaria</h4>
+        <p><span class="en-text">Ages 4–6</span><span class="es-text">Edades 4–6</span></p>
+      </div>
+      <div class="edu-rung">
+        <div class="rung-emoji">📖</div>
+        <h4>Primaria</h4>
+        <p><span class="en-text">Grades 1–6, ages 6–12</span><span class="es-text">Grados 1–6, edades 6–12</span></p>
+      </div>
+      <div class="edu-rung">
+        <div class="rung-emoji">📐</div>
+        <h4>Básico</h4>
+        <p><span class="en-text">Grades 7–9, ages 12–15</span><span class="es-text">Grados 7–9, edades 12–15</span></p>
+      </div>
+      <div class="edu-rung">
+        <div class="rung-emoji">🎓</div>
+        <h4>Diversificado</h4>
+        <p><span class="en-text">Grades 10–12+, ages 15–18. Choose a career track (Bachillerato, Perito Contador, Magisterio…)</span><span class="es-text">Grados 10–12+, edades 15–18. Elige carrera (Bachillerato, Perito Contador, Magisterio…)</span></p>
+      </div>
+      <div class="edu-rung">
+        <div class="rung-emoji">🏛️</div>
+        <h4>Universidad</h4>
+        <p><span class="en-text">Age 18+. USAC is public and free.</span><span class="es-text">18+. USAC es pública y gratis.</span></p>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--space-6);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-5);">
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);border-left:4px solid var(--gt-green);">
+        <h4 style="color:var(--gt-green);font-weight:700;margin-bottom:var(--space-3);">
+          <span class="en-text">How to Re-Enroll (MINEDUC)</span>
+          <span class="es-text">Cómo Reinscribirse (MINEDUC)</span>
+        </h4>
+        <ul style="padding-left:1.25rem;">
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Bring your <strong>birth certificate + DPI</strong> of parent/guardian to any public school director.</span><span class="es-text">Lleva tu <strong>acta de nacimiento + DPI</strong> del padre/tutor al director de cualquier escuela pública.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">For a different school than before, bring your complete academic record.</span><span class="es-text">Para una escuela diferente, lleva tu expediente académico completo.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Returning from the U.S.? The school director and MINEDUC can evaluate U.S. school certificates for grade equivalency — no apostille required for basic enrollment.</span><span class="es-text">¿Vienes de EE.UU.? El director y MINEDUC pueden evaluar certificados de escuelas americanas para equivalencia de grado — no se requiere apostilla para inscripción básica.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;"><span class="en-text">School year runs <strong>January–October</strong>.</span><span class="es-text">El año escolar corre de <strong>enero a octubre</strong>.</span></li>
+        </ul>
+        <p style="margin-top:var(--space-3);font-size:var(--text-sm);"><a href="https://www.mineduc.gob.gt" target="_blank" rel="noopener">mineduc.gob.gt</a></p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);border-left:4px solid var(--gt-blue);">
+        <h4 style="color:var(--gt-blue);font-weight:700;margin-bottom:var(--space-3);">
+          <span class="en-text">USAC — Free University</span>
+          <span class="es-text">USAC — Universidad Gratis</span>
+        </h4>
+        <ul style="padding-left:1.25rem;">
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Guatemala's only public university, founded 1676. Tuition is <strong>fully free</strong> (enrollment fees waived in 2026).</span><span class="es-text">La única universidad pública de Guatemala, fundada en 1676. Matrícula <strong>completamente gratis</strong> (cuotas eliminadas en 2026).</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">10 faculties in Guatemala City (Zone 12) + 22 regional centers nationwide.</span><span class="es-text">10 facultades en Ciudad de Guatemala (Zona 12) + 22 centros regionales a nivel nacional.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-1);"><span class="en-text">Entrance exam required: Biology, Physics, Language, Math, Chemistry + Vocational test. Free prep courses available online.</span><span class="es-text">Se requiere examen de admisión: Biología, Física, Idioma, Matemáticas, Química + prueba vocacional. Cursos prep gratuitos en línea.</span></li>
+          <li style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;"><span class="en-text"><strong>Free online courses</strong> (Cursos Libres) available to anyone — no enrollment needed.</span><span class="es-text"><strong>Cursos libres en línea gratuitos</strong> para cualquier persona — sin inscripción.</span></li>
+        </ul>
+        <p style="margin-top:var(--space-3);font-size:var(--text-sm);"><a href="https://portal.usac.edu.gt" target="_blank" rel="noopener">usac.edu.gt</a></p>
+      </div>
+    </div>
+
+    <!-- INTECAP -->
+    <div class="intecap-box">
+      <h4>🛠️ INTECAP — <span class="en-text">Free Training for Returnees Age 14+</span><span class="es-text">Capacitación Gratis para Retornados de 14 años+</span></h4>
+      <ul>
+        <li><span class="en-text">Guatemala's national technical training institute has <strong>Becas para Retornados</strong> — completely free for qualifying returnees, including materials and certification.</span><span class="es-text">El instituto nacional de capacitación técnica tiene <strong>Becas para Retornados</strong> — completamente gratis para retornados calificados, incluye materiales y certificación.</span></li>
+        <li><span class="en-text">Courses: construction, electricity, plumbing, automotive, culinary arts, tourism, computing, English, agriculture, cybersecurity, and more.</span><span class="es-text">Cursos: construcción, electricidad, plomería, automotriz, artes culinarias, turismo, computación, inglés, agricultura, ciberseguridad y más.</span></li>
+        <li><span class="en-text">Your U.S. work skills can be <strong>formally certified</strong> through INTECAP's Certificación de Competencias Laborales — a major advantage for employment.</span><span class="es-text">Tus habilidades laborales de EE.UU. pueden ser <strong>certificadas formalmente</strong> por INTECAP — gran ventaja para el empleo.</span></li>
+        <li><span class="en-text">To apply: present your DPI (CUI number) + IGM returnee validation document. Tel: <a href="tel:1565">1565</a> | <a href="https://intecap.edu.gt/becasretornados/" target="_blank" rel="noopener">intecap.edu.gt/becasretornados</a></span><span class="es-text">Para aplicar: presenta tu DPI (CUI) + documento de validación del IGM. Tel: <a href="tel:1565">1565</a> | <a href="https://intecap.edu.gt/becasretornados/" target="_blank" rel="noopener">intecap.edu.gt/becasretornados</a></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="section-inner">
+    <button class="print-btn" data-section="history"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Your Roots</span>
+      <span class="es-text">Tus Raíces</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Guatemala's history & <em>indigenous peoples</em></span>
+      <span class="es-text">Historia de Guatemala y <em>pueblos indígenas</em></span>
+    </h2>
+
+    <div class="history-grid">
+      <!-- MAYA -->
+      <div class="history-card">
+        <div class="hist-emoji">🌽</div>
+        <span class="hist-tag"><span class="en-text">Ancient Civilization</span><span class="es-text">Civilización Antigua</span></span>
+        <h4><span class="en-text">The Maya — 3,000 Years of Civilization</span><span class="es-text">Los Mayas — 3,000 Años de Civilización</span></h4>
+        <p><span class="en-text">Guatemala is the heart of the Maya world. The Maya civilization flourished for over 3,000 years, reaching its peak in the Classic Period (250–900 CE) in cities like Tikal, Quiriguá, and Copán. They developed one of only five independently invented writing systems in human history, used a base-20 number system, and were among the first to use the concept of zero.</span><span class="es-text">Guatemala es el corazón del mundo Maya. La civilización Maya floreció por más de 3,000 años, alcanzando su apogeo en el Período Clásico (250–900 d.C.) en ciudades como Tikal, Quiriguá y Copán. Desarrollaron uno de solo cinco sistemas de escritura inventados de forma independiente en la historia humana.</span></p>
+        <p><span class="en-text">The Maya did NOT disappear — <strong>the Maya people are still here</strong>, numbering over 6 million in Guatemala alone. They are Guatemala's largest population group.</span><span class="es-text">Los Mayas NO desaparecieron — <strong>el pueblo Maya sigue aquí</strong>, con más de 6 millones de personas solo en Guatemala. Son el grupo de población más grande del país.</span></p>
+        <p><span class="en-text"><em>Maize is sacred in Maya culture.</em> The Popol Vuh — Guatemala's National Book — says humans were made from white and yellow corn dough.</span><span class="es-text"><em>El maíz es sagrado en la cultura Maya.</em> El Popol Vuh — el Libro Nacional de Guatemala — dice que los humanos fueron hechos de masa de maíz blanco y amarillo.</span></p>
+      </div>
+
+      <!-- POPOL VUH -->
+      <div class="history-card">
+        <div class="hist-emoji">📜</div>
+        <span class="hist-tag"><span class="en-text">Sacred Literature</span><span class="es-text">Literatura Sagrada</span></span>
+        <h4>Popol Vuh (Popol Wuj)</h4>
+        <p><span class="en-text">One of the most important books in all of human literature — Guatemala's <strong>National Book</strong> (declared 1972) and UNESCO-recognized world heritage. The sacred narrative of the K'iche' Maya people, written down around 1554–1558 after the conquest.</span><span class="es-text">Uno de los libros más importantes de toda la literatura humana — el <strong>Libro Nacional de Guatemala</strong> (declarado 1972) y patrimonio mundial de la UNESCO. La narrativa sagrada del pueblo K'iche' Maya, escrita hacia 1554–1558 después de la conquista.</span></p>
+        <p><span class="en-text"><strong>What it contains:</strong> The creation story (humans made from corn after two failed attempts with mud and wood); the Hero Twins Hunahpú and Ixbalanqué defeating the lords of death in Xibalbá; K'iche' history and lineages up to the Spanish conquest.</span><span class="es-text"><strong>Qué contiene:</strong> La historia de la creación (humanos hechos de maíz tras dos intentos fallidos con barro y madera); los Héroes Gemelos Hunahpú e Ixbalanqué venciendo a los señores de la muerte en Xibalbá; la historia K'iche' hasta la conquista española.</span></p>
+        <p><span class="en-text">The Popol Vuh is proof that Maya people had rich, complex, written literature and philosophy long before Europeans arrived. It is an act of cultural survival and resistance.</span><span class="es-text">El Popol Vuh es prueba de que el pueblo Maya tenía una rica y compleja literatura y filosofía mucho antes de que llegaran los europeos. Es un acto de supervivencia cultural y resistencia.</span></p>
+      </div>
+
+      <!-- GARIFUNA -->
+      <div class="history-card">
+        <div class="hist-emoji">🥁</div>
+        <span class="hist-tag"><span class="en-text">Afro-Indigenous Heritage</span><span class="es-text">Herencia Afro-Indígena</span></span>
+        <h4><span class="en-text">The Garífuna (Garínagu) People</span><span class="es-text">El Pueblo Garífuna (Garínagu)</span></h4>
+        <p><span class="en-text">The Garífuna are an Afro-indigenous people descended from Carib and Arawak indigenous peoples of the Caribbean and enslaved West Africans who escaped two shipwrecked Spanish slave ships near St. Vincent in the 17th century. <strong>They were never enslaved — they fought their way to freedom.</strong></span><span class="es-text">Los Garífuna son un pueblo afro-indígena descendiente de pueblos indígenas Carib y Arawak del Caribe y africanos esclavizados que escaparon de dos barcos negreros españoles naufragados cerca de San Vicente en el siglo XVII. <strong>Nunca fueron esclavizados — lucharon por su libertad.</strong></span></p>
+        <p><span class="en-text">In 1797, after resisting British colonization for decades, ~5,000 Garínagu were forcibly deported to the island of Roatán — an echo of what deportation feels like. From there, they spread to Belize, Guatemala, Honduras, and Nicaragua. In Guatemala, the main community is <strong>Livingston (Labuga)</strong>, Izabal, accessible only by boat or plane.</span><span class="es-text">En 1797, después de resistir la colonización británica por décadas, ~5,000 Garínagu fueron deportados a la fuerza a la isla de Roatán. En Guatemala, la comunidad principal es <strong>Livingston (Labuga)</strong>, Izabal, accesible solo por lancha o avioneta.</span></p>
+        <p><span class="en-text">UNESCO declared Garífuna language, music, and dance <strong>Intangible Heritage of Humanity in 2008</strong>. Their music — Punta, Chumba, Paranda — is a living tradition.</span><span class="es-text">UNESCO declaró la lengua, música y danza Garífuna <strong>Patrimonio Inmaterial de la Humanidad en 2008</strong>. Su música — Punta, Chumba, Paranda — es una tradición viva.</span></p>
+      </div>
+
+      <!-- XINCA -->
+      <div class="history-card">
+        <div class="hist-emoji">🗿</div>
+        <span class="hist-tag"><span class="en-text">Indigenous People</span><span class="es-text">Pueblo Indígena</span></span>
+        <h4><span class="en-text">The Xinca (Xinka) People</span><span class="es-text">El Pueblo Xinca (Xinka)</span></h4>
+        <p><span class="en-text">The Xinca are Guatemala's other non-Maya indigenous group — a people with completely distinct origins. Their language is <strong>not related to any Maya language</strong>; it is linguistically isolated, making it one of the most unique languages on Earth.</span><span class="es-text">Los Xincas son el otro grupo indígena no Maya de Guatemala, con orígenes completamente distintos. Su idioma <strong>no está relacionado con ninguna lengua Maya</strong>; es lingüísticamente aislado, convirtiéndolo en uno de los idiomas más únicos del mundo.</span></p>
+        <p><span class="en-text">Located in southeastern Guatemala: Santa Rosa, Jutiapa, Jalapa, and parts of Escuintla. Only ~100–2,500 speakers remain of the Xinca language, though over 150,000 people identify as Xinca. They were officially recognized for the first time in the 1995 Peace Accords.</span><span class="es-text">Se ubican en el sureste de Guatemala: Santa Rosa, Jutiapa, Jalapa y partes de Escuintla. Solo ~100–2,500 hablantes quedan del xinca, aunque más de 150,000 personas se identifican como Xincas. Fueron reconocidos oficialmente por primera vez en los Acuerdos de Paz de 1995.</span></p>
+      </div>
+    </div>
+
+    <!-- 22 MAYA LANGUAGES -->
+    <p class="section-label" style="margin-top:var(--space-10);">
+      <span class="en-text">25 Official Languages</span>
+      <span class="es-text">25 Idiomas Oficiales</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">The 22 Maya <em>linguistic communities</em></span>
+      <span class="es-text">Las 22 comunidades <em>lingüísticas Maya</em></span>
+    </h2>
+    <p class="section-subtitle">
+      <span class="en-text">Guatemala recognizes 22 Maya languages plus Xinca, Garífuna, and Spanish — 25 official languages total. The four largest are K'iche' (~1M speakers), Q'eqchi' (~800K), Mam (~500K), and Kaqchikel (~400K).</span>
+      <span class="es-text">Guatemala reconoce 22 idiomas Mayas más Xinca, Garífuna y Español — 25 idiomas oficiales en total. Los cuatro más grandes son K'iche' (~1M hablantes), Q'eqchi' (~800K), Mam (~500K) y Kaqchikel (~400K).</span>
+    </p>
+    <div class="lang-chips">
+      <span class="lang-chip">K'iche'</span>
+      <span class="lang-chip">Q'eqchi'</span>
+      <span class="lang-chip">Mam</span>
+      <span class="lang-chip">Kaqchikel</span>
+      <span class="lang-chip">Q'anjob'al</span>
+      <span class="lang-chip">Ixil</span>
+      <span class="lang-chip">Tz'utujil</span>
+      <span class="lang-chip">Poqomchi'</span>
+      <span class="lang-chip">Ch'orti'</span>
+      <span class="lang-chip">Chuj</span>
+      <span class="lang-chip">Akateko</span>
+      <span class="lang-chip">Awakateko</span>
+      <span class="lang-chip">Jakalteko/Popti'</span>
+      <span class="lang-chip">Poqomam</span>
+      <span class="lang-chip">Achi'</span>
+      <span class="lang-chip">Sakapulteko</span>
+      <span class="lang-chip">Sipakapense</span>
+      <span class="lang-chip">Tektiteko</span>
+      <span class="lang-chip">Uspanteko</span>
+      <span class="lang-chip">Chalchiteko</span>
+      <span class="lang-chip">Itza'</span>
+      <span class="lang-chip">Mopan</span>
+    </div>
+  </div>
+</section>
+
+<!-- MODERN HISTORY -->
+<section id="modern-history" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="modern-history"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">How We Got Here</span>
+      <span class="es-text">Cómo Llegamos Aquí</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Guatemala's modern <em>history</em></span>
+      <span class="es-text">Historia moderna <em>de Guatemala</em></span>
+    </h2>
+    <p class="section-subtitle">
+      <span class="en-text">Understanding why so many Guatemalans left — and why so many are now returning — requires knowing this history.</span>
+      <span class="es-text">Entender por qué tantos guatemaltecos se fueron — y por qué tantos regresan ahora — requiere conocer esta historia.</span>
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-year">1944</div>
+        <h4><span class="en-text">Democratic Spring / La Primavera Democrática</span><span class="es-text">La Primavera Democrática</span></h4>
+        <p><span class="en-text">Popular uprisings overthrew dictator Jorge Ubico. Guatemala's first democratic elections brought reformist presidents Juan José Arévalo and then Jacobo Árbenz to power. Major reforms: land redistribution (<em>Decreto 900</em>), workers' rights, minimum wage, public education expansion. Land was taken from large landowners — including the U.S. United Fruit Company — and given to poor farmers.</span><span class="es-text">Levantamientos populares derrocaron al dictador Jorge Ubico. Las primeras elecciones democráticas llevaron al poder a Juan José Arévalo y luego a Jacobo Árbenz. Reformas clave: redistribución de tierras (<em>Decreto 900</em>), derechos laborales, salario mínimo y expansión de la educación pública.</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">1954</div>
+        <h4><span class="en-text">The CIA Coup — Operation PBSUCCESS</span><span class="es-text">El Golpe de la CIA — Operación PBSUCCESS</span></h4>
+        <p><span class="en-text">The U.S. CIA, under President Eisenhower, orchestrated a coup that overthrew the democratically elected President Árbenz. The CIA acted partly to protect the United Fruit Company's land interests. A right-wing military dictatorship was installed. Land reforms were reversed. Voting rights were stripped from illiterate Guatemalans. In 1999, U.S. President Bill Clinton officially acknowledged the U.S. role as "dark and painful."</span><span class="es-text">La CIA de EE.UU., bajo el presidente Eisenhower, orquestó un golpe que derrocó al presidente democráticamente electo Árbenz. La CIA actuó en parte para proteger los intereses de la United Fruit Company. Las reformas de tierras fueron revertidas. En 1999, el presidente Clinton reconoció oficialmente el papel de EE.UU. como "oscuro y doloroso."</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">1960–1996</div>
+        <h4><span class="en-text">The Civil War — 36 Years</span><span class="es-text">La Guerra Civil — 36 Años</span></h4>
+        <p><span class="en-text">One of the longest civil wars in Latin American history. An estimated <strong>200,000 people killed or disappeared</strong>. Of identified victims, 83% were indigenous Maya. 93% of human rights violations were carried out by government forces and military-linked death squads. General Efraín Ríos Montt's <em>scorched earth policy</em> (1982) attacked 626+ indigenous villages. Hundreds of thousands fled — many to the U.S. <em>This is why so many Guatemalan families are now in the U.S., and why so many are being returned.</em></span><span class="es-text">Una de las guerras civiles más largas de América Latina. Aproximadamente <strong>200,000 personas asesinadas o desaparecidas</strong>. Del 83% de víctimas identificadas, eran indígenas Mayas. La <em>política de tierra arrasada</em> del general Efraín Ríos Montt (1982) atacó más de 626 comunidades indígenas. Cientos de miles huyeron — muchos a EE.UU.</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">1980</div>
+        <h4><span class="en-text">Spanish Embassy Massacre</span><span class="es-text">Masacre de la Embajada de España</span></h4>
+        <p><span class="en-text">Guatemalan security forces stormed the Spanish Embassy where Maya leaders had taken refuge, burning 36 people alive. Among the dead: <strong>Vicente Menchú</strong>, father of Rigoberta Menchú. Spain broke diplomatic relations with Guatemala as a result.</span><span class="es-text">Fuerzas de seguridad guatemaltecas irrumpieron en la Embajada de España donde líderes Mayas se habían refugiado, quemando vivos a 36 personas. Entre los muertos: <strong>Vicente Menchú</strong>, padre de Rigoberta Menchú. España rompió relaciones diplomáticas con Guatemala.</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">1996</div>
+        <h4><span class="en-text">Peace Accords / Acuerdos de Paz</span><span class="es-text">Acuerdos de Paz</span></h4>
+        <p><span class="en-text">Signed December 29, 1996, formally ending the civil war. The accords recognized Maya languages, culture, and rights for the first time, along with Xinca and Garífuna peoples. They committed to addressing poverty, inequality, and land rights — commitments that remain only partially fulfilled.</span><span class="es-text">Firmados el 29 de diciembre de 1996, poniendo fin formalmente a la guerra civil. Los acuerdos reconocieron por primera vez los idiomas, la cultura y los derechos Mayas, junto con los pueblos Xinca y Garífuna. Se comprometieron a abordar la pobreza, la desigualdad y los derechos sobre la tierra.</span></p>
+      </div>
+    </div>
+
+    <!-- RIGOBERTA MENCHÚ -->
+    <div class="people-banner" style="margin-top:var(--space-8);">
+      <h4>🕊️ Rigoberta Menchú Tum — <span class="en-text">Nobel Peace Prize 1992</span><span class="es-text">Premio Nobel de la Paz 1992</span></h4>
+      <p><span class="en-text">Born January 9, 1959 in Chimel, Uspantán, El Quiché. K'iche' Maya activist, feminist, and Nobel Peace Prize laureate. Her father was killed in the 1980 Spanish Embassy massacre. Her brother was tortured and killed by the military. Her mother was abducted and murdered. She survived, fled to Mexico, and began documenting and publicizing the genocide being carried out against Maya people in Guatemala.</span><span class="es-text">Nacida el 9 de enero de 1959 en Chimel, Uspantán, El Quiché. Activista y feminista K'iche' Maya, laureada con el Nobel de la Paz. Su padre murió en la masacre de la Embajada de España de 1980. Su hermano fue torturado y asesinado por el ejército. Su madre fue secuestrada y asesinada. Sobrevivió, huyó a México y comenzó a documentar el genocidio contra el pueblo Maya.</span></p>
+      <p><span class="en-text">Her autobiography <em>"Me llamo Rigoberta Menchú y así me nació la conciencia"</em> (1983) brought international attention to the Guatemalan genocide. In 1992 — 500 years after Columbus — she received the Nobel Peace Prize "for her work for social justice and ethno-cultural reconciliation based on respect for the rights of indigenous peoples."</span><span class="es-text">Su autobiografía <em>"Me llamo Rigoberta Menchú y así me nació la conciencia"</em> (1983) llevó atención internacional al genocidio guatemalteco. En 1992 — 500 años después de Colón — recibió el Nobel de la Paz "por su trabajo en favor de la justicia social y la reconciliación etno-cultural basada en el respeto a los derechos de los pueblos indígenas."</span></p>
+      <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><a href="https://www.nobelprize.org/prizes/peace/1992/tum/lecture/" target="_blank" rel="noopener">nobelprize.org — Rigoberta Menchú</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- SLANG -->
+<section id="slang">
+  <div class="section-inner">
+    <button class="print-btn" data-section="slang"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Speak Like a Chapín</span>
+      <span class="es-text">Habla Como Chapín</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Guatemalan slang & <em>chapinismos</em></span>
+      <span class="es-text">Chapinismos y <em>jerga guatemalteca</em></span>
+    </h2>
+    <p class="section-subtitle">
+      <span class="en-text">Words that aren't in any Spanish dictionary — but you'll hear them everywhere. Note: Guatemalans use <strong>vos</strong> instead of tú — "¿Sos guatemalteco?" instead of "¿Eres guatemalteco?"</span>
+      <span class="es-text">Palabras que no están en ningún diccionario de español — pero las escucharás en todas partes. Nota: los guatemaltecos usan <strong>vos</strong> en lugar de tú — "¿Sos guatemalteco?" en vez de "¿Eres guatemalteco?"</span>
+    </p>
+
+    <div class="phrase-tabs" id="slang-tabs">
+      <button class="phrase-tab active" data-panel="identity"><span class="en-text">Identity</span><span class="es-text">Identidad</span></button>
+      <button class="phrase-tab" data-panel="money"><span class="en-text">Money & Work</span><span class="es-text">Pisto y Trabajo</span></button>
+      <button class="phrase-tab" data-panel="school"><span class="en-text">School & Youth</span><span class="es-text">Escuela y Jóvenes</span></button>
+      <button class="phrase-tab" data-panel="expressions"><span class="en-text">Expressions</span><span class="es-text">Expresiones</span></button>
+    </div>
+
+    <div class="phrase-panel active" id="slang-identity">
+      <div style="overflow-x:auto;">
+      <table class="slang-table">
+        <thead><tr>
+          <th><span class="en-text">Word/Phrase</span><span class="es-text">Palabra/Frase</span></th>
+          <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+          <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Chapín / Chapina</td><td><span class="en-text">Guatemalan (man/woman)</span><span class="es-text">Guatemalteco/a</span></td><td><span class="en-text">Prideful, friendly term. "Soy chapín." = I'm Guatemalan.</span><span class="es-text">Término de orgullo. "Soy chapín."</span></td></tr>
+          <tr><td>¿Qué onda vos?</td><td><span class="en-text">What's up? / How's it going?</span><span class="es-text">¿Qué hay? ¿Cómo estás?</span></td><td><span class="en-text">The most common greeting. <em>Vos</em> is the GT/CA second person (instead of tú).</span><span class="es-text">El saludo más común. <em>Vos</em> reemplaza a tú.</span></td></tr>
+          <tr><td>Maje</td><td><span class="en-text">Dude / Bro</span><span class="es-text">Mano / Tipo</span></td><td><span class="en-text">Like "dude." Affectionate or mildly insulting depending on tone.</span><span class="es-text">Afectuoso o levemente ofensivo según el tono.</span></td></tr>
+          <tr><td>Patojo / Patoja</td><td><span class="en-text">Kid / Teen (boy/girl)</span><span class="es-text">Niño/a, joven</span></td><td><span class="en-text">"Ese patojo" = That kid. Neutral and common.</span><span class="es-text">"Ese patojo" = Ese chico. Neutral y común.</span></td></tr>
+          <tr><td>Canche</td><td><span class="en-text">Blonde / light-skinned person</span><span class="es-text">Persona rubia o de piel clara</span></td><td><span class="en-text">Descriptive, not necessarily offensive.</span><span class="es-text">Descriptivo, no necesariamente ofensivo.</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="phrase-panel" id="slang-money">
+      <div style="overflow-x:auto;">
+      <table class="slang-table">
+        <thead><tr>
+          <th><span class="en-text">Word/Phrase</span><span class="es-text">Palabra/Frase</span></th>
+          <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+          <th><span class="en-text">Example</span><span class="es-text">Ejemplo</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Pisto</td><td><span class="en-text">Money (cash)</span><span class="es-text">Dinero en efectivo</span></td><td><span class="en-text">"No tengo pisto" = I'm broke.</span><span class="es-text">"No tengo pisto" = Estoy sin lana.</span></td></tr>
+          <tr><td>Chamba</td><td><span class="en-text">Work / Job</span><span class="es-text">Trabajo / Empleo</span></td><td><span class="en-text">"Voy a la chamba" = I'm going to work.</span><span class="es-text">"Voy a la chamba" = Voy al trabajo.</span></td></tr>
+          <tr><td>Chance</td><td><span class="en-text">Job / Workplace</span><span class="es-text">Trabajo / Lugar de trabajo</span></td><td><span class="en-text">"¿Dónde es tu chance?" = Where do you work?</span><span class="es-text">"¿Dónde es tu chance?" = ¿Dónde trabajás?</span></td></tr>
+          <tr><td>Varas</td><td><span class="en-text">Stuff / Things</span><span class="es-text">Cosas</span></td><td><span class="en-text">"Deja tus varas aquí." = Leave your stuff here.</span><span class="es-text">"Deja tus varas aquí." = Deja tus cosas aquí.</span></td></tr>
+          <tr><td>Estar pisado</td><td><span class="en-text">To be broke / stuck</span><span class="es-text">Estar sin dinero / atorado</span></td><td><span class="en-text">"Estoy bien pisado." = I'm really broke/stuck.</span><span class="es-text">"Estoy bien pisado." = Estoy muy atorado.</span></td></tr>
+          <tr><td>Codo</td><td><span class="en-text">Cheap / Stingy</span><span class="es-text">Codo / Tacaño</span></td><td><span class="en-text">"No seas codo." = Don't be cheap.</span><span class="es-text">"No seas codo." = No seas tacaño.</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="phrase-panel" id="slang-school">
+      <div style="overflow-x:auto;">
+      <table class="slang-table">
+        <thead><tr>
+          <th><span class="en-text">Word/Phrase</span><span class="es-text">Palabra/Frase</span></th>
+          <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+          <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Burra</td><td><span class="en-text">School / backpack</span><span class="es-text">Escuela / mochila</span></td><td><span class="en-text">"¿Llevaste la burra?" = Did you go to school / bring your backpack?</span><span class="es-text">"¿Llevaste la burra?" = ¿Fuiste a la escuela?</span></td></tr>
+          <tr><td>Chavo / Chava</td><td><span class="en-text">Guy / Girl</span><span class="es-text">Chico / Chica</span></td><td><span class="en-text">"Ese chavo" = That guy. Very common.</span><span class="es-text">"Ese chavo" = Ese muchacho. Muy común.</span></td></tr>
+          <tr><td>Fresa</td><td><span class="en-text">Preppy / Bougie / Snobby</span><span class="es-text">Fresa / Presumido</span></td><td><span class="en-text">Person who acts rich or uppity. Similar to "basic" in U.S. slang.</span><span class="es-text">Persona que actúa rica o presumida.</span></td></tr>
+          <tr><td>Chilero</td><td><span class="en-text">Cool / Awesome</span><span class="es-text">Genial / Chevere</span></td><td><span class="en-text">"¡Qué chilero!" = How cool!</span><span class="es-text">"¡Qué chilero!" = ¡Qué genial!</span></td></tr>
+          <tr><td>Refacción</td><td><span class="en-text">Snack / light meal</span><span class="es-text">Merienda / colación</span></td><td><span class="en-text">Mid-morning or afternoon snack. Schools often give a <em>refacción</em>.</span><span class="es-text">Merienda de media mañana o tarde. Las escuelas suelen dar <em>refacción</em>.</span></td></tr>
+          <tr><td>Shute</td><td><span class="en-text">Nosy / Gossip</span><span class="es-text">Chismoso/a</span></td><td><span class="en-text">"No seas shute." = Mind your own business.</span><span class="es-text">"No seas shute." = No seas chismoso.</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="phrase-panel" id="slang-expressions">
+      <div style="overflow-x:auto;">
+      <table class="slang-table">
+        <thead><tr>
+          <th><span class="en-text">Expression</span><span class="es-text">Expresión</span></th>
+          <th><span class="en-text">Meaning</span><span class="es-text">Significado</span></th>
+          <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td>A huevo</td><td><span class="en-text">Hell yeah! / Absolutely!</span><span class="es-text">¡Claro que sí! / ¡Órale!</span></td><td><span class="en-text">Enthusiastic affirmative. Somewhat vulgar but widely used.</span><span class="es-text">Afirmativo entusiasta. Algo vulgar pero muy usado.</span></td></tr>
+          <tr><td>Púchica / Puchis</td><td><span class="en-text">Dang! / Wow! / Shoot!</span><span class="es-text">¡Ay! / ¡Caray! / ¡Uy!</span></td><td><span class="en-text">Surprise or mild frustration. Family-friendly version of a stronger word.</span><span class="es-text">Sorpresa o frustración leve. Versión familiar de una expresión más fuerte.</span></td></tr>
+          <tr><td>Dar jalón</td><td><span class="en-text">To give / get a ride</span><span class="es-text">Dar / pedir aventón</span></td><td><span class="en-text">"¿Me das jalón?" = Can you give me a ride?</span><span class="es-text">"¿Me das jalón?" = ¿Me llevas?</span></td></tr>
+          <tr><td>Hacer el paro</td><td><span class="en-text">To do a favor / help out</span><span class="es-text">Hacer un favor</span></td><td><span class="en-text">"Haceme el paro." = Do me a solid.</span><span class="es-text">"Haceme el paro." = Hazme el favor.</span></td></tr>
+          <tr><td>Pelar</td><td><span class="en-text">To gossip / trash-talk</span><span class="es-text">Chismear / hablar mal</span></td><td><span class="en-text">"¿Por qué me estás pelando?" = Why are you talking trash about me?</span><span class="es-text">"¿Por qué me estás pelando?" = ¿Por qué hablas mal de mí?</span></td></tr>
+          <tr><td>Bolo</td><td><span class="en-text">Drunk</span><span class="es-text">Borracho</span></td><td><span class="en-text">"Ese señor está bolo." = That man is drunk.</span><span class="es-text">"Ese señor está bolo."</span></td></tr>
+          <tr><td>Shuco (hot dog)</td><td><span class="en-text">Street hot dog / dirty</span><span class="es-text">Hot dog callejero / sucio</span></td><td><span class="en-text">"Shuco" hot dog = a GT City street food staple with salsa, guacamole, mustard. Context matters!</span><span class="es-text">Hot dog callejero de GC con salsa, guacamol y mostaza. ¡El contexto importa!</span></td></tr>
+          <tr><td>Camioneta</td><td><span class="en-text">City bus (chicken bus)</span><span class="es-text">Camión urbano / bus</span></td><td><span class="en-text">In GT, it's the repainted U.S. school buses used for public transport — not a pickup truck.</span><span class="es-text">En GT, son los autobuses escolares de EE.UU. repintados usados como transporte público.</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg aria-hidden="true" width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#FDE8CC"/>
+      </svg>
+      <span class="footer-tagline">Semillas Monarca</span>
+    </div>
+    <p class="footer-tagline" style="font-size:var(--text-xs);margin-top:var(--space-2);opacity:.6;">
+      <span class="en-text">A bilingual guide for returning, rooting, and rebuilding. Not legal advice.</span>
+      <span class="es-text">Una guía bilingüe para regresar, arraigarse y reconstruir. No es asesoría legal.</span>
+    </p>
+    <div class="footer-links">
+      <a href="../index.html"><span class="en-text">Countries</span><span class="es-text">Países</span></a>
+      <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+      <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo</span></a>
+    </div>
+    <div class="footer-bottom">
+      <span class="en-text">Sources: CONAMIGUA, MINEDUC, USAC, INTECAP, RENAP, Nobel Prize Foundation, UNESCO, ACNUR, Cristosal.</span>
+      <span class="es-text">Fuentes: CONAMIGUA, MINEDUC, USAC, INTECAP, RENAP, Fundación Nobel, UNESCO, ACNUR, Cristosal.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js?v=1781276369"></script>
+<script>
+// Slang tab switcher
+document.addEventListener('DOMContentLoaded', function() {
+  var map = { identity: 'slang-identity', money: 'slang-money', school: 'slang-school', expressions: 'slang-expressions' };
+  document.querySelectorAll('#slang-tabs .phrase-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#slang-tabs .phrase-tab').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.phrase-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panelId = map[btn.dataset.panel];
+      if (panelId) document.getElementById(panelId).classList.add('active');
+    });
+  });
+});
+</script>
+</body>
+</html>

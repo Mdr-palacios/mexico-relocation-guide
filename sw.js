@@ -12,6 +12,9 @@ const ASSETS = [
   '/app.js',
   '/manifest.json',
   '/el-salvador/index.html',
+  '/guatemala/index.html',
+  '/guatemala/work.html',
+  '/guatemala/teens.html',
   '/el-salvador/work.html',
   '/el-salvador/teens.html',
   '/blog/separated-by-borders.html'

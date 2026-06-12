@@ -196,6 +196,18 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(27,79,138,.4);
   }
+  /* Guatemala card */
+  .country-card--gt { border-color: #1A6B3C; }
+  .country-card--gt:hover { border-color: #1A6B3C; box-shadow: 0 8px 32px rgba(26,107,60,.18); }
+  .country-card--gt .country-card__title { color: #1A6B3C; font-style: italic; }
+  [data-theme="dark"] .country-card--gt .country-card__title { color: #6fcf97; }
+  .country-card--gt .country-card__desc { color: var(--color-text-muted); }
+  .country-card--gt .country-card__cta,
+  .country-card--gt .btn-gt { background: #1A6B3C; color: #fff; border-radius: var(--radius-full); padding: .65rem 1.4rem; font-size: var(--text-sm); font-weight: 700; display: inline-block; margin-top: var(--space-4); transition: background .2s; }
+  .country-card--gt .country-card__cta:hover,
+  .country-card--gt .btn-gt:hover { background: #155930; }
+  .country-card--gt::before { content: 'GT'; position: absolute; top: var(--space-4); right: var(--space-5); font-family: 'Fraunces', serif; font-size: var(--text-4xl); font-weight: 900; color: #1A6B3C; opacity: .07; line-height: 1; }
+
   .country-card--sv::before {
     content: '';
     position: absolute;
@@ -303,6 +315,10 @@
         <span class="en-text">🇸🇻 El Salvador Guide</span>
         <span class="es-text">🇸🇻 Guía El Salvador</span>
       </a>
+      <a href="guatemala/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇬🇹 Guatemala Guide</span>
+        <span class="es-text">🇬🇹 Guía Guatemala</span>
+      </a>
     </div>
     <div class="nav-right">
       <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
@@ -376,22 +392,26 @@
     </span>
   </a>
 
+  <!-- Guatemala -->
+  <a href="guatemala/index.html" class="country-card country-card--gt" aria-label="Guatemala Guide">
+    <span class="country-card__flag">🇬🇹</span>
+    <div class="country-card__title">Guatemala</div>
+    <div class="country-card__desc">
+      <span class="en-text">First steps, DPI documents, work, INTECAP training, and resources for people arriving in or returning to Guatemala.</span>
+      <span class="es-text">Primeros pasos, documentos DPI, trabajo, capacitación INTECAP y recursos para personas que llegan o regresan a Guatemala.</span>
+    </div>
+    <span class="country-card__cta btn-gt">
+      <span class="en-text">Open Guatemala Guide →</span>
+      <span class="es-text">Abrir Guía Guatemala →</span>
+    </span>
+  </a>
+
 </div>
 
 <!-- ========================================================
      COMING SOON CARDS
      ======================================================== -->
 <div class="coming-soon-grid">
-  <div class="coming-soon-card">
-    <span class="coming-soon-card__flag">🇬🇹</span>
-    <div>
-      <div class="coming-soon-card__name">Guatemala</div>
-      <div class="coming-soon-card__tag">
-        <span class="en-text">Coming soon</span>
-        <span class="es-text">Próximamente</span>
-      </div>
-    </div>
-  </div>
   <div class="coming-soon-card">
     <span class="coming-soon-card__flag">🇭🇳</span>
     <div>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Guatemala Work & Business — Semillas Monarca</title>
+<meta name="description" content="Find work or start a business in Guatemala. Major employers, industries, and entrepreneurship ideas for returning Guatemalans."/>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇬🇹</text></svg>"/>
+<meta name="theme-color" content="#E8680A"/>
+<style>
+  :root { --gt-blue: #1B5E8A; --gt-green: #1A6B3C; --gt-light: #E8F4EC; }
+
+  /* Hero */
+  .hero-gt .hero-bg {
+    background:
+      radial-gradient(ellipse 70% 60% at 20% 20%, rgba(26,107,60,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 75% 60%, rgba(27,94,138,.15) 0%, transparent 55%),
+      var(--color-cream);
+  }
+  [data-theme="dark"] .hero-gt .hero-bg {
+    background:
+      radial-gradient(ellipse 70% 60% at 20% 20%, rgba(26,107,60,.22) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 75% 60%, rgba(27,94,138,.2) 0%, transparent 55%),
+      #0d1a11;
+  }
+
+  /* INDUSTRY TABLE */
+  .industry-table { width:100%; border-collapse:collapse; margin-top:var(--space-5); font-size:var(--text-sm); }
+  .industry-table th { background:var(--gt-green); color:#fff; padding:var(--space-2) var(--space-3); text-align:left; }
+  .industry-table td { padding:var(--space-2) var(--space-3); border-bottom:1px solid var(--color-border); vertical-align:top; }
+  .industry-table tr:nth-child(even) td { background:var(--color-surface); }
+
+  /* SKILLS TABLE */
+  .skills-table { width:100%; border-collapse:collapse; margin-top:var(--space-5); font-size:var(--text-sm); }
+  .skills-table th { background:var(--color-amber); color:#fff; padding:var(--space-2) var(--space-3); text-align:left; }
+  .skills-table td { padding:var(--space-2) var(--space-3); border-bottom:1px solid var(--color-border); }
+  .skills-table tr:nth-child(even) td { background:var(--color-surface); }
+
+  /* SECTOR CARDS */
+  .sector-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:var(--space-5); margin-top:var(--space-6); }
+  .sector-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-5) var(--space-6); border:1.5px solid var(--color-border); }
+  .sector-icon { font-size:2rem; margin-bottom:var(--space-2); }
+  .sector-card h4 { font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-2); }
+  .sector-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.65; }
+  .sector-card .salary-badge { display:inline-block; background:var(--gt-green); color:#fff; font-size:.7rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; margin-top:var(--space-2); }
+
+  /* BUSINESS STEPS */
+  .biz-steps { counter-reset:biz; margin-top:var(--space-5); }
+  .biz-step { display:flex; gap:var(--space-4); padding:var(--space-4) 0; border-bottom:1px solid var(--color-border); }
+  .biz-step:last-child { border-bottom:none; }
+  .biz-num { counter-increment:biz; min-width:2.5rem; height:2.5rem; background:var(--gt-green); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:900; font-size:var(--text-base); flex-shrink:0; }
+  .biz-step h4 { font-size:var(--text-base); font-weight:700; margin-bottom:var(--space-1); }
+  .biz-step p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.65; }
+
+  /* LOAN CARDS */
+  .loan-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:var(--space-4); margin-top:var(--space-5); }
+  .loan-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-4) var(--space-5); border-left:4px solid var(--gt-blue); }
+  .loan-card h4 { font-size:var(--text-base); font-weight:700; color:var(--gt-blue); margin-bottom:var(--space-2); }
+  .loan-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.6; }
+  .loan-card a { color:var(--color-amber); font-weight:600; font-size:var(--text-sm); }
+
+  /* IDEA CARDS */
+  .idea-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:var(--space-4); margin-top:var(--space-5); }
+  .idea-card { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-4) var(--space-5); border:1.5px solid var(--color-border); text-align:center; }
+  .idea-icon { font-size:2rem; margin-bottom:var(--space-2); }
+  .idea-card h4 { font-size:var(--text-sm); font-weight:700; margin-bottom:var(--space-1); }
+  .idea-card p { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.55; }
+
+  /* STATE SELECTOR */
+  .dept-selector-wrap { margin-top:var(--space-6); }
+  .dept-btns { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-bottom:var(--space-5); }
+  .dept-btn { background:var(--color-surface); border:1.5px solid var(--color-border); border-radius:var(--radius-full); padding:.35rem .9rem; font-size:var(--text-sm); cursor:pointer; transition:all .2s; font-family:inherit; color:var(--color-text); }
+  .dept-btn:hover, .dept-btn.active { background:var(--gt-green); color:#fff; border-color:var(--gt-green); }
+  .dept-panel { display:none; }
+  .dept-panel.active { display:block; }
+  .dept-info { background:var(--color-surface); border-radius:var(--radius-lg); padding:var(--space-5) var(--space-6); border-left:4px solid var(--gt-green); }
+  .dept-info h4 { font-size:var(--text-lg); font-weight:700; color:var(--gt-green); margin-bottom:var(--space-3); }
+  .dept-info ul { padding-left:1.25rem; }
+  .dept-info li { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7; margin-bottom:var(--space-1); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../mexico.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+      </svg>
+      <span class="nav-logo-text">
+        <span class="en-text">Guatemala Guide</span>
+        <span class="es-text">Guía Guatemala</span>
+      </span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="../index.html" class="nav-link nav-country" role="listitem">
+        <span class="en-text">🌎 Countries</span>
+        <span class="es-text">🌎 Países</span>
+      </a>
+      <a href="index.html" class="nav-link" role="listitem">
+        <span class="en-text">🏠 First Steps</span>
+        <span class="es-text">🏠 Primeros Pasos</span>
+      </a>
+      <a href="work.html" class="nav-link active" role="listitem">
+        <span class="en-text">💼 Work & Business</span>
+        <span class="es-text">💼 Trabajo y Negocio</span>
+      </a>
+      <a href="teens.html" class="nav-link" role="listitem">
+        <span class="en-text">🎒 For Teens</span>
+        <span class="es-text">🎒 Para Jóvenes</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span id="lang-label">ES</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-gt">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span class="en-text">Your Skills Are an Asset</span>
+      <span class="es-text">Tus Habilidades Son un Activo</span>
+    </p>
+    <h1>
+      <span class="en-text">Work & <em>Business</em> in Guatemala</span>
+      <span class="es-text">Trabajo y <em>Negocio</em> en Guatemala</span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="en-text">Explore major employers, industries, and business ideas by department. Your U.S. experience — English, work ethic, technical skills — gives you a real advantage, especially in call centers, construction, tourism, and entrepreneurship.</span>
+      <span class="es-text">Explora los principales empleadores, industrias e ideas de negocio por departamento. Tu experiencia en EE.UU. — inglés, ética de trabajo, habilidades técnicas — te da ventaja real, especialmente en call centers, construcción, turismo y emprendimiento.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#by-dept" class="btn btn-primary">
+        <span class="en-text">Explore by Department →</span>
+        <span class="es-text">Explorar por Departamento →</span>
+      </a>
+      <a href="#start-business" class="btn btn-outline">
+        <span class="en-text">Start a Business</span>
+        <span class="es-text">Empieza un Negocio</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- YOUR ADVANTAGE -->
+<section id="advantage" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="advantage"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Leverage Your U.S. Experience</span>
+      <span class="es-text">Aprovecha Tu Experiencia en EE.UU.</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">You have skills <em>companies need</em></span>
+      <span class="es-text">Tienes habilidades que las <em>empresas necesitan</em></span>
+    </h2>
+    <div style="overflow-x:auto;">
+    <table class="skills-table">
+      <thead>
+        <tr>
+          <th><span class="en-text">U.S. Skill / Experience</span><span class="es-text">Habilidad / Experiencia EE.UU.</span></th>
+          <th><span class="en-text">Guatemala Opportunity</span><span class="es-text">Oportunidad en Guatemala</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="en-text">English fluency</span><span class="es-text">Dominio del inglés</span></td><td><span class="en-text">Call center agent — Q5,000–Q12,000+/month</span><span class="es-text">Agente de call center — Q5,000–Q12,000+/mes</span></td></tr>
+        <tr><td><span class="en-text">Construction trades</span><span class="es-text">Oficios de construcción</span></td><td><span class="en-text">Independent contractor, INTECAP-certified specialist</span><span class="es-text">Contratista independiente, especialista certificado por INTECAP</span></td></tr>
+        <tr><td><span class="en-text">Driving / truck / heavy equipment</span><span class="es-text">Conducción / camión / equipo pesado</span></td><td><span class="en-text">Transport, logistics companies</span><span class="es-text">Empresas de transporte y logística</span></td></tr>
+        <tr><td><span class="en-text">Restaurant / food service</span><span class="es-text">Restaurante / servicios de comida</span></td><td><span class="en-text">Open a comedor, catering service, or food truck</span><span class="es-text">Abre un comedor, servicio de catering o food truck</span></td></tr>
+        <tr><td><span class="en-text">Landscaping / agriculture</span><span class="es-text">Paisajismo / agricultura</span></td><td><span class="en-text">Farm management, plant nurseries, export cooperatives</span><span class="es-text">Gestión de fincas, viveros, cooperativas de exportación</span></td></tr>
+        <tr><td><span class="en-text">Welding / fabrication</span><span class="es-text">Soldadura / fabricación</span></td><td><span class="en-text">Metalwork shops, manufacturing</span><span class="es-text">Talleres de metal, manufactura</span></td></tr>
+        <tr><td><span class="en-text">Customer service</span><span class="es-text">Servicio al cliente</span></td><td><span class="en-text">Retail management, BPO supervisor</span><span class="es-text">Gerencia de ventas, supervisor de BPO</span></td></tr>
+        <tr><td><span class="en-text">Childcare / elder care</span><span class="es-text">Cuidado de niños / adultos mayores</span></td><td><span class="en-text">Daycare center, private care services</span><span class="es-text">Guardería, servicios de cuidado privado</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- KEY SECTORS -->
+    <p class="section-label" style="margin-top:var(--space-10);">
+      <span class="en-text">High-Demand Sectors</span>
+      <span class="es-text">Sectores de Alta Demanda</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Industries where <em>returnees thrive</em></span>
+      <span class="es-text">Industrias donde los <em>retornados prosperan</em></span>
+    </h2>
+    <div class="sector-grid">
+      <div class="sector-card">
+        <div class="sector-icon">📞</div>
+        <h4><span class="en-text">Call Centers / BPO</span><span class="es-text">Call Centers / BPO</span></h4>
+        <p><span class="en-text">The #1 opportunity for returnees with English. Companies like Teleperformance, Conduent, Alórica, Allied Global, VXI, and Transcom are all hiring in Guatemala City. Even intermediate English from years in the U.S. qualifies for many entry-level positions.</span><span class="es-text">La oportunidad #1 para retornados con inglés. Empresas como Teleperformance, Conduent, Alórica, Allied Global, VXI y Transcom contratan en Ciudad de Guatemala. Incluso inglés intermedio de años en EE.UU. califica para puestos de entrada.</span></p>
+        <span class="salary-badge">Q5,000–Q12,000+/mes</span>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">☕</div>
+        <h4><span class="en-text">Agriculture & Export</span><span class="es-text">Agricultura y Exportación</span></h4>
+        <p><span class="en-text">Guatemala is the world's #1 cardamom exporter and a major coffee, banana, and sugar producer. Farm supervisory and management experience from U.S. agriculture is highly valued by cooperatives and export companies in Alta Verapaz, Huehuetenango, and Escuintla.</span><span class="es-text">Guatemala es el exportador #1 mundial de cardamomo y un gran productor de café, banano y azúcar. La experiencia supervisora de la agricultura estadounidense es muy valorada por cooperativas en Alta Verapaz, Huehue y Escuintla.</span></p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏗️</div>
+        <h4><span class="en-text">Construction</span><span class="es-text">Construcción</span></h4>
+        <p><span class="en-text">U.S. construction trades (framing, drywall, concrete, plumbing, electrical) are in high demand as Guatemala urbanizes rapidly. Most work is independent contracting — your skills translate directly. INTECAP can formally certify your U.S. experience.</span><span class="es-text">Los oficios de construcción estadounidenses (estructura, drywall, concreto, plomería, electricidad) están en alta demanda. La mayoría del trabajo es contratación independiente. INTECAP puede certificar formalmente tu experiencia en EE.UU.</span></p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏛️</div>
+        <h4><span class="en-text">Tourism</span><span class="es-text">Turismo</span></h4>
+        <p><span class="en-text">Antigua, Lake Atitlán, Tikal, and Livingston are world-class destinations. Bilingual guides, hotel staff, tour operators, and hospitality managers are in constant demand. A returnee with Spanish + English + cultural knowledge is extremely valuable here.</span><span class="es-text">Antigua, Atitlán, Tikal y Livingston son destinos de clase mundial. Guías bilingües, personal de hotel, operadores turísticos y gerentes de hospitalidad están en demanda constante.</span></p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">👕</div>
+        <h4><span class="en-text">Textiles / Maquila</span><span class="es-text">Textiles / Maquila</span></h4>
+        <p><span class="en-text">Guatemala is a major apparel exporter to the U.S. Located mainly in Guatemala City, Mixco, Villa Nueva, and Escuintla. Workers with quality control, machine operation, or logistics experience from U.S. manufacturing have a real edge.</span><span class="es-text">Guatemala es un gran exportador de ropa a EE.UU. Ubicado principalmente en Ciudad de Guatemala, Mixco, Villa Nueva y Escuintla. Los trabajadores con experiencia en control de calidad y logística tienen ventaja.</span></p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">📚</div>
+        <h4><span class="en-text">English Teaching</span><span class="es-text">Enseñanza de Inglés</span></h4>
+        <p><span class="en-text">Private bilingual schools, language institutes, and tutoring agencies pay well for native-level English speakers — even in secondary cities. No formal teaching degree required for most private institute positions. Can also teach independently online.</span><span class="es-text">Escuelas bilingües privadas e institutos de idiomas pagan bien por hablantes nativos de inglés, incluso en ciudades secundarias. No se requiere título docente formal en la mayoría de institutos privados.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BY DEPARTMENT -->
+<section id="by-dept">
+  <div class="section-inner">
+    <button class="print-btn" data-section="by-dept"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Where Are the Jobs?</span>
+      <span class="es-text">¿Dónde Están los Empleos?</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Explore by <em>department</em></span>
+      <span class="es-text">Explora por <em>departamento</em></span>
+    </h2>
+
+    <div style="overflow-x:auto;margin-top:var(--space-5);">
+    <table class="industry-table">
+      <thead>
+        <tr>
+          <th><span class="en-text">Department</span><span class="es-text">Departamento</span></th>
+          <th><span class="en-text">Key Industries</span><span class="es-text">Industrias Clave</span></th>
+          <th><span class="en-text">Major Employers</span><span class="es-text">Empleadores Principales</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Guatemala City</strong></td>
+          <td><span class="en-text">Call centers/BPO, finance, logistics, construction, retail</span><span class="es-text">Call centers/BPO, finanzas, logística, construcción, comercio</span></td>
+          <td><span class="en-text">Teleperformance, Conduent, Alórica, Banco Industrial, Cementos Progreso, Grupo Bimbo</span><span class="es-text">Teleperformance, Conduent, Alórica, Banco Industrial, Cementos Progreso, Grupo Bimbo</span></td>
+        </tr>
+        <tr>
+          <td><strong><span class="en-text">Quetzaltenango (Xela)</span><span class="es-text">Quetzaltenango (Xela)</span></strong></td>
+          <td><span class="en-text">Commerce, textiles, coffee, tourism</span><span class="es-text">Comercio, textiles, café, turismo</span></td>
+          <td><span class="en-text">Regional manufacturers, export coffee processors, tourism services</span><span class="es-text">Manufactureras regionales, procesadoras de café, servicios turísticos</span></td>
+        </tr>
+        <tr>
+          <td><strong>Escuintla</strong></td>
+          <td><span class="en-text">Sugar, palm oil, rubber, port logistics</span><span class="es-text">Azúcar, palma aceitera, caucho, logística portuaria</span></td>
+          <td><span class="en-text">Pantaleón Sugar, SIOSA Ingenio La Unión, Del Monte, Chiquita</span><span class="es-text">Pantaleón Sugar, SIOSA Ingenio La Unión, Del Monte, Chiquita</span></td>
+        </tr>
+        <tr>
+          <td><strong><span class="en-text">Izabal / Puerto Barrios</span><span class="es-text">Izabal / Puerto Barrios</span></strong></td>
+          <td><span class="en-text">Bananas, palm oil, port operations, tourism (Livingston)</span><span class="es-text">Banano, palma aceitera, operaciones portuarias, turismo (Livingston)</span></td>
+          <td><span class="en-text">Chiquita, Del Monte, EMPORNAC port authority</span><span class="es-text">Chiquita, Del Monte, Autoridad Portuaria EMPORNAC</span></td>
+        </tr>
+        <tr>
+          <td><strong><span class="en-text">Alta Verapaz (Cobán)</span><span class="es-text">Alta Verapaz (Cobán)</span></strong></td>
+          <td><span class="en-text">Coffee, cardamom (world #1 exporter), tourism, ecotourism</span><span class="es-text">Café, cardamomo (exportador mundial #1), turismo, ecoturismo</span></td>
+          <td><span class="en-text">ANACAFE, export cooperatives, ecotourism lodges</span><span class="es-text">ANACAFE, cooperativas exportadoras, ecolodges turísticos</span></td>
+        </tr>
+        <tr>
+          <td><strong><span class="en-text">Huehuetenango / San Marcos</span><span class="es-text">Huehuetenango / San Marcos</span></strong></td>
+          <td><span class="en-text">Coffee, remittance services, construction</span><span class="es-text">Café, servicios de remesas, construcción</span></td>
+          <td><span class="en-text">Coffee cooperatives, returning-migrant-owned businesses</span><span class="es-text">Cooperativas cafeteras, negocios de migrantes retornados</span></td>
+        </tr>
+        <tr>
+          <td><strong>Petén</strong></td>
+          <td><span class="en-text">Tourism (Tikal), livestock, oil, ecotourism</span><span class="es-text">Turismo (Tikal), ganadería, petróleo, ecoturismo</span></td>
+          <td><span class="en-text">INGUAT, tour operators, CONAP, oil/gas companies</span><span class="es-text">INGUAT, operadores turísticos, CONAP, empresas de petróleo</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:var(--space-4);font-size:var(--text-sm);color:var(--color-text-muted);">
+      <span class="en-text">Job boards: <a href="https://gt.computrabajo.com" target="_blank" rel="noopener">Computrabajo GT</a> · <a href="https://www.tecoloco.com.gt" target="_blank" rel="noopener">Tecoloco</a> · <a href="https://www.opcionempleo.com.gt" target="_blank" rel="noopener">Opción Empleo</a> · <a href="https://gt.encuentra24.com/" target="_blank" rel="noopener">Encuentra24</a> · <a href="https://gt.linkedin.com/jobs" target="_blank" rel="noopener">LinkedIn GT</a></span>
+      <span class="es-text">Bolsas de trabajo: <a href="https://gt.computrabajo.com" target="_blank" rel="noopener">Computrabajo GT</a> · <a href="https://www.tecoloco.com.gt" target="_blank" rel="noopener">Tecoloco</a> · <a href="https://www.opcionempleo.com.gt" target="_blank" rel="noopener">Opción Empleo</a> · <a href="https://gt.encuentra24.com/" target="_blank" rel="noopener">Encuentra24</a> · <a href="https://gt.linkedin.com/jobs" target="_blank" rel="noopener">LinkedIn GT</a></span>
+    </p>
+  </div>
+</section>
+
+<!-- ENTREPRENEURSHIP -->
+<section id="entrepreneurship" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="entrepreneurship"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Start Something of Your Own</span>
+      <span class="es-text">Empieza Algo Propio</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Business ideas for <em>returnees</em></span>
+      <span class="es-text">Ideas de negocio para <em>retornados</em></span>
+    </h2>
+    <p class="section-subtitle">
+      <span class="en-text">Many returnees bring savings, U.S. work discipline, and entrepreneurial ideas that are ahead of local competition. Guatemala has a large informal economy with low barriers to entry.</span>
+      <span class="es-text">Muchos retornados traen ahorros, disciplina laboral estadounidense e ideas de negocio adelantadas a la competencia local. Guatemala tiene una economía informal grande con pocas barreras de entrada.</span>
+    </p>
+    <div class="idea-grid">
+      <div class="idea-card">
+        <div class="idea-icon">🍽️</div>
+        <h4>Comedor</h4>
+        <p><span class="en-text">Simple lunch restaurant serving set meals. Startup: Q5,000–Q20,000. Daily staple in every neighborhood.</span><span class="es-text">Restaurante de almuerzo con menú del día. Inicio: Q5,000–Q20,000. Imprescindible en cada barrio.</span></p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">🫓</div>
+        <h4>Tortillería</h4>
+        <p><span class="en-text">High demand, low cost. Many Guatemalan households buy tortillas daily — a steady, recession-proof business.</span><span class="es-text">Alta demanda, bajo costo. Muchos hogares compran tortillas a diario — negocio estable y resistente a crisis.</span></p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">🚐</div>
+        <h4><span class="en-text">Transport</span><span class="es-text">Transporte</span></h4>
+        <p><span class="en-text">Mototaxi or pick-up service in rural areas. Delivery services growing fast with e-commerce.</span><span class="es-text">Mototaxi o servicio de pick-up en áreas rurales. Servicios de entrega crecen con el comercio electrónico.</span></p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">💻</div>
+        <h4><span class="en-text">Digital Services</span><span class="es-text">Servicios Digitales</span></h4>
+        <p><span class="en-text">Social media management, web design, video editing, online tutoring. U.S. digital fluency is a real competitive edge.</span><span class="es-text">Redes sociales, diseño web, edición de video, tutoría en línea. La fluidez digital de EE.UU. es una ventaja competitiva real.</span></p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">🏠</div>
+        <h4><span class="en-text">Home Services</span><span class="es-text">Servicios del Hogar</span></h4>
+        <p><span class="en-text">Plumbing, electrical, painting, home repair — U.S.-trained tradespeople can charge premium rates.</span><span class="es-text">Plomería, electricidad, pintura, reparaciones — los oficiales capacitados en EE.UU. pueden cobrar tarifas premium.</span></p>
+      </div>
+      <div class="idea-card">
+        <div class="idea-icon">🌐</div>
+        <h4><span class="en-text">Internet Café / Print</span><span class="es-text">Internet / Impresiones</span></h4>
+        <p><span class="en-text">Still in high demand in semi-urban and rural areas. Low startup, steady foot traffic, add bill payment and mobile top-up for more revenue.</span><span class="es-text">Sigue en alta demanda en zonas semi-urbanas y rurales. Bajo costo, tráfico constante; agrega pago de servicios y recargas para más ingresos.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- START A BUSINESS -->
+<section id="start-business">
+  <div class="section-inner">
+    <button class="print-btn" data-section="start-business"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Make It Official</span>
+      <span class="es-text">Hazlo Oficial</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">How to register a <em>business</em></span>
+      <span class="es-text">Cómo registrar un <em>negocio</em></span>
+    </h2>
+    <p class="section-subtitle">
+      <span class="en-text">To legally operate you need: DPI → NIT → Patente de Comercio → SAT registration. Total cost: ~Q150 in fees + Q50 in fiscal stamps.</span>
+      <span class="es-text">Para operar legalmente necesitas: DPI → NIT → Patente de Comercio → registro SAT. Costo total: ~Q150 en tasas + Q50 en timbres fiscales.</span>
+    </p>
+    <div class="biz-steps">
+      <div class="biz-step">
+        <div class="biz-num">1</div>
+        <div>
+          <h4><span class="en-text">Get your DPI + NIT</span><span class="es-text">Obtén tu DPI + NIT</span></h4>
+          <p><span class="en-text">Everything flows from these two. DPI is free for air deportees. NIT is free at any SAT office or online at <a href="https://portal.sat.gob.gt" target="_blank" rel="noopener">portal.sat.gob.gt</a>.</span><span class="es-text">Todo parte de estos dos. DPI gratis para deportados aéreos. NIT gratis en cualquier oficina SAT o en línea en <a href="https://portal.sat.gob.gt" target="_blank" rel="noopener">portal.sat.gob.gt</a>.</span></p>
+        </div>
+      </div>
+      <div class="biz-step">
+        <div class="biz-num">2</div>
+        <div>
+          <h4><span class="en-text">Registro Mercantil — Patente de Comercio</span><span class="es-text">Registro Mercantil — Patente de Comercio</span></h4>
+          <p><span class="en-text">For a sole proprietor (comerciante individual): go to <a href="https://principal.registromercantil.gob.gt/" target="_blank" rel="noopener">registromercantil.gob.gt</a>, pay Q100 at Banrural, complete the form, bring documents and payment receipt. Download your Patente de Comercio under "e-patentes" — affix Q50 in timbres fiscales.</span><span class="es-text">Para comerciante individual: ve a <a href="https://principal.registromercantil.gob.gt/" target="_blank" rel="noopener">registromercantil.gob.gt</a>, paga Q100 en Banrural, completa el formulario y lleva los documentos. Descarga tu Patente bajo "e-patentes" — pega Q50 en timbres fiscales.</span></p>
+        </div>
+      </div>
+      <div class="biz-step">
+        <div class="biz-num">3</div>
+        <div>
+          <h4><span class="en-text">SAT Registration (RTU)</span><span class="es-text">Registro SAT (RTU)</span></h4>
+          <p><span class="en-text">Log in to <a href="https://portal.sat.gob.gt" target="_blank" rel="noopener">portal.sat.gob.gt</a> with your NIT, update it with your new business activity (RTU digital), and activate electronic invoicing (FEL — Factura Electrónica en Línea).</span><span class="es-text">Ingresa a <a href="https://portal.sat.gob.gt" target="_blank" rel="noopener">portal.sat.gob.gt</a> con tu NIT, actualiza tu actividad económica (RTU digital) y activa la facturación electrónica (FEL).</span></p>
+        </div>
+      </div>
+      <div class="biz-step">
+        <div class="biz-num">4</div>
+        <div>
+          <h4><span class="en-text">You're open</span><span class="es-text">Ya puedes abrir</span></h4>
+          <p><span class="en-text">With DPI + NIT + Patente + SAT registration, you are legally operating. Keep receipts, file your quarterly SAT declaration, and grow your business.</span><span class="es-text">Con DPI + NIT + Patente + registro SAT, estás operando legalmente. Guarda tus facturas, presenta tu declaración trimestral ante la SAT y haz crecer tu negocio.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOANS -->
+<section id="loans" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Fund Your Dream</span>
+      <span class="es-text">Financia Tu Sueño</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Microfinance & <em>business loans</em></span>
+      <span class="es-text">Microfinanzas y <em>préstamos empresariales</em></span>
+    </h2>
+    <div class="loan-grid">
+      <div class="loan-card">
+        <h4>Banrural</h4>
+        <p><span class="en-text"><strong>Crédito Amigo Empresario</strong> — for micro, small, and medium enterprises. Loans from Q500 to Q500,000+. Accepts non-conventional guarantees (family assets, machinery). 3,000+ service points nationwide.</span><span class="es-text"><strong>Crédito Amigo Empresario</strong> — para micro, pequeñas y medianas empresas. Préstamos de Q500 a Q500,000+. Acepta garantías no convencionales (activos familiares, maquinaria). Más de 3,000 puntos de servicio.</span></p>
+        <a href="https://www.banrural.com.gt" target="_blank" rel="noopener">banrural.com.gt</a>
+      </div>
+      <div class="loan-card">
+        <h4>Fundación Génesis Empresarial</h4>
+        <p><span class="en-text">Guatemala's leading microfinance institution since 1988. Individual and group loans (<em>bancomunales</em>), agricultural and housing loans. Focus on rural and marginal-urban areas. Toll-free: 1800-100-27337.</span><span class="es-text">La principal institución de microfinanzas de Guatemala desde 1988. Préstamos individuales y grupales (<em>bancomunales</em>), agrícolas e hipotecarios. Enfocada en áreas rurales y periurbanas. Gratis: 1800-100-27337.</span></p>
+        <a href="https://www.genesisempresarial.org" target="_blank" rel="noopener">genesisempresarial.org</a>
+      </div>
+      <div class="loan-card">
+        <h4>FENACOAC Cooperativas</h4>
+        <p><span class="en-text">Credit cooperatives throughout Guatemala offer lower-interest loans to members. Ask your local alcaldía for the nearest FENACOAC member cooperative.</span><span class="es-text">Cooperativas de ahorro y crédito en toda Guatemala ofrecen préstamos de menor interés a socios. Pregunta en tu alcaldía por la cooperativa FENACOAC más cercana.</span></p>
+        <a href="https://www.fenacoac.com" target="_blank" rel="noopener">fenacoac.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg aria-hidden="true" width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#FDE8CC"/>
+      </svg>
+      <span class="footer-tagline">Semillas Monarca</span>
+    </div>
+    <p class="footer-tagline" style="font-size:var(--text-xs);margin-top:var(--space-2);opacity:.6;">
+      <span class="en-text">Not legal or financial advice. Built by volunteers.</span>
+      <span class="es-text">No es asesoría legal ni financiera. Construido por voluntarios.</span>
+    </p>
+    <div class="footer-links">
+      <a href="../index.html"><span class="en-text">Countries</span><span class="es-text">Países</span></a>
+      <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+      <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Jóvenes</span></a>
+    </div>
+    <div class="footer-bottom">
+      <span class="en-text">Sources: CONAMIGUA, INTECAP, Registro Mercantil, SAT, Banrural, Génesis Empresarial, INGUAT.</span>
+      <span class="es-text">Fuentes: CONAMIGUA, INTECAP, Registro Mercantil, SAT, Banrural, Génesis Empresarial, INGUAT.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js?v=1781276369"></script>
+<script>
+// Department selector
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.dept-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var dept = btn.dataset.dept;
+      document.querySelectorAll('.dept-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.dept-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = document.getElementById('dept-' + dept);
+      if (panel) panel.classList.add('active');
+    });
+  });
+  // Activate first by default
+  var first = document.querySelector('.dept-btn');
+  if (first) first.click();
+});
+</script>
+</body>
+</html>

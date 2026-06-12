@@ -1990,3 +1990,9 @@ body.lang-ma .ja-modal-footer .ma-only { display: block !important; }
   margin-right: .1rem;
 }
 .nav-country:hover { opacity: 1; }
+
+/* Guatemala card */
+.country-card--gt { border-color: #1A6B3C; }
+.country-card--gt .country-card__title { color: #1A6B3C; font-style: italic; }
+.btn-gt { background: #1A6B3C; color: #fff; }
+.btn-gt:hover { background: #155930; }
