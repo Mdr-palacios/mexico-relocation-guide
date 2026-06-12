@@ -1,4 +1,4 @@
-const CACHE_NAME = 'semillas-monarca-v2';
+const CACHE_NAME = 'semillas-v1781276369';
 const ASSETS = [
   '/',
   '/index.html',
