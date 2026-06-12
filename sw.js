@@ -2,11 +2,12 @@ const CACHE_NAME = 'semillas-monarca-v2';
 const ASSETS = [
   '/',
   '/index.html',
+  '/mexico.html',
   '/work.html',
   '/teens.html',
   '/toolkit.html',
   '/blog.html',
-  '/choose.html',
+  '/mexico.html',
   '/style.css',
   '/app.js',
   '/manifest.json',
@@ -51,7 +52,8 @@ self.addEventListener('fetch', e => {
       }).catch(() => {
         // Offline fallback — return cached index for navigation requests
         if (e.request.mode === 'navigate') {
-          return caches.match('/index.html');
+          return caches.match('/index.html',
+  '/mexico.html');
         }
       });
     })
