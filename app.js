@@ -660,29 +660,60 @@
 })();
 
 /* ============================================================
-   3-WAY LANGUAGE TOGGLE: EN → ES → MA → EN
+   3-WAY LANGUAGE TOGGLE: EN | ES | MA pill switcher
    ============================================================ */
 (function() {
   var langs = ['en', 'es', 'ma'];
-  var labels = { en: 'ES', es: 'MA', ma: 'EN' }; // shows what you'll switch TO
   var current = 'en';
 
   function applyLang(lang) {
     langs.forEach(function(l) { document.body.classList.remove('lang-' + l); });
     if (lang !== 'en') document.body.classList.add('lang-' + lang);
-    var label = document.getElementById('lang-label');
-    if (label) label.textContent = labels[lang];
     // Update html lang attribute for accessibility
     document.documentElement.setAttribute('lang', lang === 'ma' ? 'yua' : lang);
     current = lang;
+    // Update active pill
+    document.querySelectorAll('.lang-pill').forEach(function(pill) {
+      pill.classList.toggle('lang-pill--active', pill.dataset.lang === lang);
+    });
+    // Legacy single-button label support (fallback)
+    var label = document.getElementById('lang-label');
+    if (label) label.textContent = lang.toUpperCase();
+  }
+
+  function buildPills(container) {
+    container.innerHTML = '';
+    var defs = [
+      { lang: 'en', label: 'EN' },
+      { lang: 'es', label: 'ES' },
+      { lang: 'ma', label: 'MA', title: 'Maya Yucateco' }
+    ];
+    defs.forEach(function(d) {
+      var btn = document.createElement('button');
+      btn.className = 'lang-pill' + (d.lang === current ? ' lang-pill--active' : '');
+      btn.dataset.lang = d.lang;
+      btn.textContent = d.label;
+      if (d.title) btn.setAttribute('title', d.title);
+      btn.setAttribute('aria-label', 'Switch to ' + (d.title || d.label));
+      btn.addEventListener('click', function() { applyLang(d.lang); });
+      container.appendChild(btn);
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('lang-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      var next = langs[(langs.indexOf(current) + 1) % langs.length];
-      applyLang(next);
+    // Replace every #lang-toggle with pill group
+    document.querySelectorAll('#lang-toggle').forEach(function(btn) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'lang-pills';
+      btn.parentNode.replaceChild(wrapper, btn);
+      buildPills(wrapper);
+    });
+    // Also wire any .lang-toggle found (belt + suspenders)
+    document.querySelectorAll('.lang-toggle:not(.lang-pills)').forEach(function(btn) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'lang-pills';
+      btn.parentNode.replaceChild(wrapper, btn);
+      buildPills(wrapper);
     });
   });
 })();
