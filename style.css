@@ -604,10 +604,11 @@ section {
 /* ============================================================
    LANGUAGE TOGGLE — hide/show content
    ============================================================ */
-.lang-es { display: none; }
-.lang-en { display: block; }
-body.lang-es .lang-en { display: none; }
-body.lang-es .lang-es { display: block; }
+/* Scope to non-body elements to prevent body.lang-es from hiding itself */
+:not(body).lang-es { display: none; }
+:not(body).lang-en { display: block; }
+body.lang-es :not(body).lang-en { display: none; }
+body.lang-es :not(body).lang-es { display: block; }
 
 /* For inline text swapping */
 .en-text { display: inline; }
