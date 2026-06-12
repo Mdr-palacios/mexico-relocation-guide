@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>El Salvador Relocation Guide — First Steps / Primeros Pasos</title>
+<meta name="description" content="A free bilingual guide for people returning to or relocating to El Salvador. Practical first steps, DUI documents, resources, and social services."/>
+<meta property="og:title" content="El Salvador Relocation Guide — First Steps"/>
+<meta property="og:description" content="Bilingual guidance for people returning to El Salvador. Resources, DUI documents, social services."/>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇸🇻</text></svg>"/>
+<meta name="theme-color" content="#1B4F8A">
+<style>
+  /* El Salvador accent overrides */
+  :root {
+    --color-sv-blue: #1B4F8A;
+    --color-sv-blue-light: #4A90D9;
+    --color-sv-blue-pale: #D4E8FF;
+  }
+  /* Hero em color for El Salvador */
+  .hero h1 em { color: var(--color-sv-blue); font-style: italic; }
+  [data-theme="dark"] .hero h1 em { color: var(--color-sv-blue-light); }
+
+  /* Section label uses SV blue for SV-specific sections */
+  .sv-label { color: var(--color-sv-blue); }
+  [data-theme="dark"] .sv-label { color: var(--color-sv-blue-light); }
+
+  /* Emergency numbers grid */
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+  .emergency-item {
+    background: linear-gradient(135deg, rgba(27,79,138,.1), rgba(74,144,217,.08));
+    border: 1px solid rgba(27,79,138,.25);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-3);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+  }
+  .emergency-item:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(27,79,138,.2);
+    color: inherit;
+  }
+  .emergency-item__num {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: var(--text-lg);
+    color: var(--color-sv-blue);
+    line-height: 1.1;
+  }
+  [data-theme="dark"] .emergency-item__num { color: var(--color-sv-blue-light); }
+  .emergency-item__label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  /* SV hero bg — blue accent gradient */
+  .sv-hero-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, rgba(27,79,138,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(74,144,217,.14) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 100% at 50% 50%, rgba(27,79,138,.05) 0%, transparent 70%),
+      var(--color-cream) !important;
+  }
+  [data-theme="dark"] .sv-hero-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, rgba(27,79,138,.28) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(74,144,217,.2) 0%, transparent 55%),
+      #110900 !important;
+  }
+
+  /* SV btn-primary uses blue */
+  .btn-sv {
+    background: var(--color-sv-blue);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(27,79,138,.3);
+  }
+  .btn-sv:hover {
+    background: #143d6b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(27,79,138,.4);
+    color: #fff;
+  }
+
+  /* SV tile top accent */
+  .tile-sv::before {
+    background: linear-gradient(90deg, var(--color-sv-blue), var(--color-sv-blue-light)) !important;
+  }
+  .tile:hover.tile-sv::before { opacity: 1; }
+
+  /* Section label in SV color */
+  .section-label-sv {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-sv-blue);
+    margin-bottom: var(--space-4);
+  }
+  [data-theme="dark"] .section-label-sv { color: var(--color-sv-blue-light); }
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     NAV
+     ======================================================== -->
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+        <line x1="16" y1="6" x2="11" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="6" x2="21" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="11" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="21" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="11" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+        <circle cx="21" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+      </svg>
+      <span class="nav-logo-text">
+        <span class="en-text">El Salvador Guide</span>
+        <span class="es-text">Guía El Salvador</span>
+      </span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="../choose.html" class="nav-link" role="listitem">
+        <span class="en-text">🌎 Choose Country</span>
+        <span class="es-text">🌎 Elige País</span>
+      </a>
+      <a href="index.html" class="nav-link active" role="listitem">
+        <span class="en-text">🏠 First Steps</span>
+        <span class="es-text">🏠 Primeros Pasos</span>
+      </a>
+      <a href="work.html" class="nav-link" role="listitem">
+        <span class="en-text">💼 Work & Business</span>
+        <span class="es-text">💼 Trabajo y Negocio</span>
+      </a>
+      <a href="teens.html" class="nav-link" role="listitem">
+        <span class="en-text">🌱 For Teens</span>
+        <span class="es-text">🌱 Para Jóvenes</span>
+      </a>
+      <a href="../index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇲🇽 Mexico Guide</span>
+        <span class="es-text">🇲🇽 Guía México</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span class="en-text">ES</span>
+        <span class="es-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========================================================
+     HERO
+     ======================================================== -->
+<section class="hero">
+  <div class="hero-bg sv-hero-bg"></div>
+  <div class="hero-wing">
+    <svg style="position:absolute;right:-60px;top:-40px;width:400px;height:400px;opacity:.07;" viewBox="0 0 200 200" fill="none">
+      <ellipse cx="60" cy="80" rx="55" ry="75" fill="#1B4F8A" transform="rotate(-15 60 80)"/>
+      <ellipse cx="140" cy="80" rx="55" ry="75" fill="#4A90D9" transform="rotate(15 140 80)"/>
+      <ellipse cx="55" cy="155" rx="35" ry="42" fill="#143d6b" transform="rotate(-20 55 155)"/>
+      <ellipse cx="145" cy="155" rx="35" ry="42" fill="#1B4F8A" transform="rotate(20 145 155)"/>
+    </svg>
+    <svg style="position:absolute;left:-30px;bottom:-20px;width:220px;height:220px;opacity:.05;" viewBox="0 0 200 200" fill="none">
+      <ellipse cx="60" cy="80" rx="55" ry="75" fill="#1B4F8A" transform="rotate(-15 60 80)"/>
+      <ellipse cx="140" cy="80" rx="55" ry="75" fill="#4A90D9" transform="rotate(15 140 80)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" style="color:var(--color-sv-blue);">
+      <span class="en-text">BIENVENIDO DE REGRESO / WELCOME BACK</span>
+      <span class="es-text">BIENVENIDO DE REGRESO / WELCOME BACK</span>
+    </p>
+    <h1>
+      <span class="en-text">Your first steps in <em>El Salvador.</em></span>
+      <span class="es-text">Tus primeros pasos en <em>El Salvador.</em></span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="en-text">A bilingual guide for returning, rooting, and rebuilding in El Salvador.</span>
+      <span class="es-text">Una guía bilingüe para regresar, echar raíz y reconstruir en El Salvador.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#arrival-tips" class="btn btn-sv" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;transition:all var(--transition);cursor:pointer;border:2px solid transparent;background:var(--color-sv-blue);color:#fff;box-shadow:0 4px 16px rgba(27,79,138,.3);">
+        <span class="en-text">First Steps →</span>
+        <span class="es-text">Primeros Pasos →</span>
+      </a>
+      <a href="#documents" class="btn btn-outline">
+        <span class="en-text">Get Your DUI</span>
+        <span class="es-text">Obtén tu DUI</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     SECTION 1: DAY 1 ESSENTIALS
+     ======================================================== -->
+<section id="arrival-tips">
+  <div class="section-wide">
+    <p class="section-label-sv">
+      <span class="en-text">YOUR FIRST 24 HOURS</span>
+      <span class="es-text">TUS PRIMERAS 24 HORAS</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">What you need to know the moment you arrive.</span>
+      <span class="es-text">Lo que necesitas saber en el momento en que llegas.</span>
+    </h2>
+
+    <div class="tiles-grid">
+
+      <!-- 1. GAMI -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">🛬</div>
+        <h3 class="tile-title">
+          <span class="en-text">You'll arrive at GAMI</span>
+          <span class="es-text">Llegarás al GAMI</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Most deportees are transported from Monseñor Óscar Arnulfo Romero International Airport by bus to GAMI (Gobierno de Asistencia al Migrante de Interior). Located at: Final Bulevar Coronel Arturo Castellanos, Colonia Quiñonez, San Salvador. This is your first stop — they provide initial assistance, referrals, and help reaching family.</span>
+          <span class="es-text">La mayoría de los deportados son transportados desde el Aeropuerto Internacional Monseñor Óscar Arnulfo Romero en autobús al GAMI. Ubicado en: Final Bulevar Coronel Arturo Castellanos, Colonia Quiñonez, San Salvador. Esta es tu primera parada — brindan asistencia inicial, referencias y ayuda para contactar familiares.</span>
+        </div>
+      </div>
+
+      <!-- 2. Water -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">💧</div>
+        <h3 class="tile-title">
+          <span class="en-text">Water safety</span>
+          <span class="es-text">Seguridad del agua</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Tap water in El Salvador is not reliably safe to drink in most areas. Buy bottled water or use a water filter, especially in rural departments. In San Salvador, some areas have treated water but bottled is safer while your body adjusts.</span>
+          <span class="es-text">El agua del grifo en El Salvador no es confiable para beber en la mayoría de las zonas. Compra agua embotellada o usa un filtro, especialmente en departamentos rurales. En San Salvador, algunas zonas tienen agua tratada, pero la embotellada es más segura mientras te adaptas.</span>
+        </div>
+      </div>
+
+      <!-- 3. SIM card -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">📱</div>
+        <h3 class="tile-title">
+          <span class="en-text">Get a SIM card fast</span>
+          <span class="es-text">Consigue un chip rápido</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Tigo and Claro are the two main carriers with the best nationwide coverage. A prepaid SIM costs $1–3 at any pulpería, pharmacy, or carrier store. Load minutes (recargas) at any OXXO or corner store. WhatsApp works on very low data — it should be your first communication tool.</span>
+          <span class="es-text">Tigo y Claro son los dos operadores principales con mejor cobertura nacional. Un SIM prepago cuesta $1–3 en cualquier pulpería, farmacia o tienda del operador. Recarga saldo en cualquier OXXO o tienda de esquina. WhatsApp funciona con muy pocos datos — debe ser tu primera herramienta de comunicación.</span>
+        </div>
+      </div>
+
+      <!-- 4. Currency -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">💵</div>
+        <h3 class="tile-title">
+          <span class="en-text">Currency is USD</span>
+          <span class="es-text">La moneda es el dólar</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">El Salvador uses the US dollar — no currency exchange needed. However, ATMs and banks are not as widely distributed as in the US. Carry some cash. Most small businesses, markets, and transportation run entirely on cash. Exact change is appreciated.</span>
+          <span class="es-text">El Salvador usa el dólar estadounidense — no necesitas cambio de divisas. Sin embargo, los cajeros automáticos y bancos no están tan distribuidos como en EE.UU. Lleva efectivo. La mayoría de los negocios pequeños, mercados y transporte funcionan completamente en efectivo. Se agradece el cambio exacto.</span>
+        </div>
+      </div>
+
+      <!-- 5. Heat -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">☀️</div>
+        <h3 class="tile-title">
+          <span class="en-text">Heat and sun</span>
+          <span class="es-text">Calor y sol</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">El Salvador is hot and humid year-round. Carry water, wear sunscreen, and take it slow the first week. If you're arriving during rainy season (May–October), expect afternoon downpours — keep a small umbrella or rain jacket.</span>
+          <span class="es-text">El Salvador es caluroso y húmedo todo el año. Lleva agua, usa protector solar y descansa la primera semana. Si llegas durante la temporada de lluvias (mayo–octubre), espera aguaceros por la tarde — lleva un paraguas pequeño o impermeable.</span>
+        </div>
+      </div>
+
+      <!-- 6. Medical care -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">🏥</div>
+        <h3 class="tile-title">
+          <span class="en-text">Medical care</span>
+          <span class="es-text">Atención médica</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Public hospitals (Hospitales Nacionales) provide free emergency care to all. The main hospital in San Salvador is Hospital Nacional Rosales. For non-emergencies, Unidades de Salud (health units) operate in every municipality at no cost. Bring your DUI once you have it.</span>
+          <span class="es-text">Los hospitales públicos (Hospitales Nacionales) brindan atención de emergencia gratuita a todos. El principal hospital en San Salvador es el Hospital Nacional Rosales. Para no emergencias, las Unidades de Salud operan en cada municipio sin costo. Lleva tu DUI cuando lo tengas.</span>
+        </div>
+      </div>
+
+      <!-- 7. Getting around -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">🚌</div>
+        <h3 class="tile-title">
+          <span class="en-text">Getting around</span>
+          <span class="es-text">Cómo moverse</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Buses are cheap and go everywhere — fares are $0.25–0.35 for urban routes. For intercity travel, use bus terminals. Uber operates in San Salvador and larger cities. Motorcycle taxis (mototaxis) are common in smaller towns. For safety, avoid traveling after dark on rural routes.</span>
+          <span class="es-text">Los autobuses son baratos y van a todos lados — las tarifas son $0.25–0.35 en rutas urbanas. Para viajes interurbanos, usa las terminales de autobuses. Uber opera en San Salvador y ciudades más grandes. Los mototaxis son comunes en pueblos pequeños. Por seguridad, evita viajar de noche en rutas rurales.</span>
+        </div>
+      </div>
+
+      <!-- 8. Emergency numbers -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">📞</div>
+        <h3 class="tile-title">
+          <span class="en-text">Emergency numbers</span>
+          <span class="es-text">Números de emergencia</span>
+        </h3>
+        <div class="tile-body">
+          <div class="emergency-grid">
+            <a class="emergency-item" href="tel:911">
+              <span class="emergency-item__num">911</span>
+              <span class="emergency-item__label">
+                <span class="en-text">Emergencies</span>
+                <span class="es-text">Emergencias</span>
+              </span>
+            </a>
+            <a class="emergency-item" href="tel:132">
+              <span class="emergency-item__num">132</span>
+              <span class="emergency-item__label">
+                <span class="en-text">Red Cross</span>
+                <span class="es-text">Cruz Roja</span>
+              </span>
+            </a>
+            <a class="emergency-item" href="tel:910">
+              <span class="emergency-item__num">910</span>
+              <span class="emergency-item__label">
+                <span class="en-text">National Police</span>
+                <span class="es-text">Policía Nacional Civil</span>
+              </span>
+            </a>
+            <a class="emergency-item" href="tel:122">
+              <span class="emergency-item__num">122</span>
+              <span class="emergency-item__label">
+                <span class="en-text">Fire Department</span>
+                <span class="es-text">Bomberos</span>
+              </span>
+            </a>
+            <a class="emergency-item" href="tel:126">
+              <span class="emergency-item__num">126</span>
+              <span class="emergency-item__label">
+                <span class="en-text">Human Rights (PDDH)</span>
+                <span class="es-text">Derechos Humanos (PDDH)</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.tiles-grid -->
+  </div>
+</section>
+
+<!-- ========================================================
+     SECTION 2: DOCUMENTS
+     ======================================================== -->
+<section id="documents" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label-sv">
+      <span class="en-text">YOUR IDENTITY DOCUMENTS</span>
+      <span class="es-text">TUS DOCUMENTOS DE IDENTIDAD</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Start with your DUI. Everything else follows.</span>
+      <span class="es-text">Empieza con tu DUI. Todo lo demás sigue.</span>
+    </h2>
+
+    <div class="accordion" role="list">
+
+      <!-- DUI -->
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="doc-dui">
+          <span>
+            <span class="en-text">🪪 DUI — Documento Único de Identidad</span>
+            <span class="es-text">🪪 DUI — Documento Único de Identidad</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="accordion-panel" id="doc-dui" role="region">
+          <div class="lang-en">
+            <p>The DUI is your primary identity document in El Salvador — equivalent to Mexico's INE. You need it for banking, employment, renting, and accessing services.</p>
+            <p style="margin-top:var(--space-4);font-weight:600;">Steps to obtain your DUI:</p>
+            <ul>
+              <li>Go to any RNPN (Registro Nacional de Personas Naturales) office — there are offices in every department</li>
+              <li>Bring: birth certificate (Partida de Nacimiento), proof of address (any utility bill or a signed declaration), and a passport photo</li>
+              <li>First-time DUI is <strong>FREE</strong> if requested inside El Salvador; $10.31 to replace or renew</li>
+              <li>If requesting from outside El Salvador (before returning): $35 at the Salvadoran consulate</li>
+              <li>Processing time: same day in most offices</li>
+              <li>RNPN website: <a href="https://www.rnpn.gob.sv" target="_blank" rel="noopener">www.rnpn.gob.sv</a></li>
+            </ul>
+          </div>
+          <div class="lang-es">
+            <p>El DUI es tu documento de identidad principal en El Salvador — equivalente al INE de México. Lo necesitas para servicios bancarios, empleo, alquiler y acceder a servicios.</p>
+            <p style="margin-top:var(--space-4);font-weight:600;">Pasos para obtener tu DUI:</p>
+            <ul>
+              <li>Ve a cualquier oficina del RNPN (Registro Nacional de Personas Naturales) — hay oficinas en todos los departamentos</li>
+              <li>Lleva: acta de nacimiento (Partida de Nacimiento), comprobante de domicilio (cualquier recibo de servicio o declaración firmada) y una foto de pasaporte</li>
+              <li>El DUI por primera vez es <strong>GRATIS</strong> si se solicita dentro de El Salvador; $10.31 para reemplazar o renovar</li>
+              <li>Si lo solicitas fuera de El Salvador (antes de regresar): $35 en el consulado salvadoreño</li>
+              <li>Tiempo de trámite: el mismo día en la mayoría de las oficinas</li>
+              <li>Sitio web del RNPN: <a href="https://www.rnpn.gob.sv" target="_blank" rel="noopener">www.rnpn.gob.sv</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Birth Certificate -->
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="doc-birth">
+          <span>
+            <span class="en-text">📄 Partida de Nacimiento — Birth Certificate</span>
+            <span class="es-text">📄 Partida de Nacimiento — Acta de Nacimiento</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="accordion-panel" id="doc-birth" role="region">
+          <div class="lang-en">
+            <p>Required before you can get your DUI if you don't already have one.</p>
+            <ul>
+              <li>Contact the RNPN or the municipality (alcaldía) where you were born</li>
+              <li>If your birth was registered in a rural area, the local alcaldía (mayor's office) holds the records</li>
+              <li>Cost: minimal (~$5)</li>
+              <li>Can sometimes be requested by a family member on your behalf</li>
+            </ul>
+          </div>
+          <div class="lang-es">
+            <p>Necesaria antes de poder obtener tu DUI si no la tienes aún.</p>
+            <ul>
+              <li>Contacta al RNPN o la alcaldía del municipio donde naciste</li>
+              <li>Si tu nacimiento fue registrado en un área rural, la alcaldía local guarda los registros</li>
+              <li>Costo: mínimo (~$5)</li>
+              <li>A veces puede solicitarla un familiar en tu nombre</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Passport -->
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="doc-passport">
+          <span>
+            <span class="en-text">🛂 Passport — Para Viajes Internacionales</span>
+            <span class="es-text">🛂 Pasaporte — Para Viajes Internacionales</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="accordion-panel" id="doc-passport" role="region">
+          <div class="lang-en">
+            <p>If you need to travel internationally, apply at the DGME (Dirección General de Migración y Extranjería).</p>
+            <ul>
+              <li>Requires your DUI</li>
+              <li>Cost: $30 for adults, $20 for minors</li>
+              <li>Processing: 3–5 business days</li>
+              <li>Website: <a href="https://www.migracion.gob.sv" target="_blank" rel="noopener">www.migracion.gob.sv</a></li>
+            </ul>
+          </div>
+          <div class="lang-es">
+            <p>Si necesitas viajar internacionalmente, solicítalo en la DGME (Dirección General de Migración y Extranjería).</p>
+            <ul>
+              <li>Requiere tu DUI</li>
+              <li>Costo: $30 para adultos, $20 para menores</li>
+              <li>Trámite: 3–5 días hábiles</li>
+              <li>Sitio web: <a href="https://www.migracion.gob.sv" target="_blank" rel="noopener">www.migracion.gob.sv</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Children born in the US -->
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="doc-children">
+          <span>
+            <span class="en-text">👶 Children Born in the US — Doble Ciudadanía</span>
+            <span class="es-text">👶 Hijos Nacidos en EE.UU. — Doble Ciudadanía</span>
+          </span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="accordion-panel" id="doc-children" role="region">
+          <div class="lang-en">
+            <p>Children born in the US to Salvadoran parents can have dual citizenship. To register them in El Salvador:</p>
+            <ul>
+              <li>Contact the Registro del Estado Familiar at your local alcaldía</li>
+              <li>Bring their US birth certificate (apostilled and translated into Spanish)</li>
+              <li>GMIES provides free legal guidance for this process: <a href="tel:+50322608001">(503) 2260-8001</a></li>
+            </ul>
+          </div>
+          <div class="lang-es">
+            <p>Los hijos nacidos en EE.UU. de padres salvadoreños pueden tener doble ciudadanía. Para registrarlos en El Salvador:</p>
+            <ul>
+              <li>Contacta el Registro del Estado Familiar de tu alcaldía local</li>
+              <li>Lleva su acta de nacimiento de EE.UU. (apostillada y traducida al español)</li>
+              <li>GMIES brinda orientación legal gratuita para este proceso: <a href="tel:+50322608001">(503) 2260-8001</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.accordion -->
+  </div>
+</section>
+
+<!-- ========================================================
+     SECTION 3: SOCIAL SERVICES
+     ======================================================== -->
+<section id="social-services">
+  <div class="section-wide">
+    <p class="section-label-sv">
+      <span class="en-text">SUPPORT WHEN YOU NEED IT</span>
+      <span class="es-text">APOYO CUANDO LO NECESITAS</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">You are not arriving alone.</span>
+      <span class="es-text">No llegas solo/a.</span>
+    </h2>
+
+    <div class="tiles-grid">
+
+      <!-- 1. GAMI -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">🏛️</div>
+        <h3 class="tile-title">
+          <span class="en-text">GAMI — Gobierno de Asistencia al Migrante</span>
+          <span class="es-text">GAMI — Gobierno de Asistencia al Migrante</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Your first stop after arriving. Provides: transportation assistance to reach family, counseling, referrals to social services, temporary food assistance, and initial medical screening.</span>
+          <span class="es-text">Tu primera parada al llegar. Ofrece: asistencia de transporte para llegar con la familia, consejería, referencias a servicios sociales, asistencia alimentaria temporal y evaluación médica inicial.</span>
+          <p style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-faint);">
+            <span class="en-text">📍 Final Bulevar Coronel Arturo Castellanos, Colonia Quiñonez, San Salvador</span>
+            <span class="es-text">📍 Final Bulevar Coronel Arturo Castellanos, Colonia Quiñonez, San Salvador</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. CIMITRA -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">🤝</div>
+        <h3 class="tile-title">
+          <span class="en-text">CIMITRA — Centro de Integración Para Migrantes</span>
+          <span class="es-text">CIMITRA — Centro de Integración Para Migrantes</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Provides reintegration support, job placement assistance, legal aid, and psychosocial services.</span>
+          <span class="es-text">Brinda apoyo de reintegración, asistencia en colocación laboral, ayuda legal y servicios psicosociales.</span>
+          <ul style="margin-top:var(--space-3);list-style:none;padding:0;font-size:var(--text-xs);">
+            <li>📞 <a href="tel:+50322427034">(503) 2242-7034</a> / <a href="tel:+50376413065">(503) 7641-3065</a></li>
+            <li>✉️ <a href="mailto:info@cimitra.org">info@cimitra.org</a></li>
+            <li>📍 1a Calle Poniente y 91 Avenida Norte #4727, Colonia Escalón, San Salvador</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. GMIES -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">🧠</div>
+        <h3 class="tile-title">
+          <span class="en-text">GMIES — Grupo de Monitoreo Independiente</span>
+          <span class="es-text">GMIES — Grupo de Monitoreo Independiente</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Independent monitoring group providing legal guidance, including help registering children born outside El Salvador.</span>
+          <span class="es-text">Grupo de monitoreo independiente que brinda orientación legal, incluyendo ayuda para registrar hijos nacidos fuera de El Salvador.</span>
+          <ul style="margin-top:var(--space-3);list-style:none;padding:0;font-size:var(--text-xs);">
+            <li>📞 <a href="tel:+50322608001">(503) 2260-8001</a></li>
+            <li>✉️ <a href="mailto:comunicagmies@gmail.com">comunicagmies@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. USCRI -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">👦</div>
+        <h3 class="tile-title">
+          <span class="en-text">USCRI Livelihoods Program (Ages 18–35)</span>
+          <span class="es-text">Programa de Medios de Vida USCRI (18–35 años)</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">For returning youth and young adults: vocational training, job placement (3-month work placement with half-salary scheme), and 5-month case management support.</span>
+          <span class="es-text">Para jóvenes adultos que regresan: capacitación vocacional, colocación laboral (3 meses de trabajo con esquema de medio salario) y 5 meses de gestión de casos.</span>
+          <ul style="margin-top:var(--space-3);list-style:none;padding:0;font-size:var(--text-xs);">
+            <li>👤 Flor de María Mulato Soriano</li>
+            <li>📞 <a href="tel:+50376850804">+503 7685-0804</a></li>
+            <li>✉️ <a href="mailto:fmulato@uscri.org">fmulato@uscri.org</a></li>
+            <li>🔗 <a href="https://refugees.org/uscri-el-salvador/" target="_blank" rel="noopener">refugees.org/uscri-el-salvador</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5. Tutela -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">⚖️</div>
+        <h3 class="tile-title">
+          <span class="en-text">Tutela de Derechos Humanos del Arzobispado</span>
+          <span class="es-text">Tutela de Derechos Humanos del Arzobispado</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Human rights legal services. If your rights were violated during deportation or after arrival.</span>
+          <span class="es-text">Servicios legales de derechos humanos. Si tus derechos fueron violados durante la deportación o después de llegar.</span>
+          <ul style="margin-top:var(--space-3);list-style:none;padding:0;font-size:var(--text-xs);">
+            <li>📞 <a href="tel:+50322345321">(503) 2234-5321</a></li>
+            <li>📍 Avenida Doctor Emilio Álvarez, Calle Doctor Max Bloch, Edificio del Arzobispado, Colonia Médica, San Salvador</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 6. AFSC -->
+      <div class="tile tile-sv">
+        <div class="tile-icon">📋</div>
+        <h3 class="tile-title">
+          <span class="en-text">AFSC — American Friends Service Committee</span>
+          <span class="es-text">AFSC — American Friends Service Committee</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Resources and guidance for people facing deportation or forced return. Provides information on rights and reintegration.</span>
+          <span class="es-text">Recursos y orientación para personas que enfrentan deportación o regreso forzado. Proporciona información sobre derechos y reintegración.</span>
+          <ul style="margin-top:var(--space-3);list-style:none;padding:0;font-size:var(--text-xs);">
+            <li>🔗 <a href="https://afsc.org/facing-deportation-or-forced-return-el-salvador" target="_blank" rel="noopener">afsc.org — Facing Deportation</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /.tiles-grid -->
+  </div>
+</section>
+
+<!-- ========================================================
+     SECTION 4: YOUR RIGHTS
+     ======================================================== -->
+<section id="your-rights" style="background:var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label-sv">
+      <span class="en-text">KNOW YOUR RIGHTS</span>
+      <span class="es-text">CONOCE TUS DERECHOS</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">You have rights here, too.</span>
+      <span class="es-text">Aquí también tienes derechos.</span>
+    </h2>
+
+    <div class="tiles-grid">
+
+      <div class="tile tile-sv">
+        <div class="tile-icon">🛡️</div>
+        <h3 class="tile-title">
+          <span class="en-text">You cannot be detained without cause</span>
+          <span class="es-text">No pueden detenerte sin causa</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">You have the right to ask "¿Por qué me detienen?" (Why are you detaining me?). If your rights are violated, contact the PDDH: <a href="tel:126">126</a>.</span>
+          <span class="es-text">Tienes derecho a preguntar "¿Por qué me detienen?" Si se violan tus derechos, contacta a la PDDH: <a href="tel:126">126</a>.</span>
+        </div>
+      </div>
+
+      <div class="tile tile-sv">
+        <div class="tile-icon">📋</div>
+        <h3 class="tile-title">
+          <span class="en-text">Right to a translator in legal proceedings</span>
+          <span class="es-text">Derecho a un traductor en procedimientos legales</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">In any legal process, you have the right to a translator. You do not have to sign documents you do not understand. Ask for help before signing anything.</span>
+          <span class="es-text">En cualquier proceso legal, tienes derecho a un traductor. No debes firmar documentos que no entiendes. Pide ayuda antes de firmar cualquier cosa.</span>
+        </div>
+      </div>
+
+      <div class="tile tile-sv">
+        <div class="tile-icon">🏥</div>
+        <h3 class="tile-title">
+          <span class="en-text">Emergency care regardless of documentation</span>
+          <span class="es-text">Atención de emergencia sin importar documentos</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">Public hospitals must provide emergency care to everyone, regardless of documentation status. You cannot be turned away from the ER. Hospital Nacional Rosales: San Salvador's main public hospital.</span>
+          <span class="es-text">Los hospitales públicos deben brindar atención de emergencia a todos, independientemente de su situación documental. No te pueden rechazar en urgencias. Hospital Nacional Rosales: el principal hospital público de San Salvador.</span>
+        </div>
+      </div>
+
+      <div class="tile tile-sv">
+        <div class="tile-icon">📞</div>
+        <h3 class="tile-title">
+          <span class="en-text">PDDH — Human Rights Ombudsman</span>
+          <span class="es-text">PDDH — Procuraduría para la Defensa de los Derechos Humanos</span>
+        </h3>
+        <div class="tile-body">
+          <span class="en-text">The PDDH defends your human rights 24/7. If authorities violate your rights, call them free at <a href="tel:126"><strong>126</strong></a>. This line is completely free from any phone, at any time.</span>
+          <span class="es-text">La PDDH defiende tus derechos humanos las 24 horas. Si las autoridades violan tus derechos, llámalos gratis al <a href="tel:126"><strong>126</strong></a>. Esta línea es completamente gratuita desde cualquier teléfono, a cualquier hora.</span>
+        </div>
+      </div>
+
+    </div><!-- /.tiles-grid -->
+  </div>
+</section>
+
+<!-- ========================================================
+     WHATSAPP SHARE (inline)
+     ======================================================== -->
+<div class="wa-inline-share">
+  <a class="wa-inline-btn" id="wa-inline-sv"
+     data-en="https://wa.me/?text=This%20free%20guide%20helps%20people%20returning%20to%20El%20Salvador%20%E2%80%94%20first%20steps%2C%20documents%2C%20and%20resources%3A%20https%3A%2F%2Fsemillasmonarca.com%2Fel-salvador%2Findex.html"
+     data-es="https://wa.me/?text=Esta%20gu%C3%ADa%20gratuita%20ayuda%20a%20personas%20que%20regresan%20a%20El%20Salvador%20%E2%80%94%20primeros%20pasos%2C%20documentos%20y%20recursos%3A%20https%3A%2F%2Fsemillasmonarca.com%2Fel-salvador%2Findex.html"
+     href="https://wa.me/?text=This%20free%20guide%20helps%20people%20returning%20to%20El%20Salvador%20%E2%80%94%20first%20steps%2C%20documents%2C%20and%20resources%3A%20https%3A%2F%2Fsemillasmonarca.com%2Fel-salvador%2Findex.html"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="en-text">Share this guide on WhatsApp</span>
+    <span class="es-text">Comparte esta guía por WhatsApp</span>
+  </a>
+</div>
+
+<!-- ========================================================
+     VOLUNTEER BANNER
+     ======================================================== -->
+<section class="volunteer-banner" id="get-involved">
+  <!-- Wing background decoration -->
+  <div class="volunteer-banner__wing" aria-hidden="true">
+    <svg viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="80" cy="120" rx="90" ry="110" fill="#E8680A" opacity=".12" transform="rotate(-15 80 120)"/>
+      <ellipse cx="320" cy="120" rx="90" ry="110" fill="#D4A017" opacity=".1" transform="rotate(15 320 120)"/>
+      <ellipse cx="70" cy="230" rx="55" ry="65" fill="#C04E00" opacity=".09" transform="rotate(-20 70 230)"/>
+      <ellipse cx="330" cy="230" rx="55" ry="65" fill="#C05A00" opacity=".08" transform="rotate(20 330 230)"/>
+      <circle cx="160" cy="40" r="4" fill="#E8680A" opacity=".2"/>
+      <circle cx="250" cy="60" r="2.5" fill="#D4A017" opacity=".25"/>
+      <circle cx="350" cy="30" r="3" fill="#E8680A" opacity=".15"/>
+      <circle cx="40" cy="80" r="2" fill="#D4A017" opacity=".2"/>
+    </svg>
+  </div>
+
+  <div class="volunteer-banner__inner">
+
+    <!-- Header -->
+    <div class="volunteer-banner__header">
+      <div class="volunteer-banner__butterfly" aria-hidden="true">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <ellipse cx="20" cy="24" rx="16" ry="20" fill="#E8680A" opacity=".9" transform="rotate(-20 20 24)"/>
+          <ellipse cx="44" cy="24" rx="16" ry="20" fill="#D4A017" opacity=".85" transform="rotate(20 44 24)"/>
+          <ellipse cx="18" cy="46" rx="10" ry="12" fill="#C04E00" opacity=".8" transform="rotate(-25 18 46)"/>
+          <ellipse cx="46" cy="46" rx="10" ry="12" fill="#C05A00" opacity=".75" transform="rotate(25 46 46)"/>
+          <rect x="30" y="12" width="4" height="40" rx="2" fill="#1A0E00"/>
+          <line x1="32" y1="12" x2="22" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="12" x2="42" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="22" cy="4" r="3" fill="#E8680A"/>
+          <circle cx="42" cy="4" r="3" fill="#E8680A"/>
+        </svg>
+      </div>
+      <div>
+        <p class="volunteer-banner__eyebrow">
+          <span class="en-text">Help Us Grow This Resource</span>
+          <span class="es-text">Ayúdanos a Crecer este Recurso</span>
+        </p>
+        <h2 class="volunteer-banner__title">
+          <span class="en-text">Support this volunteer-led work. <em>Be part of the mission.</em></span>
+          <span class="es-text">Únete al equipo. <em>Sé parte de la misión.</em></span>
+        </h2>
+        <p class="volunteer-banner__subtitle">
+          <span class="en-text">This site is free, community-built, and growing. If you have skills, connections, or resources to share — or want to help fund the work of supporting people relocating to El Salvador — we want to hear from you.</span>
+          <span class="es-text">Este sitio es gratuito, construido por la comunidad y en crecimiento. Si tienes habilidades, contactos o recursos que compartir — o deseas contribuir al trabajo de apoyar a personas que regresan a El Salvador — queremos escucharte.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form
+      class="volunteer-form"
+      id="volunteer-form"
+      action="https://submit.jotform.com/submit/261594475863067"
+      method="POST"
+      enctype="multipart/form-data"
+      data-jotform-id="261594475863067"
+      novalidate
+    >
+      <!-- Jotform required hidden fields -->
+      <input type="hidden" name="formID" value="261594475863067"/>
+      <input type="hidden" name="simple_spc" value="261594475863067"/>
+      <input type="hidden" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px"/>
+
+      <!-- ROW: Name -->
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-fname">
+            <span class="en-text">First Name</span>
+            <span class="es-text">Nombre</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-fname" name="q2_q2_textbox0" autocomplete="given-name" required placeholder="Maria"/>
+          <span class="vf-error" id="vf-fname-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-lname">
+            <span class="en-text">Last Name</span>
+            <span class="es-text">Apellido</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-lname" name="q3_q3_textbox1" autocomplete="family-name" required placeholder="Ramírez"/>
+          <span class="vf-error" id="vf-lname-err" role="alert"></span>
+        </div>
+      </div>
+
+      <!-- ROW: Email + ZIP -->
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-email">
+            <span class="en-text">Email Address</span>
+            <span class="es-text">Correo Electrónico</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="email" id="vf-email" name="q4_q4_email2" autocomplete="email" required placeholder="maria@ejemplo.com"/>
+          <span class="vf-error" id="vf-email-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-zip">
+            <span class="en-text">ZIP / Postal Code</span>
+            <span class="es-text">Código Postal</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-zip" name="q5_q5_textbox3" autocomplete="postal-code" required placeholder="30301"/>
+          <span class="vf-error" id="vf-zip-err" role="alert"></span>
+        </div>
+      </div>
+
+      <!-- Phone (optional) -->
+      <div class="vf-row">
+        <div class="vf-field vf-field--half">
+          <label class="vf-label" for="vf-phone">
+            <span class="en-text">Phone Number</span>
+            <span class="es-text">Teléfono</span>
+            <span class="vf-optional">
+              <span class="en-text">(optional)</span>
+              <span class="es-text">(opcional)</span>
+            </span>
+          </label>
+          <input class="vf-input" type="tel" id="vf-phone" name="q6_q6_phone4[full]" autocomplete="tel" placeholder="+1 (404) 555-0100"/>
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <!-- CHECKBOXES: Which area -->
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">Which area(s) would you like to help with?</span>
+          <span class="es-text">¿En qué área(s) deseas ayudar?</span>
+        </legend>
+        <div class="vf-check-grid">
+          <label class="vf-check">
+            <input type="checkbox" name="q7_q7_checkbox5[]" value="First Steps &amp; Resources"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><strong><span class="en-text">🏠 First Steps & Resources</span><span class="es-text">🏠 Primeros Pasos y Recursos</span></strong></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q7_q7_checkbox5[]" value="Work &amp; Entrepreneurship"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><strong><span class="en-text">💼 Work & Entrepreneurship</span><span class="es-text">💼 Trabajo y Emprendimiento</span></strong></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q7_q7_checkbox5[]" value="Teens &amp; Youth"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><strong><span class="en-text">🌱 Teens & Youth</span><span class="es-text">🌱 Jóvenes</span></strong></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q7_q7_checkbox5[]" value="All areas"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><strong><span class="en-text">🦋 All areas</span><span class="es-text">🦋 Todas las áreas</span></strong></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- CHECKBOXES: Skills -->
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">What skills or support can you offer?</span>
+          <span class="es-text">¿Qué habilidades o apoyo puedes ofrecer?</span>
+          <span class="en-text vf-hint"> — select all that apply</span>
+          <span class="es-text vf-hint"> — selecciona todas las que apliquen</span>
+        </legend>
+        <div class="vf-check-grid vf-check-grid--3">
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Digital organizing"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">📣 Digital organizing</span><span class="es-text">📣 Organización digital</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Graphic design"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">🎨 Graphic design</span><span class="es-text">🎨 Diseño gráfico</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Translation: Spanish to English"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">🌐 Translation: Spanish ↔ English</span><span class="es-text">🌐 Traducción: Español ↔ Inglés</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Web development"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">💻 Web development</span><span class="es-text">💻 Desarrollo web</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Content writing or research"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">✍️ Content writing or research</span><span class="es-text">✍️ Redacción o investigación</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Social media"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">📱 Social media</span><span class="es-text">📱 Redes sociales</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Partner as an organization"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">🤝 Partner as an organization</span><span class="es-text">🤝 Alianza como organización</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Financial support or fundraising"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">💛 Financial support or fundraising</span><span class="es-text">💛 Apoyo económico o recaudación</span></span>
+          </label>
+          <label class="vf-check">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Community outreach"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">🏘️ Community outreach</span><span class="es-text">🏘️ Alcance comunitario</span></span>
+          </label>
+          <label class="vf-check" id="vf-other-check-wrap">
+            <input type="checkbox" name="q8_q8_checkbox6[]" value="Other" id="vf-other-check"/>
+            <span class="vf-check__box"></span>
+            <span class="vf-check__label"><span class="en-text">💬 Other</span><span class="es-text">💬 Otro</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Conditional: other skills -->
+      <div class="vf-row vf-conditional" id="vf-other-field" style="display:none;">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-other-text">
+            <span class="en-text">Tell us more about your other skills or offer:</span>
+            <span class="es-text">Cuéntanos más sobre tus otras habilidades u ofrecimiento:</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-other-text" name="_vf_otherSkills" placeholder="..."/>
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <!-- Email consent -->
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend vf-legend--required">
+          <span class="en-text">Email updates consent</span>
+          <span class="es-text">Consentimiento para actualizaciones por correo</span>
+          <span class="vf-required" aria-label="required">*</span>
+        </legend>
+        <p class="vf-consent-text">
+          <span class="en-text">Are you OK with receiving email updates from <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer"><strong>Maria del Rosario Palacios</strong></a> about this website, related projects, and ways to get involved?</span>
+          <span class="es-text">¿Aceptas recibir actualizaciones por correo electrónico de <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer"><strong>Maria del Rosario Palacios</strong></a> sobre este sitio, proyectos relacionados y formas de participar?</span>
+        </p>
+        <div class="vf-radio-group">
+          <label class="vf-radio">
+            <input type="radio" name="q9_q9_radio7" value="Yes, send me updates" required/>
+            <span class="vf-radio__dot"></span>
+            <span class="vf-radio__label">
+              <span class="en-text">✅ Yes — send me updates!</span>
+              <span class="es-text">✅ Sí — ¡envíame actualizaciones!</span>
+            </span>
+          </label>
+          <label class="vf-radio">
+            <input type="radio" name="q9_q9_radio7" value="No, I prefer not to receive emails"/>
+            <span class="vf-radio__dot"></span>
+            <span class="vf-radio__label">
+              <span class="en-text">No, I prefer not to receive emails</span>
+              <span class="es-text">No, prefiero no recibir correos</span>
+            </span>
+          </label>
+        </div>
+        <span class="vf-error" id="vf-consent-err" role="alert"></span>
+      </fieldset>
+
+      <!-- Message (optional) -->
+      <div class="vf-row">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-message">
+            <span class="en-text">Any message or questions?</span>
+            <span class="es-text">¿Algún mensaje o pregunta?</span>
+            <span class="vf-optional">
+              <span class="en-text">(optional)</span>
+              <span class="es-text">(opcional)</span>
+            </span>
+          </label>
+          <textarea class="vf-input vf-textarea" id="vf-message" name="q10_q10_textarea8" rows="4" placeholder="..."></textarea>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="vf-submit-row">
+        <button type="submit" class="vf-submit-btn">
+          <span class="en-text">Support this volunteer-led work 🦋</span>
+          <span class="es-text">Únete al Equipo 🦋</span>
+        </button>
+        <p class="vf-privacy">
+          <span class="en-text">Your information is kept private and will only be used to coordinate this work.</span>
+          <span class="es-text">Tu información se mantiene privada y solo se usará para coordinar este trabajo.</span>
+        </p>
+      </div>
+
+      <!-- Success message -->
+      <div class="vf-success" id="vf-success" style="display:none;" role="alert" aria-live="polite">
+        <div class="vf-success__icon">🦋</div>
+        <h3>
+          <span class="en-text">Thank you for stepping up!</span>
+          <span class="es-text">¡Gracias por sumarte!</span>
+        </h3>
+        <p>
+          <span class="en-text">We'll be in touch soon. You're part of something that matters.</span>
+          <span class="es-text">Nos comunicaremos contigo pronto. Eres parte de algo que importa.</span>
+        </p>
+      </div>
+
+    </form><!-- /volunteer-form -->
+  </div><!-- /inner -->
+</section><!-- /volunteer-banner -->
+
+<!-- ========================================================
+     FOOTER
+     ======================================================== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <span class="en-text">🇸🇻 El Salvador Relocation Guide</span>
+        <span class="es-text">🇸🇻 Guía de Reubicación en El Salvador</span>
+      </div>
+      <p class="footer-tagline">
+        <span class="en-text">A free bilingual resource for people returning to El Salvador. Created with love and care for our community.</span>
+        <span class="es-text">Un recurso bilingüe gratuito para personas que regresan a El Salvador. Creado con amor y cuidado para nuestra comunidad.</span>
+      </p>
+    </div>
+    <div>
+      <p class="footer-heading">
+        <span class="en-text">El Salvador Pages</span>
+        <span class="es-text">Páginas El Salvador</span>
+      </p>
+      <div class="footer-links">
+        <a href="index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+        <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo y Negocio</span></a>
+        <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Para Jóvenes</span></a>
+        <a href="../choose.html"><span class="en-text">🌎 All Country Guides</span><span class="es-text">🌎 Todas las Guías</span></a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-heading">
+        <span class="en-text">Key Resources</span>
+        <span class="es-text">Recursos Clave</span>
+      </p>
+      <div class="footer-links">
+        <a href="https://www.rnpn.gob.sv" target="_blank" rel="noopener">RNPN — DUI</a>
+        <a href="https://www.migracion.gob.sv" target="_blank" rel="noopener">DGME — Pasaporte</a>
+        <a href="https://refugees.org/uscri-el-salvador/" target="_blank" rel="noopener">USCRI El Salvador</a>
+        <a href="https://afsc.org/facing-deportation-or-forced-return-el-salvador" target="_blank" rel="noopener">AFSC</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span><span class="en-text">Free resource. Not affiliated with any government agency.</span><span class="es-text">Recurso gratuito. Sin afiliación a ninguna dependencia gubernamental.</span></span>
+    <span>🦋 <span class="en-text">Made for our community</span><span class="es-text">Hecho para nuestra comunidad</span></span>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+
+<!-- WhatsApp share URL update for SV -->
+<script>
+(function() {
+  var btn = document.getElementById('wa-inline-sv');
+  if (!btn) return;
+  function updateWA() {
+    var lang = document.body.classList.contains('lang-es') ? 'es' : 'en';
+    var url = btn.getAttribute('data-' + lang) || btn.getAttribute('data-en');
+    btn.setAttribute('href', url);
+  }
+  updateWA();
+  document.addEventListener('langchange', updateWA);
+  var langBtn = document.getElementById('lang-toggle');
+  if (langBtn) langBtn.addEventListener('click', function() { setTimeout(updateWA, 50); });
+
+  // Volunteer form: conditional "other" field
+  var otherCheck = document.getElementById('vf-other-check');
+  var otherField = document.getElementById('vf-other-field');
+  if (otherCheck && otherField) {
+    otherCheck.addEventListener('change', function() {
+      otherField.style.display = this.checked ? 'block' : 'none';
+    });
+  }
+})();
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .catch(function(e) { console.log('SW registration skipped:', e); });
+    });
+  }
+</script>
+</body>
+</html>

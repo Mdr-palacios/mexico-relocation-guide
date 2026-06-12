@@ -1980,3 +1980,13 @@ body.lang-ma .just-arrived-btn .ma-only { display: inline !important; }
 /* Full guide / guide button */
 body.lang-ma .ja-modal-footer .en-only { display: none; }
 body.lang-ma .ja-modal-footer .ma-only { display: block !important; }
+
+/* Country switcher nav link */
+.nav-country {
+  font-size: .82rem;
+  opacity: .75;
+  border-right: 1px solid rgba(232,104,10,.2);
+  padding-right: .85rem;
+  margin-right: .1rem;
+}
+.nav-country:hover { opacity: 1; }

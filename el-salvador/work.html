@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Work & Entrepreneurship by Department — El Salvador Guide</title>
+<meta name="description" content="Find work or start a business in El Salvador. Employment leads, business ideas, and resources by department for returning Salvadorans and deportees."/>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦋</text></svg>"/>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1B4F8A">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<style>
+  /* El Salvador deep-blue accent for em text and department highlights */
+  em { color: #1B4F8A; font-style: italic; }
+  [data-theme="dark"] em { color: #6FA3D8; }
+  .section-label { color: #1B4F8A; }
+  [data-theme="dark"] .section-label { color: #6FA3D8; }
+  .tile-blue {
+    background: linear-gradient(135deg, #1B4F8A 0%, #2563A8 100%);
+    color: white;
+  }
+  .tile-blue .tile-title { color: white; }
+  .tile-blue .tile-body { color: rgba(255,255,255,.88); }
+  .tile-blue a { color: rgba(255,255,255,.9); text-decoration: underline; }
+  .dept-note {
+    background: linear-gradient(135deg, rgba(27,79,138,.08) 0%, rgba(37,99,168,.05) 100%);
+    border-left: 4px solid #1B4F8A;
+    border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+    padding: var(--space-4) var(--space-5);
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  [data-theme="dark"] .dept-note {
+    background: rgba(27,79,138,.18);
+    border-left-color: #6FA3D8;
+  }
+  .dept-note strong { color: #1B4F8A; }
+  [data-theme="dark"] .dept-note strong { color: #6FA3D8; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+        <line x1="16" y1="6" x2="11" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="6" x2="21" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="11" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="21" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="11" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+        <circle cx="21" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+      </svg>
+      <span class="nav-logo-text">
+        <span class="en-text">El Salvador Guide</span>
+        <span class="es-text">Guía El Salvador</span>
+      </span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="../choose.html" class="nav-link" role="listitem">
+        <span class="en-text">🌎 Choose Country</span>
+        <span class="es-text">🌎 Elegir País</span>
+      </a>
+      <a href="../index.html" class="nav-link" role="listitem">
+        <span class="en-text">🏠 First Steps</span>
+        <span class="es-text">🏠 Primeros Pasos</span>
+      </a>
+      <a href="work.html" class="nav-link active" role="listitem">
+        <span class="en-text">💼 Work & Business</span>
+        <span class="es-text">💼 Trabajo y Negocio</span>
+      </a>
+      <a href="teens.html" class="nav-link" role="listitem">
+        <span class="en-text">🌱 For Teens</span>
+        <span class="es-text">🌱 Para Jóvenes</span>
+      </a>
+      <a href="../toolkit.html" class="nav-link" role="listitem">
+        <span class="en-text">📱 Toolkit</span>
+        <span class="es-text">📱 Kit Digital</span>
+      </a>
+      <a href="../blog.html" class="nav-link" role="listitem">
+        <span class="en-text">✍️ Blog</span>
+        <span class="es-text">✍️ Blog</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span class="en-text">ES</span>
+        <span class="es-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-wing">
+    <svg style="position:absolute;right:-60px;top:-40px;width:400px;height:400px;opacity:.07;" viewBox="0 0 200 200" fill="none">
+      <ellipse cx="60" cy="80" rx="55" ry="75" fill="#E8680A" transform="rotate(-15 60 80)"/>
+      <ellipse cx="140" cy="80" rx="55" ry="75" fill="#D4A017" transform="rotate(15 140 80)"/>
+      <ellipse cx="55" cy="155" rx="35" ry="42" fill="#C04E00" transform="rotate(-20 55 155)"/>
+      <ellipse cx="145" cy="155" rx="35" ry="42" fill="#C05A00" transform="rotate(20 145 155)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span class="en-text">WORK &amp; ENTREPRENEURSHIP / TRABAJO Y EMPRENDIMIENTO</span>
+      <span class="es-text">TRABAJO Y EMPRENDIMIENTO / WORK &amp; ENTREPRENEURSHIP</span>
+    </p>
+    <h1>
+      <span class="en-text">Building a livelihood <em>in El Salvador.</em></span>
+      <span class="es-text">Construyendo sustento <em>en El Salvador.</em></span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="en-text">Employment leads, business ideas, and resources by department — because starting over takes a plan.</span>
+      <span class="es-text">Empleos, ideas de negocio y recursos por departamento — porque volver a empezar requiere un plan.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#department-work" class="btn btn-primary">
+        <span class="en-text">Explore by Department →</span>
+        <span class="es-text">Explorar por Departamento →</span>
+      </a>
+      <a href="#entrepreneurship" class="btn btn-outline">
+        <span class="en-text">Entrepreneurship Ideas</span>
+        <span class="es-text">Ideas de Negocio</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- YOUR ENGLISH ADVANTAGE -->
+<section id="english-advantage" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">YOUR BILINGUAL EDGE</span>
+      <span class="es-text">TU VENTAJA BILINGÜE</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Companies in El Salvador are hiring <em>English speakers.</em></span>
+      <span class="es-text">Las empresas en El Salvador están contratando <em>personas bilingües.</em></span>
+    </h2>
+    <div class="tiles-grid">
+      <div class="tile tile-amber">
+        <div class="tile-icon">📞</div>
+        <h3 class="tile-title"><span class="en-text">Call Centers / BPO</span><span class="es-text">Call Centers / BPO</span></h3>
+        <div class="tile-body"><p><span class="en-text">El Salvador has a booming Business Process Outsourcing (BPO) industry. Companies like Teleperformance, Concentrix, Konecta, and Alorica hire English-Spanish bilingual agents at above-average salaries ($500–900/mo). No degree required, just fluent English and a clean background check. Start at <a href="https://www.teleperformance.com" target="_blank" rel="noopener">teleperformance.com</a> or <a href="https://www.concentrix.com" target="_blank" rel="noopener">concentrix.com</a>.</span><span class="es-text">El Salvador tiene una industria de Externalización de Procesos de Negocio (BPO) en auge. Empresas como Teleperformance, Concentrix, Konecta y Alorica contratan agentes bilingües inglés-español con salarios por encima del promedio ($500–900/mes). No se requiere título universitario, solo inglés fluido y un historial limpio. Comienza en <a href="https://www.teleperformance.com" target="_blank" rel="noopener">teleperformance.com</a> o <a href="https://www.concentrix.com" target="_blank" rel="noopener">concentrix.com</a>.</span></p></div>
+      </div>
+      <div class="tile tile-gold">
+        <div class="tile-icon">🏨</div>
+        <h3 class="tile-title"><span class="en-text">Tourism &amp; Hospitality</span><span class="es-text">Turismo y Hospitalidad</span></h3>
+        <div class="tile-body"><p><span class="en-text">Beach towns like El Tunco, El Zonte, and Playa El Coco have a growing expat and tourist presence. English-speaking staff are actively sought at hotels, surf schools, and restaurants. La Libertad department is the center of this growth.</span><span class="es-text">Pueblos costeros como El Tunco, El Zonte y Playa El Coco tienen una creciente presencia de expatriados y turistas. Los hoteles, escuelas de surf y restaurantes buscan activamente personal que hable inglés. El departamento de La Libertad es el centro de este crecimiento.</span></p></div>
+      </div>
+      <div class="tile">
+        <div class="tile-icon">💻</div>
+        <h3 class="tile-title"><span class="en-text">Remote / Freelance Work</span><span class="es-text">Trabajo Remoto / Freelance</span></h3>
+        <div class="tile-body"><p><span class="en-text">With stable internet (Tigo/Claro fiber is available in urban areas), you can work remotely for US companies. Skills in customer service, VA work, transcription, data entry, and social media management are in demand on platforms like Upwork and Fiverr.</span><span class="es-text">Con internet estable (fibra Tigo/Claro disponible en zonas urbanas), puedes trabajar de forma remota para empresas de EE.UU. Las habilidades en servicio al cliente, asistente virtual, transcripción, captura de datos y gestión de redes sociales tienen demanda en Upwork y Fiverr.</span></p></div>
+      </div>
+      <div class="tile">
+        <div class="tile-icon">🎓</div>
+        <h3 class="tile-title"><span class="en-text">English Teaching</span><span class="es-text">Enseñanza de Inglés</span></h3>
+        <div class="tile-body"><p><span class="en-text">Private English tutoring pays $8–15/hr in San Salvador. Bilingual schools and language institutes are always looking for native or near-native English speakers. Your US experience is your credential. See the <a href="../toolkit.html">Toolkit</a> for how to market yourself.</span><span class="es-text">Las tutorías privadas de inglés pagan $8–15/hr en San Salvador. Las escuelas bilingües e institutos de idiomas buscan constantemente hablantes nativos o casi nativos de inglés. Tu experiencia en EE.UU. es tu credencial. Consulta el <a href="../toolkit.html">Kit Digital</a> para saber cómo promocionarte.</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENT SELECTOR -->
+<section id="department-work">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Research by Department</span>
+      <span class="es-text">Investiga por Departamento</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Major employers &amp; <em>opportunities</em> in your department</span>
+      <span class="es-text">Principales empleadores y <em>oportunidades</em> en tu departamento</span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Select your destination department to see the major industries, top employers, business ideas, and a note specific to people returning from the US.</span>
+      <span class="es-text">Selecciona tu departamento de destino para ver las principales industrias, empleadores, ideas de negocio y una nota específica para personas que regresan de EE.UU.</span>
+    </p>
+
+    <div class="state-select-wrap" style="margin-bottom: var(--space-10);">
+      <select class="state-select" id="dept-selector" aria-label="Select a department">
+        <option value="">— Select a department / Selecciona un departamento —</option>
+        <option value="san-salvador">San Salvador</option>
+        <option value="santa-ana">Santa Ana</option>
+        <option value="san-miguel">San Miguel</option>
+        <option value="la-libertad">La Libertad</option>
+        <option value="sonsonate">Sonsonate</option>
+        <option value="usulutan">Usulután</option>
+        <option value="morazan">Morazán</option>
+        <option value="ahuachapan">Ahuachapán</option>
+      </select>
+    </div>
+
+    <!-- Default message -->
+    <div id="dept-default" style="text-align:center; padding: var(--space-16) var(--space-6); color: var(--color-text-muted);">
+      <div style="font-size:3rem; margin-bottom:var(--space-4);">🗺️</div>
+      <p><span class="en-text">Select a department above to see work and business information.</span><span class="es-text">Selecciona un departamento arriba para ver información de trabajo y negocio.</span></p>
+    </div>
+
+    <!-- DEPARTMENT PANELS -->
+    <div id="dept-san-salvador" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">🏭</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Government &amp; finance (largest employer base)</span><span class="es-text">Gobierno y finanzas (mayor base empleadora)</span></li><li><span class="en-text">Retail &amp; manufacturing</span><span class="es-text">Comercio al por menor y manufactura</span></li><li><span class="en-text">Tech / BPO (call centers)</span><span class="es-text">Tecnología / BPO (call centers)</span></li><li><span class="en-text">Healthcare</span><span class="es-text">Salud</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li>Grupo Roble</li><li>Banco Agrícola</li><li>Almacenes Simán</li><li>Walmart El Salvador</li><li><span class="en-text">Call centers: Teleperformance, Concentrix, Konecta</span><span class="es-text">Call centers: Teleperformance, Concentrix, Konecta</span></li><li><span class="en-text">Hospitals &amp; clinics</span><span class="es-text">Hospitales y clínicas</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Food delivery (Uber Eats / Hugo)</span><span class="es-text">Entrega de comida (Uber Eats / Hugo)</span></li><li><span class="en-text">Tutoring &amp; education</span><span class="es-text">Tutorías y educación</span></li><li><span class="en-text">Domestic &amp; cleaning services</span><span class="es-text">Servicios domésticos y limpieza</span></li><li><span class="en-text">Digital services (social media, websites)</span><span class="es-text">Servicios digitales (redes sociales, sitios web)</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">San Salvador is where most deportees arrive and where the largest job market is. Call centers (BPO) actively hire bilingual English-Spanish speakers — your English is an asset here, not a liability.</span>
+        <span class="es-text">San Salvador es donde llega la mayoría de las personas deportadas y donde está el mayor mercado laboral. Los call centers (BPO) contratan activamente a hablantes bilingües inglés-español — tu inglés es un activo aquí, no una desventaja.</span>
+      </div>
+    </div>
+
+    <div id="dept-santa-ana" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">☕</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Coffee &amp; sugar production</span><span class="es-text">Producción de café y azúcar</span></li><li><span class="en-text">Textiles</span><span class="es-text">Textiles</span></li><li><span class="en-text">Commerce</span><span class="es-text">Comercio</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Coffee cooperatives</span><span class="es-text">Cooperativas de café</span></li><li>Hilasal (textiles)</li><li><span class="en-text">Local retail &amp; commerce</span><span class="es-text">Comercio local al por menor</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Coffee processing / export assistance</span><span class="es-text">Procesamiento de café / asistencia para exportación</span></li><li><span class="en-text">Artisan textiles</span><span class="es-text">Textiles artesanales</span></li><li><span class="en-text">Agro-tourism</span><span class="es-text">Agroturismo</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">El Salvador's second-largest city. Coffee country — if you have agricultural knowledge, there are cooperatives actively supporting returnees.</span>
+        <span class="es-text">La segunda ciudad más grande de El Salvador. Zona cafetalera — si tienes conocimientos agrícolas, hay cooperativas apoyando activamente a los repatriados.</span>
+      </div>
+    </div>
+
+    <div id="dept-san-miguel" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">🏦</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Commerce &amp; trade</span><span class="es-text">Comercio y trade</span></li><li><span class="en-text">Agriculture</span><span class="es-text">Agricultura</span></li><li><span class="en-text">Remittance services</span><span class="es-text">Servicios de remesas</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Local commerce</span><span class="es-text">Comercio local</span></li><li><span class="en-text">Banking institutions</span><span class="es-text">Instituciones bancarias</span></li><li><span class="en-text">Agricultural operations</span><span class="es-text">Operaciones agrícolas</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Remittance / financial services</span><span class="es-text">Remesas / servicios financieros</span></li><li><span class="en-text">Trade &amp; commerce</span><span class="es-text">Comercio y trade</span></li><li><span class="en-text">Food businesses</span><span class="es-text">Negocios de comida</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">Eastern hub. Strong remittance economy — financial services and commerce are active here.</span>
+        <span class="es-text">Centro del oriente. Economía fuerte de remesas — servicios financieros y comercio están activos aquí.</span>
+      </div>
+    </div>
+
+    <div id="dept-la-libertad" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">🌊</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Tourism &amp; beach hospitality</span><span class="es-text">Turismo y hospitalidad costera</span></li><li><span class="en-text">Fishing</span><span class="es-text">Pesca</span></li><li><span class="en-text">Agriculture</span><span class="es-text">Agricultura</span></li><li><span class="en-text">Manufacturing</span><span class="es-text">Manufactura</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Beach tourism businesses</span><span class="es-text">Negocios de turismo costero</span></li><li><span class="en-text">Fishing cooperatives</span><span class="es-text">Cooperativas de pesca</span></li><li><span class="en-text">Manufacturing plants</span><span class="es-text">Plantas manufactureras</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Tourism services</span><span class="es-text">Servicios turísticos</span></li><li><span class="en-text">Surf guide / surf lessons</span><span class="es-text">Guía de surf / clases de surf</span></li><li><span class="en-text">Food businesses near beaches</span><span class="es-text">Negocios de comida cerca de las playas</span></li><li><span class="en-text">Fishing cooperative participation</span><span class="es-text">Participación en cooperativa pesquera</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">Home to El Tunco and El Zonte (Bitcoin Beach). Growing tourism sector with active demand for hospitality and service workers.</span>
+        <span class="es-text">Hogar de El Tunco y El Zonte (Bitcoin Beach). Sector turístico en crecimiento con demanda activa de trabajadores de hospitalidad y servicios.</span>
+      </div>
+    </div>
+
+    <div id="dept-sonsonate" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">🌱</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Agriculture (coffee, sugar, indigo)</span><span class="es-text">Agricultura (café, azúcar, añil)</span></li><li><span class="en-text">Artisan crafts</span><span class="es-text">Artesanías</span></li><li><span class="en-text">Traditional food</span><span class="es-text">Comida tradicional</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Sugar mills</span><span class="es-text">Ingenios azucareros</span></li><li><span class="en-text">Coffee farms</span><span class="es-text">Fincas cafetaleras</span></li><li><span class="en-text">Artisan cooperatives</span><span class="es-text">Cooperativas artesanales</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Artisan crafts (weaving, pottery)</span><span class="es-text">Artesanías (tejido, cerámica)</span></li><li><span class="en-text">Traditional food production &amp; sales</span><span class="es-text">Producción y venta de comida tradicional</span></li><li><span class="en-text">Indigenous cultural tourism</span><span class="es-text">Turismo cultural indígena</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">Significant Nahua-Pipil indigenous community. Artisan economy is strong in towns like Nahuizalco and Izalco.</span>
+        <span class="es-text">Importante comunidad indígena Nahua-Pipil. La economía artesanal es fuerte en pueblos como Nahuizalco e Izalco.</span>
+      </div>
+    </div>
+
+    <div id="dept-usulutan" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">🌾</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Agriculture (sugarcane, coconut, citrus)</span><span class="es-text">Agricultura (caña de azúcar, coco, cítricos)</span></li><li><span class="en-text">Fishing</span><span class="es-text">Pesca</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Agricultural cooperatives</span><span class="es-text">Cooperativas agrícolas</span></li><li><span class="en-text">Fishing industry</span><span class="es-text">Industria pesquera</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Fruit / produce sales &amp; distribution</span><span class="es-text">Venta y distribución de frutas y verduras</span></li><li><span class="en-text">Fishing &amp; seafood business</span><span class="es-text">Negocio de pesca y mariscos</span></li><li><span class="en-text">Coastal food businesses</span><span class="es-text">Negocios de comida costera</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">Agricultural department with coastal access. Lower cost of living than San Salvador.</span>
+        <span class="es-text">Departamento agrícola con acceso costero. Costo de vida más bajo que San Salvador.</span>
+      </div>
+    </div>
+
+    <div id="dept-morazan" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">🌲</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Agriculture &amp; coffee</span><span class="es-text">Agricultura y café</span></li><li><span class="en-text">Artisan crafts</span><span class="es-text">Artesanías</span></li><li><span class="en-text">Eco-tourism</span><span class="es-text">Ecoturismo</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Coffee cooperatives</span><span class="es-text">Cooperativas de café</span></li><li><span class="en-text">NGOs &amp; development organizations</span><span class="es-text">ONG y organizaciones de desarrollo</span></li><li><span class="en-text">Tourism businesses</span><span class="es-text">Negocios de turismo</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Eco-tourism guide services</span><span class="es-text">Servicios de guía de ecoturismo</span></li><li><span class="en-text">Specialty coffee production</span><span class="es-text">Producción de café de especialidad</span></li><li><span class="en-text">Artisan goods</span><span class="es-text">Artículos artesanales</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">Rural, lower cost of living, growing eco-tourism. Cacaopera indigenous community nearby.</span>
+        <span class="es-text">Rural, costo de vida más bajo, ecoturismo en crecimiento. Comunidad indígena de Cacaopera cerca.</span>
+      </div>
+    </div>
+
+    <div id="dept-ahuachapon" class="state-panel">
+      <div class="tiles-grid">
+        <div class="tile tile-amber">
+          <div class="tile-icon">🛒</div>
+          <h3 class="tile-title"><span class="en-text">Top Industries</span><span class="es-text">Principales Industrias</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Coffee &amp; sugar</span><span class="es-text">Café y azúcar</span></li><li><span class="en-text">Tourism</span><span class="es-text">Turismo</span></li><li><span class="en-text">Border commerce (Guatemala)</span><span class="es-text">Comercio fronterizo (Guatemala)</span></li></ul></div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon">🏢</div>
+          <h3 class="tile-title"><span class="en-text">Top Employers</span><span class="es-text">Principales Empleadores</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Coffee farms &amp; mills</span><span class="es-text">Fincas e ingenios de café</span></li><li><span class="en-text">Sugar mills</span><span class="es-text">Ingenios azucareros</span></li><li><span class="en-text">Border commerce operators</span><span class="es-text">Operadores de comercio fronterizo</span></li></ul></div>
+        </div>
+        <div class="tile tile-gold">
+          <div class="tile-icon">💡</div>
+          <h3 class="tile-title"><span class="en-text">Business Ideas</span><span class="es-text">Ideas de Negocio</span></h3>
+          <div class="tile-body"><ul><li><span class="en-text">Cross-border commerce (El Salvador–Guatemala)</span><span class="es-text">Comercio transfronterizo (El Salvador–Guatemala)</span></li><li><span class="en-text">Coffee production &amp; sales</span><span class="es-text">Producción y venta de café</span></li><li><span class="en-text">Tourism services</span><span class="es-text">Servicios turísticos</span></li></ul></div>
+        </div>
+      </div>
+      <div class="dept-note">
+        <strong>💡 Note for returnees:</strong> <span class="en-text">Border department with Guatemala. Cross-border trade opportunities.</span>
+        <span class="es-text">Departamento fronterizo con Guatemala. Oportunidades de comercio transfronterizo.</span>
+      </div>
+    </div>
+
+  </div><!-- section-inner -->
+</section>
+
+<!-- ENTREPRENEURSHIP -->
+<section id="entrepreneurship" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">START YOUR OWN</span>
+      <span class="es-text">EMPIEZA LO TUYO</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Ideas that work in El Salvador <em>right now.</em></span>
+      <span class="es-text">Ideas que funcionan en El Salvador <em>ahora mismo.</em></span>
+    </h2>
+    <div class="tiles-grid">
+      <div class="tile"><div class="tile-icon">🍜</div><h3 class="tile-title"><span class="en-text">Pupusería or Food Stand</span><span class="es-text">Pupusería o Puesto de Comida</span></h3><div class="tile-body"><p><span class="en-text">Pupusas are El Salvador's national dish and there's always room for a good one. Low startup cost ($200–500 for equipment), high demand. Start at markets, outside schools, or near bus stops. Pupusas, tamales, and agua fresca are reliable sellers.</span><span class="es-text">Las pupusas son el plato nacional de El Salvador y siempre hay lugar para una buena pupusería. Bajo costo de inicio ($200–500 en equipo), alta demanda. Comienza en mercados, afuera de escuelas o cerca de paradas de buses. Las pupusas, tamales y agua fresca son ventas seguras.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">⚡</div><h3 class="tile-title"><span class="en-text">Bitcoin / Crypto Services</span><span class="es-text">Servicios de Bitcoin / Cripto</span></h3><div class="tile-body"><p><span class="en-text">El Salvador made Bitcoin legal tender. El Zonte (La Libertad) has an active Bitcoin economy. Offering Bitcoin payment assistance, wallet setup tutorials, or exchange services is a niche market with low competition — especially for someone with US tech familiarity.</span><span class="es-text">El Salvador hizo del Bitcoin moneda de curso legal. El Zonte (La Libertad) tiene una economía activa de Bitcoin. Ofrecer asistencia con pagos Bitcoin, tutoriales de billetera o servicios de cambio es un nicho con poca competencia — especialmente para alguien con familiaridad tecnológica en EE.UU.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🧺</div><h3 class="tile-title"><span class="en-text">Laundry Service (Lavandería)</span><span class="es-text">Servicio de Lavandería</span></h3><div class="tile-body"><p><span class="en-text">In-home laundry services are in high demand in urban areas. Low startup cost, recurring customers, no storefront needed. Expand to pickup/delivery and you have a real business.</span><span class="es-text">Los servicios de lavandería a domicilio tienen alta demanda en zonas urbanas. Bajo costo de inicio, clientes recurrentes, sin necesidad de local. Expande a servicio de recolección y entrega y tendrás un negocio real.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🛵</div><h3 class="tile-title"><span class="en-text">Delivery / Hugo App Driver</span><span class="es-text">Entrega / Conductor de Hugo</span></h3><div class="tile-body"><p><span class="en-text">Hugo is El Salvador's dominant food delivery app (like DoorDash). Sign up as a driver with a motorcycle or bicycle in San Salvador, Santa Ana, or San Miguel. Flexible hours, immediate income.</span><span class="es-text">Hugo es la app de entrega de comida dominante en El Salvador (como DoorDash). Regístrate como conductor con motocicleta o bicicleta en San Salvador, Santa Ana o San Miguel. Horario flexible, ingresos inmediatos.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🌱</div><h3 class="tile-title"><span class="en-text">Organic / Artisan Agriculture</span><span class="es-text">Agricultura Orgánica / Artesanal</span></h3><div class="tile-body"><p><span class="en-text">There is growing demand for organic produce and artisan food products in San Salvador restaurants and specialty stores. If you have land access in a rural department, this is a viable path with support from cooperatives.</span><span class="es-text">Hay creciente demanda de productos orgánicos y alimentos artesanales en restaurantes y tiendas especializadas de San Salvador. Si tienes acceso a tierra en un departamento rural, este es un camino viable con apoyo de cooperativas.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🖥️</div><h3 class="tile-title"><span class="en-text">Digital Services for Local Businesses</span><span class="es-text">Servicios Digitales para Negocios Locales</span></h3><div class="tile-body"><p><span class="en-text">Most small businesses in El Salvador have no online presence. Social media management, basic website setup, WhatsApp Business setup, and Google Maps registration are services you can offer for $50–200/month per client. See the <a href="../toolkit.html">Toolkit</a> for how to market yourself.</span><span class="es-text">La mayoría de los pequeños negocios en El Salvador no tienen presencia en línea. Gestión de redes sociales, creación de sitios web básicos, configuración de WhatsApp Business y registro en Google Maps son servicios que puedes ofrecer por $50–200/mes por cliente. Consulta el <a href="../toolkit.html">Kit Digital</a> para saber cómo promocionarte.</span></p></div></div>
+    </div>
+
+    <hr class="divider-wing"/>
+
+    <div class="info-banner">
+      <span class="info-banner-icon">💡</span>
+      <div>
+        <h4><span class="en-text">Support for starting a business in El Salvador</span><span class="es-text">Apoyo para iniciar un negocio en El Salvador</span></h4>
+        <p><span class="en-text">The <strong>CONAMYPE</strong> (National Commission for Micro and Small Enterprise) provides free training, mentorship, and resources for micro-entrepreneurs. Visit <a href="https://www.conamype.gob.sv" target="_blank" rel="noopener">conamype.gob.sv</a>. INSAFORP (<a href="https://www.insaforp.org.sv" target="_blank" rel="noopener">insaforp.org.sv</a>) offers free job training and placement programs.</span><span class="es-text">La <strong>CONAMYPE</strong> (Comisión Nacional de la Micro y Pequeña Empresa) ofrece capacitación gratuita, tutoría y recursos para microempresarios. Visita <a href="https://www.conamype.gob.sv" target="_blank" rel="noopener">conamype.gob.sv</a>. INSAFORP (<a href="https://www.insaforp.org.sv" target="_blank" rel="noopener">insaforp.org.sv</a>) ofrece capacitación laboral gratuita y programas de colocación.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOB SEARCH RESOURCES -->
+<section id="job-resources">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">Find Work Now</span>
+      <span class="es-text">Encuentra Trabajo Ahora</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Job search <em>resources</em> for El Salvador</span>
+      <span class="es-text">Recursos para buscar <em>empleo</em> en El Salvador</span>
+    </h2>
+    <div class="tiles-grid">
+      <a class="tile" href="https://www.insaforp.org.sv" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="tile-icon">🏛️</div>
+        <h3 class="tile-title">Bolsa de Trabajo INSAFORP</h3>
+        <div class="tile-body"><p><span class="en-text">Free government job training and placement. Official resource for Salvadorans seeking work or skills upgrades.</span><span class="es-text">Capacitación y colocación laboral gratuita del gobierno. Recurso oficial para salvadoreños que buscan trabajo o mejorar sus habilidades.</span></p></div>
+      </a>
+      <a class="tile" href="https://www.elsalvador.computrabajo.com" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="tile-icon">💼</div>
+        <h3 class="tile-title">Computrabajo El Salvador</h3>
+        <div class="tile-body"><p><span class="en-text">The main job board in El Salvador. Covers all industries and experience levels across all departments.</span><span class="es-text">La principal bolsa de trabajo en El Salvador. Cubre todas las industrias y niveles de experiencia en todos los departamentos.</span></p></div>
+      </a>
+      <a class="tile" href="https://www.linkedin.com/jobs" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="tile-icon">🔗</div>
+        <h3 class="tile-title">LinkedIn El Salvador</h3>
+        <div class="tile-body"><p><span class="en-text">Professional network especially strong for BPO, office, and management roles. Build your profile and connect with San Salvador employers directly.</span><span class="es-text">Red profesional especialmente fuerte para BPO, oficina y puestos directivos. Crea tu perfil y conéctate directamente con empleadores de San Salvador.</span></p></div>
+      </a>
+      <a class="tile" href="https://www.occ.com.mx" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="tile-icon">🌎</div>
+        <h3 class="tile-title">OCC El Salvador</h3>
+        <div class="tile-body"><p><span class="en-text">Regional job listings covering El Salvador and Central America. Good for professional and technical roles.</span><span class="es-text">Listados de trabajo regionales que cubren El Salvador y Centroamérica. Buena opción para puestos profesionales y técnicos.</span></p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP SHARE -->
+<div class="wa-inline-share">
+  <a class="wa-inline-btn" id="wa-inline-work"
+     data-en="https://wa.me/?text=This%20free%20guide%20has%20job%20info%20and%20business%20ideas%20by%20department%20for%20people%20starting%20over%20in%20El%20Salvador%3A%20https%3A//semillasmonarca.com/el-salvador/work.html"
+     data-es="https://wa.me/?text=Esta%20gu%C3%ADa%20gratuita%20tiene%20informaci%C3%B3n%20de%20empleo%20e%20ideas%20de%20negocio%20por%20departamento%20para%20personas%20que%20empiezan%20de%20nuevo%20en%20El%20Salvador%3A%20https%3A//semillasmonarca.com/el-salvador/work.html"
+     href="https://wa.me/?text=This%20free%20guide%20has%20job%20info%20and%20business%20ideas%20by%20department%20for%20people%20starting%20over%20in%20El%20Salvador%3A%20https%3A//semillasmonarca.com/el-salvador/work.html"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="en-text">Share this guide on WhatsApp</span>
+    <span class="es-text">Comparte esta guía por WhatsApp</span>
+  </a>
+</div>
+
+<!-- VOLUNTEER BANNER -->
+<section class="volunteer-banner" id="get-involved">
+  <div class="volunteer-banner__wing" aria-hidden="true">
+    <svg viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="80" cy="120" rx="90" ry="110" fill="#E8680A" opacity=".12" transform="rotate(-15 80 120)"/>
+      <ellipse cx="320" cy="120" rx="90" ry="110" fill="#D4A017" opacity=".1" transform="rotate(15 320 120)"/>
+      <ellipse cx="70" cy="230" rx="55" ry="65" fill="#C04E00" opacity=".09" transform="rotate(-20 70 230)"/>
+      <ellipse cx="330" cy="230" rx="55" ry="65" fill="#C05A00" opacity=".08" transform="rotate(20 330 230)"/>
+      <circle cx="160" cy="40" r="4" fill="#E8680A" opacity=".2"/>
+      <circle cx="250" cy="60" r="2.5" fill="#D4A017" opacity=".25"/>
+      <circle cx="350" cy="30" r="3" fill="#E8680A" opacity=".15"/>
+      <circle cx="40" cy="80" r="2" fill="#D4A017" opacity=".2"/>
+    </svg>
+  </div>
+
+  <div class="volunteer-banner__inner">
+    <div class="volunteer-banner__header">
+      <div class="volunteer-banner__butterfly" aria-hidden="true">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <ellipse cx="20" cy="24" rx="16" ry="20" fill="#E8680A" opacity=".9" transform="rotate(-20 20 24)"/>
+          <ellipse cx="44" cy="24" rx="16" ry="20" fill="#D4A017" opacity=".85" transform="rotate(20 44 24)"/>
+          <ellipse cx="18" cy="46" rx="10" ry="12" fill="#C04E00" opacity=".8" transform="rotate(-25 18 46)"/>
+          <ellipse cx="46" cy="46" rx="10" ry="12" fill="#C05A00" opacity=".75" transform="rotate(25 46 46)"/>
+          <rect x="30" y="12" width="4" height="40" rx="2" fill="#1A0E00"/>
+          <line x1="32" y1="12" x2="22" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="12" x2="42" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="22" cy="4" r="3" fill="#E8680A"/>
+          <circle cx="42" cy="4" r="3" fill="#E8680A"/>
+        </svg>
+      </div>
+      <div>
+        <p class="volunteer-banner__eyebrow">
+          <span class="en-text">Help Us Grow This Resource</span>
+          <span class="es-text">Ayúdanos a Crecer este Recurso</span>
+        </p>
+        <h2 class="volunteer-banner__title">
+          <span class="en-text">Support this volunteer-led work. <em>Be part of the mission.</em></span>
+          <span class="es-text">Únete al equipo. <em>Sé parte de la misión.</em></span>
+        </h2>
+        <p class="volunteer-banner__subtitle">
+          <span class="en-text">This site is free, community-built, and growing. If you have skills, connections, or resources to share — or want to help fund the work of supporting people relocating to El Salvador — we want to hear from you.</span>
+          <span class="es-text">Este sitio es gratuito, construido por la comunidad y en crecimiento. Si tienes habilidades, contactos o recursos que compartir — o deseas contribuir al trabajo de apoyar a personas que regresan a El Salvador — queremos escucharte.</span>
+        </p>
+      </div>
+    </div>
+
+    <form
+      class="volunteer-form"
+      id="volunteer-form"
+      action="https://submit.jotform.com/submit/261594475863067"
+      method="POST"
+      enctype="multipart/form-data"
+      data-jotform-id="261594475863067"
+      novalidate
+    >
+      <input type="hidden" name="formID" value="261594475863067"/>
+      <input type="hidden" name="simple_spc" value="261594475863067"/>
+      <input type="hidden" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px"/>
+
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-fname">
+            <span class="en-text">First Name</span>
+            <span class="es-text">Nombre</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-fname" name="q2_q2_textbox0" autocomplete="given-name" required placeholder="Maria"/>
+          <span class="vf-error" id="vf-fname-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-lname">
+            <span class="en-text">Last Name</span>
+            <span class="es-text">Apellido</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-lname" name="q3_q3_textbox1" autocomplete="family-name" required placeholder="Ramírez"/>
+          <span class="vf-error" id="vf-lname-err" role="alert"></span>
+        </div>
+      </div>
+
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-email">
+            <span class="en-text">Email Address</span>
+            <span class="es-text">Correo Electrónico</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="email" id="vf-email" name="q4_q4_email2" autocomplete="email" required placeholder="maria@ejemplo.com"/>
+          <span class="vf-error" id="vf-email-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-zip">
+            <span class="en-text">ZIP / Postal Code</span>
+            <span class="es-text">Código Postal</span>
+            <span class="vf-required" aria-label="required">*</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-zip" name="q5_q5_textbox3" autocomplete="postal-code" required placeholder="30301"/>
+          <span class="vf-error" id="vf-zip-err" role="alert"></span>
+        </div>
+      </div>
+
+      <div class="vf-row">
+        <div class="vf-field vf-field--half">
+          <label class="vf-label" for="vf-phone">
+            <span class="en-text">Phone Number</span>
+            <span class="es-text">Teléfono</span>
+            <span class="vf-optional"><span class="en-text">(optional)</span><span class="es-text">(opcional)</span></span>
+          </label>
+          <input class="vf-input" type="tel" id="vf-phone" name="q6_q6_phone4[full]" autocomplete="tel" placeholder="+1 (404) 555-0100"/>
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">Which area(s) would you like to help with?</span>
+          <span class="es-text">¿En qué área(s) deseas ayudar?</span>
+        </legend>
+        <div class="vf-check-grid">
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="First Steps &amp; Resources"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">🏠 First Steps & Resources</span><span class="es-text">🏠 Primeros Pasos y Recursos</span></strong></span></label>
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="Work &amp; Entrepreneurship"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">💼 Work & Entrepreneurship</span><span class="es-text">💼 Trabajo y Emprendimiento</span></strong></span></label>
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="Teens &amp; Youth"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">🌱 Teens & Youth</span><span class="es-text">🌱 Jóvenes</span></strong></span></label>
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="All areas"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">🦋 All areas</span><span class="es-text">🦋 Todas las áreas</span></strong></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">What skills or support can you offer?</span>
+          <span class="es-text">¿Qué habilidades o apoyo puedes ofrecer?</span>
+          <span class="en-text vf-hint"> — select all that apply</span>
+          <span class="es-text vf-hint"> — selecciona todas las que apliquen</span>
+        </legend>
+        <div class="vf-check-grid vf-check-grid--3">
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Digital organizing"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">📣 Digital organizing</span><span class="es-text">📣 Organización digital</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Graphic design"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🎨 Graphic design</span><span class="es-text">🎨 Diseño gráfico</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Translation: Spanish to English"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🌐 Translation: Spanish ↔ English</span><span class="es-text">🌐 Traducción: Español ↔ Inglés</span></span></label>
+          <label class="vf-check" id="vf-indig-check-wrap"><input type="checkbox" name="q8_q8_checkbox6[]" value="Translation: Spanish to Indigenous language" id="vf-indig-check"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🪶 Translation: Spanish ↔ Indigenous language</span><span class="es-text">🪶 Traducción: Español ↔ Lengua indígena</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Video production or editing"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🎬 Video production or editing</span><span class="es-text">🎬 Producción o edición de video</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Web development"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">💻 Web development</span><span class="es-text">💻 Desarrollo web</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Content writing or research"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">✍️ Content writing or research</span><span class="es-text">✍️ Redacción o investigación</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Social media"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">📱 Social media</span><span class="es-text">📱 Redes sociales</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Partner as an organization"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🤝 Partner as an organization</span><span class="es-text">🤝 Alianza como organización</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Financial support or fundraising"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">💛 Financial support or fundraising</span><span class="es-text">💛 Apoyo económico o recaudación</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Community outreach"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🏘️ Community outreach</span><span class="es-text">🏘️ Alcance comunitario</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Other" id="vf-other-check"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">💬 Other</span><span class="es-text">💬 Otro</span></span></label>
+        </div>
+      </fieldset>
+
+      <div class="vf-row vf-conditional" id="vf-indig-field" style="display:none;">
+        <div class="vf-field vf-field--half">
+          <label class="vf-label" for="vf-indig-lang"><span class="en-text">Which indigenous language? / ¿Cuál lengua indígena?</span></label>
+          <input class="vf-input" type="text" id="vf-indig-lang" name="_vf_indigLang" placeholder="Náhuatl, Na:wat, Cacaopera..."/>
+        </div>
+      </div>
+
+      <div class="vf-row vf-conditional" id="vf-other-field" style="display:none;">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-other-text">
+            <span class="en-text">Tell us more about your other skills or offer:</span>
+            <span class="es-text">Cuéntanos más sobre tus otras habilidades u ofrecimiento:</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-other-text" name="_vf_otherSkills" placeholder="..."/>
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend vf-legend--required">
+          <span class="en-text">Email updates consent</span>
+          <span class="es-text">Consentimiento para actualizaciones por correo</span>
+          <span class="vf-required" aria-label="required">*</span>
+        </legend>
+        <p class="vf-consent-text">
+          <span class="en-text">Are you OK with receiving email updates from <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer"><strong>Maria del Rosario Palacios</strong></a> about this website, related projects, and ways to get involved?</span>
+          <span class="es-text">¿Aceptas recibir actualizaciones por correo electrónico de <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer"><strong>Maria del Rosario Palacios</strong></a> sobre este sitio, proyectos relacionados y formas de participar?</span>
+        </p>
+        <div class="vf-radio-group">
+          <label class="vf-radio"><input type="radio" name="q9_q9_radio7" value="Yes, send me updates" required/><span class="vf-radio__dot"></span><span class="vf-radio__label"><span class="en-text">✅ Yes — send me updates!</span><span class="es-text">✅ Sí — ¡envíame actualizaciones!</span></span></label>
+          <label class="vf-radio"><input type="radio" name="q9_q9_radio7" value="No, I prefer not to receive emails"/><span class="vf-radio__dot"></span><span class="vf-radio__label"><span class="en-text">No, I prefer not to receive emails</span><span class="es-text">No, prefiero no recibir correos</span></span></label>
+        </div>
+        <span class="vf-error" id="vf-consent-err" role="alert"></span>
+      </fieldset>
+
+      <div class="vf-row">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-message">
+            <span class="en-text">Any message or questions?</span>
+            <span class="es-text">¿Algún mensaje o pregunta?</span>
+            <span class="vf-optional"><span class="en-text">(optional)</span><span class="es-text">(opcional)</span></span>
+          </label>
+          <textarea class="vf-input vf-textarea" id="vf-message" name="q10_q10_textarea8" rows="4" placeholder="..."></textarea>
+        </div>
+      </div>
+
+      <div class="vf-submit-row">
+        <button type="submit" class="vf-submit-btn">
+          <span class="en-text">Support this volunteer-led work 🦋</span>
+          <span class="es-text">Únete al Equipo 🦋</span>
+        </button>
+        <p class="vf-privacy">
+          <span class="en-text">Your information is kept private and will only be used to coordinate this work.</span>
+          <span class="es-text">Tu información se mantiene privada y solo se usará para coordinar este trabajo.</span>
+        </p>
+      </div>
+
+      <div class="vf-success" id="vf-success" style="display:none;" role="alert" aria-live="polite">
+        <div class="vf-success__icon">🦋</div>
+        <h3><span class="en-text">Thank you for stepping up!</span><span class="es-text">¡Gracias por sumarte!</span></h3>
+        <p><span class="en-text">We'll be in touch soon. You're part of something that matters.</span><span class="es-text">Nos comunicaremos contigo pronto. Eres parte de algo que importa.</span></p>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><span class="en-text">🦋 El Salvador Guide</span><span class="es-text">🦋 Guía El Salvador</span></div>
+      <p class="footer-tagline"><span class="en-text">A free bilingual resource for people returning to El Salvador.</span><span class="es-text">Un recurso bilingüe gratuito para personas que regresan a El Salvador.</span></p>
+    </div>
+    <div>
+      <p class="footer-heading"><span class="en-text">Pages</span><span class="es-text">Páginas</span></p>
+      <div class="footer-links">
+        <a href="../index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+        <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo y Negocio</span></a>
+        <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Para Jóvenes</span></a>
+        <a href="../toolkit.html"><span class="en-text">Toolkit</span><span class="es-text">Kit Digital</span></a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-heading"><span class="en-text">Job Sites</span><span class="es-text">Bolsas de Trabajo</span></p>
+      <div class="footer-links">
+        <a href="https://www.insaforp.org.sv" target="_blank" rel="noopener">INSAFORP</a>
+        <a href="https://www.elsalvador.computrabajo.com" target="_blank" rel="noopener">Computrabajo SV</a>
+        <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.occ.com.mx" target="_blank" rel="noopener">OCC</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span><span class="en-text">Free resource. Not affiliated with any government agency.</span><span class="es-text">Recurso gratuito. Sin afiliación a ninguna dependencia gubernamental.</span></span>
+    <span>🦋</span>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+
+<script>
+  // Department selector JS
+  (function() {
+    const selector = document.getElementById('dept-selector');
+    const defaultMsg = document.getElementById('dept-default');
+    const panels = document.querySelectorAll('.state-panel');
+
+    if (!selector) return;
+
+    selector.addEventListener('change', function() {
+      const val = this.value;
+
+      // Hide all panels and default
+      panels.forEach(function(p) { p.style.display = 'none'; });
+
+      if (!val) {
+        defaultMsg.style.display = '';
+        return;
+      }
+
+      defaultMsg.style.display = 'none';
+      const target = document.getElementById('dept-' + val);
+      if (target) {
+        target.style.display = '';
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+
+    // Init: hide all panels
+    panels.forEach(function(p) { p.style.display = 'none'; });
+  })();
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .catch(function(e) { console.log('SW registration skipped:', e); });
+    });
+  }
+</script>
+</body>
+</html>

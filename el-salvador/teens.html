@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>For Teens — El Salvador Guide / Para Jóvenes</title>
+<meta name="description" content="A guide for teenagers relocating to El Salvador. History, school system, culture, making friends, phrases, and things to do."/>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦋</text></svg>"/>
+<style>
+  /* El Salvador deep-blue accent */
+  em { color: #1B4F8A; font-style: italic; }
+  [data-theme="dark"] em { color: #6FA3D8; }
+  .section-label { color: #1B4F8A; }
+  [data-theme="dark"] .section-label { color: #6FA3D8; }
+
+  /* History cards — blue header for El Salvador */
+  .history-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+  .history-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-float); }
+  .history-card-header {
+    padding: var(--space-5) var(--space-6);
+    background: linear-gradient(135deg, #1B4F8A, #2563A8);
+    color: white;
+    display: flex; align-items: center; gap: var(--space-3);
+  }
+  .history-card-body { padding: var(--space-6); }
+  .history-card-body h4 { font-size: var(--text-sm); font-weight: 700; color: #1B4F8A; margin-bottom: var(--space-2); margin-top: var(--space-5); }
+  [data-theme="dark"] .history-card-body h4 { color: #6FA3D8; }
+  .history-card-body p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65; }
+  .history-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-5); }
+
+  /* School table — blue header */
+  .school-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+  .school-table th { padding: var(--space-3) var(--space-5); text-align: left; background: linear-gradient(90deg, #1B4F8A, #2563A8); color: white; font-weight: 600; }
+  .school-table td { padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--color-border); vertical-align: top; }
+  .school-table tr:nth-child(even) td { background: var(--color-surface); }
+  .school-table tr:hover td { background: rgba(27,79,138,.06); }
+  .school-table .level { font-weight: 700; color: #1B4F8A; }
+  [data-theme="dark"] .school-table .level { color: #6FA3D8; }
+
+  /* Friend tips */
+  .friend-tip {
+    display: grid; grid-template-columns: 56px 1fr; gap: var(--space-4); align-items: start;
+    padding: var(--space-5); border-radius: var(--radius-xl);
+    background: var(--color-surface); border: 1px solid var(--color-border); margin-bottom: var(--space-4);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .friend-tip:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .friend-tip-emoji { font-size: 2rem; text-align: center; padding-top: var(--space-1); }
+  .friend-tip h4 { font-size: var(--text-sm); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-1); }
+  .friend-tip p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+
+  /* Phrase table — blue heading accent */
+  .phrase-section-heading {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-5);
+    color: #1B4F8A;
+  }
+  [data-theme="dark"] .phrase-section-heading { color: #6FA3D8; }
+
+  /* Salvadoran slang column bold */
+  .slang-col { font-style: italic; color: #1B4F8A; font-weight: 600; }
+  [data-theme="dark"] .slang-col { color: #6FA3D8; }
+</style>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1B4F8A">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Home">
+      <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <ellipse cx="10" cy="12" rx="8" ry="10" fill="#E8680A" opacity=".9" transform="rotate(-20 10 12)"/>
+        <ellipse cx="22" cy="12" rx="8" ry="10" fill="#D4A017" opacity=".85" transform="rotate(20 22 12)"/>
+        <ellipse cx="9" cy="23" rx="5" ry="6" fill="#C04E00" opacity=".8" transform="rotate(-25 9 23)"/>
+        <ellipse cx="23" cy="23" rx="5" ry="6" fill="#C05A00" opacity=".75" transform="rotate(25 23 23)"/>
+        <rect x="15" y="6" width="2" height="20" rx="1" fill="#1A0E00"/>
+        <line x1="16" y1="6" x2="11" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="6" x2="21" y2="2" stroke="#1A0E00" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="11" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="21" cy="2" r="1.5" fill="#E8680A"/>
+        <circle cx="11" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+        <circle cx="21" cy="13" r="2" fill="#1A0E00" opacity=".3"/>
+      </svg>
+      <span class="nav-logo-text">
+        <span class="en-text">El Salvador Guide</span>
+        <span class="es-text">Guía El Salvador</span>
+      </span>
+    </a>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="../choose.html" class="nav-link" role="listitem">
+        <span class="en-text">🌎 Choose Country</span>
+        <span class="es-text">🌎 Elegir País</span>
+      </a>
+      <a href="../index.html" class="nav-link" role="listitem">
+        <span class="en-text">🏠 First Steps</span>
+        <span class="es-text">🏠 Primeros Pasos</span>
+      </a>
+      <a href="work.html" class="nav-link" role="listitem">
+        <span class="en-text">💼 Work & Business</span>
+        <span class="es-text">💼 Trabajo y Negocio</span>
+      </a>
+      <a href="teens.html" class="nav-link active" role="listitem">
+        <span class="en-text">🌱 For Teens</span>
+        <span class="es-text">🌱 Para Jóvenes</span>
+      </a>
+      <a href="../toolkit.html" class="nav-link" role="listitem">
+        <span class="en-text">📱 Toolkit</span>
+        <span class="es-text">📱 Kit Digital</span>
+      </a>
+      <a href="../blog.html" class="nav-link" role="listitem">
+        <span class="en-text">✍️ Blog</span>
+        <span class="es-text">✍️ Blog</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span class="en-text">ES</span>
+        <span class="es-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-wing">
+    <svg style="position:absolute;right:-60px;top:-40px;width:400px;height:400px;opacity:.07;" viewBox="0 0 200 200" fill="none">
+      <ellipse cx="60" cy="80" rx="55" ry="75" fill="#E8680A" transform="rotate(-15 60 80)"/>
+      <ellipse cx="140" cy="80" rx="55" ry="75" fill="#D4A017" transform="rotate(15 140 80)"/>
+      <ellipse cx="55" cy="155" rx="35" ry="42" fill="#C04E00" transform="rotate(-20 55 155)"/>
+      <ellipse cx="145" cy="155" rx="35" ry="42" fill="#C05A00" transform="rotate(20 145 155)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span class="en-text">FOR TEENS &amp; YOUTH / PARA JÓVENES</span>
+      <span class="es-text">PARA JÓVENES / FOR TEENS &amp; YOUTH</span>
+    </p>
+    <h1>
+      <span class="en-text">Making <em>El Salvador</em> yours.</span>
+      <span class="es-text">Haciendo <em>El Salvador</em> tuyo.</span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="en-text">School, history, friends, and what to know about growing up between two worlds.</span>
+      <span class="es-text">Escuela, historia, amigos y lo que necesitas saber sobre crecer entre dos mundos.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#school" class="btn btn-primary">
+        <span class="en-text">How School Works →</span>
+        <span class="es-text">Cómo Funciona la Escuela →</span>
+      </a>
+      <a href="#sv-history" class="btn btn-outline">
+        <span class="en-text">Your Roots &amp; History</span>
+        <span class="es-text">Tus Raíces e Historia</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL SYSTEM -->
+<section id="school" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <button class="print-btn" data-section="school"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">HOW SCHOOL WORKS HERE</span>
+      <span class="es-text">CÓMO FUNCIONA LA ESCUELA AQUÍ</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">El Salvador's public school system — <em>what to expect.</em></span>
+      <span class="es-text">El sistema escolar público de El Salvador — <em>qué esperar.</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">School in El Salvador is free and run by the MINED (Ministerio de Educación). Here's how the levels work and what you need to enroll.</span>
+      <span class="es-text">La escuela en El Salvador es gratuita y está administrada por el MINED (Ministerio de Educación). Así funcionan los niveles y lo que necesitas para inscribirte.</span>
+    </p>
+
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="school-table">
+        <thead>
+          <tr>
+            <th><span class="en-text">Level</span><span class="es-text">Nivel</span></th>
+            <th><span class="en-text">Name</span><span class="es-text">Nombre</span></th>
+            <th><span class="en-text">Ages</span><span class="es-text">Edades</span></th>
+            <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="level"><span class="en-text">Pre-Primary</span><span class="es-text">Parvularia</span></td>
+            <td>Parvularia</td>
+            <td>4–6</td>
+            <td><span class="en-text">Optional but widely available</span><span class="es-text">Opcional pero ampliamente disponible</span></td>
+          </tr>
+          <tr>
+            <td class="level"><span class="en-text">Primary</span><span class="es-text">Primaria</span></td>
+            <td>Educación Básica (1°–9°)</td>
+            <td>7–15</td>
+            <td><span class="en-text">9 years, free and compulsory</span><span class="es-text">9 años, gratuita y obligatoria</span></td>
+          </tr>
+          <tr>
+            <td class="level"><span class="en-text">Secondary</span><span class="es-text">Secundaria</span></td>
+            <td>Bachillerato (10°–12°)</td>
+            <td>16–18</td>
+            <td><span class="en-text">General or technical track. Earn a bachillerato certificate</span><span class="es-text">Modalidad general o técnica. Se obtiene el certificado de bachillerato</span></td>
+          </tr>
+          <tr>
+            <td class="level"><span class="en-text">University</span><span class="es-text">Universidad</span></td>
+            <td>Universidad</td>
+            <td>18+</td>
+            <td><span class="en-text">Public university: UES (Universidad de El Salvador)</span><span class="es-text">Universidad pública: UES (Universidad de El Salvador)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tiles-grid">
+      <div class="tile tile-amber">
+        <div class="tile-icon">📝</div>
+        <h3 class="tile-title"><span class="en-text">Enrolling in School</span><span class="es-text">Inscribirse a la Escuela</span></h3>
+        <div class="tile-body">
+          <p><span class="en-text">To enroll, bring: DUI (or birth certificate), vaccination record, and prior school transcripts if available. If transcripts are from the US, the MINED (Ministerio de Educación) can help with equivalency — contact them at <a href="https://www.mined.gob.sv" target="_blank" rel="noopener">mined.gob.sv</a>.</span><span class="es-text">Para inscribirte, lleva: DUI (o acta de nacimiento), carnet de vacunación y calificaciones anteriores si las tienes. Si los registros son de EE.UU., el MINED (Ministerio de Educación) puede ayudar con la equivalencia — contáctalos en <a href="https://www.mined.gob.sv" target="_blank" rel="noopener">mined.gob.sv</a>.</span></p>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tile-icon">📅</div>
+        <h3 class="tile-title"><span class="en-text">Academic Year &amp; Calendar</span><span class="es-text">Año Escolar y Calendario</span></h3>
+        <div class="tile-body">
+          <ul>
+            <li><span class="en-text">Academic year runs January to October/November</span><span class="es-text">El año escolar va de enero a octubre/noviembre</span></li>
+            <li><span class="en-text">School is FREE and compulsory through 9th grade</span><span class="es-text">La escuela es GRATUITA y obligatoria hasta 9° grado</span></li>
+            <li><span class="en-text">Uniforms are required — schools often have programs to provide them free or low-cost to families in need</span><span class="es-text">Los uniformes son obligatorios — las escuelas suelen tener programas para proporcionarlos gratis o a bajo costo a familias en necesidad</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tile-icon">🌍</div>
+        <h3 class="tile-title"><span class="en-text">Language &amp; Being Bilingual</span><span class="es-text">Idioma y Ser Bilingüe</span></h3>
+        <div class="tile-body">
+          <p><span class="en-text">All instruction is in Spanish. If you're not fluent, tell the school — many have support systems. Your English is a genuine advantage here: many teachers will ask for your help in English class, and classmates will be curious about your US experience.</span><span class="es-text">Toda la instrucción es en español. Si no hablas bien, díselo a la escuela — muchas tienen sistemas de apoyo. Tu inglés es una ventaja genuina: muchos maestros pedirán tu ayuda en la clase de inglés y tus compañeros tendrán curiosidad por tu experiencia en EE.UU.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY — THE REAL EL SALVADOR -->
+<section id="sv-history">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">YOUR ROOTS</span>
+      <span class="es-text">TUS RAÍCES</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">The history they don't always <em>teach.</em></span>
+      <span class="es-text">La historia que no siempre <em>se enseña.</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">El Salvador's history is older, deeper, and more complicated than what most schools in the US cover. This is your history too.</span>
+      <span class="es-text">La historia de El Salvador es más antigua, profunda y compleja de lo que la mayoría de las escuelas en EE.UU. cubren. Esta también es tu historia.</span>
+    </p>
+
+    <div class="history-grid">
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">🏛️</span>
+          <h3 style="font-size: var(--text-base); margin:0; color:white;">The Nahua-Pipil People</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Before the Spanish</span><span class="es-text">Antes de los españoles</span></h4>
+          <p><span class="en-text">Before the Spanish arrived, most of what is now El Salvador was home to the Nahua-Pipil — a people related to the Nahua of central Mexico who spoke a language called Na:wat (related to Nahuatl). Their kingdom was called Cuzcatlán. A Pipil war leader named Atlacatl famously repelled the Spanish twice before the territory was finally conquered in 1528. The Pipil still live today, primarily in the departments of Sonsonate and Ahuachapán, in communities like Nahuizalco and Izalco.</span></p>
+          <h4><span class="es-text">El pueblo Nahua-Pipil</span></h4>
+          <p><span class="es-text">Antes de que llegaran los españoles, la mayor parte de lo que hoy es El Salvador era el hogar de los Nahua-Pipil — un pueblo relacionado con los Nahua del centro de México que hablaba un idioma llamado Na:wat (relacionado con el náhuatl). Su reino se llamaba Cuzcatlán. Un líder guerrero pipil llamado Atlacatl rechazó famosamente a los españoles dos veces antes de que el territorio fuera finalmente conquistado en 1528. Los Pipil viven hoy en día, principalmente en los departamentos de Sonsonate y Ahuachapán, en comunidades como Nahuizalco e Izalco.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">⚠️</span>
+          <h3 style="font-size: var(--text-base); margin:0; color:white;">La Matanza (1932)</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">A massacre that shaped identity</span><span class="es-text">Una masacre que marcó la identidad</span></h4>
+          <p><span class="en-text">In 1932, after a rural uprising by campesinos and indigenous people, the Salvadoran government killed between 35,000 and 50,000 people — a massacre called La Matanza. Anyone who looked indigenous was targeted. For generations, indigenous communities stopped wearing traditional clothing and stopped speaking their languages in public to survive. This history explains why indigenous identity in El Salvador went underground for so long — and why its revival today is an act of resistance.</span></p>
+          <h4><span class="es-text">La Matanza de 1932</span></h4>
+          <p><span class="es-text">En 1932, tras un levantamiento rural de campesinos y pueblos indígenas, el gobierno salvadoreño mató entre 35,000 y 50,000 personas — una masacre llamada La Matanza. Cualquiera que pareciera indígena era blanco de ataque. Por generaciones, las comunidades indígenas dejaron de usar ropa tradicional y de hablar sus idiomas en público para sobrevivir. Esta historia explica por qué la identidad indígena en El Salvador fue suprimida durante tanto tiempo — y por qué su revitalización hoy es un acto de resistencia.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">🕊️</span>
+          <h3 style="font-size: var(--text-base); margin:0; color:white;">The Civil War (1979–1992)</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">Why your family may have left</span><span class="es-text">Por qué tu familia pudo haber salido</span></h4>
+          <p><span class="en-text">El Salvador's civil war lasted 12 years, displacing over a million people — many of whom fled to the United States. The FMLN guerrilla movement fought the US-backed military government. The war ended with the Chapultepec Peace Accords in 1992. Many Salvadoran families in the US trace their roots directly to this displacement — which is why deportation back to El Salvador carries a particular weight for people whose families left during the war.</span></p>
+          <h4><span class="es-text">La Guerra Civil (1979–1992)</span></h4>
+          <p><span class="es-text">La guerra civil de El Salvador duró 12 años y desplazó a más de un millón de personas — muchas de las cuales huyeron a Estados Unidos. El movimiento guerrillero del FMLN combatió al gobierno militar respaldado por EE.UU. La guerra terminó con los Acuerdos de Paz de Chapultepec en 1992. Muchas familias salvadoreñas en EE.UU. tienen sus raíces directamente en este desplazamiento — razón por la que la deportación a El Salvador tiene un peso particular para quienes salieron durante la guerra.</span></p>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-header">
+          <span style="font-size:1.5rem;">✝️</span>
+          <h3 style="font-size: var(--text-base); margin:0; color:white;">Archbishop Óscar Romero</h3>
+        </div>
+        <div class="history-card-body">
+          <h4><span class="en-text">A saint who chose the poor</span><span class="es-text">Un santo que eligió a los pobres</span></h4>
+          <p><span class="en-text">Óscar Arnulfo Romero was the Archbishop of San Salvador who became a fierce advocate for the poor and for human rights during the Civil War. He was assassinated while saying Mass on March 24, 1980. He was canonized as a saint by Pope Francis in 2018. The international airport bears his name. He is a symbol of speaking truth to power — and of a Church that chose to stand with the poor.</span></p>
+          <h4><span class="es-text">Monseñor Óscar Romero</span></h4>
+          <p><span class="es-text">Óscar Arnulfo Romero fue el Arzobispo de San Salvador que se convirtió en un férreo defensor de los pobres y de los derechos humanos durante la Guerra Civil. Fue asesinado mientras celebraba misa el 24 de marzo de 1980. Fue canonizado como santo por el Papa Francisco en 2018. El aeropuerto internacional lleva su nombre. Es un símbolo de decir la verdad al poder — y de una Iglesia que eligió estar con los pobres.</span></p>
+        </div>
+      </div>
+
+    </div><!-- history-grid -->
+  </div>
+</section>
+
+<!-- MAKING FRIENDS -->
+<section id="making-friends" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">SOCIAL LIFE</span>
+      <span class="es-text">VIDA SOCIAL</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">How to find <em>your people.</em></span>
+      <span class="es-text">Cómo encontrar <em>a tu gente.</em></span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Starting over socially is hard. But you have something most people don't — you've lived in two countries and understand two worlds.</span>
+      <span class="es-text">Empezar de nuevo socialmente es difícil. Pero tienes algo que la mayoría no tiene — has vivido en dos países y entiendes dos mundos.</span>
+    </p>
+
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">📱</div>
+      <div>
+        <h4><span class="en-text">WhatsApp is everything</span><span class="es-text">WhatsApp es todo</span></h4>
+        <p><span class="en-text">Friend groups, school groups, family groups — all on WhatsApp. Get your number set up first day and ask classmates for their WhatsApp directly, not Instagram. Group chats are how plans are made.</span><span class="es-text">Grupos de amigos, grupos escolares, grupos familiares — todo en WhatsApp. Consigue tu número el primer día y pide directamente el WhatsApp de tus compañeros, no Instagram. Los grupos de chat son como se hacen los planes.</span></p>
+      </div>
+    </div>
+
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">⚽</div>
+      <div>
+        <h4><span class="en-text">Football (soccer) opens every door</span><span class="es-text">El fútbol abre todas las puertas</span></h4>
+        <p><span class="en-text">Show up to a pickup game and you're in. Courts and fields in every barrio are free. It doesn't matter how good you are — showing up matters more.</span><span class="es-text">Preséntate a un partido informal y ya eres parte del grupo. Las canchas en cada barrio son gratis. No importa qué tan bueno seas — lo que importa es aparecer.</span></p>
+      </div>
+    </div>
+
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">🎵</div>
+      <div>
+        <h4><span class="en-text">Music connects generations</span><span class="es-text">La música conecta generaciones</span></h4>
+        <p><span class="en-text">Cumbia, reggaeton, and pupusa-fueled bachata at family gatherings are universal. Knowing a few regional artists (like Álvaro Torres, who's Salvadoran) will surprise people.</span><span class="es-text">La cumbia, el reggaeton y la bachata en reuniones familiares son universales. Conocer algunos artistas regionales (como Álvaro Torres, que es salvadoreño) sorprenderá a la gente.</span></p>
+      </div>
+    </div>
+
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">🤝</div>
+      <div>
+        <h4><span class="en-text">Say 'bicho' not 'chico'</span><span class="es-text">Di 'bicho' no 'chico'</span></h4>
+        <p><span class="en-text">In El Salvador, young people call each other 'bicho' (kid/dude). 'Chero' means friend. 'Cipote' means child. Learning the local slang quickly signals you're paying attention and willing to belong.</span><span class="es-text">En El Salvador, los jóvenes se llaman entre sí 'bicho'. 'Chero' significa amigo. 'Cipote' significa niño. Aprender el argot local rápidamente muestra que estás prestando atención y dispuesto a pertenecer.</span></p>
+      </div>
+    </div>
+
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">🏫</div>
+      <div>
+        <h4><span class="en-text">School clubs are real here</span><span class="es-text">Los clubes escolares son reales aquí</span></h4>
+        <p><span class="en-text">Unlike some US schools, extracurriculars in El Salvador often happen in the community rather than at school. Ask neighbors about youth groups, church activities, and community sports leagues.</span><span class="es-text">A diferencia de algunas escuelas en EE.UU., las actividades extracurriculares en El Salvador a menudo ocurren en la comunidad en lugar de en la escuela. Pregunta a los vecinos sobre grupos juveniles, actividades de la iglesia y ligas deportivas comunitarias.</span></p>
+      </div>
+    </div>
+
+    <div class="friend-tip">
+      <div class="friend-tip-emoji">🌊</div>
+      <div>
+        <h4><span class="en-text">The beach is free and close</span><span class="es-text">La playa es gratis y está cerca</span></h4>
+        <p><span class="en-text">Anywhere in El Salvador, you're less than 2 hours from a Pacific beach. Weekend trips to La Libertad, El Tunco, or Costa del Sol are how families connect. It's one of the things that makes El Salvador unlike anywhere else.</span><span class="es-text">En cualquier lugar de El Salvador, estás a menos de 2 horas de una playa del Pacífico. Los viajes de fin de semana a La Libertad, El Tunco o Costa del Sol son cómo las familias se conectan. Es una de las cosas que hace a El Salvador único en el mundo.</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHRASE TABLES -->
+<section id="phrase-tables">
+  <div class="section-inner">
+    <button class="print-btn" data-section="phrase-tables"><span class="en-text">🖨️ Save as PDF</span><span class="es-text">🖨️ Guardar como PDF</span></button>
+    <p class="section-label">
+      <span class="en-text">Language Guide</span>
+      <span class="es-text">Guía de Idioma</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">Salvadoran Spanish &amp; <em>local slang</em> you need</span>
+      <span class="es-text">Español salvadoreño y <em>argot local</em> que necesitas</span>
+    </h2>
+    <p class="section-intro">
+      <span class="en-text">Salvadoran Spanish has its own rhythm, slang, and expressions. These phrases will help you at school, making friends, and getting around.</span>
+      <span class="es-text">El español salvadoreño tiene su propio ritmo, argot y expresiones. Estas frases te ayudarán en la escuela, al hacer amigos y para moverte.</span>
+    </p>
+
+    <!-- AT SCHOOL -->
+    <h3 class="phrase-section-heading">
+      <span class="en-text">🏫 At School / En la Escuela</span>
+      <span class="es-text">🏫 En la Escuela / At School</span>
+    </h3>
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="phrase-table">
+        <thead>
+          <tr>
+            <th><span class="en-text">English</span><span class="es-text">Inglés</span></th>
+            <th><span class="en-text">Spanish</span><span class="es-text">Español</span></th>
+            <th><span class="en-text">Salvadoran slang</span><span class="es-text">Argot salvadoreño</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="phrase-en">What's your name?</td>
+            <td class="phrase-es">¿Cómo te llamás?</td>
+            <td class="slang-col">¿Cómo te llamás, bicho?</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">Where's the bathroom?</td>
+            <td class="phrase-es">¿Dónde está el baño?</td>
+            <td class="slang-col">¿Dónde está el servicio?</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">Can I sit here?</td>
+            <td class="phrase-es">¿Puedo sentarme aquí?</td>
+            <td class="slang-col">¿Me prestás el campo?</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">What's the homework?</td>
+            <td class="phrase-es">¿Cuál es la tarea?</td>
+            <td class="slang-col">¿Qué dejaron?</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">I don't understand</td>
+            <td class="phrase-es">No entiendo</td>
+            <td class="slang-col">No le caigo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MAKING FRIENDS -->
+    <h3 class="phrase-section-heading">
+      <span class="en-text">👋 Making Friends / Haciendo Amigos</span>
+      <span class="es-text">👋 Haciendo Amigos / Making Friends</span>
+    </h3>
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="phrase-table">
+        <thead>
+          <tr>
+            <th><span class="en-text">English</span><span class="es-text">Inglés</span></th>
+            <th><span class="en-text">Spanish</span><span class="es-text">Español</span></th>
+            <th><span class="en-text">Salvadoran slang</span><span class="es-text">Argot salvadoreño</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="phrase-en">What are you up to?</td>
+            <td class="phrase-es">¿Qué hacés?</td>
+            <td class="slang-col">¿Qué ondas?</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">Want to hang out?</td>
+            <td class="phrase-es">¿Querés salir?</td>
+            <td class="slang-col">¿Vamos a vacilar?</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">That's cool / awesome</td>
+            <td class="phrase-es">Qué chivo</td>
+            <td class="slang-col">Qué chivo / qué brutal</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">I'm from the States</td>
+            <td class="phrase-es">Soy de los Estados</td>
+            <td class="slang-col">Vengo del norte</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">Let's go</td>
+            <td class="phrase-es">Vamos</td>
+            <td class="slang-col">Vamos pue'</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SURVIVAL SPANISH -->
+    <h3 class="phrase-section-heading">
+      <span class="en-text">🛒 Survival Spanish / Español de Supervivencia</span>
+      <span class="es-text">🛒 Español de Supervivencia / Survival Spanish</span>
+    </h3>
+    <div style="overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-border); margin-bottom: var(--space-10);">
+      <table class="phrase-table">
+        <thead>
+          <tr>
+            <th><span class="en-text">English</span><span class="es-text">Inglés</span></th>
+            <th><span class="en-text">Spanish</span><span class="es-text">Español</span></th>
+            <th><span class="en-text">Notes</span><span class="es-text">Notas</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="phrase-en">How much does it cost?</td>
+            <td class="phrase-es">¿Cuánto cuesta? / ¿En cuánto?</td>
+            <td><span class="en-text">Always ask before buying</span><span class="es-text">Siempre pregunta antes de comprar</span></td>
+          </tr>
+          <tr>
+            <td class="phrase-en">Where's the bus stop?</td>
+            <td class="phrase-es">¿Dónde está la parada?</td>
+            <td><span class="en-text">"La parada" = bus stop</span><span class="es-text">"La parada" = parada de bus</span></td>
+          </tr>
+          <tr>
+            <td class="phrase-en">Is this seat taken?</td>
+            <td class="phrase-es">¿Está ocupado?</td>
+            <td><span class="en-text">On buses</span><span class="es-text">En los buses</span></td>
+          </tr>
+          <tr>
+            <td class="phrase-en">I need help</td>
+            <td class="phrase-es">Necesito ayuda</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="phrase-en">Call the police</td>
+            <td class="phrase-es">Llame a la policía</td>
+            <td>911</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- FUN THINGS TO DO -->
+<section id="fun-things" style="background: var(--color-surface);">
+  <div class="section-inner">
+    <p class="section-label">
+      <span class="en-text">EXPLORE YOUR COUNTRY</span>
+      <span class="es-text">EXPLORA TU PAÍS</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">El Salvador is small <em>and packed.</em></span>
+      <span class="es-text">El Salvador es pequeño <em>y está lleno de cosas.</em></span>
+    </h2>
+    <div class="tiles-grid">
+      <div class="tile"><div class="tile-icon">🌊</div><h3 class="tile-title"><span class="en-text">Surf El Tunco</span><span class="es-text">Surf en El Tunco</span></h3><div class="tile-body"><p><span class="en-text">30 min from San Salvador, El Tunco is one of Central America's best surf spots. Surf lessons start at ~$20. Even if you don't surf, the beach community is young, international, and welcoming.</span><span class="es-text">A 30 min de San Salvador, El Tunco es uno de los mejores destinos de surf en Centroamérica. Las clases de surf comienzan desde ~$20. Aunque no surfees, la comunidad playera es joven, internacional y acogedora.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🌋</div><h3 class="tile-title"><span class="en-text">Hike a Volcano</span><span class="es-text">Escala un Volcán</span></h3><div class="tile-body"><p><span class="en-text">Santa Ana (Ilamatepec) and Izalco volcanoes are both hikeable with a guide. Izalco is called 'the lighthouse of the Pacific' and you can see the lava field. Tours run ~$10–15.</span><span class="es-text">Los volcanes Santa Ana (Ilamatepec) e Izalco se pueden escalar con un guía. El Izalco es llamado 'el faro del Pacífico' y se puede ver el campo de lava. Los tours cuestan ~$10–15.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🦜</div><h3 class="tile-title"><span class="en-text">Ruta de las Flores</span><span class="es-text">Ruta de las Flores</span></h3><div class="tile-body"><p><span class="en-text">A route through the western coffee towns of Nahuizalco, Salcoatitán, Juayúa, and Apaneca. Every weekend there's a food festival in Juayúa — cheap, delicious, and deeply Salvadoran.</span><span class="es-text">Una ruta por los pueblos cafetaleros del occidente: Nahuizalco, Salcoatitán, Juayúa y Apaneca. Cada fin de semana hay un festival gastronómico en Juayúa — barato, delicioso y profundamente salvadoreño.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">⚽</div><h3 class="tile-title"><span class="en-text">Go to a Football Match</span><span class="es-text">Ve a un Partido de Fútbol</span></h3><div class="tile-body"><p><span class="en-text">Club Alianza and FAS are the two biggest rival teams. A game ticket costs $2–5 and the atmosphere is electric. Matches are on weekends throughout the season.</span><span class="es-text">El Club Alianza y el FAS son los dos equipos rivales más grandes. Una entrada al partido cuesta $2–5 y el ambiente es electrizante. Los partidos son los fines de semana durante toda la temporada.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🏛️</div><h3 class="tile-title"><span class="en-text">Joya de Cerén</span><span class="es-text">Joya de Cerén</span></h3><div class="tile-body"><p><span class="en-text">A UNESCO World Heritage Site — an ancient Pipil village preserved under volcanic ash like Pompeii. Near San Juan Opico, La Libertad. Admission ~$3. It's one of the most significant archaeological sites in Central America.</span><span class="es-text">Sitio Patrimonio de la Humanidad de la UNESCO — un antiguo pueblo pipil preservado bajo ceniza volcánica como Pompeya. Cerca de San Juan Opico, La Libertad. Entrada ~$3. Es uno de los sitios arqueológicos más importantes de Centroamérica.</span></p></div></div>
+      <div class="tile"><div class="tile-icon">🌅</div><h3 class="tile-title"><span class="en-text">Cerro Verde National Park</span><span class="es-text">Parque Nacional Cerro Verde</span></h3><div class="tile-body"><p><span class="en-text">Pine forests, crater lake (Lago de Coatepeque), and views of three volcanoes. A short drive from Santa Ana. Entry ~$3. Perfect weekend day trip.</span><span class="es-text">Bosques de pinos, lago cratérico (Lago de Coatepeque) y vistas de tres volcanes. A poca distancia de Santa Ana. Entrada ~$3. El viaje de un día perfecto para el fin de semana.</span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="section-inner">
+    <div class="highlight-box" style="text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: var(--space-6);">🦋</div>
+      <h2 style="max-width: 24ch; margin: 0 auto var(--space-5);">
+        <span class="en-text">You carry two worlds inside you. That is a gift.</span>
+        <span class="es-text">Llevas dos mundos dentro de ti. Eso es un regalo.</span>
+      </h2>
+      <p style="max-width: 52ch; margin: 0 auto; color: rgba(253,232,204,.75);">
+        <span class="en-text">Being between cultures — knowing English and Spanish, understanding two systems, two ways of life — makes you uniquely able to build bridges. El Salvador needs young people like you.</span>
+        <span class="es-text">Estar entre dos culturas — conocer el inglés y el español, entender dos sistemas, dos formas de vida — te hace capaz de construir puentes de manera única. El Salvador necesita jóvenes como tú.</span>
+      </p>
+      <div style="margin-top: var(--space-8); display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+        <a href="../index.html" class="btn btn-primary">
+          <span class="en-text">← Back to First Steps</span>
+          <span class="es-text">← Volver a Primeros Pasos</span>
+        </a>
+        <a href="work.html" class="btn btn-outline" style="border-color: rgba(253,232,204,.3); color: var(--color-amber-light);">
+          <span class="en-text">Explore Work & Business</span>
+          <span class="es-text">Explorar Trabajo y Negocio</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP SHARE -->
+<div class="wa-inline-share">
+  <a class="wa-inline-btn" id="wa-inline-teens"
+     data-en="https://wa.me/?text=This%20free%20guide%20helps%20teens%20and%20youth%20who%20have%20moved%20to%20El%20Salvador%20%E2%80%94%20school%20system%2C%20history%2C%20how%20to%20make%20friends%3A%20https%3A//semillasmonarca.com/el-salvador/teens.html"
+     data-es="https://wa.me/?text=Esta%20gu%C3%ADa%20gratuita%20ayuda%20a%20j%C3%B3venes%20que%20se%20mudaron%20a%20El%20Salvador%20%E2%80%94%20sistema%20escolar%2C%20historia%2C%20c%C3%B3mo%20hacer%20amigos%3A%20https%3A//semillasmonarca.com/el-salvador/teens.html"
+     href="https://wa.me/?text=This%20free%20guide%20helps%20teens%20and%20youth%20who%20have%20moved%20to%20El%20Salvador%20%E2%80%94%20school%20system%2C%20history%2C%20how%20to%20make%20friends%3A%20https%3A//semillasmonarca.com/el-salvador/teens.html"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="en-text">Share this guide on WhatsApp</span>
+    <span class="es-text">Comparte esta guía por WhatsApp</span>
+  </a>
+</div>
+
+<!-- VOLUNTEER BANNER -->
+<section class="volunteer-banner" id="get-involved">
+  <div class="volunteer-banner__wing" aria-hidden="true">
+    <svg viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="80" cy="120" rx="90" ry="110" fill="#E8680A" opacity=".12" transform="rotate(-15 80 120)"/>
+      <ellipse cx="320" cy="120" rx="90" ry="110" fill="#D4A017" opacity=".1" transform="rotate(15 320 120)"/>
+      <ellipse cx="70" cy="230" rx="55" ry="65" fill="#C04E00" opacity=".09" transform="rotate(-20 70 230)"/>
+      <ellipse cx="330" cy="230" rx="55" ry="65" fill="#C05A00" opacity=".08" transform="rotate(20 330 230)"/>
+      <circle cx="160" cy="40" r="4" fill="#E8680A" opacity=".2"/>
+      <circle cx="250" cy="60" r="2.5" fill="#D4A017" opacity=".25"/>
+      <circle cx="350" cy="30" r="3" fill="#E8680A" opacity=".15"/>
+      <circle cx="40" cy="80" r="2" fill="#D4A017" opacity=".2"/>
+    </svg>
+  </div>
+
+  <div class="volunteer-banner__inner">
+    <div class="volunteer-banner__header">
+      <div class="volunteer-banner__butterfly" aria-hidden="true">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <ellipse cx="20" cy="24" rx="16" ry="20" fill="#E8680A" opacity=".9" transform="rotate(-20 20 24)"/>
+          <ellipse cx="44" cy="24" rx="16" ry="20" fill="#D4A017" opacity=".85" transform="rotate(20 44 24)"/>
+          <ellipse cx="18" cy="46" rx="10" ry="12" fill="#C04E00" opacity=".8" transform="rotate(-25 18 46)"/>
+          <ellipse cx="46" cy="46" rx="10" ry="12" fill="#C05A00" opacity=".75" transform="rotate(25 46 46)"/>
+          <rect x="30" y="12" width="4" height="40" rx="2" fill="#1A0E00"/>
+          <line x1="32" y1="12" x2="22" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="12" x2="42" y2="4" stroke="#1A0E00" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="22" cy="4" r="3" fill="#E8680A"/>
+          <circle cx="42" cy="4" r="3" fill="#E8680A"/>
+        </svg>
+      </div>
+      <div>
+        <p class="volunteer-banner__eyebrow">
+          <span class="en-text">Help Us Grow This Resource</span>
+          <span class="es-text">Ayúdanos a Crecer este Recurso</span>
+        </p>
+        <h2 class="volunteer-banner__title">
+          <span class="en-text">Support this volunteer-led work. <em>Be part of the mission.</em></span>
+          <span class="es-text">Únete al equipo. <em>Sé parte de la misión.</em></span>
+        </h2>
+        <p class="volunteer-banner__subtitle">
+          <span class="en-text">This site is free, community-built, and growing. If you have skills, connections, or resources to share — or want to help fund the work of supporting people relocating to El Salvador — we want to hear from you.</span>
+          <span class="es-text">Este sitio es gratuito, construido por la comunidad y en crecimiento. Si tienes habilidades, contactos o recursos que compartir — o deseas contribuir al trabajo de apoyar a personas que regresan a El Salvador — queremos escucharte.</span>
+        </p>
+      </div>
+    </div>
+
+    <form
+      class="volunteer-form"
+      id="volunteer-form"
+      action="https://submit.jotform.com/submit/261594475863067"
+      method="POST"
+      enctype="multipart/form-data"
+      data-jotform-id="261594475863067"
+      novalidate
+    >
+      <input type="hidden" name="formID" value="261594475863067"/>
+      <input type="hidden" name="simple_spc" value="261594475863067"/>
+      <input type="hidden" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px"/>
+
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-fname"><span class="en-text">First Name</span><span class="es-text">Nombre</span><span class="vf-required" aria-label="required">*</span></label>
+          <input class="vf-input" type="text" id="vf-fname" name="q2_q2_textbox0" autocomplete="given-name" required placeholder="Maria"/>
+          <span class="vf-error" id="vf-fname-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-lname"><span class="en-text">Last Name</span><span class="es-text">Apellido</span><span class="vf-required" aria-label="required">*</span></label>
+          <input class="vf-input" type="text" id="vf-lname" name="q3_q3_textbox1" autocomplete="family-name" required placeholder="Ramírez"/>
+          <span class="vf-error" id="vf-lname-err" role="alert"></span>
+        </div>
+      </div>
+
+      <div class="vf-row vf-row--2">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-email"><span class="en-text">Email Address</span><span class="es-text">Correo Electrónico</span><span class="vf-required" aria-label="required">*</span></label>
+          <input class="vf-input" type="email" id="vf-email" name="q4_q4_email2" autocomplete="email" required placeholder="maria@ejemplo.com"/>
+          <span class="vf-error" id="vf-email-err" role="alert"></span>
+        </div>
+        <div class="vf-field">
+          <label class="vf-label" for="vf-zip"><span class="en-text">ZIP / Postal Code</span><span class="es-text">Código Postal</span><span class="vf-required" aria-label="required">*</span></label>
+          <input class="vf-input" type="text" id="vf-zip" name="q5_q5_textbox3" autocomplete="postal-code" required placeholder="30301"/>
+          <span class="vf-error" id="vf-zip-err" role="alert"></span>
+        </div>
+      </div>
+
+      <div class="vf-row">
+        <div class="vf-field vf-field--half">
+          <label class="vf-label" for="vf-phone"><span class="en-text">Phone Number</span><span class="es-text">Teléfono</span><span class="vf-optional"><span class="en-text">(optional)</span><span class="es-text">(opcional)</span></span></label>
+          <input class="vf-input" type="tel" id="vf-phone" name="q6_q6_phone4[full]" autocomplete="tel" placeholder="+1 (404) 555-0100"/>
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">Which area(s) would you like to help with?</span>
+          <span class="es-text">¿En qué área(s) deseas ayudar?</span>
+        </legend>
+        <div class="vf-check-grid">
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="First Steps &amp; Resources"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">🏠 First Steps & Resources</span><span class="es-text">🏠 Primeros Pasos y Recursos</span></strong></span></label>
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="Work &amp; Entrepreneurship"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">💼 Work & Entrepreneurship</span><span class="es-text">💼 Trabajo y Emprendimiento</span></strong></span></label>
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="Teens &amp; Youth"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">🌱 Teens & Youth</span><span class="es-text">🌱 Jóvenes</span></strong></span></label>
+          <label class="vf-check"><input type="checkbox" name="q7_q7_checkbox5[]" value="All areas"/><span class="vf-check__box"></span><span class="vf-check__label"><strong><span class="en-text">🦋 All areas</span><span class="es-text">🦋 Todas las áreas</span></strong></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend">
+          <span class="en-text">What skills or support can you offer?</span>
+          <span class="es-text">¿Qué habilidades o apoyo puedes ofrecer?</span>
+          <span class="en-text vf-hint"> — select all that apply</span>
+          <span class="es-text vf-hint"> — selecciona todas las que apliquen</span>
+        </legend>
+        <div class="vf-check-grid vf-check-grid--3">
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Digital organizing"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">📣 Digital organizing</span><span class="es-text">📣 Organización digital</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Graphic design"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🎨 Graphic design</span><span class="es-text">🎨 Diseño gráfico</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Translation: Spanish to English"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🌐 Translation: Spanish ↔ English</span><span class="es-text">🌐 Traducción: Español ↔ Inglés</span></span></label>
+          <label class="vf-check" id="vf-indig-check-wrap"><input type="checkbox" name="q8_q8_checkbox6[]" value="Translation: Spanish to Indigenous language" id="vf-indig-check"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🪶 Translation: Spanish ↔ Indigenous language</span><span class="es-text">🪶 Traducción: Español ↔ Lengua indígena</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Video production or editing"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🎬 Video production or editing</span><span class="es-text">🎬 Producción o edición de video</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Web development"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">💻 Web development</span><span class="es-text">💻 Desarrollo web</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Content writing or research"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">✍️ Content writing or research</span><span class="es-text">✍️ Redacción o investigación</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Social media"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">📱 Social media</span><span class="es-text">📱 Redes sociales</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Partner as an organization"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🤝 Partner as an organization</span><span class="es-text">🤝 Alianza como organización</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Financial support or fundraising"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">💛 Financial support or fundraising</span><span class="es-text">💛 Apoyo económico o recaudación</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Community outreach"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">🏘️ Community outreach</span><span class="es-text">🏘️ Alcance comunitario</span></span></label>
+          <label class="vf-check"><input type="checkbox" name="q8_q8_checkbox6[]" value="Other" id="vf-other-check"/><span class="vf-check__box"></span><span class="vf-check__label"><span class="en-text">💬 Other</span><span class="es-text">💬 Otro</span></span></label>
+        </div>
+      </fieldset>
+
+      <div class="vf-row vf-conditional" id="vf-indig-field" style="display:none;">
+        <div class="vf-field vf-field--half">
+          <label class="vf-label" for="vf-indig-lang"><span class="en-text">Which indigenous language? / ¿Cuál lengua indígena?</span></label>
+          <input class="vf-input" type="text" id="vf-indig-lang" name="_vf_indigLang" placeholder="Na:wat, Cacaopera..."/>
+        </div>
+      </div>
+
+      <div class="vf-row vf-conditional" id="vf-other-field" style="display:none;">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-other-text">
+            <span class="en-text">Tell us more about your other skills or offer:</span>
+            <span class="es-text">Cuéntanos más sobre tus otras habilidades u ofrecimiento:</span>
+          </label>
+          <input class="vf-input" type="text" id="vf-other-text" name="_vf_otherSkills" placeholder="..."/>
+        </div>
+      </div>
+
+      <hr class="vf-divider"/>
+
+      <fieldset class="vf-fieldset">
+        <legend class="vf-legend vf-legend--required">
+          <span class="en-text">Email updates consent</span>
+          <span class="es-text">Consentimiento para actualizaciones por correo</span>
+          <span class="vf-required" aria-label="required">*</span>
+        </legend>
+        <p class="vf-consent-text">
+          <span class="en-text">Are you OK with receiving email updates from <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer"><strong>Maria del Rosario Palacios</strong></a> about this website, related projects, and ways to get involved?</span>
+          <span class="es-text">¿Aceptas recibir actualizaciones por correo electrónico de <a href="https://www.linkedin.com/in/mdrpalacios/" target="_blank" rel="noopener noreferrer"><strong>Maria del Rosario Palacios</strong></a> sobre este sitio, proyectos relacionados y formas de participar?</span>
+        </p>
+        <div class="vf-radio-group">
+          <label class="vf-radio"><input type="radio" name="q9_q9_radio7" value="Yes, send me updates" required/><span class="vf-radio__dot"></span><span class="vf-radio__label"><span class="en-text">✅ Yes — send me updates!</span><span class="es-text">✅ Sí — ¡envíame actualizaciones!</span></span></label>
+          <label class="vf-radio"><input type="radio" name="q9_q9_radio7" value="No, I prefer not to receive emails"/><span class="vf-radio__dot"></span><span class="vf-radio__label"><span class="en-text">No, I prefer not to receive emails</span><span class="es-text">No, prefiero no recibir correos</span></span></label>
+        </div>
+        <span class="vf-error" id="vf-consent-err" role="alert"></span>
+      </fieldset>
+
+      <div class="vf-row">
+        <div class="vf-field">
+          <label class="vf-label" for="vf-message">
+            <span class="en-text">Any message or questions?</span>
+            <span class="es-text">¿Algún mensaje o pregunta?</span>
+            <span class="vf-optional"><span class="en-text">(optional)</span><span class="es-text">(opcional)</span></span>
+          </label>
+          <textarea class="vf-input vf-textarea" id="vf-message" name="q10_q10_textarea8" rows="4" placeholder="..."></textarea>
+        </div>
+      </div>
+
+      <div class="vf-submit-row">
+        <button type="submit" class="vf-submit-btn">
+          <span class="en-text">Support this volunteer-led work 🦋</span>
+          <span class="es-text">Únete al Equipo 🦋</span>
+        </button>
+        <p class="vf-privacy">
+          <span class="en-text">Your information is kept private and will only be used to coordinate this work.</span>
+          <span class="es-text">Tu información se mantiene privada y solo se usará para coordinar este trabajo.</span>
+        </p>
+      </div>
+
+      <div class="vf-success" id="vf-success" style="display:none;" role="alert" aria-live="polite">
+        <div class="vf-success__icon">🦋</div>
+        <h3><span class="en-text">Thank you for stepping up!</span><span class="es-text">¡Gracias por sumarte!</span></h3>
+        <p><span class="en-text">We'll be in touch soon. You're part of something that matters.</span><span class="es-text">Nos comunicaremos contigo pronto. Eres parte de algo que importa.</span></p>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><span class="en-text">🦋 El Salvador Guide</span><span class="es-text">🦋 Guía El Salvador</span></div>
+      <p class="footer-tagline"><span class="en-text">A free bilingual resource for people returning to El Salvador.</span><span class="es-text">Un recurso bilingüe gratuito para personas que regresan a El Salvador.</span></p>
+    </div>
+    <div>
+      <p class="footer-heading"><span class="en-text">Pages</span><span class="es-text">Páginas</span></p>
+      <div class="footer-links">
+        <a href="../index.html"><span class="en-text">First Steps</span><span class="es-text">Primeros Pasos</span></a>
+        <a href="work.html"><span class="en-text">Work & Business</span><span class="es-text">Trabajo y Negocio</span></a>
+        <a href="teens.html"><span class="en-text">For Teens</span><span class="es-text">Para Jóvenes</span></a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-heading"><span class="en-text">History Resources</span><span class="es-text">Recursos de Historia</span></p>
+      <div class="footer-links">
+        <a href="https://www.mined.gob.sv" target="_blank" rel="noopener">MINED (Education)</a>
+        <a href="https://www.conamype.gob.sv" target="_blank" rel="noopener">CONAMYPE</a>
+        <a href="https://www.insaforp.org.sv" target="_blank" rel="noopener">INSAFORP</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span><span class="en-text">Free resource. Not affiliated with any government agency.</span><span class="es-text">Recurso gratuito. Sin afiliación a ninguna dependencia gubernamental.</span></span>
+    <span>🦋</span>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .catch(function(e) { console.log('SW registration skipped:', e); });
+    });
+  }
+</script>
+</body>
+</html>
