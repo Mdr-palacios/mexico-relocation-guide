@@ -889,6 +889,9 @@ function renderPosts(posts, reset) {
    THREAD VIEW
    ============================================================ */
 async function openThread(post) {
+  // Re-fetch this post to get the latest reply_count
+  const { data: fresh } = await db.from('posts').select('*').eq('id', post.id).single();
+  if (fresh) post = fresh;
   currentPost = post;
   document.getElementById('list-view').style.display   = 'none';
   document.getElementById('thread-view').style.display = 'block';
@@ -949,6 +952,8 @@ function closeThread() {
   document.getElementById('list-view').style.display    = 'block';
   currentPost = null;
   window.scrollTo(0,0);
+  // Refresh list so reply counts are current
+  fetchPosts(true);
 }
 
 /* ============================================================
@@ -1011,6 +1016,14 @@ document.getElementById('btn-submit-reply').addEventListener('click', async () =
   toast('✅ Reply posted!');
   document.getElementById('reply-body').value = '';
   fetchReplies(currentPost.id);
+  // Update reply count in the thread header
+  const { data: updated } = await db.from('posts').select('reply_count').eq('id', currentPost.id).single();
+  if (updated) {
+    currentPost.reply_count = updated.reply_count;
+    // Update count displayed in thread post header if present
+    const countEl = document.getElementById('thread-reply-count');
+    if (countEl) countEl.textContent = updated.reply_count;
+  }
 });
 
 /* ============================================================
