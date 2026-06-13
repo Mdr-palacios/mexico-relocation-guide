@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Community Forum — Semillas Monarca</title>
+<meta name="description" content="Anonymous community forum for people relocating to Mexico, El Salvador, Guatemala, and Honduras. Ask questions, share experiences, connect."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── Forum-specific tokens ───────────────────────── */
+:root {
+  --forum-radius: 14px;
+  --forum-card-bg: var(--color-surface);
+  --forum-border: var(--color-border);
+}
+
+/* ── Layout ──────────────────────────────────────── */
+.forum-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) var(--space-16);
+}
+
+.forum-hero {
+  text-align: center;
+  padding: var(--space-10) var(--space-4) var(--space-6);
+}
+.forum-hero__eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+.forum-hero__title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-heading);
+  margin-bottom: var(--space-3);
+}
+.forum-hero__sub {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto var(--space-2);
+}
+.forum-anon-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  margin-top: var(--space-3);
+}
+
+/* ── Country / category tabs ─────────────────────── */
+.forum-tabs {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+.forum-tab {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all .18s;
+}
+.forum-tab:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.forum-tab.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+.forum-tab[data-country="el-salvador"].active { background: #1B4F8A; border-color: #1B4F8A; }
+.forum-tab[data-country="guatemala"].active   { background: #1A6B3C; border-color: #1A6B3C; }
+.forum-tab[data-country="honduras"].active    { background: #003DA6; border-color: #003DA6; }
+
+/* ── Category chips ──────────────────────────────── */
+.category-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+.cat-chip {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all .15s;
+}
+.cat-chip:hover, .cat-chip.active {
+  background: var(--color-bg);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ── Toolbar (sort + new post btn) ───────────────── */
+.forum-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+.forum-sort {
+  display: flex;
+  gap: 6px;
+}
+.sort-btn {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all .15s;
+}
+.sort-btn.active, .sort-btn:hover {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-new-post {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: background .18s;
+  white-space: nowrap;
+}
+.btn-new-post:hover { background: var(--color-primary-dark, #c04e00); }
+
+/* ── Post cards ──────────────────────────────────── */
+#posts-list { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.post-card {
+  background: var(--forum-card-bg);
+  border: 1.5px solid var(--forum-border);
+  border-radius: var(--forum-radius);
+  padding: var(--space-5);
+  cursor: pointer;
+  transition: box-shadow .18s, border-color .18s;
+}
+.post-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(232,104,10,.10);
+}
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--space-2);
+  flex-wrap: wrap;
+}
+.post-card__handle {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.post-card__country-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+.post-card__cat-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+}
+.post-card__time {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-left: auto;
+}
+.post-card__title {
+  font-family: 'Fraunces', serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: var(--space-1);
+  line-height: 1.3;
+}
+.post-card__preview {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-card__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.post-card__replies { display: flex; align-items: center; gap: 5px; }
+
+/* ── Loading / empty states ──────────────────────── */
+.forum-loading, .forum-empty {
+  text-align: center;
+  padding: var(--space-12) var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+.forum-loading__spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  margin: 0 auto var(--space-3);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Modal overlay ───────────────────────────────── */
+.forum-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 900;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-4);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s;
+}
+.forum-modal-overlay.open { opacity: 1; pointer-events: all; }
+.forum-modal {
+  background: var(--color-bg);
+  border-radius: 18px;
+  width: 100%; max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--space-7);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+  transform: translateY(16px);
+  transition: transform .2s;
+}
+.forum-modal-overlay.open .forum-modal { transform: translateY(0); }
+.forum-modal__close {
+  position: absolute; top: var(--space-4); right: var(--space-4);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 18px; line-height: 1;
+  cursor: pointer; color: var(--color-text-muted);
+  display: flex; align-items: center; justify-content: center;
+}
+.forum-modal__title {
+  font-family: 'Fraunces', serif;
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  color: var(--color-heading);
+  margin-bottom: var(--space-5);
+}
+
+/* ── Form elements ───────────────────────────────── */
+.forum-form { display: flex; flex-direction: column; gap: var(--space-4); }
+.forum-form label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+.forum-form input,
+.forum-form textarea,
+.forum-form select {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  transition: border-color .15s;
+  box-sizing: border-box;
+}
+.forum-form input:focus,
+.forum-form textarea:focus,
+.forum-form select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.forum-form textarea { resize: vertical; min-height: 120px; }
+.forum-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+@media (max-width: 500px) { .forum-form__row { grid-template-columns: 1fr; } }
+
+.btn-submit {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: background .18s;
+  align-self: flex-end;
+}
+.btn-submit:hover { background: #c04e00; }
+.btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+.forum-anon-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border-radius: 8px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--color-primary);
+}
+
+/* ── Thread view ─────────────────────────────────── */
+#thread-view { display: none; }
+.thread-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+  margin-bottom: var(--space-5);
+  background: none;
+  border: none;
+  padding: 0;
+}
+.thread-post {
+  background: var(--forum-card-bg);
+  border: 1.5px solid var(--forum-border);
+  border-radius: var(--forum-radius);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+}
+.thread-post__title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900;
+  color: var(--color-heading);
+  margin-bottom: var(--space-2);
+}
+.thread-post__body {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.replies-section { margin-top: var(--space-6); }
+.replies-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+#replies-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.reply-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: var(--space-4);
+}
+.reply-card__meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+.reply-card__handle { font-size: var(--text-xs); font-weight: 700; color: var(--color-primary); }
+.reply-card__time { font-size: var(--text-xs); color: var(--color-text-muted); margin-left: auto; }
+.reply-card__body { font-size: var(--text-sm); color: var(--color-text); line-height: 1.65; white-space: pre-wrap; }
+
+.report-btn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  opacity: .6;
+  transition: opacity .15s;
+}
+.report-btn:hover { opacity: 1; color: #c00; }
+
+/* ── Reply compose ───────────────────────────────── */
+.reply-compose {
+  margin-top: var(--space-6);
+  background: var(--forum-card-bg);
+  border: 1.5px solid var(--forum-border);
+  border-radius: var(--forum-radius);
+  padding: var(--space-5);
+}
+.reply-compose__title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Toast ───────────────────────────────────────── */
+.forum-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1a1a1a;
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.forum-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── Dark mode adjustments ───────────────────────── */
+[data-theme="dark"] .post-card:hover { box-shadow: 0 4px 20px rgba(232,104,10,.15); }
+[data-theme="dark"] .forum-modal { background: var(--color-surface); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="Semillas Monarca home">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <ellipse cx="14" cy="20" rx="10" ry="16" fill="#E8680A" opacity=".9" transform="rotate(-20 14 20)"/>
+        <ellipse cx="26" cy="20" rx="10" ry="16" fill="#D4A017" opacity=".85" transform="rotate(20 26 20)"/>
+        <circle cx="20" cy="20" r="3" fill="#1A0E00"/>
+      </svg>
+      <span class="en-text">Semillas Monarca</span>
+      <span class="es-text">Semillas Monarca</span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">&#9776;</button>
+    <div class="nav-links" id="nav-links" role="list">
+      <a href="index.html" class="nav-link nav-country" role="listitem">
+        <span class="en-text">🌍 Countries</span>
+        <span class="es-text">🌍 Países</span>
+      </a>
+      <a href="mexico.html" class="nav-link" role="listitem">
+        <span class="en-text">🇲🇽 Mexico Guide</span>
+        <span class="es-text">🇲🇽 Guía México</span>
+      </a>
+      <a href="el-salvador/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇸🇻 El Salvador Guide</span>
+        <span class="es-text">🇸🇻 Guía El Salvador</span>
+      </a>
+      <a href="guatemala/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇬🇹 Guatemala Guide</span>
+        <span class="es-text">🇬🇹 Guía Guatemala</span>
+      </a>
+      <a href="honduras/index.html" class="nav-link" role="listitem">
+        <span class="en-text">🇭🇳 Honduras Guide</span>
+        <span class="es-text">🇭🇳 Guía Honduras</span>
+      </a>
+      <a href="forum.html" class="nav-link active" role="listitem">
+        <span class="en-text">💬 Forum</span>
+        <span class="es-text">💬 Foro</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span id="lang-label">ES</span>
+      </button>
+      <button class="theme-toggle dark-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="forum-hero">
+  <div class="forum-hero__eyebrow">
+    <span class="en-text">Community Forum</span>
+    <span class="es-text">Foro Comunitario</span>
+  </div>
+  <h1 class="forum-hero__title">
+    <span class="en-text">You are not alone.</span>
+    <span class="es-text">No estás solo/a.</span>
+  </h1>
+  <p class="forum-hero__sub">
+    <span class="en-text">Ask questions, share your experience, and connect with others who have been through it — anonymously and safely.</span>
+    <span class="es-text">Haz preguntas, comparte tu experiencia y conéctate con quienes ya lo han vivido — de forma anónima y segura.</span>
+  </p>
+  <div class="forum-anon-note">
+    🔒
+    <span class="en-text">No account needed. No email. Fully anonymous.</span>
+    <span class="es-text">Sin cuenta. Sin correo. Completamente anónimo.</span>
+  </div>
+</div>
+
+<!-- MAIN FORUM WRAP -->
+<div class="forum-wrap">
+
+  <!-- COUNTRY TABS -->
+  <div class="forum-tabs" role="tablist">
+    <button class="forum-tab active" data-country="all" role="tab">
+      <span class="en-text">🌎 All</span>
+      <span class="es-text">🌎 Todos</span>
+    </button>
+    <button class="forum-tab" data-country="mexico" role="tab">🇲🇽 México</button>
+    <button class="forum-tab" data-country="el-salvador" role="tab">🇸🇻 El Salvador</button>
+    <button class="forum-tab" data-country="guatemala" role="tab">🇬🇹 Guatemala</button>
+    <button class="forum-tab" data-country="honduras" role="tab">🇭🇳 Honduras</button>
+    <button class="forum-tab" data-country="general" role="tab">
+      <span class="en-text">💬 General</span>
+      <span class="es-text">💬 General</span>
+    </button>
+  </div>
+
+  <!-- CATEGORY CHIPS -->
+  <div class="category-chips">
+    <button class="cat-chip active" data-cat="all">
+      <span class="en-text">All Topics</span>
+      <span class="es-text">Todos los Temas</span>
+    </button>
+    <button class="cat-chip" data-cat="documents">📄 <span class="en-text">Documents</span><span class="es-text">Documentos</span></button>
+    <button class="cat-chip" data-cat="housing">🏠 <span class="en-text">Housing</span><span class="es-text">Vivienda</span></button>
+    <button class="cat-chip" data-cat="work">💼 <span class="en-text">Work</span><span class="es-text">Trabajo</span></button>
+    <button class="cat-chip" data-cat="mental-health">🧠 <span class="en-text">Mental Health</span><span class="es-text">Salud Mental</span></button>
+    <button class="cat-chip" data-cat="family">👨‍👩‍👧 <span class="en-text">Family</span><span class="es-text">Familia</span></button>
+    <button class="cat-chip" data-cat="culture">🎨 <span class="en-text">Culture</span><span class="es-text">Cultura</span></button>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="forum-toolbar">
+    <div class="forum-sort">
+      <button class="sort-btn active" data-sort="new">
+        <span class="en-text">✨ Newest</span>
+        <span class="es-text">✨ Más Nuevos</span>
+      </button>
+      <button class="sort-btn" data-sort="active">
+        <span class="en-text">💬 Most Active</span>
+        <span class="es-text">💬 Más Activos</span>
+      </button>
+    </div>
+    <button class="btn-new-post" id="btn-new-post">
+      + <span class="en-text">Start a Post</span>
+      <span class="es-text">Crear Publicación</span>
+    </button>
+  </div>
+
+  <!-- POSTS LIST VIEW -->
+  <div id="list-view">
+    <div id="posts-list">
+      <div class="forum-loading">
+        <div class="forum-loading__spinner"></div>
+        <span class="en-text">Loading posts…</span>
+        <span class="es-text">Cargando publicaciones…</span>
+      </div>
+    </div>
+    <div id="load-more-wrap" style="text-align:center;margin-top:var(--space-6);display:none;">
+      <button class="sort-btn" id="btn-load-more">
+        <span class="en-text">Load more</span>
+        <span class="es-text">Cargar más</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- THREAD VIEW (single post + replies) -->
+  <div id="thread-view">
+    <button class="thread-back" id="btn-back">
+      ← <span class="en-text">Back to forum</span>
+      <span class="es-text">Volver al foro</span>
+    </button>
+    <div class="thread-post" id="thread-post-content"></div>
+    <div class="replies-section">
+      <div class="replies-title">
+        <span class="en-text">Replies</span>
+        <span class="es-text">Respuestas</span>
+      </div>
+      <div id="replies-list"></div>
+    </div>
+    <!-- Reply compose -->
+    <div class="reply-compose">
+      <div class="reply-compose__title">
+        <span class="en-text">Leave a reply</span>
+        <span class="es-text">Deja una respuesta</span>
+      </div>
+      <div class="forum-form">
+        <div>
+          <label>
+            <span class="en-text">Your anonymous handle</span>
+            <span class="es-text">Tu nombre anónimo</span>
+          </label>
+          <input type="text" id="reply-handle" maxlength="30" placeholder="e.g. Catracho_7x"/>
+        </div>
+        <div>
+          <label>
+            <span class="en-text">Language</span>
+            <span class="es-text">Idioma</span>
+          </label>
+          <select id="reply-lang">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+        <div>
+          <label>
+            <span class="en-text">Your reply</span>
+            <span class="es-text">Tu respuesta</span>
+          </label>
+          <textarea id="reply-body" maxlength="2000" rows="4"
+            placeholder="Share your experience or answer their question…"></textarea>
+        </div>
+        <div class="forum-anon-hint">
+          🔒 <span class="en-text">No personal info is stored. Your IP is not logged. This space is for mutual support.</span>
+          <span class="es-text">No se guarda información personal. Tu IP no se registra. Este espacio es de apoyo mutuo.</span>
+        </div>
+        <button class="btn-submit" id="btn-submit-reply">
+          <span class="en-text">Post Reply</span>
+          <span class="es-text">Publicar Respuesta</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /forum-wrap -->
+
+<!-- NEW POST MODAL -->
+<div class="forum-modal-overlay" id="new-post-modal" role="dialog" aria-modal="true" aria-label="New post">
+  <div class="forum-modal">
+    <button class="forum-modal__close" id="modal-close" aria-label="Close">×</button>
+    <div class="forum-modal__title">
+      <span class="en-text">Start a post</span>
+      <span class="es-text">Crear una publicación</span>
+    </div>
+    <div class="forum-anon-hint" style="margin-bottom:var(--space-4)">
+      🔒 <span class="en-text">You are posting anonymously. Choose any handle — no sign-up needed.</span>
+      <span class="es-text">Publicas de forma anónima. Elige cualquier nombre — sin registro.</span>
+    </div>
+    <form class="forum-form" id="new-post-form" novalidate>
+      <div class="forum-form__row">
+        <div>
+          <label for="post-handle">
+            <span class="en-text">Anonymous handle *</span>
+            <span class="es-text">Nombre anónimo *</span>
+          </label>
+          <input type="text" id="post-handle" maxlength="30" required
+            placeholder="e.g. Mariposa_anon"/>
+        </div>
+        <div>
+          <label for="post-lang">
+            <span class="en-text">Post language *</span>
+            <span class="es-text">Idioma *</span>
+          </label>
+          <select id="post-lang" required>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </div>
+      <div class="forum-form__row">
+        <div>
+          <label for="post-country">
+            <span class="en-text">Country *</span>
+            <span class="es-text">País *</span>
+          </label>
+          <select id="post-country" required>
+            <option value="mexico">🇲🇽 México</option>
+            <option value="el-salvador">🇸🇻 El Salvador</option>
+            <option value="guatemala">🇬🇹 Guatemala</option>
+            <option value="honduras">🇭🇳 Honduras</option>
+            <option value="general">🌎 General</option>
+          </select>
+        </div>
+        <div>
+          <label for="post-category">
+            <span class="en-text">Topic *</span>
+            <span class="es-text">Tema *</span>
+          </label>
+          <select id="post-category" required>
+            <option value="general">General</option>
+            <option value="documents">📄 Documents / Documentos</option>
+            <option value="housing">🏠 Housing / Vivienda</option>
+            <option value="work">💼 Work / Trabajo</option>
+            <option value="mental-health">🧠 Mental Health / Salud Mental</option>
+            <option value="family">👨‍👩‍👧 Family / Familia</option>
+            <option value="culture">🎨 Culture / Cultura</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="post-title">
+          <span class="en-text">Title * (max 120 chars)</span>
+          <span class="es-text">Título * (máx 120 caracteres)</span>
+        </label>
+        <input type="text" id="post-title" maxlength="120" required
+          placeholder="What's your question or experience?"/>
+      </div>
+      <div>
+        <label for="post-body">
+          <span class="en-text">Your post * (max 3,000 chars)</span>
+          <span class="es-text">Tu publicación * (máx 3,000 caracteres)</span>
+        </label>
+        <textarea id="post-body" maxlength="3000" rows="6" required
+          placeholder="Share your story, question, or tip…"></textarea>
+      </div>
+      <button type="submit" class="btn-submit" id="btn-submit-post">
+        <span class="en-text">Publish Post</span>
+        <span class="es-text">Publicar</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="forum-toast" id="forum-toast"></div>
+
+<!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+<script>
+/* ============================================================
+   SUPABASE CONFIG
+   ============================================================ */
+const SUPABASE_URL  = 'https://yccjqeeipujutsqhnbey.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljY2pxZWVpcHVqdXRzcWhuYmV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMTI2MDcsImV4cCI6MjA5Njg4ODYwN30.y4xk7lhysXpzUCW_IjY0DeIicmmNz3ylDlCfryqDCNA';
+const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let activeCountry = 'all';
+let activeCat     = 'all';
+let activeSort    = 'new';
+let currentPost   = null;
+let page          = 0;
+const PAGE_SIZE   = 15;
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function timeAgo(ts) {
+  const diff = (Date.now() - new Date(ts)) / 1000;
+  if (diff < 60)   return 'just now';
+  if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+  if (diff < 86400)return Math.floor(diff/3600) + 'h ago';
+  return Math.floor(diff/86400) + 'd ago';
+}
+
+function countryFlag(c) {
+  const f = { mexico:'🇲🇽', 'el-salvador':'🇸🇻', guatemala:'🇬🇹', honduras:'🇭🇳', general:'🌎' };
+  return f[c] || '🌎';
+}
+
+function generateHandle() {
+  const adj = ['Libre','Semilla','Mariposa','Raíz','Fuerte','Nuevo','Catracho','Chapín','Guanaco','Tico'];
+  const num  = Math.floor(Math.random()*900)+100;
+  return adj[Math.floor(Math.random()*adj.length)] + '_' + num;
+}
+
+function toast(msg) {
+  const el = document.getElementById('forum-toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+/* ============================================================
+   POSTS — FETCH & RENDER
+   ============================================================ */
+async function fetchPosts(reset=false) {
+  if (reset) { page = 0; }
+  const from = page * PAGE_SIZE;
+  const to   = from + PAGE_SIZE - 1;
+
+  let q = db.from('posts').select('*');
+  if (activeCountry !== 'all') q = q.eq('country', activeCountry);
+  if (activeCat     !== 'all') q = q.eq('category', activeCat);
+  if (activeSort === 'new')    q = q.order('created_at', { ascending: false });
+  if (activeSort === 'active') q = q.order('reply_count', { ascending: false });
+  q = q.range(from, to);
+
+  const { data, error } = await q;
+  if (error) { console.error(error); return; }
+
+  if (reset) {
+    document.getElementById('posts-list').innerHTML = '';
+  }
+
+  if (!data || data.length === 0) {
+    if (page === 0) {
+      document.getElementById('posts-list').innerHTML =
+        `<div class="forum-empty">
+          <div style="font-size:2rem;margin-bottom:8px">🌱</div>
+          <span class="en-text">No posts yet in this category. Be the first to share.</span>
+          <span class="es-text">Aún no hay publicaciones. Sé el primero en compartir.</span>
+        </div>`;
+    }
+    document.getElementById('load-more-wrap').style.display = 'none';
+    return;
+  }
+
+  renderPosts(data, reset);
+  document.getElementById('load-more-wrap').style.display = data.length === PAGE_SIZE ? 'block' : 'none';
+  page++;
+}
+
+function renderPosts(posts, reset) {
+  const list = document.getElementById('posts-list');
+  posts.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'post-card';
+    card.innerHTML = `
+      <div class="post-card__meta">
+        <span class="post-card__handle">${escHtml(p.handle)}</span>
+        <span class="post-card__country-badge">${countryFlag(p.country)} ${p.country.replace('-',' ')}</span>
+        <span class="post-card__cat-badge">${p.category}</span>
+        <span class="post-card__time">${timeAgo(p.created_at)}</span>
+      </div>
+      <div class="post-card__title">${escHtml(p.title)}</div>
+      <div class="post-card__preview">${escHtml(p.body)}</div>
+      <div class="post-card__footer">
+        <span class="post-card__replies">💬 ${p.reply_count || 0}
+          <span class="en-text">replies</span>
+          <span class="es-text">respuestas</span>
+        </span>
+        <button class="report-btn" data-id="${p.id}" data-type="post">⚑ report</button>
+      </div>`;
+    card.addEventListener('click', (e) => {
+      if (e.target.classList.contains('report-btn')) return;
+      openThread(p);
+    });
+    card.querySelector('.report-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      submitReport('post', p.id);
+    });
+    list.appendChild(card);
+  });
+}
+
+/* ============================================================
+   THREAD VIEW
+   ============================================================ */
+async function openThread(post) {
+  currentPost = post;
+  document.getElementById('list-view').style.display   = 'none';
+  document.getElementById('thread-view').style.display = 'block';
+  window.scrollTo(0,0);
+
+  // Render post
+  const content = document.getElementById('thread-post-content');
+  content.innerHTML = `
+    <div class="post-card__meta" style="margin-bottom:var(--space-3)">
+      <span class="post-card__handle">${escHtml(post.handle)}</span>
+      <span class="post-card__country-badge">${countryFlag(post.country)} ${post.country.replace('-',' ')}</span>
+      <span class="post-card__cat-badge">${post.category}</span>
+      <span class="post-card__time">${timeAgo(post.created_at)}</span>
+    </div>
+    <div class="thread-post__title">${escHtml(post.title)}</div>
+    <div class="thread-post__body" style="margin-top:var(--space-3)">${escHtml(post.body)}</div>`;
+
+  // Pre-fill reply handle with generated suggestion
+  const rHandle = document.getElementById('reply-handle');
+  if (!rHandle.value) rHandle.value = generateHandle();
+
+  // Fetch replies
+  fetchReplies(post.id);
+}
+
+async function fetchReplies(postId) {
+  const { data, error } = await db.from('replies')
+    .select('*')
+    .eq('post_id', postId)
+    .order('created_at', { ascending: true });
+
+  const list = document.getElementById('replies-list');
+  if (error || !data || data.length === 0) {
+    list.innerHTML = `<div class="forum-empty" style="padding:var(--space-6) 0">
+      <span class="en-text">No replies yet. Be the first to respond.</span>
+      <span class="es-text">Sin respuestas. Sé el primero.</span>
+    </div>`;
+    return;
+  }
+  list.innerHTML = '';
+  data.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'reply-card';
+    card.innerHTML = `
+      <div class="reply-card__meta">
+        <span class="reply-card__handle">${escHtml(r.handle)}</span>
+        <span class="reply-card__time">${timeAgo(r.created_at)}</span>
+        <button class="report-btn" data-id="${r.id}" data-type="reply">⚑</button>
+      </div>
+      <div class="reply-card__body">${escHtml(r.body)}</div>`;
+    card.querySelector('.report-btn').addEventListener('click', () => submitReport('reply', r.id));
+    list.appendChild(card);
+  });
+}
+
+function closeThread() {
+  document.getElementById('thread-view').style.display  = 'none';
+  document.getElementById('list-view').style.display    = 'block';
+  currentPost = null;
+  window.scrollTo(0,0);
+}
+
+/* ============================================================
+   NEW POST SUBMIT
+   ============================================================ */
+document.getElementById('new-post-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btn-submit-post');
+  btn.disabled = true;
+
+  const handle   = document.getElementById('post-handle').value.trim();
+  const lang     = document.getElementById('post-lang').value;
+  const country  = document.getElementById('post-country').value;
+  const category = document.getElementById('post-category').value;
+  const title    = document.getElementById('post-title').value.trim();
+  const body     = document.getElementById('post-body').value.trim();
+
+  if (!handle || !title || !body) {
+    toast('Please fill in all required fields.');
+    btn.disabled = false;
+    return;
+  }
+
+  const { error } = await db.from('posts').insert({ handle, lang, country, category, title, body });
+  btn.disabled = false;
+  if (error) {
+    toast('Error posting. Please try again.');
+    console.error(error);
+    return;
+  }
+
+  toast('✅ Post published!');
+  closeModal();
+  e.target.reset();
+  fetchPosts(true);
+});
+
+/* ============================================================
+   REPLY SUBMIT
+   ============================================================ */
+document.getElementById('btn-submit-reply').addEventListener('click', async () => {
+  if (!currentPost) return;
+  const btn    = document.getElementById('btn-submit-reply');
+  const handle = document.getElementById('reply-handle').value.trim();
+  const lang   = document.getElementById('reply-lang').value;
+  const body   = document.getElementById('reply-body').value.trim();
+
+  if (!handle || !body) {
+    toast('Please add a handle and your reply.');
+    return;
+  }
+
+  btn.disabled = true;
+  const { error } = await db.from('replies').insert({
+    post_id: currentPost.id, handle, lang, body
+  });
+  btn.disabled = false;
+
+  if (error) { toast('Error posting reply.'); return; }
+  toast('✅ Reply posted!');
+  document.getElementById('reply-body').value = '';
+  fetchReplies(currentPost.id);
+});
+
+/* ============================================================
+   REPORT
+   ============================================================ */
+async function submitReport(type, id) {
+  await db.from('reports').insert({ target_type: type, target_id: id, reason: 'user_report' });
+  toast('Reported. Thank you.');
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+function openModal() {
+  const modal = document.getElementById('new-post-modal');
+  modal.classList.add('open');
+  // Auto-generate handle suggestion
+  const h = document.getElementById('post-handle');
+  if (!h.value) h.value = generateHandle();
+}
+function closeModal() {
+  document.getElementById('new-post-modal').classList.remove('open');
+}
+
+document.getElementById('btn-new-post').addEventListener('click', openModal);
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('new-post-modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+/* ============================================================
+   TABS / CHIPS / SORT WIRING
+   ============================================================ */
+document.querySelectorAll('.forum-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.forum-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    activeCountry = tab.dataset.country;
+    fetchPosts(true);
+  });
+});
+
+document.querySelectorAll('.cat-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeCat = chip.dataset.cat;
+    fetchPosts(true);
+  });
+});
+
+document.querySelectorAll('.sort-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeSort = btn.dataset.sort;
+    fetchPosts(true);
+  });
+});
+
+document.getElementById('btn-load-more').addEventListener('click', () => fetchPosts(false));
+document.getElementById('btn-back').addEventListener('click', closeThread);
+
+/* ============================================================
+   XSS PROTECTION
+   ============================================================ */
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+fetchPosts(true);
+</script>
+
+<script src="app.js?v=1781276600"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .catch(function(err) { console.log('SW registration failed:', err); });
+  });
+}
+</script>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <svg width="24" height="24" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <ellipse cx="14" cy="20" rx="10" ry="16" fill="#E8680A" opacity=".9" transform="rotate(-20 14 20)"/>
+          <ellipse cx="26" cy="20" rx="10" ry="16" fill="#D4A017" opacity=".85" transform="rotate(20 26 20)"/>
+          <circle cx="20" cy="20" r="3" fill="#1A0E00"/>
+        </svg>
+        <span>Semillas Monarca</span>
+      </div>
+      <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2);max-width:220px">
+        <span class="en-text">A volunteer-built resource for returning communities.</span>
+        <span class="es-text">Un recurso construido por voluntarios para comunidades que regresan.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">
+        <span class="en-text">GUIDES</span>
+        <span class="es-text">GUÍAS</span>
+      </div>
+      <a href="mexico.html"><span class="en-text">Mexico Guide</span><span class="es-text">Guía México</span></a>
+      <a href="el-salvador/index.html">El Salvador</a>
+      <a href="guatemala/index.html">Guatemala</a>
+      <a href="honduras/index.html">Honduras</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">
+        <span class="en-text">GET INVOLVED</span>
+        <span class="es-text">PARTICIPA</span>
+      </div>
+      <a href="forum.html">
+        <span class="en-text">Community Forum</span>
+        <span class="es-text">Foro Comunitario</span>
+      </a>
+      <a href="blog.html">Blog</a>
+      <a href="toolkit.html">
+        <span class="en-text">Entrepreneur Toolkit</span>
+        <span class="es-text">Kit Emprendedor</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

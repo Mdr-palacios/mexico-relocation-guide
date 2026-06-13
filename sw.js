@@ -20,7 +20,8 @@ const ASSETS = [
   '/blog/separated-by-borders.html',
   '/honduras/index.html',
   '/honduras/work.html',
-  '/honduras/teens.html'
+  '/honduras/teens.html',
+  '/forum.html'
 ];
 
 self.addEventListener('install', e => {
